@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>巴菲特之道 — AI精读笔记</title>
+<meta name="description" content="AI驱动的《巴菲特之道》深度精读笔记。逐章解读巴菲特的12条永恒投资原则和9个经典案例，涵盖Graham安全边际、Fisher成长股哲学、Munger多元思维模型的融合。"/>
+<meta property="og:title" content="巴菲特之道 — AI精读笔记"/>
+<meta property="og:description" content="AI驱动的《巴菲特之道》深度精读笔记。逐章解读巴菲特12条永恒投资原则和9个经典案例。"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://ai-reading.workbuddy.com/the-warren-buffett-way"/>
+<meta property="og:image" content="https://ai-reading.workbuddy.com/assets/img/og-image.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="巴菲特之道 — AI精读笔记"/>
+<meta name="twitter:description" content="AI驱动的《巴菲特之道》深度精读笔记。"/>
+<link rel="stylesheet" href="../../assets/css/style.css"/>
+<!-- Schema.org Book 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "巴菲特之道",
+  "alternateName": "The Warren Buffett Way",
+  "author": { "@type": "Person", "name": "Robert G. Hagstrom" },
+  "isbn": "978-1-118-50325-6",
+  "inLanguage": "en",
+  "datePublished": "2014",
+  "publisher": { "@type": "Organization", "name": "John Wiley & Sons" },
+  "description": "提炼巴菲特投资方法的12条永恒原则（12 Immutable Tenets），通过9个经典案例研究展示这些原则的应用。Howard Marks、Peter Lynch、Bill Miller作序，Ken Fisher作引言。",
+  "bookEdition": "第三版",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "8.5", "bestRating": "10", "ratingCount": "1" }
+}
+</script>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav" role="navigation" aria-label="章节导航">
+  <span class="logo" aria-label="AI精读笔记"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <div class="nav-links">
+    <a class="active" href="#overview" tabindex="0">概览</a>
+    <a href="#roadmap" tabindex="0">路线图</a>
+    <a href="#intro" tabindex="0">导言</a>
+    <a href="#ch1" tabindex="0">Ch1</a>
+    <a href="#ch2" tabindex="0">Ch2</a>
+    <a href="#ch3" tabindex="0">Ch3</a>
+    <a href="#ch4" tabindex="0">Ch4</a>
+    <a href="#ch5" tabindex="0">Ch5</a>
+    <a href="#ch6" tabindex="0">Ch6</a>
+    <a href="#ch7" tabindex="0">Ch7</a>
+    <a href="#ch8" tabindex="0">Ch8</a>
+  </div>
+  <span class="badge" aria-label="诊断工具"><a href="../../diagnose.html" style="color:#fff;text-decoration:none;">诊断工具</a></span>
+</nav>
+
+<div class="container wide">
+
+<!-- ==================== BOOK HERO ==================== -->
+<section class="book-hero" id="overview" aria-labelledby="hero-title">
+  <div class="cover" aria-hidden="true" style="background: linear-gradient(135deg, #1a3a5c 0%, #0d2137 40%, #8b4513 70%, #c75b39 100%);">The<br/>Warren<br/>Buffett<br/>Way</div>
+  <div class="info">
+    <h1 id="hero-title">《巴菲特之道》<span style="font-size:16px;font-weight:400;color:var(--text-secondary);display:block;margin-top:4px;">The Warren Buffett Way（第三版）</span></h1>
+    <div class="author">罗伯特·G·哈格斯特朗 <span style="font-size:13px;color:var(--text-secondary)">Robert G. Hagstrom</span></div>
+    <div class="meta-row">
+      <span class="tag primary">🏆 投资经典</span>
+      <span class="tag">📖 阅读难度：中等</span>
+      <span class="tag">⏱️ 精读约 6-8 小时</span>
+      <span class="tag">📅 首版1994/第三版2014</span>
+      <span class="tag">⭐ 豆瓣 8.5</span>
+    </div>
+    <p class="desc">
+      这是一本系统梳理巴菲特投资方法的著作，提炼了12条永恒原则（12 Immutable Tenets），并通过9个经典案例展示这些原则的实际运用。第三版新增了IBM和亨氏食品两个案例。Howard Marks、Peter Lynch、Bill Miller三位投资大师为本书作序，Ken Fisher（Philip Fisher之子）撰写引言——一本投资书能集齐这三人写序，实属罕见。
+    </p>
+    <a class="cta-btn" href="#intro" onclick="event.preventDefault();var t=document.querySelector('#intro');if(t){var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}" aria-label="开始精读">🚀 开始精读</a>
+  </div>
+</section>
+
+<!-- ==================== WHY THIS BOOK ==================== -->
+<section aria-labelledby="why-title">
+  <h2 class="section-title" id="why-title"><span class="emoji">💡</span> 为什么这本书值得精读？</h2>
+  <div class="why-section">
+    <div class="why-item">
+      <div class="why-icon">🏆</div>
+      <h3 class="why-title">三位投资大师作序——前所未见的"全明星阵容"</h3>
+      <div class="why-desc">Howard Marks（橡树资本）、Peter Lynch（麦哲伦基金传奇经理人）、Bill Miller（连续15年击败标普500）——一本投资书能集齐这三人写序，本身就是对这本书价值的最高背书。他们从不同角度印证了12条原则的普适性。</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🔑</div>
+      <h3 class="why-title">12条永恒原则——巴菲特的"操作系统"</h3>
+      <div class="why-desc">这不是巴菲特的"投资秘诀"，而是他的"思维方式"。12条原则分为四组：企业原则、管理原则、财务原则、市场原则。它们构成了一个完整的投资决策框架——你不需要成为巴菲特，但你可以学会像巴菲特一样思考。</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🔗</div>
+      <h3 class="why-title">Ken Fisher 亲自讲述父亲对巴菲特的影响</h3>
+      <div class="why-desc">Philip Fisher的儿子Ken Fisher撰写引言，讲述了Fisher的成长股哲学如何融入巴菲特的投资体系。这本书是Graham + Fisher + Munger三者思想融合的最佳展示——理解了这个融合，你就理解了巴菲特投资进化的全部脉络。</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📊</div>
+      <h3 class="why-title">9个经典案例逐一拆解——从原则到实践</h3>
+      <div class="why-desc">从华盛顿邮报到IBM，从可口可乐到亨氏食品——每个案例都展示12条原则在实际投资决策中的运用。第三版新增的IBM案例尤为有趣：它展示了即使是巴菲特也会犯错，但12条原则的框架让他即使"犯错"时也能控制风险。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AUTHOR BIO ==================== -->
+<section class="author-bio" aria-labelledby="author-name">
+  <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #1a3a5c, #8b4513);">RH</div>
+  <div class="bio-content">
+    <h2 id="author-name">Robert G. Hagstrom</h2>
+    <p>Robert Hagstrom是Legg Mason Capital Management的资深投资经理，也是研究巴菲特投资方法最权威的作者之一。他从1984年开始系统研究巴菲特的投资方法，1994年出版了《巴菲特之道》第一版，此后近30年间不断修订更新，第三版（2014年）是迄今为止最完整的版本。</p>
+    <p>Hagstrom的独特价值在于：<strong>他不是巴菲特的"传记作者"，而是巴菲特的"方法论提炼者"。</strong>他像一位分析师一样拆解巴菲特的每一个投资决策，找出背后的共性原则。这12条原则并非巴菲特亲口总结的——而是Hagstrom从巴菲特几十年的投资行为中归纳出来的"底层逻辑"。</p>
+    <p>除本书外，Hagstrom还著有《The Warren Buffett Portfolio》和《The Essential Buffett》，被誉为"巴菲特方法的最佳解释者"。</p>
+    <div>
+      <span class="bio-highlight">巴菲特方法论研究权威</span>
+      <span class="bio-highlight">Legg Mason资深投资经理</span>
+      <span class="bio-highlight">12条原则归纳者</span>
+      <span class="bio-highlight">1984年开始研究巴菲特</span>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CORE FRAMEWORK: BUFFETT INVESTMENT PYRAMID ==================== -->
+<section aria-labelledby="pyramid-title">
+  <h2 class="section-title" id="pyramid-title"><span class="emoji">🔺</span> 核心框架：巴菲特投资方法金字塔</h2>
+  <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">巴菲特的投资方法并非凭空而来——它是三位导师的思想融合，最终形成了12条永恒原则，并通过9个经典案例得到验证。</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+    <div style="background:var(--card);border-radius:10px;padding:20px;box-shadow:var(--shadow);border-top:3px solid #2c3e50;">
+      <div style="font-size:13px;font-weight:600;color:#2c3e50;margin-bottom:8px;">🏛️ 底层基石</div>
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Benjamin Graham</h3>
+      <p style="color:var(--text-secondary);font-size:14px;">安全边际（Margin of Safety）、市场先生（Mr. Market）、以企业所有者视角思考</p>
+    </div>
+    <div style="background:var(--card);border-radius:10px;padding:20px;box-shadow:var(--shadow);border-top:3px solid var(--blue);">
+      <div style="font-size:13px;font-weight:600;color:var(--blue);margin-bottom:8px;">🔍 左翼支柱</div>
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Philip Fisher</h3>
+      <p style="color:var(--text-secondary);font-size:14px;">闲聊法（Scuttlebutt Method）、成长股、集中投资——买少数几家真正了解的公司</p>
+    </div>
+    <div style="background:var(--card);border-radius:10px;padding:20px;box-shadow:var(--shadow);border-top:3px solid var(--purple);">
+      <div style="font-size:13px;font-weight:600;color:var(--purple);margin-bottom:8px;">🧠 右翼支柱</div>
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Charlie Munger</h3>
+      <p style="color:var(--text-secondary);font-size:14px;">多元思维模型（Latticework of Mental Models）、以合理价格买优质公司</p>
+    </div>
+    <div style="background:linear-gradient(135deg,var(--accent-light),#fef5e7);border-radius:10px;padding:20px;box-shadow:var(--shadow);border-top:3px solid var(--accent);">
+      <div style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:8px;">🎯 顶层成果</div>
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">12条永恒原则 → 9大经典案例</h3>
+      <p style="color:var(--text-secondary);font-size:14px;">企业原则 × 管理原则 × 财务原则 × 市场原则 → Washington Post, GEICO, Coca-Cola...</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 12 TENETS QUICK REFERENCE ==================== -->
+<section aria-labelledby="tenets-title">
+  <h2 class="section-title" id="tenets-title"><span class="emoji">📋</span> 12条永恒原则速览</h2>
+  <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">全书核心——这12条原则是Hagstrom从巴菲特几十年的投资行为中归纳出的"底层逻辑"，分为四组。</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
+    <!-- Business Tenets -->
+    <div style="background:var(--card);border-radius:12px;padding:24px;box-shadow:var(--shadow);border-left:4px solid var(--accent);">
+      <h3 style="font-size:16px;font-weight:700;color:var(--accent);margin-bottom:12px;">🏢 企业原则 Business Tenets</h3>
+      <ol style="padding-left:20px;font-size:14px;line-height:2;">
+        <li>企业是否<strong>简单易懂</strong>？（Simple &amp; Understandable）</li>
+        <li>企业是否有<strong>持续稳定的经营历史</strong>？（Consistent Operating History）</li>
+        <li>企业是否有<strong>良好的长期前景</strong>？（Favorable Long-Term Prospects）</li>
+      </ol>
+    </div>
+    <!-- Management Tenets -->
+    <div style="background:var(--card);border-radius:12px;padding:24px;box-shadow:var(--shadow);border-left:4px solid var(--blue);">
+      <h3 style="font-size:16px;font-weight:700;color:var(--blue);margin-bottom:12px;">👔 管理原则 Management Tenets</h3>
+      <ol start="4" style="padding-left:20px;font-size:14px;line-height:2;">
+        <li>管理层是否<strong>理性</strong>？（Rationality）</li>
+        <li>管理层是否对股东<strong>坦诚</strong>？（Candor）</li>
+        <li>管理层能否<strong>抗拒惯性驱使</strong>？（Resist the Institutional Imperative）</li>
+      </ol>
+    </div>
+    <!-- Financial Tenets -->
+    <div style="background:var(--card);border-radius:12px;padding:24px;box-shadow:var(--shadow);border-left:4px solid var(--green);">
+      <h3 style="font-size:16px;font-weight:700;color:var(--green);margin-bottom:12px;">💰 财务原则 Financial Tenets</h3>
+      <ol start="7" style="padding-left:20px;font-size:14px;line-height:2;">
+        <li>关注<strong>净资产收益率</strong>（ROE），而非每股收益</li>
+        <li>计算<strong>"股东盈余"</strong>（Owner Earnings）</li>
+        <li>寻找<strong>高利润率</strong>的企业（High Profit Margins）</li>
+        <li>一美元留存收益创造<strong>至少一美元市值</strong>（The $1 Test）</li>
+      </ol>
+    </div>
+    <!-- Market Tenets -->
+    <div style="background:var(--card);border-radius:12px;padding:24px;box-shadow:var(--shadow);border-left:4px solid var(--gold);">
+      <h3 style="font-size:16px;font-weight:700;color:var(--gold);margin-bottom:12px;">📈 市场原则 Market Tenets</h3>
+      <ol start="11" style="padding-left:20px;font-size:14px;line-height:2;">
+        <li>企业的<strong>价值</strong>是多少？（Intrinsic Value）</li>
+        <li>能否以<strong>显著折扣</strong>买入？（Significant Discount to Value）</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ROADMAP ==================== -->
+<section aria-labelledby="roadmap-title">
+  <h2 class="section-title" id="roadmap"><span class="emoji">🗺️</span> 阅读路线图</h2>
+  <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">全书8章分为三个部分：巴菲特其人（Ch1-2）、投资方法（Ch3-4）、投资实践（Ch5-8）。建议按顺序阅读，因为后面的章节建立在前面的原则之上。</p>
+  <div class="roadmap" id="roadmap-modules">
+    <div class="part-card current">
+      <div class="part-num">📖 Part 1</div>
+      <h3 class="part-title">巴菲特其人</h3>
+      <div class="part-pages">Ch1-2 · 五西格玛事件、三位导师的融合</div>
+    </div>
+    <div class="part-card current">
+      <div class="part-num">📖 Part 2</div>
+      <h3 class="part-title">投资方法</h3>
+      <div class="part-pages">Ch3-4 · 12条永恒原则、9个经典案例研究</div>
+    </div>
+    <div class="part-card current">
+      <div class="part-num">📖 Part 3</div>
+      <h3 class="part-title">投资实践</h3>
+      <div class="part-pages">Ch5-8 · 组合管理、心理学、耐心、成为更好的投资者</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROGRESS ==================== -->
+<div class="progress-section" role="status" aria-label="阅读进度" aria-live="polite">
+  <span style="font-size:20px;" aria-hidden="true">📊</span>
+  <div class="progress-bar"><div class="fill" style="width:100%"></div></div>
+  <div class="progress-text">已读 8/8 章</div>
+</div>
+
+<!-- ==================== INTRODUCTION ==================== -->
+<article class="chapter-card" data-no-collapse="true" id="intro" aria-labelledby="intro-title">
+  <div class="ch-header">
+    <div class="ch-num">序</div>
+    <div>
+      <h2 class="ch-title" id="intro-title">导言：三位大师作序，一本投资书的"全明星阵容"</h2>
+      <div class="ch-subtitle">Howard Marks、Peter Lynch、Bill Miller作序 · Ken Fisher撰写引言</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+    <div class="block-content">
+      <p>这本书的序言和引言本身就是一道风景。三位风格迥异的投资大师为同一本书作序——Howard Marks（风险哲学大师）、Peter Lynch（麦哲伦基金传奇）、Bill Miller（连续15年击败标普500）——再加上Ken Fisher（Philip Fisher之子）的引言，构成了投资书籍中罕见的"全明星阵容"。</p>
+      <p><strong>这四位人物的共同点是：他们都从巴菲特的方法中汲取了养分，但各自走出了自己的路。</strong>他们的序言不是在"吹捧"巴菲特，而是在"验证"12条原则的普适性。</p>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"I have watched Warren Buffett for almost 50 years and have invested alongside him... The Warren Buffett Way is the definitive book on the man's investment methods." — Howard Marks</div></details>
+    <div class="zh">「我观察沃伦·巴菲特近50年，并与他一起投资……《巴菲特之道》是关于这个人投资方法的权威著作。」——Howard Marks</div>
+    <div class="why">💬 Howard Marks以对风险的深刻理解著称，他对这本书的认可意味着：12条原则不仅是"赚钱的方法"，更是"管理风险的方法"。</div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+    <div class="concept-box">
+      <h3 class="concept-name">Ken Fisher的引言——最懂Fisher的人谈Fisher对巴菲特的影响</h3>
+      <div class="concept-body">
+        <p>Ken Fisher是Philip Fisher的儿子，也是Fisher Investments的创始人。他在引言中做了一件其他作者做不到的事：<strong>以亲历者的身份讲述他父亲对巴菲特的影响。</strong></p>
+        <p>Ken Fisher指出：巴菲特从Fisher那里学到了"集中投资"和"深入了解企业"的方法论。Graham教会巴菲特"安全边际"——买得足够便宜就不会亏；Fisher教会巴菲特"企业质量"——好公司比便宜更重要。芒格则在这两者之间架起了桥梁。</p>
+        <p>引言中最有价值的洞见是：<strong>巴菲特不是简单地"混合"了三位导师的方法，而是"化学反应"式地融合出了自己的体系。</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+    <div class="context-box">
+      <p><strong>为什么三位序言作者都如此推崇巴菲特？</strong>1994年第一版出版时，巴菲特虽然已经非常富有，但还没有达到"全球首富"级别的知名度。三位作者在1994年就认可巴菲特的投资方法，说明他们是真正理解了这套方法的普适性——而不是在"追星"。</p>
+      <p>第三版（2014年）的序言更新尤为重要：此时巴菲特已经经历了2000年互联网泡沫（他完全避开了）和2008年金融危机（他在底部大举买入），12条原则经受住了两轮极端市场的检验。</p>
+    </div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 要点总结</h3>
+    <ul class="takeaway-list">
+      <li>三位风格迥异的大师为同一本书作序——这本身就证明了12条原则的普适性</li>
+      <li>Ken Fisher以亲历者身份讲述了Fisher对巴菲特的影响，这是任何第三方研究者无法提供的视角</li>
+      <li>巴菲特的方法是Graham + Fisher + Munger的"化学反应"，而非简单"混合"</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 1 ==================== -->
+<article class="chapter-card" id="ch1" aria-labelledby="ch1-title">
+  <div class="ch-header">
+    <div class="ch-num">1</div>
+    <div>
+      <h2 class="ch-title" id="ch1-title">五西格玛事件</h2>
+      <div class="ch-subtitle">A Five-Sigma Event — 统计上1/350万概率的出现</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>巴菲特的投资业绩是运气还是能力？如果是能力，他做对了什么？</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">五西格玛事件 Five-Sigma Event</h3>
+      <div class="concept-body">
+        <p>在统计学中，五西格玛意味着事件发生的概率约为<strong>1/350万</strong>。Hagstrom用这个概念来论证：巴菲特的长期投资业绩（超过50年年化收益约20%）不可能仅仅靠运气——这必须是系统性能力的体现。</p>
+        <p>Hagstrom在这一章追溯了巴菲特的投资生涯起点：从1956年的Buffett Partnership到1969年解散（合伙期间年化回报29.5%），再到通过Berkshire Hathaway构建以保险浮存金（Float）为杠杆的投资帝国。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">保险浮存金 Float——巴菲特的核心武器</h3>
+      <div class="concept-body">
+        <p>保险浮存金是投保人预先支付的保费，保险公司在未来才需要赔付。在赔付之前，这笔钱可以用于投资。巴菲特通过Berkshire旗下的GEICO、General Re等保险公司获取大量低成本甚至负成本的浮存金——<strong>这是巴菲特最大的竞争优势之一，普通投资者无法复制。</strong></p>
+        <p>但Hagstrom强调：浮存金只是"放大器"，不是"发动机"。巴菲特的核心能力在于资产配置和选股——浮存金只是让他有更多资金来执行这套策略。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Buffett's investment performance is so far beyond the norm that it cannot be explained by random distribution. He is a five-sigma event."</div></details>
+    <div class="zh">「巴菲特的投资业绩远远超出正常范围，不能用随机分布来解释。他是一个五西格玛事件。」</div>
+    <div class="why">💬 Hagstrom用统计学语言回答了"巴菲特是运气还是能力"的终极问题。这本书的目的就是找出这个"五西格玛事件"背后的系统性方法。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>巴菲特的业绩不可能是运气——统计学证明这必须是有系统性方法支撑的。本章是全书立论基础：证明巴菲特值得被研究。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 2 ==================== -->
+<article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
+  <div class="ch-header">
+    <div class="ch-num">2</div>
+    <div>
+      <h2 class="ch-title" id="ch2-title">巴菲特的教育</h2>
+      <div class="ch-subtitle">The Education of Warren Buffett — 三位导师的思想融合</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>巴菲特的方法从何而来？他是如何从三位截然不同的导师那里提炼出自己的投资哲学？</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">Benjamin Graham：安全边际与市场先生</h3>
+      <div class="concept-body">
+        <p>Graham是巴菲特的启蒙导师。他的核心贡献是三个概念：<strong>①内在价值</strong>——一只股票有一个独立于市场价格的"真实价值"；<strong>②安全边际</strong>——只有在价格显著低于内在价值时才买入；<strong>③市场先生</strong>——把市场看作一个情绪不稳定的合作伙伴，利用他的情绪而非被他影响。</p>
+        <p>Graham的方法是"烟蒂投资"：找到被低估的便宜股票，买入，等价格回归价值后卖出。这种方法在1930年代大萧条后的市场中非常有效。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">Philip Fisher：成长股与闲聊法</h3>
+      <div class="concept-body">
+        <p>Fisher为巴菲特的投资哲学增加了<strong>"质量"维度</strong>。Fisher认为：买一家烂公司即使价格再低，长期也是烂公司。相反，找到少数卓越的成长型公司并长期持有，才是更优的策略。Fisher的Scuttlebutt Method（闲聊法）——通过与客户、供应商、竞争对手交流来深入了解企业——成为巴菲特投资方法的核心组成部分。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">Charlie Munger：多元思维模型与优质公司合理价格</h3>
+      <div class="concept-body">
+        <p>芒格是巴菲特的"进化催化剂"。他推动巴菲特从"买便宜货"进化为"以合理价格买优质公司"。芒格的核心贡献是<strong>多元思维模型（Latticework of Mental Models）</strong>——用来自不同学科（心理学、物理学、生物学、历史学）的思维工具来分析投资问题。芒格的经典表述："以合理的价格买一家好公司，远胜于以好价格买一家普通的公司。"</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"I'm 85 percent Benjamin Graham... The 15 percent that is Fisher and Munger has been enormously important." — Warren Buffett</div></details>
+    <div class="zh">「我85%是格雷厄姆……那15%的费雪和芒格，重要性远超其比例。」——沃伦·巴菲特</div>
+    <div class="why">💬 巴菲特自己的评价。关键是后半句：Fisher和Munger只占15%，但这15%让巴菲特从"优秀的投资者"变成了"传奇"。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>巴菲特的方法是Graham（安全边际）+ Fisher（企业质量）+ Munger（多元思维）的化学反应——不是简单的相加，而是深度融合。理解这三位导师，才能真正理解巴菲特的12条原则从何而来。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 3 ==================== -->
+<article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
+  <div class="ch-header">
+    <div class="ch-num">3</div>
+    <div>
+      <h2 class="ch-title" id="ch3-title">购买企业：12条永恒原则</h2>
+      <div class="ch-subtitle">Buying a Business — The 12 Immutable Tenets（全书核心！）</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>巴菲特是如何决定买什么、什么时候买的？12条原则给出了完整的答案——这不是一份"清单"，而是一个"决策框架"。</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">企业原则 Business Tenets（原则1-3）</h3>
+      <div class="concept-body">
+        <p><strong>原则1：企业是否简单易懂？</strong>巴菲特只投资他能理解的企业。这不是谦虚——这是风险管理。如果你无法理解一家公司如何赚钱，你就无法判断它的未来。</p>
+        <p><strong>原则2：企业是否有持续稳定的经营历史？</strong>巴菲特不投"可能转好"的公司，只投"一直在好"的公司。他避开了互联网泡沫——不是因为他不看好互联网，而是因为互联网企业没有"持续稳定的经营历史"。</p>
+        <p><strong>原则3：企业是否有良好的长期前景？</strong>这里对应的是"护城河"概念——企业是否有持久的竞争优势来抵御竞争？品牌（可口可乐）、转换成本（微软）、网络效应（Visa/Mastercard）、成本优势（GEICO）。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">管理原则 Management Tenets（原则4-6）</h3>
+      <div class="concept-body">
+        <p><strong>原则4：管理层是否理性？</strong>这是巴菲特最看重的管理层品质。理性意味着：当找不到好的投资机会时，愿意将资金返还给股东（分红或回购），而不是为了"做大"而做愚蠢的收购。</p>
+        <p><strong>原则5：管理层是否对股东坦诚？</strong>年报中是否诚实地讨论失败？是否承认错误？是否报告真实的经济状况（而非粉饰后的会计数据）？巴菲特说：<strong>"如果管理层在年报中不坦诚，他们很可能在其他方面也不诚实。"</strong></p>
+        <p><strong>原则6：管理层能否抗拒惯性驱使？</strong>Institutional Imperative是巴菲特的独创概念——组织有一种盲目模仿同行、盲目扩张的惯性。好的管理层能够抵抗这种"随大流"的压力。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">财务原则 Financial Tenets（原则7-10）</h3>
+      <div class="concept-body">
+        <p><strong>原则7：关注净资产收益率（ROE），而非每股收益。</strong>EPS可以被回购操纵，ROE更能反映企业用股东资本创造回报的真实能力。巴菲特寻找长期ROE稳定在15%以上的公司。</p>
+        <p><strong>原则8：计算"股东盈余"（Owner Earnings）。</strong>这是巴菲特自创的概念：净利润 + 折旧摊销 - 维持竞争地位所必需的资本支出。它比净利润更能反映企业真正的"可分配利润"。</p>
+        <p><strong>原则9：寻找高利润率的企业。</strong>高利润率说明企业有定价权——它不需要靠降价来竞争。巴菲特特别关注利润率的<strong>趋势</strong>，而非绝对值。</p>
+        <p><strong>原则10：一美元留存收益创造至少一美元市值。</strong>这是巴菲特最精妙的检验标准：公司每保留1美元利润（不分红），其市值是否增加了至少1美元？如果不是，说明公司留存利润的使用效率低下——应该把利润分给股东。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">市场原则 Market Tenets（原则11-12）</h3>
+      <div class="concept-body">
+        <p><strong>原则11：企业的价值是多少？</strong>巴菲特用折现现金流（DCF）来估算企业内在价值。但他强调：<strong>模糊的正确胜过精确的错误。</strong>重要的不是算出精确到小数点后两位的估值，而是判断当前价格是否明显低于合理估值区间。</p>
+        <p><strong>原则12：能否以显著折扣价买入？</strong>安全边际的终极体现。即使你高估了企业价值20%，只要买入价格有足够的安全边际，你仍然不会亏损。这就是Graham思想的核心遗产。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"The twelve tenets are not a magic formula. They are a framework for thinking about businesses as an owner would."</div></details>
+    <div class="zh">「12条原则不是魔法公式。它们是一个框架——让你以企业所有者的视角来思考。」</div>
+    <div class="why">💬 Hagstrom最重要的声明：不要把12条原则当成"选股公式"。它们是思维框架——帮你像巴菲特一样思考，而不是机械地套用规则。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>12条原则分为四组：企业原则（买什么）、管理原则（跟谁买）、财务原则（怎么算）、市场原则（多少钱买）。合在一起就是巴菲特的完整投资决策框架。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 4 ==================== -->
+<article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
+  <div class="ch-header">
+    <div class="ch-num">4</div>
+    <div>
+      <h2 class="ch-title" id="ch4-title">普通股投资：9个案例研究</h2>
+      <div class="ch-subtitle">Common Stock Purchases — 12条原则的实战应用</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>12条原则如何在实际投资决策中发挥作用？9个案例展示了从1973年到2013年，巴菲特如何用同一套框架做出了跨越40年的投资决策。</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例1：The Washington Post Company（华盛顿邮报，1973年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>企业简单易懂（报纸+电视台+新闻周刊）、护城河（华盛顿地区报纸垄断）、管理层理性（Katherine Graham从社交名媛成长为卓越CEO）。巴菲特买入时，整个公司的市值只有8000万美元，而他估算的内在价值为4-5亿美元——<strong>60-80%的安全边际</strong>。这笔投资最终为他带来超过100倍的回报。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例2：GEICO Corporation（盖可保险，1976年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>低成本优势护城河（GEICO通过直销模式，成本率远低于行业平均）、管理层理性（新任CEO Jack Byrne力挽狂澜）。1976年GEICO濒临破产，股价从61美元跌至2美元。巴菲特判断：GEICO的成本优势没有消失，只是管理层在定价上犯了错误——这是"可以修复的问题"。他大量买入，最终GEICO成为Berkshire的全资子公司。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例3：Capital Cities/ABC（大都会/ABC，1985年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>管理层理性与坦诚（Tom Murphy是巴菲特最推崇的CEO之一）、抗拒惯性驱使。Murphy以极度精打细算著称——他的办公室家具用了30年。他用股东的钱像用自己的钱一样谨慎。这是巴菲特对"管理层质量"最看重的一次投资。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例4：The Coca-Cola Company（可口可乐，1988年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>强大的护城河（全球品牌+无与伦比的分销网络）、高利润率、一美元留存收益创造超过一美元市值。这是巴菲特最经典的投资案例之一：1988-1989年买入10亿美元可口可乐股票，到1998年市值达到134亿美元。买入时的PE约为15倍——以合理价格买入优质公司的完美展示。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例5：General Dynamics（通用动力，1992年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>管理层理性（CEO Bill Anders在冷战结束后果断收缩业务、大量回购股票）、对股东坦诚。通用动力在苏联解体后面临订单骤减。Anders没有试图"做大"，而是选择将资产变现并返还给股东——这正是巴菲特最看重的管理层理性。巴菲特在这笔投资中获得了约3倍回报。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例6：Wells Fargo &amp; Company（富国银行，1990年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>简单易懂的业务、持续稳定的经营历史、以显著折扣买入。1990年加州房地产危机导致银行股暴跌，富国银行股价从86美元跌至约50美元。巴菲特判断：富国银行的零售银行业务护城河没有受损，坏账是周期性的而非结构性的。他大量买入——这是"市场恐慌提供安全边际"的经典案例。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例7：American Express Company（美国运通，1994年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>强大的品牌护城河（运通品牌代表高端消费）、持续稳定的经营历史。巴菲特对运通的投资横跨30年——第一次是1960年代"色拉油丑闻"后，第二次是1994年。运通的护城河在于：商户接受运通卡是因为运通持卡人的消费能力更强；持卡人使用运通卡是因为商户愿意接受。这是典型的<strong>双边网络效应</strong>。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例8：IBM（IBM，2011年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>巴菲特也会犯错！这是第三版新增的案例。巴菲特在2011年买入IBM，是伯克希尔历史上首次大规模投资科技股。他的逻辑是：IBM的企业客户关系具有极高的转换成本（护城河），而且管理层在持续回购股票（原则4和原则10）。但IBM的转型未能达到预期，巴菲特在2017-2018年清仓，承认这是一个错误。<strong>这个案例的价值在于：它展示了即使严格按照12条原则分析，也会犯错——但错误是可控的。</strong></p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">案例9：H.J. Heinz Company（亨氏食品，2013年）</h3>
+      <div class="concept-body">
+        <p><strong>展示的原则：</strong>强大的品牌护城河（亨氏番茄酱在全球的市场份额超过50%）、高利润率、持续稳定的经营历史。这是第三版新增的案例，也是巴菲特与3G Capital合作的第一笔大型收购。它展示了12条原则在"控股收购"（而非"少数股权投资"）场景下的应用。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Each of these nine case studies demonstrates how Buffett applied the same twelve tenets consistently over four decades."</div></details>
+    <div class="zh">「这9个案例中的每一个都展示了巴菲特如何在四十年间始终如一地应用同样的12条原则。」</div>
+    <div class="why">💬 一致性（Consistency）是巴菲特投资方法最被低估的特点。40年、9个案例、不同行业、不同市场环境——同一套框架始终有效。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>9个案例不是"巴菲特教你选股"，而是"巴菲特如何用12条原则思考"。从1973年的华盛顿邮报到2013年的亨氏，同一套框架跨越40年，始终有效。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 5 ==================== -->
+<article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
+  <div class="ch-header">
+    <div class="ch-num">5</div>
+    <div>
+      <h2 class="ch-title" id="ch5-title">投资组合管理</h2>
+      <div class="ch-subtitle">Portfolio Management — 集中投资的数学原理</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>应该持有多少只股票？巴菲特说：把你的鸡蛋放在一个篮子里——然后看好这个篮子。Hagstrom从数学和实证角度论证了集中投资（Focus Investing）的合理性。</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">集中投资的数学基础</h3>
+      <div class="concept-body">
+        <p>Hagstrom引用了凯恩斯（John Maynard Keynes）和Philip Fisher的观点：过度分散化是对无知的管理。如果你真正了解一家公司，你应该重仓持有。</p>
+        <p>从概率论角度：如果每只股票有70%的概率超越市场（这已经是很高的成功率），持有2只股票的组合有49%的概率同时超越市场，但持有15只股票的分散组合，要15只全部超越市场的概率几乎为零。集中投资利用的是<strong>"大数定律的反向应用"</strong>——少而精的选择放大了你的判断优势。</p>
+        <p>巴菲特通常持有5-10只核心股票，前5大持仓占总仓位的60%以上。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">Graham-and-Doddsville 的集中投资者们</h3>
+      <div class="concept-body">
+        <p>Hagstrom引用了巴菲特1984年在哥伦比亚大学发表的著名演讲《The Superinvestors of Graham-and-Doddsville》。在这篇演讲中，巴菲特列举了多位遵循Graham原则的成功投资者——他们都采用了集中投资策略。这些人的共同点不是"选了同样的股票"，而是"用了同样的思维框架"。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Diversification is protection against ignorance. It makes little sense if you know what you are doing." — Warren Buffett</div></details>
+    <div class="zh">「分散化是对无知的管理。如果你知道自己在做什么，分散化就没有意义。」——沃伦·巴菲特</div>
+    <div class="why">💬 这句话可能是巴菲特最常被引用、也最常被误用的名言。关键在于"如果你知道自己在做什么"——12条原则正是让你"知道自己在做什么"的方法论。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>集中投资不是"赌"，而是"知道自己在做什么"的自信体现。12条原则让你有资格集中投资——如果做不到这12条，你还是分散化更安全。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 6 ==================== -->
+<article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
+  <div class="ch-header">
+    <div class="ch-num">6</div>
+    <div>
+      <h2 class="ch-title" id="ch6-title">投资心理学</h2>
+      <div class="ch-subtitle">The Psychology of Investing — 为什么聪明人也会做蠢事</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>即使有了12条原则，为什么大多数人仍然做不到像巴菲特一样投资？答案在心理学——不是知识不够，而是人性弱点。</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">行为金融学的核心洞见</h3>
+      <div class="concept-body">
+        <p>Hagstrom在这一章引用了Daniel Kahneman和Amos Tversky的行为金融学研究。关键概念包括：</p>
+        <p><strong>损失厌恶（Loss Aversion）：</strong>亏损带来的痛苦是同等收益带来的快乐的2-2.5倍。这导致投资者在市场下跌时恐慌卖出——即使基本面没有变化。</p>
+        <p><strong>过度自信（Overconfidence）：</strong>大多数投资者高估自己的判断能力。这导致过度交易——而研究表明，交易越频繁，回报越低。</p>
+        <p><strong>确认偏误（Confirmation Bias）：</strong>人们倾向于寻找支持自己观点的信息，而忽视反对自己观点的信息。</p>
+        <p><strong>锚定效应（Anchoring）：</strong>人们过于依赖最初获得的信息（如买入价），而忽视了新信息。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">市场先生——Graham最伟大的心理学贡献</h3>
+      <div class="concept-body">
+        <p>市场先生（Mr. Market）是Graham在《聪明的投资者》中创造的比喻：把市场想象成一个情绪不稳定的合伙人，他每天都会给你报一个价格——有时他非常乐观（报高价），有时他极度悲观（报低价）。你可以利用他的情绪，但不要被他的情绪影响。</p>
+        <p>Hagstrom强调：<strong>理解市场先生是执行12条原则中最困难的部分</strong>——因为它要求你在所有人恐慌时保持冷静，在所有人贪婪时保持谨慎。这不是智力问题，是情绪控制问题。</p>
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>投资最大的敌人不是市场，而是你自己的大脑。12条原则不只是选股框架——它也是一套"反人性"的纪律体系，帮你克服行为偏误。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 7 ==================== -->
+<article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
+  <div class="ch-header">
+    <div class="ch-num">7</div>
+    <div>
+      <h2 class="ch-title" id="ch7-title">耐心的价值</h2>
+      <div class="ch-subtitle">The Value of Patience — 长期投资的理性基础</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>为什么耐心是投资中最稀缺的品质？Hagstrom从认知科学的角度论证了长期持有的理性基础。</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">System 1 vs System 2 — 快思考与慢思考</h3>
+      <div class="concept-body">
+        <p>Hagstrom引用了Kahneman的《思考，快与慢》中的核心框架：<strong>System 1</strong>（快思考）是直觉性的、自动的、情绪化的——它让你在市场暴跌时本能地想卖出；<strong>System 2</strong>（慢思考）是分析性的、逻辑性的、需要主动调用的——它让你停下来，用12条原则重新评估。</p>
+        <p>大多数投资者在市场波动时使用的是System 1。巴菲特能够调用System 2——这是他"耐心"的认知基础。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">思维工具差距 Mindware Gap</h3>
+      <div class="concept-body">
+        <p>Hagstrom引入了认知科学家Keith Stanovich的概念：<strong>Mindware Gap</strong>——人们缺乏正确决策所需的"思维工具"。在投资中，大多数人缺少的思维工具就是：<strong>以企业所有者的视角评估企业价值的能力。</strong></p>
+        <p>12条原则正是填补这个Mindware Gap的工具箱。拥有了这些思维工具，你就能在市场恐慌时保持冷静——因为你知道自己在评估什么。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"The stock market is a device for transferring money from the impatient to the patient." — Warren Buffett</div></details>
+    <div class="zh">「股市是一个将财富从缺乏耐心的人转移到有耐心的人手中的装置。」——沃伦·巴菲特</div>
+    <div class="why">💬 耐心不是"什么都不做"——它是在深度理解企业价值的基础上，等待市场认识到你早已看到的东西。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>耐心不是性格特质，而是认知能力的体现。当你用12条原则真正理解了一家公司的价值，耐心就不再是"忍耐"，而是"等待市场兑现你已经看到的真相"。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== CHAPTER 8 ==================== -->
+<article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
+  <div class="ch-header">
+    <div class="ch-num">8</div>
+    <div>
+      <h2 class="ch-title" id="ch8-title">世界上最伟大的投资者</h2>
+      <div class="ch-subtitle">The World's Greatest Investor — 找到你自己的路</div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 核心问题</div>
+    <div class="block-content">
+      <p>在学完了12条原则和9个案例之后，最后一个问题：你应该成为"小巴菲特"吗？Hagstrom的回答是：不——你应该学会像巴菲特一样思考，但走你自己的路。</p>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 关键概念</div>
+    <div class="concept-box">
+      <h3 class="concept-name">私人巴菲特——不只是投资者的巴菲特</h3>
+      <div class="concept-body">
+        <p>Hagstrom在这一章描绘了一个更完整的巴菲特形象：他不是一台"投资机器"，而是一个有清晰价值观、极度自律、热爱自己工作的人。他的成功不仅来自投资能力，还来自他的<strong>性格优势</strong>——理性、独立、耐心、纪律。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">巴菲特优势 The Buffett Edge</h3>
+      <div class="concept-body">
+        <p>Hagstrom总结了巴菲特的"独特优势"：</p>
+        <p><strong>① 智力优势：</strong>卓越的分析能力、商业判断力、对数字的敏感。</p>
+        <p><strong>② 性格优势：</strong>在他人贪婪时恐惧、在他人恐惧时贪婪——这听起来简单，但极少有人能做到。</p>
+        <p><strong>③ 结构性优势：</strong>保险浮存金提供了低成本永久资本、控股公司的税务结构、长期资本让他可以忽略短期波动。</p>
+      </div>
+    </div>
+    <div class="concept-box">
+      <h3 class="concept-name">找到你自己的路</h3>
+      <div class="concept-body">
+        <p>Hagstrom最后的忠告：<strong>不要试图复制巴菲特的投资组合——复制他的思维框架。</strong>12条原则是普适的，但具体应用取决于你的能力圈、你的性格、你的资源。你可能没有保险浮存金，但你有自己的信息优势和能力圈。找到它，然后像巴菲特一样在能力圈内投资。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gold-quote">
+    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"The goal of this book is not to help you become the next Warren Buffett. The goal is to help you become a better investor by learning to think like Warren Buffett."</div></details>
+    <div class="zh">「本书的目的不是帮你成为下一个沃伦·巴菲特。目的是通过让你学会像巴菲特一样思考，帮你成为更好的投资者。」</div>
+    <div class="why">💬 这是全书最后的定位。不是"巴菲特教你怎么选股"，而是"巴菲特教你如何思考"。</div>
+  </div>
+  <div class="block">
+    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
+    <ul class="takeaway-list">
+      <li>不要成为小巴菲特——学习他的思维框架（12条原则），找到自己的能力圈，走出自己的投资之路。最好的致敬不是模仿，而是进化。</li>
+    </ul>
+  </div>
+</article>
+
+<!-- ==================== DIAGNOSTIC TOOL CTA BANNER ==================== -->
+<div style="background:linear-gradient(135deg,#2c3e50,#1a252f);color:#fff;border-radius:12px;padding:28px 32px;margin-top:24px;text-align:center;">
+  <h3 style="font-size:18px;margin-bottom:8px;color:#fff;">🧪 试试巴菲特的框架</h3>
+  <p style="color:#a0b4c8;font-size:14px;margin-bottom:20px;">输入一只你关注的股票，用巴菲特的12条永恒原则进行一次完整诊断。</p>
+  <div style="display:flex;gap:10px;max-width:440px;margin:0 auto;">
+    <input id="heroStockInput" style="flex:1;padding:12px 16px;border-radius:22px;border:none;font-size:15px;font-family:inherit;outline:none;" placeholder="输入股票名称或代码..." type="text" enterkeyhint="go"/>
+    <button onclick="var v=document.getElementById('heroStockInput').value.trim();if(v)window.location.href='../../diagnose.html?q='+encodeURIComponent(v);" style="background:var(--accent);color:#fff;border:none;padding:12px 24px;border-radius:22px;font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap;">开始诊断 →</button>
+  </div>
+  <p style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:12px;">用巴菲特的12条原则检验你的投资标的</p>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="text-align:center;padding:48px 0;color:var(--text-secondary);font-size:14px;" role="contentinfo">
+  <p>📚 AI精读笔记 · 《The Warren Buffett Way》第三版精读笔记</p>
+  <p style="margin-top:8px;">此为产品原型样章，展示精读笔记的内容深度和交互结构。完整产品将包含全部8章、9个案例的深度拆解和社区讨论功能。</p>
+  <p style="margin-top:16px;font-size:13px;">📖 巴菲特之道系列：<a href="../fisher/" style="color:var(--accent);text-decoration:none;">Philip Fisher《怎样选择成长股》</a> · <a href="../howard-marks/" style="color:var(--accent);text-decoration:none;">Howard Marks《投资最重要的事》</a></p>
+</footer>
+
+</div><!-- .container -->
+
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部" aria-label="回到顶部" tabindex="0">⬆</button>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/chat.js"></script>
+</body>
+</html>
