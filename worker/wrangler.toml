@@ -1,0 +1,16 @@
+name = "ai-reading-api-proxy"
+main = "src/index.js"
+compatibility_date = "2025-07-15"
+
+[env.production]
+vars = { DEEPSEEK_BASE_URL = "https://api.deepseek.com" }
+
+[vars]
+DEEPSEEK_MODEL = "deepseek-chat"
+MAX_TOKENS = "600"
+TEMPERATURE = "0.7"
+
+[[rate_limits]]
+matcher = "/api/chat"
+limit = 30
+period = 60

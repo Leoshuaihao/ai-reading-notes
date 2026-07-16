@@ -1,0 +1,24 @@
+# 依赖
+node_modules/
+
+# 敏感文件
+.env
+*.secret
+
+# 临时文件
+*.pyc
+__pycache__/
+/tmp/
+
+# 原始文件（仅保留工程化后的版本）
+epub_extracted/
+reading-guide.html
+
+# 开发工具
+server.py
+test_regression.py
+fix_all.py
+test_final.py
+
+# 非部署文档
+DEPLOY.md
