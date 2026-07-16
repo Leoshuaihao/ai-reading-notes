@@ -18,7 +18,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Color Emoji", "Segoe UI Emoji", sans-serif;
   background: var(--bg); color: var(--text); line-height: 1.8; font-size: 16px;
 }
 
@@ -29,20 +29,95 @@ body {
   display: flex; align-items: center; height: 56px; gap: 24px;
   overscroll-behavior: none;
 }
-.top-nav .logo { font-weight: 700; font-size: 18px; color: var(--accent); white-space: nowrap; }
-.top-nav .nav-links { display: flex; gap: 16px; overflow-x: auto; position: relative; }
+.top-nav .logo { font-weight: 700; font-size: 18px; color: var(--accent); white-space: nowrap; flex-shrink: 0; }
+.top-nav .nav-links {
+  display: flex; gap: 16px; flex: 1; min-width: 0; align-items: center;
+}
 .top-nav .nav-links a {
   color: var(--text-secondary); text-decoration: none; font-size: 14px;
   white-space: nowrap; padding: 4px 0; border-bottom: 2px solid transparent;
-  transition: all 0.2s;
+  transition: all 0.2s; flex-shrink: 0;
 }
 .top-nav .nav-links a:hover, .top-nav .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
-.top-nav .nav-links::after {
-  content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 32px;
-  background: linear-gradient(to right, transparent, #fff); pointer-events: none;
+.top-nav .badge { background: var(--accent); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
+
+/* 桌面端：章节下拉菜单 */
+@media (min-width: 769px) {
+  .top-nav .nav-links a.ch-nav { display: none; }
+  .nav-chapter-dropdown a.ch-nav { display: block !important; }
+  .top-nav .nav-links a.ch-nav.active,
+  .top-nav .nav-links a.ch-nav.current { display: inline; }
+  .top-nav .nav-links a.ch-nav.current {
+    color: var(--accent); border-bottom-color: var(--accent);
+  }
+  /* 下拉触发器 */
+  .nav-chapter-trigger {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--accent); font-size: 14px; font-weight: 500;
+    cursor: pointer; padding: 4px 8px; border-radius: 6px;
+    background: var(--accent-light); white-space: nowrap; flex-shrink: 0;
+    user-select: none; border: none; font-family: inherit;
+    position: relative;
+  }
+  .nav-chapter-trigger .arrow { font-size: 10px; transition: transform 0.2s; }
+  .nav-chapter-trigger.open .arrow { transform: rotate(180deg); }
+  /* 下拉面板 */
+  .nav-chapter-dropdown {
+    display: none; position: absolute; top: calc(100% + 8px); left: 0;
+    background: #fff; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    border: 1px solid var(--border); max-height: 60vh; overflow-y: auto;
+    z-index: 150; min-width: 260px; padding: 8px 0;
+    margin-top: 4px;
+  }
+  .nav-chapter-dropdown.open { display: block; }
+  .nav-chapter-dropdown a {
+    display: block; padding: 10px 20px; color: var(--text-secondary);
+    text-decoration: none; font-size: 14px; white-space: nowrap;
+    transition: all 0.15s; border-bottom: none;
+  }
+  .nav-chapter-dropdown a:hover { background: var(--accent-light); color: var(--accent); }
+  .nav-chapter-dropdown a.active { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+  /* 导航分隔 */
+  .top-nav .nav-links .nav-sep {
+    width: 1px; height: 20px; background: var(--border);
+    flex-shrink: 0; margin: 0 4px;
+  }
 }
-@media (min-width: 769px) { .top-nav .nav-links::after { display: none; } }
-.top-nav .badge { background: var(--accent); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+
+/* 移动端汉堡菜单 */
+@media (max-width: 768px) {
+  .top-nav { padding: 0 16px; gap: 12px; }
+  .top-nav .nav-links {
+    display: none; /* 默认隐藏 */
+    position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+    background: #fff; flex-direction: column; gap: 0;
+    padding: 8px 0; z-index: 99; overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .top-nav .nav-links.open { display: flex; }
+  .top-nav .nav-links a {
+    padding: 14px 24px; font-size: 15px; border-bottom: 1px solid var(--border);
+    border-bottom-width: 1px;
+  }
+  .top-nav .nav-links .nav-sep,
+  .top-nav .nav-chapter-trigger,
+  .top-nav .nav-chapter-dropdown { display: none; }
+  .top-nav .nav-toggle {
+    display: flex; flex-direction: column; gap: 5px; cursor: pointer;
+    padding: 8px; margin-left: auto; background: none; border: none;
+    z-index: 100; flex-shrink: 0;
+  }
+  .top-nav .nav-toggle span {
+    display: block; width: 22px; height: 2px; background: var(--text);
+    border-radius: 2px; transition: all 0.3s;
+  }
+  .top-nav .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .top-nav .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .top-nav .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+}
+@media (min-width: 769px) {
+  .top-nav .nav-toggle { display: none; }
+}
 
 /* ===== Layout ===== */
 .container { max-width: 880px; margin: 0 auto; padding: 32px 24px; }
@@ -52,7 +127,13 @@ body {
 .book-hero {
   background: var(--card); border-radius: 16px; padding: 40px;
   box-shadow: var(--shadow-md); display: flex; gap: 32px;
-  align-items: flex-start; margin-bottom: 32px;
+  align-items: flex-start; margin-bottom: 32px; position: relative;
+}
+.book-hero .sample-badge {
+  position: absolute; top: 16px; left: 16px;
+  background: var(--accent); color: #fff; font-size: 12px;
+  padding: 4px 12px; border-radius: 12px; font-weight: 600;
+  z-index: 10;
 }
 .book-hero .cover {
   width: 140px; height: 200px;
@@ -79,7 +160,26 @@ body {
 }
 .cta-btn:hover { background: #b04f30; transform: translateY(-1px); }
 
-/* ===== Section Title ===== */
+/* ===== Emoji 字体回退 ===== */
+.emoji {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", sans-serif;
+  display: inline-block;
+  min-width: 1.2em;
+  text-align: center;
+}
+
+/* 当emoji不可用时显示替代内容 */
+.emoji-fallback {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; border-radius: 50%;
+  font-size: 12px; font-weight: 700; color: #fff;
+  margin-right: 4px; flex-shrink: 0;
+}
+.emoji-fallback.gold { background: var(--gold); }
+.emoji-fallback.blue { background: var(--blue); }
+.emoji-fallback.green { background: var(--green); }
+.emoji-fallback.purple { background: var(--purple); }
+.emoji-fallback.accent { background: var(--accent); }
 .section-title {
   font-size: 22px; font-weight: 700; margin: 48px 0 20px;
   padding-bottom: 12px; border-bottom: 2px solid var(--accent);
@@ -103,6 +203,25 @@ body {
 }
 .chapter-card .ch-title { font-size: 20px; font-weight: 700; }
 .chapter-card .ch-subtitle { color: var(--text-secondary); font-size: 14px; }
+
+/* 章节预览 - 卡片折叠时的预览信息 */
+.chapter-preview {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px;
+  font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+}
+.chapter-preview .preview-item {
+  background: var(--tag-bg); padding: 6px 12px; border-radius: 8px;
+  display: flex; align-items: flex-start; gap: 4px; max-width: 100%;
+}
+.chapter-preview .preview-item .preview-label { font-weight: 600; white-space: nowrap; color: var(--text); }
+.chapter-preview .preview-item .preview-text {
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .chapter-preview { flex-direction: column; gap: 6px; }
+  .chapter-preview .preview-item { width: 100%; }
+}
 
 /* ===== Block Components ===== */
 .block { margin-bottom: 24px; }
@@ -286,20 +405,73 @@ body {
 .toggle-btn.expanded .arrow { transform: rotate(180deg); }
 .preview-hint { color: var(--text-secondary); font-size: 13px; margin-top: 8px; font-style: italic; }
 
-/* ===== Sticky TOC ===== */
-.toc-float {
-  position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
-  background: var(--card); border-radius: 12px; box-shadow: var(--shadow-md);
-  padding: 16px; z-index: 50; max-height: 70vh; overflow-y: auto;
-  font-size: 13px; display: none;
+/* ===== TOC 侧边导航面板 ===== */
+/* 触发按钮 */
+.toc-trigger {
+  position: fixed; bottom: 80px; right: 24px; width: 44px; height: 44px;
+  border-radius: 50%; background: var(--card); color: var(--accent);
+  border: 1px solid var(--border); font-size: 18px; cursor: pointer;
+  box-shadow: var(--shadow-md); z-index: 150;
+  display: none; align-items: center; justify-content: center;
+  transition: all 0.2s;
 }
-.toc-float.visible { display: block; }
-.toc-float a {
-  display: block; padding: 6px 12px; color: var(--text-secondary);
-  text-decoration: none; border-radius: 6px; white-space: nowrap;
+.toc-trigger:hover { background: var(--accent-light); transform: translateY(-2px); }
+.toc-trigger.visible { display: flex; }
+
+/* 滑出面板 */
+.toc-panel {
+  position: fixed; top: 0; right: 0; width: 320px; height: 100vh;
+  background: #fff; z-index: 180; box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+  transform: translateX(100%); transition: transform 0.3s ease;
+  display: flex; flex-direction: column;
 }
-.toc-float a:hover, .toc-float a.active { background: var(--accent-light); color: var(--accent); }
-@media (max-width: 1200px) { .toc-float { display: none !important; } }
+.toc-panel.open { transform: translateX(0); }
+.toc-panel .toc-panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.toc-panel .toc-panel-header h3 {
+  font-size: 16px; font-weight: 700; color: var(--accent);
+}
+.toc-panel .toc-panel-close {
+  width: 32px; height: 32px; border-radius: 50%; border: none;
+  background: var(--tag-bg); cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); transition: all 0.15s;
+}
+.toc-panel .toc-panel-close:hover { background: var(--border); color: var(--text); }
+.toc-panel .toc-panel-list {
+  flex: 1; overflow-y: auto; padding: 8px 0;
+}
+.toc-panel .toc-panel-list a {
+  display: block; padding: 10px 20px; color: var(--text-secondary);
+  text-decoration: none; font-size: 14px; border-left: 3px solid transparent;
+  transition: all 0.15s;
+}
+.toc-panel .toc-panel-list a:hover { background: var(--tag-bg); color: var(--text); }
+.toc-panel .toc-panel-list a.active {
+  background: var(--accent-light); color: var(--accent);
+  border-left-color: var(--accent); font-weight: 600;
+}
+
+/* 遮罩层 */
+.toc-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 170;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.toc-overlay.open { opacity: 1; pointer-events: auto; }
+
+/* 旧浮动TOC移除，保留兼容 */
+.toc-float { display: none !important; }
+
+@media (max-width: 1200px) {
+  .toc-trigger { display: flex !important; }
+}
+@media (max-width: 768px) {
+  .toc-trigger { bottom: 72px; right: 16px; width: 48px; height: 48px; }
+  .toc-panel { width: 280px; }
+}
 
 /* ===== Back to Top ===== */
 .back-to-top {
@@ -326,6 +498,9 @@ body {
   .book-hero { flex-direction: column; padding: 24px; }
   .book-hero .cover { width: 100px; height: 144px; }
   .book-hero .info h1 { font-size: 22px; }
+  .book-hero .sample-badge { top: 10px; left: 10px; font-size: 11px; padding: 3px 10px; }
+  .book-hero .meta-row { gap: 4px; }
+  .book-hero .meta-row .tag { font-size: 11px; padding: 3px 8px; }
   .why-section { grid-template-columns: 1fr; }
   .roadmap { grid-template-columns: 1fr; }
   .chapter-card { padding: 20px; }
@@ -334,6 +509,8 @@ body {
   .chat-widget .chat-msg .bubble { max-width: 80%; font-size: 13px; }
   .chat-widget .chat-input-area input { font-size: 16px; } /* Prevent iOS zoom */
   .back-to-top { width: 48px; height: 48px; bottom: 20px; right: 16px; }
+  .section-title { font-size: 18px; }
+  .chapter-card .ch-title { font-size: 17px; }
 }
 
 /* ===== Accessibility ===== */
