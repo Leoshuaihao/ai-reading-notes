@@ -22,3 +22,7 @@ test_final.py
 
 # 非部署文档
 DEPLOY.md
+
+# 截图
+screenshot_*.png
+ux_*.png
