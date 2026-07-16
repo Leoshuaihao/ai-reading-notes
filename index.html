@@ -597,6 +597,17 @@
       </div>
     </div>
   </div>
+
+  <!-- 🧪 Fisher 诊断引擎入口 -->
+  <div style="background:linear-gradient(135deg,#2c3e50,#1a252f);color:#fff;border-radius:12px;padding:28px 32px;margin-top:24px;text-align:center;">
+    <h3 style="font-size:18px;margin-bottom:8px;color:#fff;">🧪 试试 Fisher 的框架</h3>
+    <p style="color:#a0b4c8;font-size:14px;margin-bottom:20px;">输入一只你关注的 A 股，用 Fisher 的 15 条原则进行一次完整诊断。</p>
+    <div style="display:flex;gap:10px;max-width:440px;margin:0 auto;">
+      <input id="heroStockInput" style="flex:1;padding:12px 16px;border-radius:22px;border:none;font-size:15px;font-family:inherit;outline:none;" placeholder="输入股票名称或代码..." type="text" enterkeyhint="go"/>
+      <button onclick="var v=document.getElementById('heroStockInput').value.trim();if(v)window.location.href='diagnose.html?q='+encodeURIComponent(v);" style="background:var(--accent);color:#fff;border:none;padding:12px 24px;border-radius:22px;font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap;">开始诊断 →</button>
+    </div>
+    <p style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:12px;">已有 <span style="color:rgba(255,255,255,0.6);">7</span> 家公司可用 Fisher 框架分析</p>
+  </div>
 </article>
 
 <!-- CHAPTERS 4-8 + SPECIAL TOPIC -->

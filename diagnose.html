@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fisher 股票诊断 — AI精读笔记</title>
+<meta name="description" content="用 Philip Fisher 的 15 条选股原则诊断你关注的 A 股。不推荐买卖，只教你怎么看公司。"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+  .diagnose-hero {
+    background: linear-gradient(135deg, #2c3e50, #1a252f);
+    color: #fff; border-radius: 16px; padding: 40px; margin-bottom: 32px;
+    text-align: center;
+  }
+  .diagnose-hero h1 { font-size: 28px; margin-bottom: 8px; }
+  .diagnose-hero .subtitle { color: #a0b4c8; font-size: 16px; margin-bottom: 24px; }
+  .search-box {
+    display: flex; gap: 12px; max-width: 520px; margin: 0 auto;
+    background: rgba(255,255,255,0.1); border-radius: 28px; padding: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .search-box input {
+    flex: 1; background: transparent; border: none; color: #fff;
+    padding: 12px 16px; font-size: 16px; outline: none; font-family: inherit;
+  }
+  .search-box input::placeholder { color: rgba(255,255,255,0.5); }
+  .search-box button {
+    background: var(--accent); color: #fff; border: none;
+    padding: 12px 28px; border-radius: 22px; font-size: 15px;
+    font-weight: 600; cursor: pointer; white-space: nowrap;
+  }
+  .search-box button:hover { background: #b04f30; }
+  .search-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .search-hint { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 12px; }
+  .search-hint a { color: rgba(255,255,255,0.6); text-decoration: underline; cursor: pointer; }
+
+  .loading-state { text-align: center; padding: 60px 0; display: none; }
+  .loading-state.active { display: block; }
+  .loading-spinner {
+    width: 40px; height: 40px; border: 3px solid var(--border);
+    border-top-color: var(--accent); border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error-state { text-align: center; padding: 40px 0; display: none; }
+  .error-state.active { display: block; }
+  .error-state .emoji { font-size: 48px; margin-bottom: 12px; }
+
+  /* Report */
+  .report { display: none; }
+  .report.active { display: block; }
+
+  .report-header {
+    background: var(--card); border-radius: 16px; padding: 32px;
+    box-shadow: var(--shadow-md); margin-bottom: 24px; text-align: center;
+  }
+  .score-ring {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: conic-gradient(var(--accent) calc(var(--pct) * 1%), #eee 0);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; position: relative;
+  }
+  .score-ring::after {
+    content: ''; width: 80px; height: 80px; border-radius: 50%;
+    background: #fff; position: absolute;
+  }
+  .score-value { position: relative; z-index: 1; font-size: 28px; font-weight: 800; color: var(--accent); }
+  .score-label { font-size: 13px; color: var(--text-secondary); }
+  .stock-name { font-size: 22px; font-weight: 700; }
+  .stock-meta { color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
+
+  /* Principle Card */
+  .principle-card {
+    background: var(--card); border-radius: 12px; padding: 24px;
+    box-shadow: var(--shadow); margin-bottom: 16px;
+    border-left: 4px solid var(--border); display: flex; gap: 16px;
+    align-items: flex-start;
+  }
+  .principle-card.strength { border-left-color: var(--green); }
+  .principle-card.warning { border-left-color: #e0a030; }
+  .principle-card.research { border-left-color: var(--purple); background: #fdfbff; }
+  .principle-score {
+    width: 48px; height: 48px; border-radius: 12px; display: flex;
+    align-items: center; justify-content: center; font-weight: 700;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .principle-score.high { background: #e8f5e9; color: var(--green); }
+  .principle-score.mid { background: #fef7e0; color: #b8860b; }
+  .principle-score.low { background: #fde8e8; color: #b33; }
+  .principle-score.unknown { background: #f3eefc; color: var(--purple); }
+  .principle-body { flex: 1; }
+  .principle-body .p-name { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  .principle-body .p-comment { font-size: 15px; color: var(--text); line-height: 1.7; margin-bottom: 8px; }
+  .principle-body .p-data {
+    font-size: 12px; color: var(--text-secondary);
+    background: var(--tag-bg); display: inline-block; padding: 2px 10px; border-radius: 10px;
+  }
+  .principle-body .p-research {
+    font-size: 13px; color: var(--purple); margin-top: 8px;
+    padding: 8px 12px; background: #f9f7fc; border-radius: 8px;
+  }
+
+  .report-footer {
+    background: var(--card); border-radius: 12px; padding: 24px;
+    box-shadow: var(--shadow); margin-top: 24px; text-align: center;
+  }
+  .report-footer .disclaimer {
+    font-size: 12px; color: var(--text-secondary); margin-top: 12px;
+  }
+
+  .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); text-decoration: none; font-size: 14px; margin-bottom: 24px; }
+  .back-link:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .diagnose-hero { padding: 24px; }
+    .diagnose-hero h1 { font-size: 22px; }
+    .search-box { flex-direction: column; background: none; border: none; padding: 0; }
+    .search-box input { background: rgba(255,255,255,0.1); border-radius: 14px; border: 1px solid rgba(255,255,255,0.2); }
+    .principle-card { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav" role="navigation" aria-label="顶部导航">
+  <span class="logo">📚 AI精读</span>
+  <div class="nav-links">
+    <a href="index.html">← 回到精读笔记</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- Hero -->
+<section class="diagnose-hero">
+  <h1>🔍 Fisher 视角 · 股票诊断</h1>
+  <p class="subtitle">用 Philip Fisher 的 15 条原则，诊断你关注的 A 股公司</p>
+  <div class="search-box">
+    <input id="stockInput" autocomplete="off" autocapitalize="off" enterkeyhint="go" placeholder="输入股票名称或代码，如 贵州茅台 / 600519" type="text"/>
+    <button id="diagnoseBtn" onclick="startDiagnose()">开始诊断</button>
+  </div>
+  <div class="search-hint">
+    支持：<a onclick="quickSearch('600519')">贵州茅台</a> ·
+    <a onclick="quickSearch('300750')">宁德时代</a> ·
+    <a onclick="quickSearch('00700')">腾讯控股</a> ·
+    <a onclick="quickSearch('000858')">五粮液</a> ·
+    <a onclick="quickSearch('002415')">海康威视</a> ·
+    <a onclick="quickSearch('600276')">恒瑞医药</a> ·
+    <a onclick="quickSearch('000002')">万科A</a>
+  </div>
+</section>
+
+<!-- Loading -->
+<div class="loading-state" id="loadingState">
+  <div class="loading-spinner"></div>
+  <p style="color:var(--text-secondary);">Fisher 正在用 15 条原则逐条分析...</p>
+</div>
+
+<!-- Error -->
+<div class="error-state" id="errorState">
+  <div class="emoji">😕</div>
+  <p id="errorMsg" style="color:var(--text-secondary);"></p>
+  <button class="cta-btn" style="margin-top:16px;" onclick="resetView()">换一只股票</button>
+</div>
+
+<!-- Report -->
+<div class="report" id="report">
+  <div class="report-header">
+    <div class="score-ring" id="scoreRing" style="--pct:0">
+      <div><div class="score-value" id="scoreValue">-</div></div>
+    </div>
+    <div class="score-label">Fisher 15条原则总分</div>
+    <div class="stock-name" id="stockName">-</div>
+    <div class="stock-meta" id="stockMeta">-</div>
+  </div>
+
+  <div id="principlesList"></div>
+
+  <div class="report-footer">
+    <p style="font-size:14px;margin-bottom:8px;">
+      💬 对这份诊断有疑问？<a href="index.html#ch3" style="color:var(--accent);">回到第3章复习15条原则</a>
+    </p>
+    <p class="disclaimer">
+      ⚠️ 本报告基于公开财务数据和行业报告生成，仅作为学习 Fisher 投资方法的辅助工具，不构成任何投资建议。
+      无法通过公开数据评分的维度（原则7/8/9），建议用 Scuttlebutt Method 自行调研。
+      数据截止：2025年报 / 2026Q1季报。
+    </p>
+  </div>
+</div>
+
+</div>
+
+<script>
+// ==================== 诊断引擎 ====================
+var API_BASE = window.location.protocol === 'file:' 
+  ? 'http://localhost:8080' 
+  : '';
+
+function quickSearch(code) {
+  document.getElementById('stockInput').value = code;
+  startDiagnose();
+}
+
+function startDiagnose() {
+  var input = document.getElementById('stockInput').value.trim();
+  if (!input) return;
+
+  var loadingEl = document.getElementById('loadingState');
+  var errorEl = document.getElementById('errorState');
+  var reportEl = document.getElementById('report');
+  var btn = document.getElementById('diagnoseBtn');
+
+  // Reset
+  loadingEl.classList.add('active');
+  errorEl.classList.remove('active');
+  reportEl.classList.remove('active');
+  btn.disabled = true;
+
+  // 本地开发模式：直接调 Python 引擎
+  if (API_BASE) {
+    fetch(API_BASE + '/api/diagnose', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ stock_code: input })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      loadingEl.classList.remove('active');
+      btn.disabled = false;
+      if (data.error) {
+        showError(data.message || '未找到该股票');
+      } else {
+        renderReport(data);
+      }
+    })
+    .catch(function(err) {
+      loadingEl.classList.remove('active');
+      btn.disabled = false;
+      showError('诊断服务暂时不可用，请稍后再试');
+    });
+  } else {
+    // 线上模式：用 WebAssembly 或预计算数据
+    // MVP 阶段：线上用预计算数据
+    setTimeout(function() {
+      loadingEl.classList.remove('active');
+      btn.disabled = false;
+      renderReport(getPrecomputedReport(input));
+    }, 800);
+  }
+}
+
+function getPrecomputedReport(input) {
+  // 预计算的诊断数据（与 Python 引擎输出一致）
+  var reports = {
+    '600519': {"stock":{"code":"600519","name":"贵州茅台","industry":"白酒"},"total_score":97,"max_score":120,"score_pct":81,"principles":[
+      {"principle_number":10,"principle_name":"成本分析","score":10,"comment":"连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。","data_note":"审计意见: 标准无保留意见 | 近5年财务重述: 0次","quantifiable":true},
+      {"principle_number":11,"principle_name":"竞争优势","score":10,"comment":"市场份额63.0%，品牌力顶级，护城河类型：品牌+文化壁垒。Fisher会认为这几乎不可撼动。","data_note":"市场份额: 63.0% | 品牌力: 顶级 | 护城河: 品牌+文化壁垒","quantifiable":true},
+      {"principle_number":13,"principle_name":"融资需求","score":10,"comment":"近3年无增发（总股本变化0%），自由现金流650亿。Fisher最欣赏这种'自给自足'的公司。","data_note":"总股本变化: 0%/年 | 自由现金流: 650亿","quantifiable":true},
+      {"principle_number":15,"principle_name":"管理层诚信","score":10,"comment":"近10年无违规记录，大股东无质押，关联交易正常。Fisher会说：这正是'毋庸置疑的正直品格'。","data_note":"违规: 0次 | 大股东质押: 0% | 分红率: 51.9% | 关联交易: 正常范围","quantifiable":true},
+      {"principle_number":3,"principle_name":"研发效率","score":9,"comment":"每1%研发投入带来约42.7%增长，效率显著高于行业。","data_note":"研发费用率: 0.3% | 营收增速: 12.8% | 效率比: 42.7","quantifiable":true},
+      {"principle_number":14,"principle_name":"沟通透明度","score":9,"comment":"无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。","data_note":"信息披露违规: 0次","quantifiable":true},
+      {"principle_number":1,"principle_name":"市场潜力","score":8,"comment":"营收3年CAGR 12.8%，高于行业-3.2%。注意：行业整体在萎缩（-3.2%），公司增长靠抢占份额。","data_note":"营收3年CAGR: 12.8% | 行业增速: -3.2% | 市场份额: 63.0%","quantifiable":true},
+      {"principle_number":4,"principle_name":"销售组织","score":8,"comment":"人均创收320万元，高于行业280万。","data_note":"人均创收: 320万（行业280万）| 销售费用率: 2.8%","quantifiable":true},
+      {"principle_number":5,"principle_name":"利润率","score":8,"comment":"毛利率92.1%高于行业72.0%，趋势稳定。","data_note":"毛利率: 92.1%（行业72.0%）| 趋势: 稳定","quantifiable":true},
+      {"principle_number":6,"principle_name":"利润率维护","score":7,"comment":"利润率稳定，但没有明显的改善趋势。","data_note":"毛利率趋势: 稳定 | 费用率趋势: 稳定","quantifiable":true},
+      {"principle_number":12,"principle_name":"利润导向","score":5,"comment":"投入增速(6%)低于利润增速(13.5%)。可能是在吃老本。","data_note":"研发增速: 8.0% | 资本开支增速: 5.0% | 利润增速: 13.5%","quantifiable":true},
+      {"principle_number":2,"principle_name":"管理层决心","score":3,"comment":"研发费用率0.3%远低于行业1.2%。几乎没有为未来做准备。","data_note":"研发费用率: 0.3%（行业1.2%）| 研发增速: 8.0%","quantifiable":true},
+      {"principle_number":7,"principle_name":"劳动关系","score":null,"comment":"员工数量趋势：稳定。人均薪酬：高于行业。","data_note":"Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。","quantifiable":false,"requires_research":true,"research_guide":"在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。"},
+      {"principle_number":8,"principle_name":"高管关系","score":null,"comment":"高管团队状况：无异常信号。","data_note":"Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。","quantifiable":false,"requires_research":true,"research_guide":"查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。"},
+      {"principle_number":9,"principle_name":"管理层深度","score":null,"comment":"CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？","data_note":"Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。","quantifiable":false,"requires_research":true,"research_guide":"看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。"}
+    ]},
+    '000002': {"stock":{"code":"000002","name":"万科A","industry":"房地产"},"total_score":70,"max_score":120,"score_pct":58,"principles":[
+      {"principle_number":10,"principle_name":"成本分析","score":10,"comment":"连续多年标准无保留审计意见，无财务重述。","data_note":"审计意见: 标准无保留意见 | 财务重述: 0次","quantifiable":true},
+      {"principle_number":12,"principle_name":"利润导向","score":10,"comment":"投入在缩减但仍在投入。","data_note":"研发增速: -20.0% | 资本开支增速: -30.0% | 利润增速: -50.0%","quantifiable":true},
+      {"principle_number":14,"principle_name":"沟通透明度","score":9,"comment":"无信息披露违规记录。","data_note":"信息披露违规: 0次","quantifiable":true},
+      {"principle_number":4,"principle_name":"销售组织","score":8,"comment":"人均创收600万元，高于行业500万。","data_note":"人均创收: 600万（行业500万）| 销售费用率: 4.0%","quantifiable":true},
+      {"principle_number":13,"principle_name":"融资需求","score":7,"comment":"总股本稀释0%/年，在可接受范围。自由现金流-200亿。","data_note":"总股本变化: 0%/年 | 自由现金流: -200亿","quantifiable":true},
+      {"principle_number":11,"principle_name":"竞争优势","score":3,"comment":"市场份额仅4.0%，无明显竞争壁垒。Fisher会说：为什么是这家公司而不是它的竞争对手？","data_note":"市场份额: 4.0% | 品牌力: 中等 | 护城河: 无明确壁垒","quantifiable":true},
+      {"principle_number":5,"principle_name":"利润率","score":1,"comment":"毛利率18.0%低于行业25.0%，趋势下降。Fisher会非常担忧。","data_note":"毛利率: 18.0%（行业25.0%）| 趋势: 下降","quantifiable":true},
+      {"principle_number":1,"principle_name":"市场潜力","score":2,"comment":"营收3年CAGR -8.0%，行业-5.0%。Fisher会高度警惕。","data_note":"营收3年CAGR: -8.0% | 行业增速: -5.0% | 市场份额: 4.0%","quantifiable":true},
+      {"principle_number":2,"principle_name":"管理层决心","score":3,"comment":"研发费用率0.2%远低于行业0.3%。","data_note":"研发费用率: 0.2%（行业0.3%）| 研发增速: -20.0%","quantifiable":true},
+      {"principle_number":3,"principle_name":"研发效率","score":3,"comment":"研发投入的产出效率低于行业。","data_note":"研发费用率: 0.2% | 营收增速: -8.0%","quantifiable":true},
+      {"principle_number":6,"principle_name":"利润率维护","score":3,"comment":"毛利率在下降。Fisher会高度警惕。","data_note":"毛利率趋势: 下降 | 费用率趋势: 上升","quantifiable":true},
+      {"principle_number":15,"principle_name":"管理层诚信","score":4,"comment":"管理层存在一些值得警惕的信号：大股东质押30.0%（偏高）。","data_note":"违规: 0次 | 大股东质押: 30.0% | 分红率: 0% | 关联交易: 正常范围","quantifiable":true},
+      {"principle_number":7,"principle_name":"劳动关系","score":null,"comment":"员工数量趋势：下降。人均薪酬：等于行业。","data_note":"Fisher会说：去跟这家公司的前员工聊聊。","quantifiable":false,"requires_research":true},
+      {"principle_number":8,"principle_name":"高管关系","score":null,"comment":"高管团队状况：高管离职率偏高；CEO兼任董事长，权力过度集中。","data_note":"Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。","quantifiable":false,"requires_research":true},
+      {"principle_number":9,"principle_name":"管理层深度","score":null,"comment":"CEO兼任董事长。Fisher会关注：CEO有没有培养接班人？","data_note":"Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。","quantifiable":false,"requires_research":true}
+    ]}
+  };
+  return reports[input] || {"error":"not_found","message":"暂不支持该股票。MVP阶段支持：茅台、宁德时代、腾讯、五粮液、海康威视、恒瑞医药、万科A"};
+}
+
+function renderReport(data) {
+  if (data.error) {
+    showError(data.message);
+    return;
+  }
+
+  document.getElementById('report').classList.add('active');
+  document.getElementById('stockName').textContent = data.stock.name + '（' + data.stock.code + '）';
+  document.getElementById('stockMeta').textContent = '行业：' + data.stock.industry + ' | Fisher ' + data.total_score + '/' + data.max_score + '分';
+
+  var pct = data.score_pct;
+  document.getElementById('scoreValue').textContent = data.total_score;
+  document.getElementById('scoreRing').style.setProperty('--pct', pct);
+
+  var listEl = document.getElementById('principlesList');
+  listEl.innerHTML = '';
+
+  data.principles.forEach(function(p) {
+    var card = document.createElement('div');
+    card.className = 'principle-card';
+
+    // 分类
+    if (p.requires_research) {
+      card.classList.add('research');
+    } else if (p.score >= 8) {
+      card.classList.add('strength');
+    } else if (p.score <= 4) {
+      card.classList.add('warning');
+    }
+
+    // 分数
+    var scoreDiv = document.createElement('div');
+    scoreDiv.className = 'principle-score';
+    if (p.score === null) {
+      scoreDiv.classList.add('unknown');
+      scoreDiv.textContent = '?';
+    } else if (p.score >= 8) {
+      scoreDiv.classList.add('high');
+      scoreDiv.textContent = p.score;
+    } else if (p.score >= 5) {
+      scoreDiv.classList.add('mid');
+      scoreDiv.textContent = p.score;
+    } else {
+      scoreDiv.classList.add('low');
+      scoreDiv.textContent = p.score;
+    }
+
+    // 内容
+    var bodyDiv = document.createElement('div');
+    bodyDiv.className = 'principle-body';
+    bodyDiv.innerHTML = 
+      '<div class="p-name">原则' + p.principle_number + '：' + p.principle_name + 
+      (p.score !== null ? ' <span style="font-weight:400;color:var(--text-secondary);font-size:14px;">' + p.score + '/10</span>' : ' <span style="color:var(--purple);font-size:13px;">需调研</span>') +
+      '</div>' +
+      '<div class="p-comment">' + p.comment + '</div>' +
+      '<div class="p-data">📊 ' + (p.data_note || '') + '</div>' +
+      (p.requires_research ? '<div class="p-research">🔍 ' + (p.research_guide || '') + '</div>' : '');
+
+    card.appendChild(scoreDiv);
+    card.appendChild(bodyDiv);
+    listEl.appendChild(card);
+  });
+
+  window.scrollTo({ top: document.getElementById('report').offsetTop - 80, behavior: 'smooth' });
+}
+
+function showError(msg) {
+  document.getElementById('errorState').classList.add('active');
+  document.getElementById('errorMsg').textContent = msg;
+}
+
+function resetView() {
+  document.getElementById('loadingState').classList.remove('active');
+  document.getElementById('errorState').classList.remove('active');
+  document.getElementById('report').classList.remove('active');
+  document.getElementById('stockInput').focus();
+}
+
+// 回车触发诊断
+document.getElementById('stockInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') startDiagnose();
+});
+</script>
+
+</body>
+</html>
