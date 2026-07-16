@@ -26,3 +26,6 @@ DEPLOY.md
 # 截图
 screenshot_*.png
 ux_*.png
+
+preview_*.png
+ux_test_report.json
