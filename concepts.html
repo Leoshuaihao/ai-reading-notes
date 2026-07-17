@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>投资概念地图 — AI精读笔记</title>
+<meta name="description" content="跨书的投资知识网络：12个核心概念 × 16位投资大师的多维视角。内在价值、安全边际、护城河、能力圈、风险、周期、黑天鹅、逆向投资……每个概念看到不同大师怎么说。"/>
+<meta property="og:title" content="投资概念地图 — AI精读笔记"/>
+<meta property="og:description" content="16位大师 · 12个核心概念 · 每个概念的多维视角。把散落在16本书273章里的智慧，织成一张可浏览的知识网络。"/>
+<meta property="og:type" content="website"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+/* ===== 概念地图页专属样式 ===== */
+.concept-hero {
+  text-align: center; padding: 56px 24px 40px;
+}
+.concept-hero h1 { font-size: 34px; line-height: 1.3; margin-bottom: 12px; }
+.concept-hero .subtitle { color: var(--text-secondary); font-size: 17px; }
+.concept-hero .desc {
+  max-width: 640px; margin: 16px auto 0; color: var(--text-secondary);
+  font-size: 14px; line-height: 1.9;
+}
+
+/* 概念总览 chip 标签云 */
+.concept-overview {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 24px 28px; margin-bottom: 48px; box-shadow: var(--shadow);
+}
+.concept-overview .ov-title {
+  font-size: 14px; font-weight: 600; color: var(--text-secondary);
+  margin-bottom: 14px; letter-spacing: 1px;
+}
+.chip-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 20px; font-size: 14px;
+  text-decoration: none; border: 1px solid var(--border);
+  background: var(--tag-bg); color: var(--text);
+  transition: all 0.2s;
+}
+.chip .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.chip.c-blue:hover   { border-color: var(--blue);   color: var(--blue); }
+.chip.c-green:hover  { border-color: var(--green);  color: var(--green); }
+.chip.c-accent:hover { border-color: var(--accent); color: var(--accent); }
+.chip.c-purple:hover { border-color: var(--purple); color: var(--purple); }
+.chip.c-blue .dot   { background: var(--blue); }
+.chip.c-green .dot  { background: var(--green); }
+.chip.c-accent .dot { background: var(--accent); }
+.chip.c-purple .dot { background: var(--purple); }
+
+/* 主题域 */
+.domain { margin-bottom: 56px; }
+.domain-head { margin-bottom: 20px; padding-left: 14px; border-left: 4px solid; }
+.domain-head h2 { font-size: 24px; line-height: 1.4; }
+.domain-head .domain-sub { color: var(--text-secondary); font-size: 14px; margin-top: 4px; }
+.domain.d-blue   .domain-head { border-color: var(--blue); }
+.domain.d-green  .domain-head { border-color: var(--green); }
+.domain.d-accent .domain-head { border-color: var(--accent); }
+.domain.d-purple .domain-head { border-color: var(--purple); }
+.domain.d-blue   .domain-head h2 { color: var(--blue); }
+.domain.d-green  .domain-head h2 { color: var(--green); }
+.domain.d-accent .domain-head h2 { color: var(--accent); }
+.domain.d-purple .domain-head h2 { color: var(--purple); }
+
+.domain-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  align-items: start;
+}
+
+/* 概念卡（details/summary 折叠） */
+.concept-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  box-shadow: var(--shadow); overflow: hidden;
+  transition: box-shadow 0.2s;
+  scroll-margin-top: 76px;
+}
+.concept-card:hover { box-shadow: var(--shadow-md); }
+.concept-card[open] { box-shadow: var(--shadow-md); }
+.concept-card summary {
+  list-style: none; cursor: pointer; padding: 20px 22px;
+  user-select: none; position: relative;
+}
+.concept-card summary::-webkit-details-marker { display: none; }
+.concept-card summary .num {
+  display: inline-block; font-size: 12px; font-weight: 700;
+  padding: 2px 10px; border-radius: 12px; margin-bottom: 10px;
+  color: #fff;
+}
+.d-blue   .concept-card summary .num { background: var(--blue); }
+.d-green  .concept-card summary .num { background: var(--green); }
+.d-accent .concept-card summary .num { background: var(--accent); }
+.d-purple .concept-card summary .num { background: var(--purple); }
+.concept-card summary h3 { font-size: 19px; margin-bottom: 6px; line-height: 1.4; }
+.concept-card summary .brief {
+  color: var(--text-secondary); font-size: 14px; line-height: 1.7;
+}
+.concept-card summary .expand-hint {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 12px; font-size: 13px; color: var(--text-secondary);
+}
+.concept-card summary .expand-hint .arrow { transition: transform 0.25s; font-size: 11px; }
+.concept-card[open] summary .expand-hint .arrow { transform: rotate(180deg); }
+.d-blue   .concept-card summary .expand-hint { color: var(--blue); }
+.d-green  .concept-card summary .expand-hint { color: var(--green); }
+.d-accent .concept-card summary .expand-hint { color: var(--accent); }
+.d-purple .concept-card summary .expand-hint { color: var(--purple); }
+
+.concept-card .views { padding: 0 22px 22px; }
+
+/* 大师观点引用条 */
+.master-quote {
+  border-left: 3px solid; border-radius: 0 8px 8px 0;
+  background: var(--tag-bg); padding: 12px 14px; margin-bottom: 12px;
+}
+.master-quote:last-child { margin-bottom: 0; }
+.d-blue   .master-quote { border-color: var(--blue); }
+.d-green  .master-quote { border-color: var(--green); }
+.d-accent .master-quote { border-color: var(--accent); }
+.d-purple .master-quote { border-color: var(--purple); }
+.master-quote .who { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.master-quote .who .stance {
+  font-weight: 400; font-size: 12px; color: var(--text-secondary); margin-left: 4px;
+}
+.master-quote .say { font-size: 14px; line-height: 1.8; color: var(--text); }
+.master-quote .go {
+  display: inline-block; margin-top: 6px; font-size: 13px;
+  text-decoration: none; font-weight: 500;
+}
+.d-blue   .master-quote .go { color: var(--blue); }
+.d-green  .master-quote .go { color: var(--green); }
+.d-accent .master-quote .go { color: var(--accent); }
+.d-purple .master-quote .go { color: var(--purple); }
+.master-quote .go:hover { text-decoration: underline; }
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .domain-grid { grid-template-columns: 1fr; }
+  .concept-hero h1 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="top-nav" role="navigation" aria-label="顶部导航">
+  <span class="logo" aria-label="AI精读笔记"><a href="index.html" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <div class="nav-links">
+    <a href="index.html" tabindex="0">书架首页</a>
+    <a class="active" href="#overview" tabindex="0">概念总览</a>
+    <a href="#domain-valuation" tabindex="0">估值</a>
+    <a href="#domain-moat" tabindex="0">竞争与企业</a>
+    <a href="#domain-risk" tabindex="0">风险与不确定性</a>
+    <a href="#domain-mind" tabindex="0">心理与行为</a>
+  </div>
+  <span class="badge">🕸️ 概念地图</span>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="container wide">
+
+<!-- ==================== HERO ==================== -->
+<header class="concept-hero">
+  <h1>🕸️ 投资概念地图</h1>
+  <p class="subtitle">16位大师 · 12个核心概念 · 每个概念的多维视角</p>
+  <p class="desc">16 本书、273 章读完记不住？同一个概念，格雷厄姆、巴菲特、塔勒布说法各不相同。这张地图把散落各书的智慧织成网络——点开任何一个概念，看大师们如何从不同角度照亮同一件事。</p>
+</header>
+
+<!-- ==================== 概念总览 ==================== -->
+<section class="concept-overview" id="overview" aria-label="概念总览">
+  <div class="ov-title">概念总览 · 点击跳转</div>
+  <div class="chip-cloud">
+    <a class="chip c-blue" href="#c-intrinsic-value"><span class="dot"></span>内在价值</a>
+    <a class="chip c-blue" href="#c-margin-of-safety"><span class="dot"></span>安全边际</a>
+    <a class="chip c-blue" href="#c-mr-market"><span class="dot"></span>市场先生</a>
+    <a class="chip c-green" href="#c-moat"><span class="dot"></span>护城河</a>
+    <a class="chip c-green" href="#c-circle-of-competence"><span class="dot"></span>能力圈</a>
+    <a class="chip c-green" href="#c-growth-stock"><span class="dot"></span>成长股</a>
+    <a class="chip c-accent" href="#c-risk"><span class="dot"></span>风险</a>
+    <a class="chip c-accent" href="#c-cycle"><span class="dot"></span>周期</a>
+    <a class="chip c-accent" href="#c-black-swan"><span class="dot"></span>黑天鹅与肥尾</a>
+    <a class="chip c-purple" href="#c-misjudgment"><span class="dot"></span>人类误判心理学</a>
+    <a class="chip c-purple" href="#c-contrarian"><span class="dot"></span>逆向投资</a>
+    <a class="chip c-purple" href="#c-concentration"><span class="dot"></span>集中与分散</a>
+  </div>
+</section>
+
+<!-- ==================== 主题域一：估值 ==================== -->
+<section class="domain d-blue" id="domain-valuation" aria-labelledby="dt-valuation">
+  <div class="domain-head">
+    <h2 id="dt-valuation">Ⅰ · 估值</h2>
+    <p class="domain-sub">一家企业到底值多少钱？如何在价格与价值的缝隙中生存</p>
+  </div>
+  <div class="domain-grid">
+
+    <details class="concept-card" id="c-intrinsic-value">
+      <summary>
+        <span class="num">概念 01</span>
+        <h3>内在价值</h3>
+        <p class="brief">企业真正值多少钱——独立于市场报价的价值之锚，一切估值的起点。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《证券分析》</span></div>
+          <p class="say">内在价值是被事实证明的价值——资产、收益、股息，而非市场报价。</p>
+          <a class="go" href="books/security-analysis/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">巴菲特<span class="stance">《致股东的信》</span></div>
+          <p class="say">内在价值是企业余生现金流的折现值——账面价值告诉你付出了什么，内在价值告诉你得到什么。</p>
+          <a class="go" href="books/buffett-letters/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">多尔西<span class="stance">《巴菲特的护城河》</span></div>
+          <p class="say">内在价值的持久性取决于护城河宽度。</p>
+          <a class="go" href="books/economic-moat/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-margin-of-safety">
+      <summary>
+        <span class="num">概念 02</span>
+        <h3>安全边际</h3>
+        <p class="brief">买价与价值之间的缓冲垫——为错误、厄运与未知留出余地。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《聪明的投资者》</span></div>
+          <p class="say">安全边际是投资的中心概念——为错误、厄运、未知留出缓冲。</p>
+          <a class="go" href="books/intelligent-investor/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">卡拉曼<span class="stance">《证券分析》导读</span></div>
+          <p class="say">安全边际是价值投资唯一的"秘密"，公开了90年依然有效。</p>
+          <a class="go" href="books/security-analysis/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">塔勒布<span class="stance">《反脆弱》</span></div>
+          <p class="say">安全边际本质是负凸性的对冲——为未知的未知留出空间。</p>
+          <a class="go" href="books/antifragile/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-mr-market">
+      <summary>
+        <span class="num">概念 03</span>
+        <h3>市场先生</h3>
+        <p class="brief">把市场当作一位情绪化的报价员——利用他的报价，而不是追随他的情绪。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《聪明的投资者》</span></div>
+          <p class="say">市场先生是你的仆人，不是你的向导——利用他的报价，不受他的情绪感染。</p>
+          <a class="go" href="books/intelligent-investor/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">马克斯<span class="stance">《投资最重要的事》</span></div>
+          <p class="say">市场的钟摆永远在贪婪与恐惧间摆动，极端位置才是机会。</p>
+          <a class="go" href="books/howard-marks/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">利弗莫尔<span class="stance">《股票大作手回忆录》</span></div>
+          <p class="say">市场永远不会错，但意见常常会错——投机者读的就是市场先生的情绪。</p>
+          <a class="go" href="books/stock-operator/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ==================== 主题域二：竞争与企业 ==================== -->
+<section class="domain d-green" id="domain-moat" aria-labelledby="dt-moat">
+  <div class="domain-head">
+    <h2 id="dt-moat">Ⅱ · 竞争与企业</h2>
+    <p class="domain-sub">什么样的企业值得长期持有？在哪里下注、如何看懂生意本身</p>
+  </div>
+  <div class="domain-grid">
+
+    <details class="concept-card" id="c-moat">
+      <summary>
+        <span class="num">概念 04</span>
+        <h3>护城河</h3>
+        <p class="brief">保护企业长期超额利润的结构性竞争优势——城堡值钱，是因为河够宽。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">巴菲特<span class="stance">《致股东的信》</span></div>
+          <p class="say">我们要的是被宽阔护城河保护的经济城堡。</p>
+          <a class="go" href="books/buffett-letters/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">多尔西<span class="stance">《巴菲特的护城河》</span></div>
+          <p class="say">护城河四来源——无形资产、转换成本、网络效应、成本优势。</p>
+          <a class="go" href="books/economic-moat/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">费雪<span class="stance">《怎样选择成长股》</span></div>
+          <p class="say">卓越企业的护城河在于组织能力——研发、销售、管理层的持续进化。</p>
+          <a class="go" href="books/fisher/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-circle-of-competence">
+      <summary>
+        <span class="num">概念 05</span>
+        <h3>能力圈</h3>
+        <p class="brief">只在自己真正理解的领域下注——圈的大小不重要，知道边界才重要。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">巴菲特<span class="stance">《致股东的信》</span></div>
+          <p class="say">能力圈的大小不重要，知道边界在哪里才重要。</p>
+          <a class="go" href="books/buffett-letters/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">芒格<span class="stance">《穷查理宝典》</span></div>
+          <p class="say">如果你不知道自己能力圈的边界，你就没有能力圈。</p>
+          <a class="go" href="books/poor-charlie/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">林奇<span class="stance">《彼得·林奇的成功投资》</span></div>
+          <p class="say">投资你了解的公司——你的职业和生活就是天然的能力圈。</p>
+          <a class="go" href="books/peter-lynch/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-growth-stock">
+      <summary>
+        <span class="num">概念 06</span>
+        <h3>成长股</h3>
+        <p class="brief">寻找能持续成长十年的企业——但警惕为成长支付过高的价格。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">费雪<span class="stance">《怎样选择成长股》</span></div>
+          <p class="say">用15条原则找到能持续成长十年的企业，然后几乎永远不卖。</p>
+          <a class="go" href="books/fisher/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">林奇<span class="stance">《彼得·林奇的成功投资》</span></div>
+          <p class="say">快速增长型是十倍股的温床——但要区分真成长和伪成长。</p>
+          <a class="go" href="books/peter-lynch/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《聪明的投资者》· 反方</span></div>
+          <p class="say">为成长支付过高价格是投资者亏损的主要来源。</p>
+          <a class="go" href="books/intelligent-investor/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ==================== 主题域三：风险与不确定性 ==================== -->
+<section class="domain d-accent" id="domain-risk" aria-labelledby="dt-risk">
+  <div class="domain-head">
+    <h2 id="dt-risk">Ⅲ · 风险与不确定性</h2>
+    <p class="domain-sub">风险不是波动，是你不知道的东西——以及周期与极端事件的逻辑</p>
+  </div>
+  <div class="domain-grid">
+
+    <details class="concept-card" id="c-risk">
+      <summary>
+        <span class="num">概念 07</span>
+        <h3>风险</h3>
+        <p class="brief">不是波动性，而是永久性损失的概率——以及你的模型之外的未知。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">马克斯<span class="stance">《投资最重要的事》</span></div>
+          <p class="say">风险不是波动性，是永久性损失的概率。</p>
+          <a class="go" href="books/howard-marks/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">塔勒布<span class="stance">《黑天鹅》</span></div>
+          <p class="say">真正的风险是你的模型里没有的东西——从未发生过的事。</p>
+          <a class="go" href="books/black-swan/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《证券分析》</span></div>
+          <p class="say">风险控制的起点是透彻分析——不懂的东西才是最大的风险。</p>
+          <a class="go" href="books/security-analysis/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-cycle">
+      <summary>
+        <span class="num">概念 08</span>
+        <h3>周期</h3>
+        <p class="brief">万物皆有周期——你无法预测未来，但可以知道自己身处何处。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">马克斯<span class="stance">《周期》</span></div>
+          <p class="say">你无法预测未来，但可以知道自己身处周期何处。</p>
+          <a class="go" href="books/market-cycle/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">索罗斯<span class="stance">《金融炼金术》</span></div>
+          <p class="say">周期不是自然现象，是认知与现实互相强化的反身性过程。</p>
+          <a class="go" href="books/alchemy-finance/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">利弗莫尔<span class="stance">《股票大作手回忆录》</span></div>
+          <p class="say">华尔街没有新鲜事——周期背后是不变的人性。</p>
+          <a class="go" href="books/stock-operator/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-black-swan">
+      <summary>
+        <span class="num">概念 09</span>
+        <h3>黑天鹅与肥尾</h3>
+        <p class="brief">历史由极端事件塑造——既然无法预测，就构建能从中获益的结构。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">塔勒布<span class="stance">《黑天鹅》</span></div>
+          <p class="say">历史由极端事件塑造，钟形曲线是伟大的知识骗局。</p>
+          <a class="go" href="books/black-swan/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">塔勒布<span class="stance">《反脆弱》</span></div>
+          <p class="say">既然无法预测黑天鹅，就构建能从中获益的结构——杠铃策略。</p>
+          <a class="go" href="books/antifragile/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">马克斯<span class="stance">《周期》· 呼应</span></div>
+          <p class="say">周期极端处，就是黑天鹅的温床——信贷周期见顶时最脆弱。</p>
+          <a class="go" href="books/market-cycle/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ==================== 主题域四：心理与行为 ==================== -->
+<section class="domain d-purple" id="domain-mind" aria-labelledby="dt-mind">
+  <div class="domain-head">
+    <h2 id="dt-mind">Ⅳ · 心理与行为</h2>
+    <p class="domain-sub">投资者最大的敌人是自己——偏误、逆向与仓位的艺术</p>
+  </div>
+  <div class="domain-grid">
+
+    <details class="concept-card" id="c-misjudgment">
+      <summary>
+        <span class="num">概念 10</span>
+        <h3>人类误判心理学</h3>
+        <p class="brief">投资者最大的敌人不是市场，是自己的心理偏误——尤其当多个偏误共振时。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">芒格<span class="stance">《穷查理宝典》</span></div>
+          <p class="say">25种心理倾向叠加产生lollapalooza效应——多个偏误同向共振时人会彻底失去理性。</p>
+          <a class="go" href="books/poor-charlie/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">塔勒布<span class="stance">《随机漫步的傻瓜》</span></div>
+          <p class="say">幸存者偏差让我们只看到赢家——大部分成功是被随机性愚弄。</p>
+          <a class="go" href="books/fooled-by-randomness/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《聪明的投资者》</span></div>
+          <p class="say">投资者最大的敌人不是市场，是自己。</p>
+          <a class="go" href="books/intelligent-investor/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-contrarian">
+      <summary>
+        <span class="num">概念 11</span>
+        <h3>逆向投资</h3>
+        <p class="brief">在众人恐惧处买入，在众人贪婪处警惕——但逆向必须以正确为前提。</p>
+        <span class="expand-hint">3 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">马克斯<span class="stance">《投资最重要的事》</span></div>
+          <p class="say">在别人沮丧地卖出时买入——逆向的三个条件：不同、正确、敢行动。</p>
+          <a class="go" href="books/howard-marks/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">巴菲特<span class="stance">《致股东的信》</span></div>
+          <p class="say">别人贪婪时恐惧，别人恐惧时贪婪。</p>
+          <a class="go" href="books/buffett-letters/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">林奇<span class="stance">《战胜华尔街》</span></div>
+          <p class="say">最好的股票藏在最被冷落的行业——沙漠之花。</p>
+          <a class="go" href="books/beating-street/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="concept-card" id="c-concentration">
+      <summary>
+        <span class="num">概念 12</span>
+        <h3>集中与分散</h3>
+        <p class="brief">下重注还是广撒网？集中派、分散派与杠铃派的世纪分歧。</p>
+        <span class="expand-hint">4 位大师的视角 <span class="arrow">▼</span></span>
+      </summary>
+      <div class="views">
+        <div class="master-quote">
+          <div class="who">费雪<span class="stance">《怎样选择成长股》· 集中派</span></div>
+          <p class="say">过度分散是对无知的对冲——真正了解的公司不需要很多。</p>
+          <a class="go" href="books/fisher/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">芒格<span class="stance">《穷查理宝典》· 集中派</span></div>
+          <p class="say">好机会一生只有几次，来了就要下重注。</p>
+          <a class="go" href="books/poor-charlie/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">格雷厄姆<span class="stance">《聪明的投资者》· 分散派</span></div>
+          <p class="say">对防御型投资者，分散是安全边际的兄弟。</p>
+          <a class="go" href="books/intelligent-investor/">→ 深入阅读</a>
+        </div>
+        <div class="master-quote">
+          <div class="who">塔勒布<span class="stance">《反脆弱》· 杠铃派</span></div>
+          <p class="say">90%极度保守+10%极度激进，比100%中庸更稳健。</p>
+          <a class="go" href="books/antifragile/">→ 深入阅读</a>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer style="text-align:center;padding:48px 0;color:var(--text-secondary);font-size:14px;" role="contentinfo">
+  <p>🕸️ 投资概念地图 · 16位大师 · 12个核心概念</p>
+  <p style="margin-top:8px;">同一个概念，不同大师从不同角度照亮——交叉印证之处，往往是最接近真理的地方。</p>
+  <p style="margin-top:16px;font-size:13px;">📚 <a href="index.html" style="color:var(--accent);text-decoration:none;">返回书架首页</a>，探索 16 本书的完整精读笔记</p>
+</footer>
+
+</div><!-- .container -->
+
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部" aria-label="回到顶部" tabindex="0">⬆</button>
+
+<script>
+// 点击 chip 锚点跳转时自动展开对应概念卡
+document.querySelectorAll('.chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    var target = document.querySelector(chip.getAttribute('href'));
+    if (target && target.tagName === 'DETAILS') target.open = true;
+  });
+});
+// 页面加载时若 URL 带锚点，也展开对应卡片
+if (location.hash) {
+  var t = document.querySelector(location.hash);
+  if (t && t.tagName === 'DETAILS') t.open = true;
+}
+</script>
+</body>
+</html>
