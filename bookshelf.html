@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>完整书架 — AI精读笔记</title>
+<meta name="description" content="16 本投资经典 · 273 个精读章节。从费雪到塔勒布，用投资大师的眼睛看公司。"/>
+<meta property="og:title" content="完整书架 — AI精读笔记"/>
+<meta property="og:description" content="16 本投资经典 · 273 个精读章节。"/>
+<meta property="og:type" content="website"/>
+<link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+  /* ===== 书架页专属样式 ===== */
+  .shelf-hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; border-radius: 20px; padding: 48px 40px;
+    text-align: center; margin-bottom: 40px; position: relative; overflow: hidden;
+  }
+  .shelf-hero::before {
+    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 70%, rgba(199,91,57,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(44,111,170,0.1) 0%, transparent 50%);
+  }
+  .shelf-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; position: relative; }
+  .shelf-hero .subtitle { color: #a0b4c8; font-size: 18px; margin-bottom: 0; position: relative; }
+  .shelf-hero .stats-line { color: #7a8fa0; font-size: 13px; margin-top: 16px; position: relative; }
+
+  /* 书籍卡片网格 */
+  .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-bottom: 40px; }
+  .book-card {
+    background: var(--card); border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow); transition: all 0.3s; display: flex; flex-direction: column;
+    border: 1px solid var(--border);
+  }
+  .book-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+  .book-card .card-cover {
+    height: 160px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .book-card .card-cover.fisher { background: linear-gradient(135deg, #2c3e50, #1a252f); }
+  .book-card .card-cover.graham { background: linear-gradient(135deg, #3d5a3c, #1e3520); }
+  .book-card .card-cover.buffett { background: linear-gradient(135deg, #4a3f6b, #2a1f4b); }
+  .book-card .card-cover.lynch { background: linear-gradient(135deg, #5c4a3a, #3a2a1a); }
+  .book-card .card-cover .cover-text {
+    color: #fff; font-weight: 700; font-size: 15px; text-align: center;
+    padding: 20px; line-height: 1.5; opacity: 0.9;
+  }
+  .book-card .card-cover .status-badge {
+    position: absolute; top: 12px; right: 12px;
+    padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;
+  }
+  .status-badge.available { background: var(--green); color: #fff; }
+  .status-badge.upcoming { background: rgba(255,255,255,0.25); color: #fff; }
+  .book-card .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+  .book-card .card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .book-card .card-body .author { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
+  .book-card .card-body .desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; flex: 1; }
+  .book-card .card-body .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .book-card .card-body .tags .tag {
+    background: var(--tag-bg); padding: 3px 10px; border-radius: 12px;
+    font-size: 12px; color: var(--text-secondary);
+  }
+  .book-card .card-body .card-btn {
+    display: block; text-align: center; padding: 12px; border-radius: 24px;
+    font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s;
+  }
+  .card-btn.primary { background: var(--accent); color: #fff; }
+  .card-btn.primary:hover { background: #b04f30; }
+  .card-btn.secondary { background: var(--tag-bg); color: var(--text-secondary); cursor: not-allowed; }
+
+  /* 诊断入口条 */
+  .diagnose-banner {
+    background: linear-gradient(135deg, #2c3e50, #1a252f);
+    color: #fff; border-radius: 16px; padding: 32px 40px;
+    display: flex; align-items: center; gap: 32px; margin-bottom: 40px;
+  }
+  .diagnose-banner .banner-text { flex: 1; }
+  .diagnose-banner .banner-text h2 { font-size: 22px; margin-bottom: 6px; }
+  .diagnose-banner .banner-text p { color: #a0b4c8; font-size: 14px; }
+  .diagnose-banner .banner-btn {
+    background: var(--accent); color: #fff; padding: 14px 32px; border-radius: 28px;
+    font-weight: 600; font-size: 16px; text-decoration: none; white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .diagnose-banner .banner-btn:hover { background: #b04f30; }
+
+  /* 底部 */
+  .shelf-footer { text-align: center; padding: 40px 0; color: var(--text-secondary); font-size: 14px; }
+
+  @media (max-width: 768px) {
+    .shelf-hero { padding: 36px 20px; }
+    .shelf-hero h1 { font-size: 24px; }
+    .shelf-hero .subtitle { font-size: 15px; }
+    .book-grid { grid-template-columns: 1fr; }
+    .diagnose-banner { flex-direction: column; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav" role="navigation" aria-label="顶部导航">
+  <span class="logo"><a href="./" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <div class="nav-links">
+    <a href="index.html">🏠 修行</a>
+    <a href="diagnose.html">🔍 股票诊断</a>
+    <a href="concepts.html">🕸️ 概念地图</a>
+    <a class="active" href="bookshelf.html">📚 书架</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- Hero -->
+<section class="shelf-hero">
+  <h1>📖 完整书架</h1>
+  <p class="subtitle">16 本投资经典 · 273 个精读章节</p>
+  <p class="stats-line">从费雪到塔勒布，用投资大师的眼睛看公司</p>
+</section>
+
+<!-- 诊断入口 -->
+<div class="diagnose-banner">
+  <div class="banner-text">
+    <h2>🧪 股票诊断引擎</h2>
+    <p>输入一只 A 股，用费雪的 15 条原则或马克斯的 21 条原则逐条打分。不是荐股，是教你用大师的方法看公司。</p>
+  </div>
+  <a class="banner-btn" href="diagnose.html">开始诊断 →</a>
+</div>
+
+<!-- 书架 -->
+<h2 class="section-title"><span class="emoji">📖</span> 精读笔记</h2>
+<div class="book-grid">
+
+  <!-- Fisher — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover fisher">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">怎样选择<br/>成长股</div>
+    </div>
+    <div class="card-body">
+      <h3>怎样选择成长股</h3>
+      <div class="author">菲利普·A·费雪 · 1958</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.8</span><span>💬 12条</span><span>📖 8章</span>
+      </div>
+      <div class="desc">
+        巴菲特说自己是"85%格雷厄姆+15%费雪"。这本书首次提出用"闲聊法"调研企业、15条原则筛选成长股。但中文译本大量术语翻译有硬伤——我们用AI重新精读，还原费雪真正想说的。
+      </div>
+      <div class="tags">
+        <span class="tag">成长股</span><span class="tag">15条原则</span><span class="tag">闲聊调研法</span><span class="tag">8章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/fisher/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Howard Marks — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #1a3a5c, #0d1f33);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">The Most<br/>Important Thing<br/>Illuminated</div>
+    </div>
+    <div class="card-body">
+      <h3>投资最重要的事</h3>
+      <div class="author">霍华德·马克斯 · 2013</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.7</span><span>💬 15条</span><span>📖 21章</span>
+      </div>
+      <div class="desc">
+        橡树资本创始人将20年投资备忘录浓缩为21章"最重要的事"。注解版增加了塞思·卡拉曼等四位顶级投资人的逐章注解和马克斯自己的回顾性自注。全书最核心贡献：对风险的重新定义——风险不是波动性，而是永久性损失的概率。
+      </div>
+      <div class="tags">
+        <span class="tag">风险控制</span><span class="tag">第二层次思维</span><span class="tag">逆向投资</span><span class="tag">21章精读</span><span class="tag">大师对话</span>
+      </div>
+      <a class="card-btn primary" href="books/howard-marks/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Buffett — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover buffett">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">The Warren<br/>Buffett Way</div>
+    </div>
+    <div class="card-body">
+      <h3>巴菲特之道</h3>
+      <div class="author">罗伯特·G·哈格斯特朗 · 第三版 2014</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.5</span><span>💬 10条</span><span>📖 8章</span>
+      </div>
+      <div class="desc">
+        霍华德·马克斯、彼得·林奇、比尔·米勒三位大师作序——一本投资书集齐这三人写序，极为罕见。提炼了巴菲特投资方法的12条永恒原则（企业/管理/财务/市场四组），通过9个经典案例（华盛顿邮报、可口可乐、富国银行…）逐一展示原则的实际运用。
+      </div>
+      <div class="tags">
+        <span class="tag">12条原则</span><span class="tag">9大案例</span><span class="tag">集中投资</span><span class="tag">安全边际</span><span class="tag">8章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/buffett/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Market Cycle — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #1f5f5b, #0d2f2c);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">周期</div>
+    </div>
+    <div class="card-body">
+      <h3>周期</h3>
+      <div class="author">霍华德·马克斯 · 2018</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.5</span><span>💬 13条</span><span>📖 18章</span>
+      </div>
+      <div class="desc">
+        《投资最重要的事》的姊妹篇。马克斯用整本书回答一个问题：我们无法预测未来，但可以知道自己身处周期的什么位置。经济周期、信贷周期、心理钟摆、风险态度周期如何互相咬合、层层放大？看懂事件之间的因果链条，你就能在别人贪婪时警惕、在别人恐惧时进取。
+      </div>
+      <div class="tags">
+        <span class="tag">周期定位</span><span class="tag">心理钟摆</span><span class="tag">信贷周期</span><span class="tag">10条终极原则</span><span class="tag">18章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/market-cycle/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Buffett Letters — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #6b3a3a, #3d1f1f);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">巴菲特<br/>致股东的信</div>
+    </div>
+    <div class="card-body">
+      <h3>巴菲特致股东的信</h3>
+      <div class="author">沃伦·巴菲特 · 1970-2017</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 9.3</span><span>💬 13条</span><span>📖 12章</span>
+      </div>
+      <div class="desc">
+        唯一由巴菲特亲笔写就的"著作"。48年、48封致股东信，是价值投资思想最完整的第一手记录。我们按主题重组为12章，提炼出十大核心原则——从"把股东当合伙人"到"市场先生"再到护城河，每章标注原始出处年份，可按图索骥回到原信深读。
+      </div>
+      <div class="tags">
+        <span class="tag">第一手原典</span><span class="tag">十大核心原则</span><span class="tag">护城河</span><span class="tag">合伙人思维</span><span class="tag">12章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/buffett-letters/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Alchemy of Finance — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #6e5a1e, #3d3010);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">金融炼金术</div>
+    </div>
+    <div class="card-body">
+      <h3>金融炼金术</h3>
+      <div class="author">乔治·索罗斯 · 1987</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.0</span><span>💬 13条</span><span>📖 12章</span>
+      </div>
+      <div class="desc">
+        "反身性"理论的唯一原典。索罗斯认为市场永远是错的：参与者的认知改变现实，被改变的现实又反过来强化认知，由此形成盛衰序列的八个阶段。书中还完整公开了他1985-1986年的实时交易日记——预测频频出错却依然大赚，这才是本书最震撼的部分。
+      </div>
+      <div class="tags">
+        <span class="tag">反身性</span><span class="tag">盛衰八阶段</span><span class="tag">实时实验</span><span class="tag">宏观对冲</span><span class="tag">12章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/alchemy-finance/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Poor Charlie — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #2c2c1e, #4a3a1e, #8a6d1f, #c9a84c);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">穷查理<br/>宝典</div>
+    </div>
+    <div class="card-body">
+      <h3>穷查理宝典</h3>
+      <div class="author">查理·芒格/彼得·考夫曼 · 2017</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.9</span><span>💬 20条</span><span>📖 12章</span>
+      </div>
+      <div class="desc">
+        芒格智慧箴言录，含25条人类误判心理学倾向和11场经典演讲。格栅思维模型教你用多学科视角做投资决策。
+      </div>
+      <div class="tags">
+        <span class="tag">价值投资</span><span class="tag">格栅思维</span><span class="tag">人类误判心理学</span><span class="tag">芒格主义</span><span class="tag">12章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/poor-charlie/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Intelligent Investor — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #0d1f15, #1a3a2e, #2d6a4f, #40916c);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">聪明的<br/>投资者</div>
+    </div>
+    <div class="card-body">
+      <h3>聪明的投资者（第3版·75周年）</h3>
+      <div class="author">本杰明·格雷厄姆/贾森·茨威格 · 2024</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 9.0</span><span>💬 12条</span><span>📖 22章</span>
+      </div>
+      <div class="desc">
+        巴菲特说"有史以来最好的投资书"。2024年75周年纪念版，格雷厄姆原典和茨威格逐章现代评注。安全边际、市场先生、内在价值三大支柱，防御型与进取型的永恒智慧。
+      </div>
+      <div class="tags">
+        <span class="tag">价值投资圣经</span><span class="tag">安全边际</span><span class="tag">市场先生</span><span class="tag">20章精读</span><span class="tag">75周年</span>
+      </div>
+      <a class="card-btn primary" href="books/intelligent-investor/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Peter Lynch — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #1a3a1e, #2d5a2e, #3a7d3a, #5cb85c);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">彼得·林奇的<br/>成功投资</div>
+    </div>
+    <div class="card-body">
+      <h3>彼得·林奇的成功投资</h3>
+      <div class="author">彼得·林奇/约翰·罗瑟查尔德 · 2000</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.7</span><span>💬 9条</span><span>📖 22章</span>
+      </div>
+      <div class="desc">
+        林奇管理麦哲伦基金13年年化29%的实战方法论。6种公司类型(快速/稳定/周期/困境反转/隐蔽资产)、13条选股准则、12条最愚蠢的投资说法——用业余投资者的常识打败华尔街。
+      </div>
+      <div class="tags">
+        <span class="tag">业余投资者</span><span class="tag">选股</span><span class="tag">6种公司类型</span><span class="tag">13条准则</span><span class="tag">20章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/peter-lynch/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Security Analysis — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #0d1b2a, #1b3a5c, #2c5282, #4299e1);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">证券分析<br/>第6版</div>
+    </div>
+    <div class="card-body">
+      <h3>证券分析(第6版)</h3>
+      <div class="author">本杰明·格雷厄姆/戴维·多德 · 2019</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 9.0</span><span>💬 17条</span><span>📖 19章</span>
+      </div>
+      <div class="desc">
+        价值投资奠基之作，巴菲特读了至少四遍。52章涵盖内在价值、安全边际、固定收益分析、损益表与资产负债表深层解读。第6版新增塞思·卡拉曼、霍华德·马克斯等11位华尔街大师导读，巴曙松中文翻译团队为中国市场做了本土化适配。
+      </div>
+      <div class="tags">
+        <span class="tag">价值投资奠基</span><span class="tag">安全边际</span><span class="tag">11位大师导读</span><span class="tag">巴曙松翻译</span><span class="tag">18章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/security-analysis/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- 战胜华尔街 — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #3d1a1a, #5c2a2a, #8b3a3a, #c75b39);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">战胜华尔街<br/>典藏版</div>
+    </div>
+    <div class="card-body">
+      <h3>战胜华尔街（典藏版）</h3>
+      <div class="author">彼得·林奇/约翰·罗瑟查尔德 · 2018</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.4</span><span>💬 26条</span><span>📖 15章</span>
+      </div>
+      <div class="desc">
+        林奇继《成功投资》后的又一力作：13年麦哲伦基金选股实战回忆录。记录从1800万到140亿美元历程中的21个真实案例，覆盖零售、房地产、周期股、金融等几乎所有主要行业，并提炼出25条投资黄金法则。
+      </div>
+      <div class="tags">
+        <span class="tag">25条黄金法则</span><span class="tag">21个案例</span><span class="tag">行业选股</span><span class="tag">麦哲伦基金</span><span class="tag">15章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/beating-street/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- 股票大作手回忆录 — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #2c2c1e, #4a3a1e, #8a6d1f, #c9a84c);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">股票大作手<br/>回忆录</div>
+    </div>
+    <div class="card-body">
+      <h3>股票大作手回忆录</h3>
+      <div class="author">埃德温·勒菲弗/杰西·利弗莫尔 · 1923</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.9</span><span>💬 49条</span><span>📖 25章</span>
+      </div>
+      <div class="desc">
+        有史以来最伟大的投资/投机经典之一。24章讲述利弗莫尔四次破产、三次东山再起的史诗故事。从读盘技巧到资金管理，从市场心理到自控力，构成完整的投机哲学体系。巴菲特、索罗斯、林奇都承认从中获益。
+      </div>
+      <div class="tags">
+        <span class="tag">投机经典</span><span class="tag">市场心理</span><span class="tag">最小阻力线</span><span class="tag">投机哲学</span><span class="tag">25章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/stock-operator/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- 巴菲特的护城河 — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #0d2a1a, #1a4a2e, #2d6a4f, #40916c);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">巴菲特的<br/>护城河</div>
+    </div>
+    <div class="card-body">
+      <h3>巴菲特的护城河</h3>
+      <div class="author">帕特·多尔西 · 2008</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.3</span><span>💬 27条</span><span>📖 15章</span>
+      </div>
+      <div class="desc">
+        晨星公司股票研究总监多尔西将巴菲特的护城河概念从直觉转化为可操作框架。系统讲解四大护城河来源——无形资产、转换成本、网络效应、成本优势——并教你识别"伪护城河"、评估护城河宽度，以及正确的卖出时机。
+      </div>
+      <div class="tags">
+        <span class="tag">护城河</span><span class="tag">四大来源</span><span class="tag">竞争优势</span><span class="tag">无形资产</span><span class="tag">15章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/economic-moat/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Fooled by Randomness — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #0d1a2a, #1a3050, #2c5282, #4299e1);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">随机漫步<br/>的傻瓜</div>
+    </div>
+    <div class="card-body">
+      <h3>随机漫步的傻瓜</h3>
+      <div class="author">纳西姆·尼古拉斯·塔勒布 · 2001</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.6</span><span>💬 14条</span><span>📖 14章</span>
+      </div>
+      <div class="desc">
+        塔勒布"不确定性五部曲"开山之作。核心追问：你的成功到底是能力还是运气？衍生品交易员出身的塔勒布用蒙特卡罗思维、另类历史、幸存者偏差层层拆解——市场上大部分"赢家"只是被随机性愚弄的幸运傻瓜。读懂本书，你会重新审视一切业绩记录。
+      </div>
+      <div class="tags">
+        <span class="tag">随机性</span><span class="tag">幸存者偏差</span><span class="tag">另类历史</span><span class="tag">14章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/fooled-by-randomness/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Black Swan — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #4a4a4a, #6b6b6b);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">黑天鹅</div>
+    </div>
+    <div class="card-body">
+      <h3>黑天鹅</h3>
+      <div class="author">纳西姆·尼古拉斯·塔勒布 · 2007</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 7.9</span><span>💬 13条</span><span>📖 19章</span>
+      </div>
+      <div class="desc">
+        21世纪最具影响力的思想著作之一，出版次年即"预言"了金融危机。塔勒布提出：真正塑造历史与市场的，是极少数不可预测的极端事件。平均斯坦与极端斯坦、火鸡问题、叙事谬误、杠铃策略——这些概念已成为现代风险思维的通用语言。
+      </div>
+      <div class="tags">
+        <span class="tag">极端事件</span><span class="tag">肥尾分布</span><span class="tag">杠铃策略</span><span class="tag">19章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/black-swan/">进入精读 →</a>
+    </div>
+  </div>
+
+  <!-- Antifragile — 已上线 -->
+  <div class="book-card">
+    <div class="card-cover" style="background: linear-gradient(135deg, #2a0d0d, #4a1a1a, #7a2a2a, #c0392b);">
+      <span class="status-badge available">已上线</span>
+      <div class="cover-text">反脆弱</div>
+    </div>
+    <div class="card-body">
+      <h3>反脆弱</h3>
+      <div class="author">纳西姆·尼古拉斯·塔勒布 · 2012</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.5</span><span>💬 47条</span><span>📖 24章</span>
+      </div>
+      <div class="desc">
+        塔勒布思想体系的集大成之作，给《黑天鹅》提出的问题一个完整答案：既然极端事件无法预测，就把自己变成能从波动中获益的结构。脆弱—强韧—反脆弱三元组、杠铃策略、否定法、林迪效应——从投资组合到人生决策的完整反脆弱操作手册。
+      </div>
+      <div class="tags">
+        <span class="tag">反脆弱性</span><span class="tag">凸性</span><span class="tag">选择权</span><span class="tag">24章精读</span>
+      </div>
+      <a class="card-btn primary" href="books/antifragile/">进入精读 →</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- 底部 -->
+<div class="shelf-footer">
+  <p>📚 AI精读笔记 · 用投资大师的方法论，建立你的投资体系</p>
+  <p style="margin-top:8px;font-size:12px;">精读笔记为原创解读内容，基于公开书籍进行评论和介绍，不替代原书阅读。</p>
+</div>
+
+</div>
+
+</body>
+</html>
