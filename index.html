@@ -1,106 +1,201 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" id="top">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>AI精读笔记 — 用投资大师的眼睛看公司</title>
-<meta name="description" content="用 Fisher、Graham、Buffett 等投资大师的方法论，深度学习投资智慧。精读笔记 + 股票诊断 + AI导师。"/>
-<meta property="og:title" content="AI精读笔记 — 用投资大师的眼睛看公司"/>
-<meta property="og:description" content="用投资大师的方法论深度学习投资智慧。精读笔记 + 股票诊断 + AI导师。"/>
+<title>⛰️ 投资修行 — AI精读笔记</title>
+<meta name="description" content="五位投资大师代表五座山：商业认知、资产估值、周期与市场、心性与哲学、不确定性与风险。按能力域修行，每座山独立攀登。"/>
+<meta property="og:title" content="⛰️ 投资修行 — AI精读笔记"/>
+<meta property="og:description" content="五位投资大师代表五座山。你不用同时爬所有山——但每座山都有自己的风景。"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://ai-reading.workbuddy.com"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <style>
-  /* ===== 首页专属样式 ===== */
-  .shelf-hero {
+  /* ===== 修行 Hero ===== */
+  .practice-hero {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #fff; border-radius: 20px; padding: 56px 40px;
-    text-align: center; margin-bottom: 40px; position: relative; overflow: hidden;
+    color: #fff; border-radius: 20px; padding: 48px 40px 40px;
+    text-align: center; margin-bottom: 32px; position: relative; overflow: hidden;
   }
-  .shelf-hero::before {
+  .practice-hero::before {
     content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
     background: radial-gradient(circle at 30% 70%, rgba(199,91,57,0.15) 0%, transparent 50%),
                 radial-gradient(circle at 70% 30%, rgba(44,111,170,0.1) 0%, transparent 50%);
+    pointer-events: none;
   }
-  .shelf-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; position: relative; }
-  .shelf-hero .subtitle { color: #a0b4c8; font-size: 18px; margin-bottom: 0; position: relative; }
-  .shelf-hero .stats {
-    display: flex; justify-content: center; gap: 40px; margin-top: 28px;
-    position: relative; flex-wrap: wrap;
+  .practice-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; position: relative; }
+  .practice-hero .subtitle { color: #a0b4c8; font-size: 17px; margin-bottom: 20px; position: relative; }
+  .practice-hero .level-badge {
+    display: inline-flex; align-items: center; gap: 8px; position: relative;
+    background: rgba(184,134,11,0.18); border: 1px solid rgba(218,165,32,0.55);
+    color: #f5d78e; font-size: 15px; font-weight: 700;
+    padding: 8px 22px; border-radius: 24px; margin-bottom: 22px;
   }
-  .shelf-hero .stat-item { text-align: center; }
-  .shelf-hero .stat-num { font-size: 28px; font-weight: 800; color: var(--accent); }
-  .shelf-hero .stat-label { font-size: 13px; color: #7a8fa0; margin-top: 2px; }
+  .practice-hero .mini-mountains {
+    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative;
+  }
+  .practice-hero .mini-mountain {
+    font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 16px;
+    background: rgba(255,255,255,0.08); color: #7a8fa0;
+    border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;
+  }
+  .practice-hero .mini-mountain.lit {
+    color: #fff; border-color: transparent;
+  }
 
-  /* 书籍卡片网格 */
-  .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-bottom: 40px; }
-  .book-card {
-    background: var(--card); border-radius: 16px; overflow: hidden;
-    box-shadow: var(--shadow); transition: all 0.3s; display: flex; flex-direction: column;
+  /* ===== 五张域卡片 ===== */
+  .domain-card {
+    background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
+    border: 1px solid var(--border); border-left: 4px solid var(--domain-color, var(--accent));
+    padding: 26px 30px 20px; margin-bottom: 22px;
+  }
+  .domain-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 16px; margin-bottom: 16px;
+  }
+  .domain-title { font-size: 20px; font-weight: 800; line-height: 1.4; }
+  .domain-title .domain-emoji { margin-right: 4px; }
+  .domain-title .domain-q { font-size: 15px; font-weight: 600; color: var(--text-secondary); }
+  .domain-master {
+    display: flex; align-items: center; gap: 8px; margin-top: 8px;
+    font-size: 13px; color: var(--text-secondary);
+  }
+  .domain-master .master-avatar {
+    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; color: var(--domain-color, var(--accent));
+    background: color-mix(in srgb, var(--domain-color, #999) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--domain-color, #999) 35%, transparent);
+  }
+  .domain-progress-badge {
+    flex-shrink: 0; text-align: right; font-size: 13px; font-weight: 700;
+    color: var(--domain-color, var(--accent)); white-space: nowrap;
+    background: color-mix(in srgb, var(--domain-color, #999) 10%, transparent);
+    padding: 6px 14px; border-radius: 14px;
+  }
+  .domain-progress-badge .sub { display: block; font-size: 11px; font-weight: 500; color: var(--text-secondary); }
+
+  /* 书籍行 */
+  .domain-books { display: flex; flex-direction: column; }
+  .book-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 6px; border-radius: 8px; transition: background 0.2s;
+  }
+  .book-row:hover { background: var(--tag-bg); }
+  .book-row .lv-dot {
+    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+  }
+  .book-row .lv-tag {
+    font-size: 12px; font-weight: 600; color: var(--text-secondary);
+    flex-shrink: 0; width: 46px;
+  }
+  .book-row .book-name {
+    font-size: 15px; font-weight: 600; color: var(--text);
+    text-decoration: none; flex: 1; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .book-row .book-name:hover { color: var(--accent); }
+  .book-row .mini-bar {
+    width: 120px; height: 6px; border-radius: 3px; background: var(--border);
+    overflow: hidden; flex-shrink: 0;
+  }
+  .book-row .mini-bar .mini-fill {
+    height: 100%; border-radius: 3px; background: var(--domain-color, var(--accent));
+    transition: width 0.5s;
+  }
+  .book-row .book-count {
+    font-size: 12px; color: var(--text-secondary); flex-shrink: 0;
+    width: 58px; text-align: right; font-variant-numeric: tabular-nums;
+  }
+  .book-row .book-count.not-started { color: #b0b0b0; }
+  .book-row .book-go {
+    font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none;
+    flex-shrink: 0; padding: 3px 10px; border-radius: 12px; transition: background 0.2s;
+  }
+  .book-row .book-go:hover { background: rgba(44,111,170,0.1); }
+
+  /* 跨山连接 */
+  .domain-links {
+    border-top: 1px dashed var(--border); margin-top: 12px; padding-top: 12px;
+  }
+  .domain-links .links-label {
+    font-size: 12px; color: #b0a898; font-weight: 600; margin-bottom: 6px;
+  }
+  .domain-links .cross-row {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: #9a948a; padding: 3px 0;
+  }
+  .domain-links .cross-row .cross-book { font-weight: 600; }
+  .domain-links .cross-row a {
+    color: var(--blue); text-decoration: none; opacity: 0.75; font-weight: 600;
+  }
+  .domain-links .cross-row a:hover { opacity: 1; text-decoration: underline; }
+
+  /* ===== 修行总览 ===== */
+  .practice-summary {
+    background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
+    border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 32px;
+  }
+  .practice-summary .summary-title {
+    font-size: 19px; font-weight: 800; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .practice-summary .summary-stats {
+    display: flex; flex-wrap: wrap; gap: 12px 28px; margin-bottom: 20px;
+  }
+  .practice-summary .stat-chip {
+    font-size: 14px; color: var(--text-secondary);
+  }
+  .practice-summary .stat-chip strong { color: var(--text); font-weight: 700; }
+  .practice-summary .xp-bar-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 13px; color: var(--text-secondary); margin-bottom: 6px;
+  }
+  .practice-summary .xp-bar {
+    height: 10px; border-radius: 5px; background: var(--border); overflow: hidden;
+  }
+  .practice-summary .xp-bar .xp-fill {
+    height: 100%; border-radius: 5px;
+    background: linear-gradient(90deg, var(--gold), #e0a840);
+    transition: width 0.6s ease;
+  }
+
+  /* ===== 底部链接 ===== */
+  .bottom-links {
+    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .bottom-links a {
+    text-decoration: none; font-size: 15px; font-weight: 600;
+    padding: 12px 28px; border-radius: 24px; transition: all 0.2s;
+  }
+  .bottom-links .go-bookshelf { background: var(--accent); color: #fff; }
+  .bottom-links .go-bookshelf:hover { background: #b04f30; }
+  .bottom-links .go-top {
+    background: var(--tag-bg); color: var(--text-secondary);
     border: 1px solid var(--border);
   }
-  .book-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
-  .book-card .card-cover {
-    height: 160px; display: flex; align-items: center; justify-content: center;
-    position: relative;
-  }
-  .book-card .card-cover.fisher { background: linear-gradient(135deg, #2c3e50, #1a252f); }
-  .book-card .card-cover.graham { background: linear-gradient(135deg, #3d5a3c, #1e3520); }
-  .book-card .card-cover.buffett { background: linear-gradient(135deg, #4a3f6b, #2a1f4b); }
-  .book-card .card-cover.lynch { background: linear-gradient(135deg, #5c4a3a, #3a2a1a); }
-  .book-card .card-cover .cover-text {
-    color: #fff; font-weight: 700; font-size: 15px; text-align: center;
-    padding: 20px; line-height: 1.5; opacity: 0.9;
-  }
-  .book-card .card-cover .status-badge {
-    position: absolute; top: 12px; right: 12px;
-    padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;
-  }
-  .status-badge.available { background: var(--green); color: #fff; }
-  .status-badge.upcoming { background: rgba(255,255,255,0.25); color: #fff; }
-  .book-card .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-  .book-card .card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .book-card .card-body .author { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
-  .book-card .card-body .desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; flex: 1; }
-  .book-card .card-body .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-  .book-card .card-body .tags .tag {
-    background: var(--tag-bg); padding: 3px 10px; border-radius: 12px;
-    font-size: 12px; color: var(--text-secondary);
-  }
-  .book-card .card-body .card-btn {
-    display: block; text-align: center; padding: 12px; border-radius: 24px;
-    font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s;
-  }
-  .card-btn.primary { background: var(--accent); color: #fff; }
-  .card-btn.primary:hover { background: #b04f30; }
-  .card-btn.secondary { background: var(--tag-bg); color: var(--text-secondary); cursor: not-allowed; }
+  .bottom-links .go-top:hover { color: var(--accent); border-color: var(--accent); }
 
-  /* 诊断入口条 */
-  .diagnose-banner {
-    background: linear-gradient(135deg, #2c3e50, #1a252f);
-    color: #fff; border-radius: 16px; padding: 32px 40px;
-    display: flex; align-items: center; gap: 32px; margin-bottom: 40px;
-  }
-  .diagnose-banner .banner-text { flex: 1; }
-  .diagnose-banner .banner-text h2 { font-size: 22px; margin-bottom: 6px; }
-  .diagnose-banner .banner-text p { color: #a0b4c8; font-size: 14px; }
-  .diagnose-banner .banner-btn {
-    background: var(--accent); color: #fff; padding: 14px 32px; border-radius: 28px;
-    font-weight: 600; font-size: 16px; text-decoration: none; white-space: nowrap;
-    transition: all 0.2s;
-  }
-  .diagnose-banner .banner-btn:hover { background: #b04f30; }
-
-  /* 底部 */
   .shelf-footer { text-align: center; padding: 40px 0; color: var(--text-secondary); font-size: 14px; }
 
+  /* ===== 响应式 ===== */
   @media (max-width: 768px) {
-    .shelf-hero { padding: 36px 20px; }
-    .shelf-hero h1 { font-size: 24px; }
-    .shelf-hero .subtitle { font-size: 15px; }
-    .shelf-hero .stats { gap: 20px; }
-    .book-grid { grid-template-columns: 1fr; }
-    .diagnose-banner { flex-direction: column; text-align: center; padding: 24px; }
+    .practice-hero { padding: 32px 18px 28px; }
+    .practice-hero h1 { font-size: 24px; }
+    .practice-hero .subtitle { font-size: 14px; }
+    .domain-card {
+      padding: 18px 16px 14px;
+      border-left: 1px solid var(--border);
+      border-top: 4px solid var(--domain-color, var(--accent));
+    }
+    .domain-head { flex-direction: column; gap: 8px; }
+    .domain-progress-badge { text-align: left; align-self: flex-start; }
+    .book-row { flex-wrap: wrap; row-gap: 4px; padding: 10px 4px; }
+    .book-row .book-name { flex-basis: calc(100% - 130px); }
+    .book-row .mini-bar { margin-left: 65px; width: 110px; }
+    .practice-summary { padding: 20px 18px; }
+    .practice-summary .summary-stats { flex-direction: column; gap: 8px; }
   }
 
   /* ===== 金句滚动墙 ===== */
@@ -151,39 +246,27 @@
 <body>
 
 <nav class="top-nav" role="navigation" aria-label="顶部导航">
-  <span class="logo">📚 AI精读</span>
+  <span class="logo"><a href="./" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
   <div class="nav-links">
+    <a href="./" class="active">🏠 修行</a>
     <a href="diagnose.html">🔍 股票诊断</a>
     <a href="concepts.html">🕸️ 概念地图</a>
-    <a href="my.html">⛰️ 投资修行</a>
+    <a href="bookshelf.html">📚 书架</a>
   </div>
 </nav>
 
 <div class="container">
 
-<!-- Hero -->
-<section class="shelf-hero">
-  <h1>用投资大师的眼睛看公司</h1>
-  <p class="subtitle">不是听别人讲书，是让费雪、格雷厄姆、巴菲特亲自教你投资</p>
-  <div class="stats">
-    <div class="stat-item">
-      <div class="stat-num">16</div>
-      <div class="stat-label">本精读笔记</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">7</div>
-      <div class="stat-label">家公司可诊断</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">187</div>
-      <div class="stat-label">条投资原则</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">273</div>
-      <div class="stat-label">个精读章节</div>
-    </div>
-  </div>
+<!-- Hero：投资修行 -->
+<section class="practice-hero">
+  <h1>⛰️ 投资修行</h1>
+  <p class="subtitle">五位投资大师代表五座山。你不用同时爬所有山——但每座山都有自己的风景。</p>
+  <div class="level-badge" id="heroLevelBadge">🌱 Lv.1 见习学徒 · 0 XP</div>
+  <div class="mini-mountains" id="miniMountains"></div>
 </section>
+
+<!-- 五张域卡片（书籍列与进度由 JS 动态渲染） -->
+<div id="domainCards"></div>
 
 <!-- 金句滚动墙 -->
 <section class="quote-wall">
@@ -197,15 +280,6 @@
   </div>
   <div class="quote-indicators" id="quote-dots"></div>
 </section>
-
-<!-- 诊断入口 -->
-<div class="diagnose-banner">
-  <div class="banner-text">
-    <h2>🧪 股票诊断引擎</h2>
-    <p>输入一只 A 股，用费雪的 15 条原则或马克斯的 21 条原则逐条打分。不是荐股，是教你用大师的方法看公司。</p>
-  </div>
-  <a class="banner-btn" href="diagnose.html">开始诊断 →</a>
-</div>
 
 <!-- 趣味测试：这本书是谁的菜？ -->
 <style>
@@ -424,458 +498,21 @@
 })();
 </script>
 
-<!-- 三档阅读路径 -->
-<style>
-  .reading-paths { margin-bottom: 40px; }
-  .reading-paths .paths-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-  }
-  .path-card {
-    background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
-    border: 1px solid var(--border); padding: 24px;
-    display: flex; flex-direction: column;
-  }
-  .path-card.path-beginner { border-left: 4px solid var(--green); }
-  .path-card.path-advanced { border-left: 4px solid var(--blue); }
-  .path-card.path-master { border-left: 4px solid var(--gold); }
-  .path-card .path-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-  .path-card.path-beginner .path-title { color: var(--green); }
-  .path-card.path-advanced .path-title { color: var(--blue); }
-  .path-card.path-master .path-title { color: var(--gold); }
-  .path-card .path-tagline { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; }
-  .path-card .path-books {
-    list-style: none; margin: 0 0 16px; padding: 0;
-    counter-reset: path-step; flex: 1;
-  }
-  .path-card .path-books li { counter-increment: path-step; }
-  .path-card .path-books a {
-    display: flex; align-items: baseline; gap: 10px;
-    padding: 9px 10px; border-radius: 8px; text-decoration: none;
-    color: var(--text); font-size: 14px; transition: background 0.2s;
-  }
-  .path-card .path-books a:hover { background: var(--tag-bg); }
-  .path-card .path-books a::before {
-    content: counter(path-step); flex-shrink: 0;
-    width: 20px; height: 20px; border-radius: 50%;
-    background: var(--tag-bg); color: var(--text-secondary);
-    font-size: 12px; font-weight: 600;
-    display: inline-flex; align-items: center; justify-content: center;
-    align-self: center;
-  }
-  .path-card.path-beginner .path-books a::before { background: rgba(45,125,70,0.12); color: var(--green); }
-  .path-card.path-advanced .path-books a::before { background: rgba(44,111,170,0.12); color: var(--blue); }
-  .path-card.path-master .path-books a::before { background: rgba(184,134,11,0.12); color: var(--gold); }
-  .path-card .path-books .book-name { font-weight: 600; }
-  .path-card .path-books .book-note { font-size: 12px; color: var(--text-secondary); }
-  .path-card .path-audience {
-    font-size: 12px; color: var(--text-secondary);
-    border-top: 1px dashed var(--border); padding-top: 12px;
-  }
-  @media (max-width: 768px) {
-    .reading-paths .paths-grid { grid-template-columns: 1fr; }
-  }
-</style>
-<section class="reading-paths" aria-label="三档阅读路径">
-  <h2 class="section-title"><span class="emoji">🧭</span> 阅读路径</h2>
-  <div class="paths-grid">
-
-    <div class="path-card path-beginner">
-      <div class="path-title">🌱 新人路线</div>
-      <div class="path-tagline">从零建立投资常识</div>
-      <ol class="path-books">
-        <li><a href="books/peter-lynch/"><span><span class="book-name">彼得·林奇的成功投资</span> <span class="book-note">— 最亲切的入门</span></span></a></li>
-        <li><a href="books/intelligent-investor/"><span><span class="book-name">聪明的投资者</span> <span class="book-note">— 建立价值观</span></span></a></li>
-        <li><a href="books/buffett/"><span><span class="book-name">巴菲特之道</span> <span class="book-note">— 看大师如何应用</span></span></a></li>
-        <li><a href="books/economic-moat/"><span><span class="book-name">巴菲特的护城河</span> <span class="book-note">— 学会挑好生意</span></span></a></li>
-      </ol>
-      <div class="path-audience">适合：刚开始接触投资，想系统入门的读者</div>
-    </div>
-
-    <div class="path-card path-advanced">
-      <div class="path-title">🌿 进阶路线</div>
-      <div class="path-tagline">理解风险与周期</div>
-      <ol class="path-books">
-        <li><a href="books/howard-marks/"><span><span class="book-name">投资最重要的事</span> <span class="book-note">— 重新定义风险</span></span></a></li>
-        <li><a href="books/market-cycle/"><span><span class="book-name">周期</span> <span class="book-note">— 校准市场位置</span></span></a></li>
-        <li><a href="books/fooled-by-randomness/"><span><span class="book-name">随机漫步的傻瓜</span> <span class="book-note">— 认清运气与实力</span></span></a></li>
-        <li><a href="books/black-swan/"><span><span class="book-name">黑天鹅</span> <span class="book-note">— 极端事件思维</span></span></a></li>
-        <li><a href="books/antifragile/"><span><span class="book-name">反脆弱</span> <span class="book-note">— 从不确定中获益</span></span></a></li>
-      </ol>
-      <div class="path-audience">适合：有 2 年以上经验，想突破认知瓶颈的投资者</div>
-    </div>
-
-    <div class="path-card path-master">
-      <div class="path-title">🌳 大师原典</div>
-      <div class="path-tagline">直接与思想源头对话</div>
-      <ol class="path-books">
-        <li><a href="books/security-analysis/"><span><span class="book-name">证券分析</span> <span class="book-note">— 价值投资的圣经</span></span></a></li>
-        <li><a href="books/buffett-letters/"><span><span class="book-name">巴菲特致股东的信</span> <span class="book-note">— 48年第一手记录</span></span></a></li>
-        <li><a href="books/poor-charlie/"><span><span class="book-name">穷查理宝典</span> <span class="book-note">— 多元思维模型</span></span></a></li>
-        <li><a href="books/alchemy-finance/"><span><span class="book-name">金融炼金术</span> <span class="book-note">— 反身性原典</span></span></a></li>
-        <li><a href="books/stock-operator/"><span><span class="book-name">股票大作手回忆录</span> <span class="book-note">— 投机的百年镜鉴</span></span></a></li>
-      </ol>
-      <div class="path-audience">适合：愿意啃硬书、追求思想深度的读者</div>
-    </div>
-
+<!-- 修行总览 -->
+<section class="practice-summary" aria-label="修行总览">
+  <div class="summary-title">📊 修行总览</div>
+  <div class="summary-stats" id="summaryStats"></div>
+  <div class="xp-bar-head">
+    <span id="xpBarLabel">经验值</span>
+    <span id="xpBarNums"></span>
   </div>
+  <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
 </section>
 
-<!-- 书架 -->
-<h2 class="section-title"><span class="emoji">📖</span> 精读笔记</h2>
-<div class="book-grid">
-
-  <!-- Fisher — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover fisher">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">怎样选择<br/>成长股</div>
-    </div>
-    <div class="card-body">
-      <h3>怎样选择成长股</h3>
-      <div class="author">菲利普·A·费雪 · 1958</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.8</span><span>💬 12条</span><span>📖 8章</span>
-      </div>
-      <div class="desc">
-        巴菲特说自己是"85%格雷厄姆+15%费雪"。这本书首次提出用"闲聊法"调研企业、15条原则筛选成长股。但中文译本大量术语翻译有硬伤——我们用AI重新精读，还原费雪真正想说的。
-      </div>
-      <div class="tags">
-        <span class="tag">成长股</span><span class="tag">15条原则</span><span class="tag">闲聊调研法</span><span class="tag">8章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/fisher/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Howard Marks — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #1a3a5c, #0d1f33);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">The Most<br/>Important Thing<br/>Illuminated</div>
-    </div>
-    <div class="card-body">
-      <h3>投资最重要的事</h3>
-      <div class="author">霍华德·马克斯 · 2013</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.7</span><span>💬 15条</span><span>📖 21章</span>
-      </div>
-      <div class="desc">
-        橡树资本创始人将20年投资备忘录浓缩为21章"最重要的事"。注解版增加了塞思·卡拉曼等四位顶级投资人的逐章注解和马克斯自己的回顾性自注。全书最核心贡献：对风险的重新定义——风险不是波动性，而是永久性损失的概率。
-      </div>
-      <div class="tags">
-        <span class="tag">风险控制</span><span class="tag">第二层次思维</span><span class="tag">逆向投资</span><span class="tag">21章精读</span><span class="tag">大师对话</span>
-      </div>
-      <a class="card-btn primary" href="books/howard-marks/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Buffett — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover buffett">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">The Warren<br/>Buffett Way</div>
-    </div>
-    <div class="card-body">
-      <h3>巴菲特之道</h3>
-      <div class="author">罗伯特·G·哈格斯特朗 · 第三版 2014</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.5</span><span>💬 10条</span><span>📖 8章</span>
-      </div>
-      <div class="desc">
-        霍华德·马克斯、彼得·林奇、比尔·米勒三位大师作序——一本投资书集齐这三人写序，极为罕见。提炼了巴菲特投资方法的12条永恒原则（企业/管理/财务/市场四组），通过9个经典案例（华盛顿邮报、可口可乐、富国银行…）逐一展示原则的实际运用。
-      </div>
-      <div class="tags">
-        <span class="tag">12条原则</span><span class="tag">9大案例</span><span class="tag">集中投资</span><span class="tag">安全边际</span><span class="tag">8章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/buffett/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Market Cycle — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #1f5f5b, #0d2f2c);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">周期</div>
-    </div>
-    <div class="card-body">
-      <h3>周期</h3>
-      <div class="author">霍华德·马克斯 · 2018</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.5</span><span>💬 13条</span><span>📖 18章</span>
-      </div>
-      <div class="desc">
-        《投资最重要的事》的姊妹篇。马克斯用整本书回答一个问题：我们无法预测未来，但可以知道自己身处周期的什么位置。经济周期、信贷周期、心理钟摆、风险态度周期如何互相咬合、层层放大？看懂事件之间的因果链条，你就能在别人贪婪时警惕、在别人恐惧时进取。
-      </div>
-      <div class="tags">
-        <span class="tag">周期定位</span><span class="tag">心理钟摆</span><span class="tag">信贷周期</span><span class="tag">10条终极原则</span><span class="tag">18章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/market-cycle/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Buffett Letters — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #6b3a3a, #3d1f1f);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">巴菲特<br/>致股东的信</div>
-    </div>
-    <div class="card-body">
-      <h3>巴菲特致股东的信</h3>
-      <div class="author">沃伦·巴菲特 · 1970-2017</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 9.3</span><span>💬 13条</span><span>📖 12章</span>
-      </div>
-      <div class="desc">
-        唯一由巴菲特亲笔写就的"著作"。48年、48封致股东信，是价值投资思想最完整的第一手记录。我们按主题重组为12章，提炼出十大核心原则——从"把股东当合伙人"到"市场先生"再到护城河，每章标注原始出处年份，可按图索骥回到原信深读。
-      </div>
-      <div class="tags">
-        <span class="tag">第一手原典</span><span class="tag">十大核心原则</span><span class="tag">护城河</span><span class="tag">合伙人思维</span><span class="tag">12章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/buffett-letters/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Alchemy of Finance — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #6e5a1e, #3d3010);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">金融炼金术</div>
-    </div>
-    <div class="card-body">
-      <h3>金融炼金术</h3>
-      <div class="author">乔治·索罗斯 · 1987</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.0</span><span>💬 13条</span><span>📖 12章</span>
-      </div>
-      <div class="desc">
-        "反身性"理论的唯一原典。索罗斯认为市场永远是错的：参与者的认知改变现实，被改变的现实又反过来强化认知，由此形成盛衰序列的八个阶段。书中还完整公开了他1985-1986年的实时交易日记——预测频频出错却依然大赚，这才是本书最震撼的部分。
-      </div>
-      <div class="tags">
-        <span class="tag">反身性</span><span class="tag">盛衰八阶段</span><span class="tag">实时实验</span><span class="tag">宏观对冲</span><span class="tag">12章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/alchemy-finance/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Poor Charlie — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #2c2c1e, #4a3a1e, #8a6d1f, #c9a84c);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">穷查理<br/>宝典</div>
-    </div>
-    <div class="card-body">
-      <h3>穷查理宝典</h3>
-      <div class="author">查理·芒格/彼得·考夫曼 · 2017</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.9</span><span>💬 20条</span><span>📖 12章</span>
-      </div>
-      <div class="desc">
-        芒格智慧箴言录，含25条人类误判心理学倾向和11场经典演讲。格栅思维模型教你用多学科视角做投资决策。
-      </div>
-      <div class="tags">
-        <span class="tag">价值投资</span><span class="tag">格栅思维</span><span class="tag">人类误判心理学</span><span class="tag">芒格主义</span><span class="tag">12章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/poor-charlie/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Intelligent Investor — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #0d1f15, #1a3a2e, #2d6a4f, #40916c);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">聪明的<br/>投资者</div>
-    </div>
-    <div class="card-body">
-      <h3>聪明的投资者（第3版·75周年）</h3>
-      <div class="author">本杰明·格雷厄姆/贾森·茨威格 · 2024</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 9.0</span><span>💬 12条</span><span>📖 22章</span>
-      </div>
-      <div class="desc">
-        巴菲特说"有史以来最好的投资书"。2024年75周年纪念版，格雷厄姆原典和茨威格逐章现代评注。安全边际、市场先生、内在价值三大支柱，防御型与进取型的永恒智慧。
-      </div>
-      <div class="tags">
-        <span class="tag">价值投资圣经</span><span class="tag">安全边际</span><span class="tag">市场先生</span><span class="tag">20章精读</span><span class="tag">75周年</span>
-      </div>
-      <a class="card-btn primary" href="books/intelligent-investor/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Peter Lynch — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #1a3a1e, #2d5a2e, #3a7d3a, #5cb85c);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">彼得·林奇的<br/>成功投资</div>
-    </div>
-    <div class="card-body">
-      <h3>彼得·林奇的成功投资</h3>
-      <div class="author">彼得·林奇/约翰·罗瑟查尔德 · 2000</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.7</span><span>💬 9条</span><span>📖 22章</span>
-      </div>
-      <div class="desc">
-        林奇管理麦哲伦基金13年年化29%的实战方法论。6种公司类型(快速/稳定/周期/困境反转/隐蔽资产)、13条选股准则、12条最愚蠢的投资说法——用业余投资者的常识打败华尔街。
-      </div>
-      <div class="tags">
-        <span class="tag">业余投资者</span><span class="tag">选股</span><span class="tag">6种公司类型</span><span class="tag">13条准则</span><span class="tag">20章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/peter-lynch/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Security Analysis — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #0d1b2a, #1b3a5c, #2c5282, #4299e1);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">证券分析<br/>第6版</div>
-    </div>
-    <div class="card-body">
-      <h3>证券分析(第6版)</h3>
-      <div class="author">本杰明·格雷厄姆/戴维·多德 · 2019</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 9.0</span><span>💬 17条</span><span>📖 19章</span>
-      </div>
-      <div class="desc">
-        价值投资奠基之作，巴菲特读了至少四遍。52章涵盖内在价值、安全边际、固定收益分析、损益表与资产负债表深层解读。第6版新增塞思·卡拉曼、霍华德·马克斯等11位华尔街大师导读，巴曙松中文翻译团队为中国市场做了本土化适配。
-      </div>
-      <div class="tags">
-        <span class="tag">价值投资奠基</span><span class="tag">安全边际</span><span class="tag">11位大师导读</span><span class="tag">巴曙松翻译</span><span class="tag">18章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/security-analysis/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- 战胜华尔街 — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #3d1a1a, #5c2a2a, #8b3a3a, #c75b39);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">战胜华尔街<br/>典藏版</div>
-    </div>
-    <div class="card-body">
-      <h3>战胜华尔街（典藏版）</h3>
-      <div class="author">彼得·林奇/约翰·罗瑟查尔德 · 2018</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.4</span><span>💬 26条</span><span>📖 15章</span>
-      </div>
-      <div class="desc">
-        林奇继《成功投资》后的又一力作：13年麦哲伦基金选股实战回忆录。记录从1800万到140亿美元历程中的21个真实案例，覆盖零售、房地产、周期股、金融等几乎所有主要行业，并提炼出25条投资黄金法则。
-      </div>
-      <div class="tags">
-        <span class="tag">25条黄金法则</span><span class="tag">21个案例</span><span class="tag">行业选股</span><span class="tag">麦哲伦基金</span><span class="tag">15章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/beating-street/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- 股票大作手回忆录 — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #2c2c1e, #4a3a1e, #8a6d1f, #c9a84c);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">股票大作手<br/>回忆录</div>
-    </div>
-    <div class="card-body">
-      <h3>股票大作手回忆录</h3>
-      <div class="author">埃德温·勒菲弗/杰西·利弗莫尔 · 1923</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.9</span><span>💬 49条</span><span>📖 25章</span>
-      </div>
-      <div class="desc">
-        有史以来最伟大的投资/投机经典之一。24章讲述利弗莫尔四次破产、三次东山再起的史诗故事。从读盘技巧到资金管理，从市场心理到自控力，构成完整的投机哲学体系。巴菲特、索罗斯、林奇都承认从中获益。
-      </div>
-      <div class="tags">
-        <span class="tag">投机经典</span><span class="tag">市场心理</span><span class="tag">最小阻力线</span><span class="tag">投机哲学</span><span class="tag">25章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/stock-operator/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- 巴菲特的护城河 — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #0d2a1a, #1a4a2e, #2d6a4f, #40916c);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">巴菲特的<br/>护城河</div>
-    </div>
-    <div class="card-body">
-      <h3>巴菲特的护城河</h3>
-      <div class="author">帕特·多尔西 · 2008</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.3</span><span>💬 27条</span><span>📖 15章</span>
-      </div>
-      <div class="desc">
-        晨星公司股票研究总监多尔西将巴菲特的护城河概念从直觉转化为可操作框架。系统讲解四大护城河来源——无形资产、转换成本、网络效应、成本优势——并教你识别"伪护城河"、评估护城河宽度，以及正确的卖出时机。
-      </div>
-      <div class="tags">
-        <span class="tag">护城河</span><span class="tag">四大来源</span><span class="tag">竞争优势</span><span class="tag">无形资产</span><span class="tag">15章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/economic-moat/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Fooled by Randomness — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #0d1a2a, #1a3050, #2c5282, #4299e1);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">随机漫步<br/>的傻瓜</div>
-    </div>
-    <div class="card-body">
-      <h3>随机漫步的傻瓜</h3>
-      <div class="author">纳西姆·尼古拉斯·塔勒布 · 2001</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.6</span><span>💬 14条</span><span>📖 14章</span>
-      </div>
-      <div class="desc">
-        塔勒布"不确定性五部曲"开山之作。核心追问：你的成功到底是能力还是运气？衍生品交易员出身的塔勒布用蒙特卡罗思维、另类历史、幸存者偏差层层拆解——市场上大部分"赢家"只是被随机性愚弄的幸运傻瓜。读懂本书，你会重新审视一切业绩记录。
-      </div>
-      <div class="tags">
-        <span class="tag">随机性</span><span class="tag">幸存者偏差</span><span class="tag">另类历史</span><span class="tag">14章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/fooled-by-randomness/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Black Swan — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #4a4a4a, #6b6b6b);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">黑天鹅</div>
-    </div>
-    <div class="card-body">
-      <h3>黑天鹅</h3>
-      <div class="author">纳西姆·尼古拉斯·塔勒布 · 2007</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 7.9</span><span>💬 13条</span><span>📖 19章</span>
-      </div>
-      <div class="desc">
-        21世纪最具影响力的思想著作之一，出版次年即"预言"了金融危机。塔勒布提出：真正塑造历史与市场的，是极少数不可预测的极端事件。平均斯坦与极端斯坦、火鸡问题、叙事谬误、杠铃策略——这些概念已成为现代风险思维的通用语言。
-      </div>
-      <div class="tags">
-        <span class="tag">极端事件</span><span class="tag">肥尾分布</span><span class="tag">杠铃策略</span><span class="tag">19章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/black-swan/">进入精读 →</a>
-    </div>
-  </div>
-
-  <!-- Antifragile — 已上线 -->
-  <div class="book-card">
-    <div class="card-cover" style="background: linear-gradient(135deg, #2a0d0d, #4a1a1a, #7a2a2a, #c0392b);">
-      <span class="status-badge available">已上线</span>
-      <div class="cover-text">反脆弱</div>
-    </div>
-    <div class="card-body">
-      <h3>反脆弱</h3>
-      <div class="author">纳西姆·尼古拉斯·塔勒布 · 2012</div>
-      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span>⭐ 8.5</span><span>💬 47条</span><span>📖 24章</span>
-      </div>
-      <div class="desc">
-        塔勒布思想体系的集大成之作，给《黑天鹅》提出的问题一个完整答案：既然极端事件无法预测，就把自己变成能从波动中获益的结构。脆弱—强韧—反脆弱三元组、杠铃策略、否定法、林迪效应——从投资组合到人生决策的完整反脆弱操作手册。
-      </div>
-      <div class="tags">
-        <span class="tag">反脆弱性</span><span class="tag">凸性</span><span class="tag">选择权</span><span class="tag">24章精读</span>
-      </div>
-      <a class="card-btn primary" href="books/antifragile/">进入精读 →</a>
-    </div>
-  </div>
-
+<!-- 底部链接 -->
+<div class="bottom-links">
+  <a class="go-bookshelf" href="bookshelf.html">📚 查看完整书架 →</a>
+  <a class="go-top" href="#top">⛰️ 投资修行 · 回到顶部</a>
 </div>
 
 <!-- 底部 -->
@@ -886,6 +523,369 @@
 
 </div>
 
+<!-- ===== 五域修行核心逻辑 ===== -->
+<script>
+(function() {
+  'use strict';
+
+  // ===== 静态数据 =====
+  var BOOK_META = {
+    'fisher':               { title: '怎样选择成长股', chapters: 8 },
+    'howard-marks':         { title: '投资最重要的事', chapters: 21 },
+    'buffett':              { title: '巴菲特之道', chapters: 8 },
+    'market-cycle':         { title: '周期', chapters: 18 },
+    'buffett-letters':      { title: '巴菲特致股东的信', chapters: 12 },
+    'alchemy-finance':      { title: '金融炼金术', chapters: 12 },
+    'poor-charlie':         { title: '穷查理宝典', chapters: 12 },
+    'intelligent-investor': { title: '聪明的投资者', chapters: 20 },
+    'peter-lynch':          { title: '彼得·林奇的成功投资', chapters: 20 },
+    'security-analysis':    { title: '证券分析', chapters: 17 },
+    'beating-street':       { title: '战胜华尔街', chapters: 13 },
+    'stock-operator':       { title: '股票大作手回忆录', chapters: 24 },
+    'economic-moat':        { title: '巴菲特的护城河', chapters: 14 },
+    'fooled-by-randomness': { title: '随机漫步的傻瓜', chapters: 14 },
+    'black-swan':           { title: '黑天鹅', chapters: 19 },
+    'antifragile':          { title: '反脆弱', chapters: 24 }
+  };
+
+  var DOMAINS = [
+    {
+      key: 'business', emoji: '🧭', name: '商业认知', question: '能不能识别好生意？',
+      master: '彼得·林奇', masterInitial: '林', color: '#2d7d46',
+      books: [
+        { slug: 'peter-lynch', lv: 1 },
+        { slug: 'beating-street', lv: 1 },
+        { slug: 'fisher', lv: 2 },
+        { slug: 'economic-moat', lv: 2 }
+      ],
+      cross: [
+        { slug: 'intelligent-investor', ch: 20, label: '第20章「安全边际」' },
+        { slug: 'howard-marks', ch: 12, label: '第12章「寻找便宜货」' }
+      ]
+    },
+    {
+      key: 'valuation', emoji: '⚖️', name: '资产估值', question: '这家公司值多少钱？',
+      master: '本杰明·格雷厄姆', masterInitial: '格', color: '#2c6faa',
+      books: [
+        { slug: 'buffett', lv: 1 },
+        { slug: 'intelligent-investor', lv: 2 },
+        { slug: 'security-analysis', lv: 3 },
+        { slug: 'buffett-letters', lv: 3 }
+      ],
+      cross: [
+        { slug: 'poor-charlie', ch: 2, label: '第2章「投资原则检查清单」' },
+        { slug: 'fisher', ch: 3, label: '第3章「15条原则」' }
+      ]
+    },
+    {
+      key: 'cycle', emoji: '🔄', name: '周期与市场', question: '市场现在处于什么位置？',
+      master: '霍华德·马克斯', masterInitial: '马', color: '#c75b39',
+      books: [
+        { slug: 'howard-marks', lv: 2 },
+        { slug: 'market-cycle', lv: 3 },
+        { slug: 'alchemy-finance', lv: 3 }
+      ],
+      cross: [
+        { slug: 'antifragile', ch: 11, label: '第11章「杠铃策略」' },
+        { slug: 'stock-operator', ch: 23, label: '第23章「市场永远不会错」' }
+      ]
+    },
+    {
+      key: 'mind', emoji: '🧘', name: '心性与哲学', question: '我怎么不被情绪干掉？',
+      master: '查理·芒格', masterInitial: '芒', color: '#7b4fbf',
+      books: [
+        { slug: 'stock-operator', lv: 1 },
+        { slug: 'poor-charlie', lv: 2 }
+      ],
+      cross: [
+        { slug: 'intelligent-investor', ch: 8, label: '第8章「市场先生」' },
+        { slug: 'howard-marks', ch: 9, label: '第9章「钟摆意识」' },
+        { slug: 'buffett-letters', ch: 6, label: '第6章「市场先生与波动」' }
+      ]
+    },
+    {
+      key: 'uncertainty', emoji: '🌪️', name: '不确定性与风险', question: '我不知道的事如何伤害我？',
+      master: '纳西姆·塔勒布', masterInitial: '塔', color: '#b8860b',
+      books: [
+        { slug: 'black-swan', lv: 3 },
+        { slug: 'fooled-by-randomness', lv: 3 },
+        { slug: 'antifragile', lv: 4 }
+      ],
+      cross: [
+        { slug: 'market-cycle', ch: 8, label: '第8章「风险态度周期」' },
+        { slug: 'security-analysis', ch: 1, label: '导言「安全边际」' }
+      ]
+    }
+  ];
+
+  var LV_COLOR = { 1: '#4caf50', 2: '#2196F3', 3: '#FF9800', 4: '#e74c3c' };
+  var LV_EMOJI = { 1: '🌱', 2: '🌿', 3: '🍂', 4: '🌋' };
+
+  var LEVELS = [
+    { level: 1, name: '见习学徒', xpNeeded: 0,   emoji: '🌱' },
+    { level: 2, name: '初级行者', xpNeeded: 10,  emoji: '🥾' },
+    { level: 3, name: '中级行者', xpNeeded: 30,  emoji: '🧗' },
+    { level: 4, name: '高阶行者', xpNeeded: 60,  emoji: '🏔️' },
+    { level: 5, name: '见习智者', xpNeeded: 100, emoji: '🔮' },
+    { level: 6, name: '贤者',     xpNeeded: 160, emoji: '🧙' },
+    { level: 7, name: '大贤者',   xpNeeded: 240, emoji: '👑' },
+    { level: 8, name: '宗师',     xpNeeded: 340, emoji: '💎' },
+    { level: 9, name: '传奇宗师', xpNeeded: 460, emoji: '⭐' }
+  ];
+
+  // ===== 数据读取 =====
+  function safeJSON(str, fallback) {
+    try { return JSON.parse(str) || fallback; } catch (e) { return fallback; }
+  }
+
+  function loadData() {
+    return {
+      progress: safeJSON(localStorage.getItem('reading_progress'), {}),
+      principles: safeJSON(localStorage.getItem('my_principles'), [])
+    };
+  }
+
+  var DATA = null; // renderAll 时填充
+
+  // ===== 进度计算 =====
+  function computeBookProgress(slug) {
+    var meta = BOOK_META[slug];
+    var total = meta ? meta.chapters : 0;
+    var p = DATA.progress[slug];
+    var read = 0;
+    if (p && p.chaptersRead && p.chaptersRead.length) {
+      // 去重防脏数据
+      var seen = {};
+      p.chaptersRead.forEach(function(c) { seen[c] = true; });
+      read = Math.min(Object.keys(seen).length, total);
+    }
+    return { read: read, total: total, pct: total ? Math.round(read / total * 100) : 0 };
+  }
+
+  function computeDomainProgress(domainKey) {
+    var domain = null;
+    DOMAINS.forEach(function(d) { if (d.key === domainKey) domain = d; });
+    if (!domain) return { read: 0, total: 0, pct: 0, started: false, completedBooks: 0 };
+    var read = 0, total = 0, completedBooks = 0;
+    domain.books.forEach(function(b) {
+      var bp = computeBookProgress(b.slug);
+      read += bp.read;
+      total += bp.total;
+      if (bp.total > 0 && bp.read >= bp.total) completedBooks++;
+    });
+    return {
+      read: read, total: total,
+      pct: total ? Math.round(read / total * 100) : 0,
+      started: read > 0,
+      completedBooks: completedBooks
+    };
+  }
+
+  // ===== XP 与等级 =====
+  // 公式：每读一章 1 XP；每条收藏原则 2 XP；每读完一本书额外 5 XP；每开始一座山额外 2 XP
+  function computeXP() {
+    var xp = 0;
+    var chaptersTotal = 0, completedBooks = 0, startedDomains = 0;
+    Object.keys(BOOK_META).forEach(function(slug) {
+      var bp = computeBookProgress(slug);
+      chaptersTotal += bp.read;
+      if (bp.total > 0 && bp.read >= bp.total) completedBooks++;
+    });
+    DOMAINS.forEach(function(d) {
+      if (computeDomainProgress(d.key).started) startedDomains++;
+    });
+    xp = chaptersTotal * 1 + DATA.principles.length * 2 + completedBooks * 5 + startedDomains * 2;
+    return {
+      xp: xp, chaptersTotal: chaptersTotal, completedBooks: completedBooks,
+      startedDomains: startedDomains, principles: DATA.principles.length
+    };
+  }
+
+  function computeLevel(xp) {
+    var cur = LEVELS[0];
+    for (var i = LEVELS.length - 1; i >= 0; i--) {
+      if (xp >= LEVELS[i].xpNeeded) { cur = LEVELS[i]; break; }
+    }
+    var next = cur.level < 9 ? LEVELS[cur.level] : null; // LEVELS[cur.level] 即下一级（数组下标 = level）
+    return { level: cur.level, name: cur.name, emoji: cur.emoji, xpNeeded: cur.xpNeeded, next: next };
+  }
+
+  // ===== DOM 工具 =====
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  // ===== 渲染：单张域卡片 =====
+  function renderDomainCard(domain) {
+    var card = el('section', 'domain-card');
+    card.style.setProperty('--domain-color', domain.color);
+    card.setAttribute('aria-label', domain.name);
+
+    // 标题行
+    var head = el('header', 'domain-head');
+    var titleWrap = el('div', 'domain-title-wrap');
+    var h2 = el('h2', 'domain-title');
+    var emojiSpan = el('span', 'domain-emoji', domain.emoji);
+    h2.appendChild(emojiSpan);
+    h2.appendChild(document.createTextNode(' ' + domain.name + ' '));
+    h2.appendChild(el('span', 'domain-q', '· ' + domain.question));
+    titleWrap.appendChild(h2);
+
+    var masterRow = el('div', 'domain-master');
+    masterRow.appendChild(el('span', 'master-avatar', domain.masterInitial));
+    masterRow.appendChild(document.createTextNode('代表大师：' + domain.master));
+    titleWrap.appendChild(masterRow);
+    head.appendChild(titleWrap);
+
+    // 域进度徽章
+    var dp = computeDomainProgress(domain.key);
+    var badge = el('div', 'domain-progress-badge');
+    badge.appendChild(document.createTextNode(dp.started ? ('⛰️ ' + dp.pct + '%') : '未启程'));
+    badge.appendChild(el('span', 'sub', '已读 ' + dp.read + '/' + dp.total + ' 章'));
+    head.appendChild(badge);
+    card.appendChild(head);
+
+    // 书籍列（按难度 L1→L4）
+    var list = el('div', 'domain-books');
+    var sorted = domain.books.slice().sort(function(a, b) { return a.lv - b.lv; });
+    sorted.forEach(function(b) {
+      var meta = BOOK_META[b.slug];
+      var bp = computeBookProgress(b.slug);
+      var row = el('div', 'book-row');
+
+      var dot = el('span', 'lv-dot');
+      dot.style.background = LV_COLOR[b.lv];
+      dot.title = '难度 L' + b.lv;
+      row.appendChild(dot);
+
+      row.appendChild(el('span', 'lv-tag', 'L' + b.lv + ' ' + LV_EMOJI[b.lv]));
+
+      var nameLink = el('a', 'book-name', meta.title);
+      nameLink.href = 'books/' + b.slug + '/';
+      row.appendChild(nameLink);
+
+      var bar = el('div', 'mini-bar');
+      var fill = el('div', 'mini-fill');
+      fill.style.width = bp.pct + '%';
+      bar.appendChild(fill);
+      row.appendChild(bar);
+
+      var count = el('span', 'book-count' + (bp.read === 0 ? ' not-started' : ''),
+        bp.read === 0 ? '未开始' : (bp.read + '/' + bp.total + '章'));
+      row.appendChild(count);
+
+      var go = el('a', 'book-go', bp.read === 0 ? '开始读→' : '继续读→');
+      go.href = 'books/' + b.slug + '/';
+      row.appendChild(go);
+
+      list.appendChild(row);
+    });
+    card.appendChild(list);
+
+    // 跨山连接
+    var links = el('div', 'domain-links');
+    links.appendChild(el('div', 'links-label', '🔗 跨山连接 · 来自其他山的相关章节'));
+    domain.cross.forEach(function(c) {
+      var meta = BOOK_META[c.slug];
+      var row = el('div', 'cross-row');
+      row.appendChild(el('span', 'cross-book', meta.title));
+      row.appendChild(document.createTextNode('· ' + c.label + ' '));
+      var a = el('a', null, '去读 →');
+      a.href = 'books/' + c.slug + '/#ch' + c.ch;
+      row.appendChild(a);
+      links.appendChild(row);
+    });
+    card.appendChild(links);
+
+    return card;
+  }
+
+  // ===== 渲染：Hero 等级徽章 + 迷你山 =====
+  function renderHero(stats, levelInfo) {
+    var badge = document.getElementById('heroLevelBadge');
+    badge.innerHTML = '';
+    badge.appendChild(document.createTextNode(
+      levelInfo.emoji + ' Lv.' + levelInfo.level + ' ' + levelInfo.name + ' · ' + stats.xp + ' XP'
+    ));
+
+    var wrap = document.getElementById('miniMountains');
+    wrap.innerHTML = '';
+    DOMAINS.forEach(function(d) {
+      var dp = computeDomainProgress(d.key);
+      var tag = el('span', 'mini-mountain' + (dp.started ? ' lit' : ''), d.emoji + d.name);
+      if (dp.started) tag.style.background = d.color;
+      tag.title = d.name + '：已读 ' + dp.read + '/' + dp.total + ' 章';
+      wrap.appendChild(tag);
+    });
+  }
+
+  // ===== 渲染：修行总览 =====
+  function renderSummary(stats, levelInfo) {
+    var box = document.getElementById('summaryStats');
+    box.innerHTML = '';
+
+    function chip(html) {
+      var c = el('span', 'stat-chip');
+      c.innerHTML = html;
+      box.appendChild(c);
+    }
+    chip('⛰️ 已爬 <strong>' + stats.startedDomains + '/5</strong> 座山');
+    chip('📖 已读 <strong>' + stats.chaptersTotal + '</strong> 章');
+    chip('🏅 修行等级：<strong>' + levelInfo.level + '级 · ' + levelInfo.name + '</strong>');
+    chip('💡 收藏原则：<strong>' + stats.principles + '</strong> 条');
+    var nextText = levelInfo.next
+      ? '⚡ 经验值：<strong>' + stats.xp + ' / ' + levelInfo.next.xpNeeded + '</strong>（升至 ' + levelInfo.next.name + '）'
+      : '⚡ 经验值：<strong>' + stats.xp + '</strong>（已达最高级）';
+    chip(nextText);
+
+    // XP 进度条
+    var pct;
+    var label = document.getElementById('xpBarLabel');
+    var nums = document.getElementById('xpBarNums');
+    if (levelInfo.next) {
+      var span = levelInfo.next.xpNeeded - levelInfo.xpNeeded;
+      pct = span > 0 ? Math.round((stats.xp - levelInfo.xpNeeded) / span * 100) : 100;
+      pct = Math.max(0, Math.min(100, pct));
+      label.textContent = levelInfo.emoji + ' Lv.' + levelInfo.level + ' ' + levelInfo.name +
+        ' → ' + levelInfo.next.emoji + ' Lv.' + levelInfo.next.level + ' ' + levelInfo.next.name;
+      nums.textContent = stats.xp + ' / ' + levelInfo.next.xpNeeded + ' XP';
+    } else {
+      pct = 100;
+      label.textContent = levelInfo.emoji + ' Lv.9 ' + levelInfo.name + ' · 传奇之路已达顶峰';
+      nums.textContent = stats.xp + ' XP';
+    }
+    document.getElementById('xpFill').style.width = pct + '%';
+  }
+
+  // ===== 总渲染 =====
+  function renderAll() {
+    DATA = loadData();
+    var stats = computeXP();
+    var levelInfo = computeLevel(stats.xp);
+
+    renderHero(stats, levelInfo);
+
+    var container = document.getElementById('domainCards');
+    container.innerHTML = '';
+    DOMAINS.forEach(function(d) {
+      container.appendChild(renderDomainCard(d));
+    });
+
+    renderSummary(stats, levelInfo);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAll);
+  } else {
+    renderAll();
+  }
+})();
+</script>
+
+<!-- ===== 金句墙轮播 ===== -->
 <script>
 (function() {
   var quotes = [
