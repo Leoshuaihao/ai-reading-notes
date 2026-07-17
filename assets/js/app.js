@@ -422,3 +422,182 @@
   });
 
 })();
+
+/**
+ * 阅读进度追踪模块
+ * 仅在书籍页（/books/{slug}/）生效。
+ * localStorage 键：reading_progress（按书 slug namespace，避免旧键 book_expanded_* 的跨书污染问题）
+ * 结构：{ slug: { lastVisit: ISO时间戳, visits: 次数, chaptersRead: [已展开章节id] } }
+ */
+(function() {
+  'use strict';
+
+  var match = window.location.pathname.match(/\/books\/([^\/]+)\//);
+  if (!match) return;
+  var slug = match[1];
+  var STORAGE_KEY = 'reading_progress';
+  var storageOK = true;
+
+  function loadProgress() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var data = raw ? JSON.parse(raw) : {};
+      return (data && typeof data === 'object' && !Array.isArray(data)) ? data : {};
+    } catch (e) {
+      storageOK = false;
+      return {};
+    }
+  }
+
+  function saveProgress(data) {
+    if (!storageOK) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      // 隐私模式 / QuotaExceeded：静默降级
+      storageOK = false;
+    }
+  }
+
+  var progress = loadProgress();
+  if (!storageOK) return;
+
+  var entry = progress[slug];
+  if (!entry || typeof entry !== 'object') {
+    entry = { lastVisit: '', visits: 0, chaptersRead: [] };
+  }
+  if (!Array.isArray(entry.chaptersRead)) entry.chaptersRead = [];
+
+  // 本次访问：visits +1，更新 lastVisit
+  entry.visits = (parseInt(entry.visits, 10) || 0) + 1;
+  entry.lastVisit = new Date().toISOString();
+  progress[slug] = entry;
+  saveProgress(progress);
+
+  function markChapterRead(chapterId) {
+    if (!chapterId || !/^ch\d+$/.test(chapterId)) return;
+    if (entry.chaptersRead.indexOf(chapterId) !== -1) return;
+    entry.chaptersRead.push(chapterId);
+    progress[slug] = entry;
+    saveProgress(progress);
+  }
+
+  // 页面加载时：折叠模块已恢复的展开章节也计入
+  document.querySelectorAll('.chapter-card').forEach(function(card) {
+    var btn = card.querySelector('.toggle-btn');
+    if (btn && btn.getAttribute('aria-expanded') === 'true' && card.id) {
+      markChapterRead(card.id);
+    }
+  });
+
+  // 事件委托监听 .toggle-btn 点击（折叠模块的处理器先执行，冒泡到此处时 aria-expanded 已更新）
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    var btn = (target && target.closest) ? target.closest('.toggle-btn') : null;
+    if (!btn) return;
+    if (btn.getAttribute('aria-expanded') === 'true') {
+      var card = btn.closest('.chapter-card');
+      if (card && card.id) markChapterRead(card.id);
+    }
+  });
+})();
+
+/**
+ * 收藏原则模块
+ * 在书籍页每条 .takeaway-list li 后注入 ☆/★ 收藏按钮。
+ * localStorage 键：my_principles（JSON 数组）
+ * 每条：{ text, book, bookSlug, chapter, timestamp }，按 text + bookSlug 去重
+ */
+(function() {
+  'use strict';
+
+  var match = window.location.pathname.match(/\/books\/([^\/]+)\//);
+  if (!match) return;
+  var slug = match[1];
+  var STORAGE_KEY = 'my_principles';
+  var storageOK = true;
+
+  function loadPrinciples() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      storageOK = false;
+      return [];
+    }
+  }
+
+  function savePrinciples(arr) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  loadPrinciples();
+  if (!storageOK) return; // localStorage 不可用：不注入按钮，静默降级
+
+  // 书名：优先取 book-hero 标题，去掉书名号
+  var bookName = '';
+  var heroTitle = document.querySelector('.book-hero .info h1');
+  if (heroTitle) bookName = heroTitle.textContent.replace(/[《》]/g, '').trim();
+  if (!bookName) bookName = (document.title.split(/[—-]/)[0] || '').trim();
+
+  function findIndex(arr, text) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] && arr[i].text === text && arr[i].bookSlug === slug) return i;
+    }
+    return -1;
+  }
+
+  document.querySelectorAll('.takeaway-list li').forEach(function(li) {
+    var text = li.textContent.trim();
+    if (!text) return;
+
+    // 所在章节标题
+    var chapter = '';
+    var card = li.closest ? li.closest('.chapter-card') : null;
+    if (card) {
+      var titleEl = card.querySelector('.ch-title');
+      chapter = titleEl ? titleEl.textContent.trim() : (card.id || '');
+    }
+
+    var saved = findIndex(loadPrinciples(), text) !== -1;
+    var btn = document.createElement('button');
+    btn.className = 'principle-star';
+    btn.style.cssText = 'display:inline;background:none;border:none;padding:0 4px;margin-left:6px;font-size:14px;color:var(--gold);cursor:pointer;vertical-align:baseline;line-height:1;font-family:inherit;';
+    btn.textContent = saved ? '★' : '☆';
+    btn.setAttribute('aria-pressed', String(saved));
+    btn.setAttribute('title', saved ? '取消收藏' : '收藏到我的投资体系');
+    btn.setAttribute('aria-label', saved ? '取消收藏该原则' : '收藏该原则到我的投资体系');
+
+    btn.addEventListener('click', function() {
+      var principles = loadPrinciples();
+      var idx = findIndex(principles, text);
+      var nowSaved;
+      if (idx !== -1) {
+        principles.splice(idx, 1);
+        nowSaved = false;
+      } else {
+        principles.push({
+          text: text,
+          book: bookName,
+          bookSlug: slug,
+          chapter: chapter,
+          timestamp: new Date().toISOString()
+        });
+        nowSaved = true;
+      }
+      if (!savePrinciples(principles)) return; // 写入失败保持原状
+      btn.textContent = nowSaved ? '★' : '☆';
+      btn.setAttribute('aria-pressed', String(nowSaved));
+      btn.setAttribute('title', nowSaved ? '取消收藏' : '收藏到我的投资体系');
+      btn.setAttribute('aria-label', nowSaved ? '取消收藏该原则' : '收藏该原则到我的投资体系');
+    });
+
+    li.appendChild(btn);
+  });
+})();
