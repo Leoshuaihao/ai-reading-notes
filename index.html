@@ -102,6 +102,50 @@
     .book-grid { grid-template-columns: 1fr; }
     .diagnose-banner { flex-direction: column; text-align: center; padding: 24px; }
   }
+
+  /* ===== 金句滚动墙 ===== */
+  .quote-wall {
+    max-width: 880px; margin: 0 auto 40px; position: relative;
+  }
+  .quote-wall .quote-label {
+    text-align: center; font-size: 12px; color: #b0a090; margin-bottom: 12px;
+    letter-spacing: 3px; font-weight: 500;
+  }
+  .quote-wall .quote-inner {
+    background: #fdf7f0; border-radius: 12px; padding: 36px 40px;
+    position: relative; overflow: hidden; min-height: 100px;
+    display: flex; align-items: center; border: 1px solid #eadcc8;
+  }
+  .quote-wall .quote-bar {
+    position: absolute; left: 0; top: 28px; bottom: 28px; width: 4px;
+    background: linear-gradient(180deg, var(--accent), #e07b5f);
+    border-radius: 0 4px 4px 0;
+  }
+  .quote-wall .quote-content {
+    padding-left: 24px; transition: opacity 0.5s ease; opacity: 1;
+  }
+  .quote-wall .quote-content.fading { opacity: 0; }
+  .quote-wall .quote-text {
+    font-size: 18px; font-weight: 600; line-height: 1.8;
+    color: #3d2e1e; margin-bottom: 10px;
+  }
+  .quote-wall .quote-source {
+    font-size: 13px; color: #8a7a6a;
+  }
+  .quote-wall .quote-indicators {
+    display: flex; justify-content: center; gap: 8px; margin-top: 14px;
+  }
+  .quote-wall .quote-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #d4c5a0; cursor: pointer; transition: all 0.3s; border: none;
+  }
+  .quote-wall .quote-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+
+  @media (max-width: 768px) {
+    .quote-wall { padding: 0 16px; }
+    .quote-wall .quote-inner { padding: 24px 20px; }
+    .quote-wall .quote-text { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
@@ -139,6 +183,19 @@
   </div>
 </section>
 
+<!-- 金句滚动墙 -->
+<section class="quote-wall">
+  <div class="quote-label">金 句 拾 贝</div>
+  <div class="quote-inner">
+    <div class="quote-bar"></div>
+    <div class="quote-content" id="quote-content">
+      <div class="quote-text" id="quote-text"></div>
+      <div class="quote-source" id="quote-source"></div>
+    </div>
+  </div>
+  <div class="quote-indicators" id="quote-dots"></div>
+</section>
+
 <!-- 诊断入口 -->
 <div class="diagnose-banner">
   <div class="banner-text">
@@ -161,6 +218,9 @@
     <div class="card-body">
       <h3>怎样选择成长股</h3>
       <div class="author">菲利普·A·费雪 · 1958</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.8</span><span>💬 12条</span><span>📖 8章</span>
+      </div>
       <div class="desc">
         巴菲特说自己是"85%格雷厄姆+15%费雪"。这本书首次提出用"闲聊法"调研企业、15条原则筛选成长股。但中文译本大量术语翻译有硬伤——我们用AI重新精读，还原费雪真正想说的。
       </div>
@@ -180,6 +240,9 @@
     <div class="card-body">
       <h3>投资最重要的事</h3>
       <div class="author">霍华德·马克斯 · 2013</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.7</span><span>💬 15条</span><span>📖 21章</span>
+      </div>
       <div class="desc">
         橡树资本创始人将20年投资备忘录浓缩为21章"最重要的事"。注解版增加了塞思·卡拉曼等四位顶级投资人的逐章注解和马克斯自己的回顾性自注。全书最核心贡献：对风险的重新定义——风险不是波动性，而是永久性损失的概率。
       </div>
@@ -199,6 +262,9 @@
     <div class="card-body">
       <h3>巴菲特之道</h3>
       <div class="author">罗伯特·G·哈格斯特朗 · 第三版 2014</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.5</span><span>💬 10条</span><span>📖 8章</span>
+      </div>
       <div class="desc">
         霍华德·马克斯、彼得·林奇、比尔·米勒三位大师作序——一本投资书集齐这三人写序，极为罕见。提炼了巴菲特投资方法的12条永恒原则（企业/管理/财务/市场四组），通过9个经典案例（华盛顿邮报、可口可乐、富国银行…）逐一展示原则的实际运用。
       </div>
@@ -218,6 +284,9 @@
     <div class="card-body">
       <h3>周期</h3>
       <div class="author">霍华德·马克斯 · 2018</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.5</span><span>💬 13条</span><span>📖 18章</span>
+      </div>
       <div class="desc">
         《投资最重要的事》的姊妹篇。马克斯用整本书回答一个问题：我们无法预测未来，但可以知道自己身处周期的什么位置。经济周期、信贷周期、心理钟摆、风险态度周期如何互相咬合、层层放大？看懂事件之间的因果链条，你就能在别人贪婪时警惕、在别人恐惧时进取。
       </div>
@@ -237,6 +306,9 @@
     <div class="card-body">
       <h3>巴菲特致股东的信</h3>
       <div class="author">沃伦·巴菲特 · 1970-2017</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 9.3</span><span>💬 13条</span><span>📖 12章</span>
+      </div>
       <div class="desc">
         唯一由巴菲特亲笔写就的"著作"。48年、48封致股东信，是价值投资思想最完整的第一手记录。我们按主题重组为12章，提炼出十大核心原则——从"把股东当合伙人"到"市场先生"再到护城河，每章标注原始出处年份，可按图索骥回到原信深读。
       </div>
@@ -256,6 +328,9 @@
     <div class="card-body">
       <h3>金融炼金术</h3>
       <div class="author">乔治·索罗斯 · 1987</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.0</span><span>💬 13条</span><span>📖 12章</span>
+      </div>
       <div class="desc">
         "反身性"理论的唯一原典。索罗斯认为市场永远是错的：参与者的认知改变现实，被改变的现实又反过来强化认知，由此形成盛衰序列的八个阶段。书中还完整公开了他1985-1986年的实时交易日记——预测频频出错却依然大赚，这才是本书最震撼的部分。
       </div>
@@ -275,6 +350,9 @@
     <div class="card-body">
       <h3>穷查理宝典</h3>
       <div class="author">查理·芒格/彼得·考夫曼 · 2017</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.9</span><span>💬 20条</span><span>📖 12章</span>
+      </div>
       <div class="desc">
         芒格智慧箴言录，含25条人类误判心理学倾向和11场经典演讲。格栅思维模型教你用多学科视角做投资决策。
       </div>
@@ -294,6 +372,9 @@
     <div class="card-body">
       <h3>聪明的投资者（第3版·75周年）</h3>
       <div class="author">本杰明·格雷厄姆/贾森·茨威格 · 2024</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 9.0</span><span>💬 12条</span><span>📖 22章</span>
+      </div>
       <div class="desc">
         巴菲特说"有史以来最好的投资书"。2024年75周年纪念版，格雷厄姆原典和茨威格逐章现代评注。安全边际、市场先生、内在价值三大支柱，防御型与进取型的永恒智慧。
       </div>
@@ -313,6 +394,9 @@
     <div class="card-body">
       <h3>彼得·林奇的成功投资</h3>
       <div class="author">彼得·林奇/约翰·罗瑟查尔德 · 2000</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.7</span><span>💬 9条</span><span>📖 22章</span>
+      </div>
       <div class="desc">
         林奇管理麦哲伦基金13年年化29%的实战方法论。6种公司类型(快速/稳定/周期/困境反转/隐蔽资产)、13条选股准则、12条最愚蠢的投资说法——用业余投资者的常识打败华尔街。
       </div>
@@ -332,6 +416,9 @@
     <div class="card-body">
       <h3>证券分析(第6版)</h3>
       <div class="author">本杰明·格雷厄姆/戴维·多德 · 2019</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 9.0</span><span>💬 17条</span><span>📖 19章</span>
+      </div>
       <div class="desc">
         价值投资奠基之作，巴菲特读了至少四遍。52章涵盖内在价值、安全边际、固定收益分析、损益表与资产负债表深层解读。第6版新增塞思·卡拉曼、霍华德·马克斯等11位华尔街大师导读，巴曙松中文翻译团队为中国市场做了本土化适配。
       </div>
@@ -351,6 +438,9 @@
     <div class="card-body">
       <h3>战胜华尔街（典藏版）</h3>
       <div class="author">彼得·林奇/约翰·罗瑟查尔德 · 2018</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.4</span><span>💬 26条</span><span>📖 15章</span>
+      </div>
       <div class="desc">
         林奇继《成功投资》后的又一力作：13年麦哲伦基金选股实战回忆录。记录从1800万到140亿美元历程中的21个真实案例，覆盖零售、房地产、周期股、金融等几乎所有主要行业，并提炼出25条投资黄金法则。
       </div>
@@ -370,6 +460,9 @@
     <div class="card-body">
       <h3>股票大作手回忆录</h3>
       <div class="author">埃德温·勒菲弗/杰西·利弗莫尔 · 1923</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.9</span><span>💬 49条</span><span>📖 25章</span>
+      </div>
       <div class="desc">
         有史以来最伟大的投资/投机经典之一。24章讲述利弗莫尔四次破产、三次东山再起的史诗故事。从读盘技巧到资金管理，从市场心理到自控力，构成完整的投机哲学体系。巴菲特、索罗斯、林奇都承认从中获益。
       </div>
@@ -389,6 +482,9 @@
     <div class="card-body">
       <h3>巴菲特的护城河</h3>
       <div class="author">帕特·多尔西 · 2008</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.3</span><span>💬 27条</span><span>📖 15章</span>
+      </div>
       <div class="desc">
         晨星公司股票研究总监多尔西将巴菲特的护城河概念从直觉转化为可操作框架。系统讲解四大护城河来源——无形资产、转换成本、网络效应、成本优势——并教你识别"伪护城河"、评估护城河宽度，以及正确的卖出时机。
       </div>
@@ -408,6 +504,9 @@
     <div class="card-body">
       <h3>随机漫步的傻瓜</h3>
       <div class="author">纳西姆·尼古拉斯·塔勒布 · 2001</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.6</span><span>💬 14条</span><span>📖 14章</span>
+      </div>
       <div class="desc">
         塔勒布"不确定性五部曲"开山之作。核心追问：你的成功到底是能力还是运气？衍生品交易员出身的塔勒布用蒙特卡罗思维、另类历史、幸存者偏差层层拆解——市场上大部分"赢家"只是被随机性愚弄的幸运傻瓜。读懂本书，你会重新审视一切业绩记录。
       </div>
@@ -427,6 +526,9 @@
     <div class="card-body">
       <h3>黑天鹅</h3>
       <div class="author">纳西姆·尼古拉斯·塔勒布 · 2007</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 7.9</span><span>💬 13条</span><span>📖 19章</span>
+      </div>
       <div class="desc">
         21世纪最具影响力的思想著作之一，出版次年即"预言"了金融危机。塔勒布提出：真正塑造历史与市场的，是极少数不可预测的极端事件。平均斯坦与极端斯坦、火鸡问题、叙事谬误、杠铃策略——这些概念已成为现代风险思维的通用语言。
       </div>
@@ -446,6 +548,9 @@
     <div class="card-body">
       <h3>反脆弱</h3>
       <div class="author">纳西姆·尼古拉斯·塔勒布 · 2012</div>
+      <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
+        <span>⭐ 8.5</span><span>💬 47条</span><span>📖 24章</span>
+      </div>
       <div class="desc">
         塔勒布思想体系的集大成之作，给《黑天鹅》提出的问题一个完整答案：既然极端事件无法预测，就把自己变成能从波动中获益的结构。脆弱—强韧—反脆弱三元组、杠铃策略、否定法、林迪效应——从投资组合到人生决策的完整反脆弱操作手册。
       </div>
@@ -466,5 +571,65 @@
 
 </div>
 
+<script>
+(function() {
+  var quotes = [
+    '"在别人沮丧地卖出时买入，在别人兴奋地买入时卖出——这需要最大的勇气，但提供最大的利润。" ——出处：《投资最重要的事》，霍华德·马克斯',
+    '"安全边际不是一种策略，它是一种性格。" ——出处：《聪明的投资者》，本杰明·格雷厄姆',
+    '"风会吹灭蜡烛，却能助燃烈火。" ——出处：《反脆弱》，纳西姆·塔勒布',
+    '"你不需要预测黑天鹅何时来——只需确保来临时你站在受益侧。" ——出处：《黑天鹅》，纳西姆·塔勒布',
+    '"市场先生是你的仆人，不是你的向导。" ——出处：《聪明的投资者》，本杰明·格雷厄姆',
+    '"投资中唯一可控的事：校准你在周期中的位置。" ——出处：《周期》，霍华德·马克斯',
+    '"华尔街没有新鲜事，因为投机像群山一样古老。" ——出处：《股票大作手回忆录》，杰西·利弗莫尔',
+    '"如果你不知道一家公司是如何赚钱的，就不要买它的股票。" ——出处：《彼得·林奇的成功投资》，彼得·林奇',
+    '"你不需要在每个投球时都挥棒。等待属于你的那个球。" ——出处：《投资最重要的事》，霍华德·马克斯',
+    '"护城河不是用来防守的，是用来让竞争者绝望的。" ——出处：《巴菲特的护城河》，帕特·多尔西',
+    '"杀死我的东西不会让我更强——但会让别人更强。" ——出处：《反脆弱》，纳西姆·塔勒布',
+    '"历史不会爬行，它只会跳跃。" ——出处：《黑天鹅》，纳西姆·塔勒布',
+    '"用15%的费雪找到增长、用85%的格雷厄姆守住底线——这就是巴菲特的完整配方。" ——出处：《怎样选择成长股》，菲利普·费雪',
+    '"市场永远不会错——但意见常常会错。" ——出处：《股票大作手回忆录》，杰西·利弗莫尔',
+    '"买股票就是买公司，而不是买一张会涨的纸。" ——出处：《巴菲特致股东的信》，沃伦·巴菲特',
+    '"股票投资不是赌博——如果你用正确的方法做。" ——出处：《彼得·林奇的成功投资》，彼得·林奇',
+    '"内在价值是分析师的起点，不是终点。" ——出处：《证券分析》，本杰明·格雷厄姆',
+    '"价格是你付出的，价值是你得到的。" ——出处：《巴菲特之道》，罗伯特·哈格斯特朗',
+    '"投资最重要的事不是买什么，而是什么时候买、付多少钱。" ——出处：《投资最重要的事》，霍华德·马克斯',
+    '"反脆弱系统的美妙之处：你对波动越不敏感，波动越拿你没办法。" ——出处：《反脆弱》，纳西姆·塔勒布'
+  ];
+  var current = 0;
+  var timer = null;
+
+  function show(index) {
+    var content = document.getElementById('quote-content');
+    var text = document.getElementById('quote-text');
+    content.classList.add('fading');
+    setTimeout(function() {
+      text.textContent = quotes[index];
+      content.classList.remove('fading');
+      var dots = document.querySelectorAll('.quote-dot');
+      dots.forEach(function(dot, i) { dot.classList.toggle('active', i === index); });
+    }, 250);
+  }
+
+  function next() { current = (current + 1) % quotes.length; show(current); }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var dotsContainer = document.getElementById('quote-dots');
+    quotes.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'quote-dot';
+      dot.setAttribute('aria-label', '第' + (i + 1) + '句');
+      dot.addEventListener('click', function() {
+        clearInterval(timer);
+        current = i;
+        show(i);
+        timer = setInterval(next, 6000);
+      });
+      dotsContainer.appendChild(dot);
+    });
+    show(0);
+    timer = setInterval(next, 6000);
+  });
+})();
+</script>","\u201c\u5b89\u5168\u8fb9\u9645\u4e0d\u662f\u4e00\u79cd\u7b56\u7565\uff0c\u5b83\u662f\u4e00\u79cd\u6027\u683c\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u806a\u660e\u7684\u6295\u8d44\u8005\u300b\uff0c\u672c\u6770\u660e\u00b7\u683c\u96f7\u5384\u59c6","\u201c\u98ce\u4f1a\u5439\u706d\u8721\u70db\uff0c\u5374\u80fd\u52a9\u71c3\u70c8\u706b\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u53cd\u8106\u5f31\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u4f60\u4e0d\u9700\u8981\u9884\u6d4b\u9ed1\u5929\u9e45\u4f55\u65f6\u6765\u2014\u2014\u53ea\u9700\u786e\u4fdd\u6765\u4e34\u65f6\u4f60\u7ad9\u5728\u53d7\u76ca\u4fa7\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u9ed1\u5929\u9e45\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u5e02\u573a\u5148\u751f\u662f\u4f60\u7684\u4ec6\u4eba\uff0c\u4e0d\u662f\u4f60\u7684\u5411\u5bfc\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u806a\u660e\u7684\u6295\u8d44\u8005\u300b\uff0c\u672c\u6770\u660e\u00b7\u683c\u96f7\u5384\u59c6","\u201c\u6295\u8d44\u4e2d\u552f\u4e00\u53ef\u63a7\u7684\u4e8b\uff1a\u6821\u51c6\u4f60\u5728\u5468\u671f\u4e2d\u7684\u4f4d\u7f6e\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5468\u671f\u300b\uff0c\u970d\u534e\u5fb7\u00b7\u9a6c\u514b\u65af","\u201c\u534e\u5c14\u8857\u6ca1\u6709\u65b0\u9c9c\u4e8b\uff0c\u56e0\u4e3a\u6295\u673a\u50cf\u7fa4\u5c71\u4e00\u6837\u53e4\u8001\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u80a1\u7968\u5927\u4f5c\u624b\u56de\u5fc6\u5f55\u300b\uff0c\u6770\u897f\u00b7\u5229\u5f17\u83ab\u5c14","\u201c\u5982\u679c\u4f60\u4e0d\u77e5\u9053\u4e00\u5bb6\u516c\u53f8\u662f\u5982\u4f55\u8d5a\u94b1\u7684\uff0c\u5c31\u4e0d\u8981\u4e70\u5b83\u7684\u80a1\u7968\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5f7c\u5f97\u00b7\u6797\u5947\u7684\u6210\u529f\u6295\u8d44\u300b\uff0c\u5f7c\u5f97\u00b7\u6797\u5947","\u201c\u4f60\u4e0d\u9700\u8981\u5728\u6bcf\u4e2a\u6295\u7403\u65f6\u90fd\u6325\u68d2\u3002\u7b49\u5f85\u5c5e\u4e8e\u4f60\u7684\u90a3\u4e2a\u7403\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u6295\u8d44\u6700\u91cd\u8981\u7684\u4e8b\u300b\uff0c\u970d\u534e\u5fb7\u00b7\u9a6c\u514b\u65af","\u201c\u62a4\u57ce\u6cb3\u4e0d\u662f\u7528\u6765\u9632\u5b88\u7684\uff0c\u662f\u7528\u6765\u8ba9\u7ade\u4e89\u8005\u7edd\u671b\u7684\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5df4\u83f2\u7279\u7684\u62a4\u57ce\u6cb3\u300b\uff0c\u5e15\u7279\u00b7\u591a\u5c14\u897f","\u201c\u6740\u6b7b\u6211\u7684\u4e1c\u897f\u4e0d\u4f1a\u8ba9\u6211\u66f4\u5f3a\u2014\u2014\u4f46\u4f1a\u8ba9\u522b\u4eba\u66f4\u5f3a\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u53cd\u8106\u5f31\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u5386\u53f2\u4e0d\u4f1a\u722c\u884c\uff0c\u5b83\u53ea\u4f1a\u8df3\u8dc3\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u9ed1\u5929\u9e45\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u752815%\u7684\u8d39\u96ea\u627e\u5230\u589e\u957f\u3001\u752885%\u7684\u683c\u96f7\u5384\u59c6\u5b88\u4f4f\u5e95\u7ebf\u2014\u2014\u8fd9\u5c31\u662f\u5df4\u83f2\u7279\u7684\u5b8c\u6574\u914d\u65b9\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u600e\u6837\u9009\u62e9\u6210\u957f\u80a1\u300b\uff0c\u83f2\u5229\u666e\u00b7\u8d39\u96ea","\u201c\u5e02\u573a\u6c38\u8fdc\u4e0d\u4f1a\u9519\u2014\u2014\u4f46\u610f\u89c1\u5e38\u5e38\u4f1a\u9519\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u80a1\u7968\u5927\u4f5c\u624b\u56de\u5fc6\u5f55\u300b\uff0c\u6770\u897f\u00b7\u5229\u5f17\u83ab\u5c14","\u201c\u4e70\u80a1\u7968\u5c31\u662f\u4e70\u516c\u53f8\uff0c\u800c\u4e0d\u662f\u4e70\u4e00\u5f20\u4f1a\u6da8\u7684\u7eb8\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5df4\u83f2\u7279\u81f4\u80a1\u4e1c\u7684\u4fe1\u300b\uff0c\u6c83\u4f26\u00b7\u5df4\u83f2\u7279","\u201c\u80a1\u7968\u6295\u8d44\u4e0d\u662f\u8d4c\u535a\u2014\u2014\u5982\u679c\u4f60\u7528\u6b63\u786e\u7684\u65b9\u6cd5\u505a\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5f7c\u5f97\u00b7\u6797\u5947\u7684\u6210\u529f\u6295\u8d44\u300b\uff0c\u5f7c\u5f97\u00b7\u6797\u5947","\u201c\u5185\u5728\u4ef7\u503c\u662f\u5206\u6790\u5e08\u7684\u8d77\u70b9\uff0c\u4e0d\u662f\u7ec8\u70b9\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u8bc1\u5238\u5206\u6790\u300b\uff0c\u672c\u6770\u660e\u00b7\u683c\u96f7\u5384\u59c6","\u201c\u4ef7\u683c\u662f\u4f60\u4ed8\u51fa\u7684\uff0c\u4ef7\u503c\u662f\u4f60\u5f97\u5230\u7684\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5df4\u83f2\u7279\u4e4b\u9053\u300b\uff0c\u7f57\u4f2f\u7279\u00b7\u54c8\u683c\u65af\u7279\u6717","\u201c\u6295\u8d44\u6700\u91cd\u8981\u7684\u4e8b\u4e0d\u662f\u4e70\u4ec0\u4e48\uff0c\u800c\u662f\u4ec0\u4e48\u65f6\u5019\u4e70\u3001\u4ed8\u591a\u5c11\u94b1\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u6295\u8d44\u6700\u91cd\u8981\u7684\u4e8b\u300b\uff0c\u970d\u534e\u5fb7\u00b7\u9a6c\u514b\u65af","\u201c\u53cd\u8106\u5f31\u7cfb\u7edf\u7684\u7f8e\u5999\u4e4b\u5904\uff1a\u4f60\u5bf9\u6ce2\u52a8\u8d8a\u4e0d\u654f\u611f\uff0c\u6ce2\u52a8\u8d8a\u62ff\u4f60\u6ca1\u529e\u6cd5\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u53cd\u8106\u5f31\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03"],i=0,t=null;function s(n){var c=document.getElementById("quote-content");c.classList.add("fading");setTimeout(function(){document.getElementById("quote-text").textContent=q[n];c.classList.remove("fading");var d=document.querySelectorAll(".quote-dot");d.forEach(function(o,e){o.classList.toggle("active",e===n)})},250)}function r(){i=(i+1)%q.length;s(i)}document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("quote-dots");q.forEach(function(_,n){var c=document.createElement("button");c.className="quote-dot";c.setAttribute("aria-label","\u7b2c"+(n+1)+"\u53e5");c.addEventListener("click",function(){clearInterval(t);i=n;s(i);t=setInterval(r,6000)});e.appendChild(c)});s(0);t=setInterval(r,6000)})})();</script>
 </body>
 </html>
