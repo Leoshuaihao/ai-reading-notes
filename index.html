@@ -205,6 +205,223 @@
   <a class="banner-btn" href="diagnose.html">开始诊断 →</a>
 </div>
 
+<!-- 趣味测试：这本书是谁的菜？ -->
+<style>
+  .book-quiz { margin-bottom: 24px; }
+  .book-quiz [hidden] { display: none !important; }
+  .book-quiz .quiz-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); padding: 30px 40px; overflow: hidden;
+  }
+  .book-quiz .quiz-intro { display: flex; align-items: center; gap: 24px; }
+  .book-quiz .quiz-intro-text { flex: 1; }
+  .book-quiz .quiz-intro-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .book-quiz .quiz-intro-sub { font-size: 14px; color: var(--text-secondary); }
+  .book-quiz .quiz-start-btn {
+    background: var(--accent); color: #fff; border: none; cursor: pointer;
+    padding: 12px 28px; border-radius: 24px; font-size: 15px; font-weight: 600;
+    transition: background 0.2s; white-space: nowrap; font-family: inherit;
+  }
+  .book-quiz .quiz-start-btn:hover { background: #b04f30; }
+  .book-quiz .quiz-progress { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+  .book-quiz .quiz-dot { width: 22px; height: 5px; border-radius: 3px; background: var(--tag-bg); transition: background 0.3s; }
+  .book-quiz .quiz-dot.done { background: #e0a08b; }
+  .book-quiz .quiz-dot.now { background: var(--accent); }
+  .book-quiz .quiz-count { font-size: 12px; color: var(--text-secondary); margin-left: 6px; }
+  .book-quiz .quiz-question { font-size: 18px; font-weight: 700; margin-bottom: 18px; }
+  .book-quiz .quiz-option {
+    display: block; width: 100%; text-align: left; cursor: pointer; font-family: inherit;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px 18px; font-size: 15px; color: var(--text); margin-bottom: 10px;
+    transition: all 0.2s;
+  }
+  .book-quiz .quiz-option:hover { border-color: var(--accent); background: var(--accent-light); }
+  .book-quiz .quiz-step { opacity: 0; transform: translateX(28px); transition: opacity 0.35s ease, transform 0.35s ease; }
+  .book-quiz .quiz-step.quiz-step-in { opacity: 1; transform: translateX(0); }
+  .book-quiz .quiz-result { text-align: center; padding: 8px 0; }
+  .book-quiz .quiz-result-label { font-size: 12px; color: var(--text-secondary); letter-spacing: 2px; margin-bottom: 8px; }
+  .book-quiz .quiz-result-title { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
+  .book-quiz .quiz-result-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.8; max-width: 520px; margin: 0 auto 20px; }
+  .book-quiz .quiz-result-actions { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
+  .book-quiz .quiz-go {
+    background: var(--accent); color: #fff; padding: 12px 30px; border-radius: 24px;
+    font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s;
+  }
+  .book-quiz .quiz-go:hover { background: #b04f30; }
+  .book-quiz .quiz-retry {
+    background: none; border: none; cursor: pointer; font-family: inherit;
+    font-size: 13px; color: var(--text-secondary); text-decoration: underline; padding: 4px;
+  }
+  .book-quiz .quiz-retry:hover { color: var(--accent); }
+  @media (max-width: 768px) {
+    .book-quiz .quiz-card { padding: 22px 20px; }
+    .book-quiz .quiz-intro { flex-direction: column; text-align: center; gap: 14px; }
+  }
+</style>
+<section class="book-quiz" aria-label="趣味测试：这本书是谁的菜">
+  <div class="quiz-card">
+    <div class="quiz-intro" id="quiz-intro">
+      <div class="quiz-intro-text">
+        <div class="quiz-intro-title">🧩 这本书是谁的菜？</div>
+        <div class="quiz-intro-sub">3 道题找到属于你的投资大师</div>
+      </div>
+      <button type="button" class="quiz-start-btn" id="quiz-start">开始测试 →</button>
+    </div>
+    <div class="quiz-stage" id="quiz-stage" hidden></div>
+  </div>
+</section>
+<script>
+(function() {
+  var questions = [
+    { q: '做决定时，你更相信什么？', a: '数字和财务报表', b: '商业直觉和实地观察' },
+    { q: '市场大跌 20%，你的第一反应？', a: '机会来了，逢低买入', b: '先撤为敬，保住本金' },
+    { q: '你怎么看待未来？', a: '未来无法预测，但可以为不确定性做好准备', b: '深度研究可以大概率判断方向' }
+  ];
+  var results = {
+    AAA: { title: '周期', slug: 'market-cycle', desc: '你是理性的逆向者——马克斯教你在别人恐慌时冷静计算周期位置' },
+    AAB: { title: '聪明的投资者', slug: 'intelligent-investor', desc: '你是天生的价值投资者——格雷厄姆的安全边际就是为你写的' },
+    ABA: { title: '反脆弱', slug: 'antifragile', desc: '你重数据又敬畏未知——塔勒布的杠铃策略是你的武器' },
+    ABB: { title: '证券分析', slug: 'security-analysis', desc: '你是严谨的基本面分析者——直接读价值投资的源头原典' },
+    BAA: { title: '股票大作手回忆录', slug: 'stock-operator', desc: '你有交易者的血液——利弗莫尔的百年智慧等着你' },
+    BAB: { title: '彼得·林奇的成功投资', slug: 'peter-lynch', desc: '你适合从身边发现牛股——林奇的常识投资法完美匹配' },
+    BBA: { title: '穷查理宝典', slug: 'poor-charlie', desc: '你重直觉也重防御——芒格的多元思维模型帮你避开心理陷阱' },
+    BBB: { title: '巴菲特的护城河', slug: 'economic-moat', desc: '你想要稳稳的幸福——先学会识别有护城河的好生意' }
+  };
+  var answers = [];
+  var intro = document.getElementById('quiz-intro');
+  var stage = document.getElementById('quiz-stage');
+
+  function animateIn() {
+    var step = stage.querySelector('.quiz-step');
+    if (!step) return;
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() { step.classList.add('quiz-step-in'); });
+    });
+  }
+
+  function renderQuestion(i) {
+    var q = questions[i];
+    var dots = '';
+    for (var d = 0; d < 3; d++) {
+      dots += '<span class="quiz-dot' + (d < i ? ' done' : (d === i ? ' now' : '')) + '"></span>';
+    }
+    stage.innerHTML =
+      '<div class="quiz-step">' +
+        '<div class="quiz-progress">' + dots + '<span class="quiz-count">第 ' + (i + 1) + ' / 3 题</span></div>' +
+        '<div class="quiz-question">' + q.q + '</div>' +
+        '<button type="button" class="quiz-option" data-pick="A">' + q.a + '</button>' +
+        '<button type="button" class="quiz-option" data-pick="B">' + q.b + '</button>' +
+      '</div>';
+    Array.prototype.forEach.call(stage.querySelectorAll('.quiz-option'), function(btn) {
+      btn.addEventListener('click', function() {
+        answers[i] = btn.getAttribute('data-pick');
+        if (i < 2) { renderQuestion(i + 1); } else { renderResult(); }
+      });
+    });
+    animateIn();
+  }
+
+  function renderResult() {
+    var r = results[answers.join('')] || results.AAA;
+    stage.innerHTML =
+      '<div class="quiz-step quiz-result">' +
+        '<div class="quiz-result-label">你的投资大师之书</div>' +
+        '<div class="quiz-result-title">《' + r.title + '》</div>' +
+        '<p class="quiz-result-desc">' + r.desc + '</p>' +
+        '<div class="quiz-result-actions">' +
+          '<a class="quiz-go" href="books/' + r.slug + '/">进入精读 →</a>' +
+          '<button type="button" class="quiz-retry" id="quiz-retry">再测一次</button>' +
+        '</div>' +
+      '</div>';
+    document.getElementById('quiz-retry').addEventListener('click', function() {
+      answers = [];
+      renderQuestion(0);
+    });
+    animateIn();
+  }
+
+  document.getElementById('quiz-start').addEventListener('click', function() {
+    intro.hidden = true;
+    stage.hidden = false;
+    renderQuestion(0);
+  });
+})();
+</script>
+
+<!-- 今日精读：每日随机一章 -->
+<style>
+  .daily-read {
+    background: #fdf7f0; border: 1px solid #eadcc8; border-left: 3px solid var(--gold);
+    border-radius: 12px; padding: 20px 28px; margin-bottom: 40px;
+    display: flex; align-items: center; gap: 18px;
+  }
+  .daily-read .daily-read-icon { font-size: 26px; }
+  .daily-read .daily-read-body { flex: 1; }
+  .daily-read .daily-read-label {
+    font-size: 12px; color: #b0a090; letter-spacing: 2px;
+    margin-bottom: 4px; font-weight: 500;
+  }
+  .daily-read .daily-read-text { font-size: 16px; color: #3d2e1e; }
+  .daily-read .daily-read-text strong { font-weight: 700; }
+  .daily-read .daily-read-btn {
+    background: var(--gold); color: #fff; padding: 10px 22px; border-radius: 22px;
+    font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .daily-read .daily-read-btn:hover { opacity: 0.85; }
+  @media (max-width: 768px) {
+    .daily-read { flex-direction: column; text-align: center; padding: 20px; }
+  }
+</style>
+<section class="daily-read" aria-label="今日精读">
+  <div class="daily-read-icon">📅</div>
+  <div class="daily-read-body">
+    <div class="daily-read-label">今 日 精 读</div>
+    <div class="daily-read-text" id="daily-read-text"></div>
+  </div>
+  <a class="daily-read-btn" id="daily-read-link" href="books/fisher/">去读这一章 →</a>
+</section>
+<script>
+(function() {
+  var books = [
+    { slug: 'fisher', title: '怎样选择成长股', ch: 8 },
+    { slug: 'howard-marks', title: '投资最重要的事', ch: 21 },
+    { slug: 'buffett', title: '巴菲特之道', ch: 8 },
+    { slug: 'market-cycle', title: '周期', ch: 18 },
+    { slug: 'buffett-letters', title: '巴菲特致股东的信', ch: 12 },
+    { slug: 'alchemy-finance', title: '金融炼金术', ch: 12 },
+    { slug: 'poor-charlie', title: '穷查理宝典', ch: 12 },
+    { slug: 'intelligent-investor', title: '聪明的投资者', ch: 20 },
+    { slug: 'peter-lynch', title: '彼得·林奇的成功投资', ch: 20 },
+    { slug: 'security-analysis', title: '证券分析', ch: 17 },
+    { slug: 'beating-street', title: '战胜华尔街', ch: 13 },
+    { slug: 'stock-operator', title: '股票大作手回忆录', ch: 24 },
+    { slug: 'economic-moat', title: '巴菲特的护城河', ch: 14 },
+    { slug: 'fooled-by-randomness', title: '随机漫步的傻瓜', ch: 14 },
+    { slug: 'black-swan', title: '黑天鹅', ch: 19 },
+    { slug: 'antifragile', title: '反脆弱', ch: 24 }
+  ];
+  var total = 0;
+  books.forEach(function(b) { total += b.ch; });
+  var d = new Date();
+  var dateStr = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  var h = 0;
+  for (var i = 0; i < dateStr.length; i++) { h = (h * 31 + dateStr.charCodeAt(i)) >>> 0; }
+  h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
+  h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
+  h = (h ^ (h >>> 16)) >>> 0;
+  var idx = h % total;
+  var book = books[0], chapter = 1;
+  for (var j = 0; j < books.length; j++) {
+    if (idx < books[j].ch) { book = books[j]; chapter = idx + 1; break; }
+    idx -= books[j].ch;
+  }
+  document.getElementById('daily-read-text').innerHTML =
+    '今天推荐你读：<strong>《' + book.title + '》</strong>第' + chapter + '章';
+  document.getElementById('daily-read-link').setAttribute('href', 'books/' + book.slug + '/#ch' + chapter);
+})();
+</script>
+
 <!-- 书架 -->
 <h2 class="section-title"><span class="emoji">📖</span> 精读笔记</h2>
 <div class="book-grid">
@@ -630,6 +847,6 @@
     timer = setInterval(next, 6000);
   });
 })();
-</script>","\u201c\u5b89\u5168\u8fb9\u9645\u4e0d\u662f\u4e00\u79cd\u7b56\u7565\uff0c\u5b83\u662f\u4e00\u79cd\u6027\u683c\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u806a\u660e\u7684\u6295\u8d44\u8005\u300b\uff0c\u672c\u6770\u660e\u00b7\u683c\u96f7\u5384\u59c6","\u201c\u98ce\u4f1a\u5439\u706d\u8721\u70db\uff0c\u5374\u80fd\u52a9\u71c3\u70c8\u706b\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u53cd\u8106\u5f31\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u4f60\u4e0d\u9700\u8981\u9884\u6d4b\u9ed1\u5929\u9e45\u4f55\u65f6\u6765\u2014\u2014\u53ea\u9700\u786e\u4fdd\u6765\u4e34\u65f6\u4f60\u7ad9\u5728\u53d7\u76ca\u4fa7\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u9ed1\u5929\u9e45\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u5e02\u573a\u5148\u751f\u662f\u4f60\u7684\u4ec6\u4eba\uff0c\u4e0d\u662f\u4f60\u7684\u5411\u5bfc\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u806a\u660e\u7684\u6295\u8d44\u8005\u300b\uff0c\u672c\u6770\u660e\u00b7\u683c\u96f7\u5384\u59c6","\u201c\u6295\u8d44\u4e2d\u552f\u4e00\u53ef\u63a7\u7684\u4e8b\uff1a\u6821\u51c6\u4f60\u5728\u5468\u671f\u4e2d\u7684\u4f4d\u7f6e\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5468\u671f\u300b\uff0c\u970d\u534e\u5fb7\u00b7\u9a6c\u514b\u65af","\u201c\u534e\u5c14\u8857\u6ca1\u6709\u65b0\u9c9c\u4e8b\uff0c\u56e0\u4e3a\u6295\u673a\u50cf\u7fa4\u5c71\u4e00\u6837\u53e4\u8001\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u80a1\u7968\u5927\u4f5c\u624b\u56de\u5fc6\u5f55\u300b\uff0c\u6770\u897f\u00b7\u5229\u5f17\u83ab\u5c14","\u201c\u5982\u679c\u4f60\u4e0d\u77e5\u9053\u4e00\u5bb6\u516c\u53f8\u662f\u5982\u4f55\u8d5a\u94b1\u7684\uff0c\u5c31\u4e0d\u8981\u4e70\u5b83\u7684\u80a1\u7968\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5f7c\u5f97\u00b7\u6797\u5947\u7684\u6210\u529f\u6295\u8d44\u300b\uff0c\u5f7c\u5f97\u00b7\u6797\u5947","\u201c\u4f60\u4e0d\u9700\u8981\u5728\u6bcf\u4e2a\u6295\u7403\u65f6\u90fd\u6325\u68d2\u3002\u7b49\u5f85\u5c5e\u4e8e\u4f60\u7684\u90a3\u4e2a\u7403\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u6295\u8d44\u6700\u91cd\u8981\u7684\u4e8b\u300b\uff0c\u970d\u534e\u5fb7\u00b7\u9a6c\u514b\u65af","\u201c\u62a4\u57ce\u6cb3\u4e0d\u662f\u7528\u6765\u9632\u5b88\u7684\uff0c\u662f\u7528\u6765\u8ba9\u7ade\u4e89\u8005\u7edd\u671b\u7684\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5df4\u83f2\u7279\u7684\u62a4\u57ce\u6cb3\u300b\uff0c\u5e15\u7279\u00b7\u591a\u5c14\u897f","\u201c\u6740\u6b7b\u6211\u7684\u4e1c\u897f\u4e0d\u4f1a\u8ba9\u6211\u66f4\u5f3a\u2014\u2014\u4f46\u4f1a\u8ba9\u522b\u4eba\u66f4\u5f3a\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u53cd\u8106\u5f31\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u5386\u53f2\u4e0d\u4f1a\u722c\u884c\uff0c\u5b83\u53ea\u4f1a\u8df3\u8dc3\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u9ed1\u5929\u9e45\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03","\u201c\u752815%\u7684\u8d39\u96ea\u627e\u5230\u589e\u957f\u3001\u752885%\u7684\u683c\u96f7\u5384\u59c6\u5b88\u4f4f\u5e95\u7ebf\u2014\u2014\u8fd9\u5c31\u662f\u5df4\u83f2\u7279\u7684\u5b8c\u6574\u914d\u65b9\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u600e\u6837\u9009\u62e9\u6210\u957f\u80a1\u300b\uff0c\u83f2\u5229\u666e\u00b7\u8d39\u96ea","\u201c\u5e02\u573a\u6c38\u8fdc\u4e0d\u4f1a\u9519\u2014\u2014\u4f46\u610f\u89c1\u5e38\u5e38\u4f1a\u9519\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u80a1\u7968\u5927\u4f5c\u624b\u56de\u5fc6\u5f55\u300b\uff0c\u6770\u897f\u00b7\u5229\u5f17\u83ab\u5c14","\u201c\u4e70\u80a1\u7968\u5c31\u662f\u4e70\u516c\u53f8\uff0c\u800c\u4e0d\u662f\u4e70\u4e00\u5f20\u4f1a\u6da8\u7684\u7eb8\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5df4\u83f2\u7279\u81f4\u80a1\u4e1c\u7684\u4fe1\u300b\uff0c\u6c83\u4f26\u00b7\u5df4\u83f2\u7279","\u201c\u80a1\u7968\u6295\u8d44\u4e0d\u662f\u8d4c\u535a\u2014\u2014\u5982\u679c\u4f60\u7528\u6b63\u786e\u7684\u65b9\u6cd5\u505a\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5f7c\u5f97\u00b7\u6797\u5947\u7684\u6210\u529f\u6295\u8d44\u300b\uff0c\u5f7c\u5f97\u00b7\u6797\u5947","\u201c\u5185\u5728\u4ef7\u503c\u662f\u5206\u6790\u5e08\u7684\u8d77\u70b9\uff0c\u4e0d\u662f\u7ec8\u70b9\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u8bc1\u5238\u5206\u6790\u300b\uff0c\u672c\u6770\u660e\u00b7\u683c\u96f7\u5384\u59c6","\u201c\u4ef7\u683c\u662f\u4f60\u4ed8\u51fa\u7684\uff0c\u4ef7\u503c\u662f\u4f60\u5f97\u5230\u7684\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u5df4\u83f2\u7279\u4e4b\u9053\u300b\uff0c\u7f57\u4f2f\u7279\u00b7\u54c8\u683c\u65af\u7279\u6717","\u201c\u6295\u8d44\u6700\u91cd\u8981\u7684\u4e8b\u4e0d\u662f\u4e70\u4ec0\u4e48\uff0c\u800c\u662f\u4ec0\u4e48\u65f6\u5019\u4e70\u3001\u4ed8\u591a\u5c11\u94b1\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u6295\u8d44\u6700\u91cd\u8981\u7684\u4e8b\u300b\uff0c\u970d\u534e\u5fb7\u00b7\u9a6c\u514b\u65af","\u201c\u53cd\u8106\u5f31\u7cfb\u7edf\u7684\u7f8e\u5999\u4e4b\u5904\uff1a\u4f60\u5bf9\u6ce2\u52a8\u8d8a\u4e0d\u654f\u611f\uff0c\u6ce2\u52a8\u8d8a\u62ff\u4f60\u6ca1\u529e\u6cd5\u3002\u201d\u2014\u2014\u51fa\u5904\uff1a\u300a\u53cd\u8106\u5f31\u300b\uff0c\u7eb3\u897f\u59c6\u00b7\u5854\u52d2\u5e03"],i=0,t=null;function s(n){var c=document.getElementById("quote-content");c.classList.add("fading");setTimeout(function(){document.getElementById("quote-text").textContent=q[n];c.classList.remove("fading");var d=document.querySelectorAll(".quote-dot");d.forEach(function(o,e){o.classList.toggle("active",e===n)})},250)}function r(){i=(i+1)%q.length;s(i)}document.addEventListener("DOMContentLoaded",function(){var e=document.getElementById("quote-dots");q.forEach(function(_,n){var c=document.createElement("button");c.className="quote-dot";c.setAttribute("aria-label","\u7b2c"+(n+1)+"\u53e5");c.addEventListener("click",function(){clearInterval(t);i=n;s(i);t=setInterval(r,6000)});e.appendChild(c)});s(0);t=setInterval(r,6000)})})();</script>
+</script>
 </body>
 </html>
