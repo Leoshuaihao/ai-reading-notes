@@ -375,4 +375,50 @@
     a.setAttribute('tabindex', '0');
   });
 
+  // ==================== 章节轻量自测卡片（思考题下方的折叠式引导） ====================
+  var QUIZ_COLLAPSED_LABEL = '<span style="font-size:16px;">💡</span> 这道思考题，你的答案是什么？点此看看大师怎么说';
+  var QUIZ_EXPANDED_LABEL = '<span style="font-size:16px;">💡</span> <span style="color:#7b4fbf;">已展开 · 点击收起</span>';
+
+  document.querySelectorAll('.chapter-card .exercise-box').forEach(function(box) {
+    var quiz = document.createElement('div');
+    quiz.className = 'self-quiz';
+    quiz.style.cssText = 'margin-top:12px;margin-bottom:16px;background:#f8f4fd;border:1px solid #e8ddf5;border-radius:8px;padding:12px 16px;cursor:pointer;transition:background 0.2s;';
+    quiz.setAttribute('role', 'button');
+    quiz.setAttribute('tabindex', '0');
+    quiz.setAttribute('aria-expanded', 'false');
+    quiz.setAttribute('aria-label', '展开自测引导');
+
+    var quizHeader = document.createElement('div');
+    quizHeader.style.cssText = 'font-size:13px;color:#8a8a8a;display:flex;align-items:center;gap:6px;user-select:none;';
+    quizHeader.innerHTML = QUIZ_COLLAPSED_LABEL;
+
+    var quizBody = document.createElement('div');
+    quizBody.style.cssText = 'display:none;margin-top:10px;padding-top:10px;border-top:1px solid #e8ddf5;font-size:13px;color:var(--text);line-height:1.8;cursor:auto;';
+    quizBody.innerHTML =
+      '<p style="color:#7b4fbf;font-weight:600;margin-bottom:6px;">💬 大师视角参考</p>' +
+      '<p style="margin-bottom:6px;">每位投资大师都会告诉你：<strong>投资中最危险的不是犯错，而是不思考</strong>。这道思考题没有标准答案，但有一个思考方向——不把问题当作"二选一"，而是问自己：<strong>在什么条件下选A，在什么条件下选B？</strong></p>' +
+      '<p style="font-size:12px;color:var(--text-secondary);">如果你已经有了自己的答案，恭喜——你正在建造自己的投资体系。如果还没有，也没关系，<strong>把问题存在脑子里，下次看盘的时候想想它</strong>。</p>';
+
+    quiz.appendChild(quizHeader);
+    quiz.appendChild(quizBody);
+
+    function toggleQuiz() {
+      var isHidden = quizBody.style.display === 'none';
+      quizBody.style.display = isHidden ? 'block' : 'none';
+      quizHeader.innerHTML = isHidden ? QUIZ_EXPANDED_LABEL : QUIZ_COLLAPSED_LABEL;
+      quiz.setAttribute('aria-expanded', String(isHidden));
+      quiz.setAttribute('aria-label', isHidden ? '收起自测引导' : '展开自测引导');
+    }
+
+    quiz.addEventListener('click', toggleQuiz);
+    quiz.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleQuiz();
+      }
+    });
+
+    box.parentNode.insertBefore(quiz, box.nextSibling);
+  });
+
 })();
