@@ -154,6 +154,8 @@
   <span class="logo">📚 AI精读</span>
   <div class="nav-links">
     <a href="diagnose.html">🔍 股票诊断</a>
+    <a href="concepts.html">🕸️ 概念地图</a>
+    <a href="my.html">📚 我的书架</a>
   </div>
 </nav>
 
@@ -421,6 +423,102 @@
   document.getElementById('daily-read-link').setAttribute('href', 'books/' + book.slug + '/#ch' + chapter);
 })();
 </script>
+
+<!-- 三档阅读路径 -->
+<style>
+  .reading-paths { margin-bottom: 40px; }
+  .reading-paths .paths-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .path-card {
+    background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
+    border: 1px solid var(--border); padding: 24px;
+    display: flex; flex-direction: column;
+  }
+  .path-card.path-beginner { border-left: 4px solid var(--green); }
+  .path-card.path-advanced { border-left: 4px solid var(--blue); }
+  .path-card.path-master { border-left: 4px solid var(--gold); }
+  .path-card .path-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .path-card.path-beginner .path-title { color: var(--green); }
+  .path-card.path-advanced .path-title { color: var(--blue); }
+  .path-card.path-master .path-title { color: var(--gold); }
+  .path-card .path-tagline { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; }
+  .path-card .path-books {
+    list-style: none; margin: 0 0 16px; padding: 0;
+    counter-reset: path-step; flex: 1;
+  }
+  .path-card .path-books li { counter-increment: path-step; }
+  .path-card .path-books a {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 9px 10px; border-radius: 8px; text-decoration: none;
+    color: var(--text); font-size: 14px; transition: background 0.2s;
+  }
+  .path-card .path-books a:hover { background: var(--tag-bg); }
+  .path-card .path-books a::before {
+    content: counter(path-step); flex-shrink: 0;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: var(--tag-bg); color: var(--text-secondary);
+    font-size: 12px; font-weight: 600;
+    display: inline-flex; align-items: center; justify-content: center;
+    align-self: center;
+  }
+  .path-card.path-beginner .path-books a::before { background: rgba(45,125,70,0.12); color: var(--green); }
+  .path-card.path-advanced .path-books a::before { background: rgba(44,111,170,0.12); color: var(--blue); }
+  .path-card.path-master .path-books a::before { background: rgba(184,134,11,0.12); color: var(--gold); }
+  .path-card .path-books .book-name { font-weight: 600; }
+  .path-card .path-books .book-note { font-size: 12px; color: var(--text-secondary); }
+  .path-card .path-audience {
+    font-size: 12px; color: var(--text-secondary);
+    border-top: 1px dashed var(--border); padding-top: 12px;
+  }
+  @media (max-width: 768px) {
+    .reading-paths .paths-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<section class="reading-paths" aria-label="三档阅读路径">
+  <h2 class="section-title"><span class="emoji">🧭</span> 阅读路径</h2>
+  <div class="paths-grid">
+
+    <div class="path-card path-beginner">
+      <div class="path-title">🌱 新人路线</div>
+      <div class="path-tagline">从零建立投资常识</div>
+      <ol class="path-books">
+        <li><a href="books/peter-lynch/"><span><span class="book-name">彼得·林奇的成功投资</span> <span class="book-note">— 最亲切的入门</span></span></a></li>
+        <li><a href="books/intelligent-investor/"><span><span class="book-name">聪明的投资者</span> <span class="book-note">— 建立价值观</span></span></a></li>
+        <li><a href="books/buffett/"><span><span class="book-name">巴菲特之道</span> <span class="book-note">— 看大师如何应用</span></span></a></li>
+        <li><a href="books/economic-moat/"><span><span class="book-name">巴菲特的护城河</span> <span class="book-note">— 学会挑好生意</span></span></a></li>
+      </ol>
+      <div class="path-audience">适合：刚开始接触投资，想系统入门的读者</div>
+    </div>
+
+    <div class="path-card path-advanced">
+      <div class="path-title">🌿 进阶路线</div>
+      <div class="path-tagline">理解风险与周期</div>
+      <ol class="path-books">
+        <li><a href="books/howard-marks/"><span><span class="book-name">投资最重要的事</span> <span class="book-note">— 重新定义风险</span></span></a></li>
+        <li><a href="books/market-cycle/"><span><span class="book-name">周期</span> <span class="book-note">— 校准市场位置</span></span></a></li>
+        <li><a href="books/fooled-by-randomness/"><span><span class="book-name">随机漫步的傻瓜</span> <span class="book-note">— 认清运气与实力</span></span></a></li>
+        <li><a href="books/black-swan/"><span><span class="book-name">黑天鹅</span> <span class="book-note">— 极端事件思维</span></span></a></li>
+        <li><a href="books/antifragile/"><span><span class="book-name">反脆弱</span> <span class="book-note">— 从不确定中获益</span></span></a></li>
+      </ol>
+      <div class="path-audience">适合：有 2 年以上经验，想突破认知瓶颈的投资者</div>
+    </div>
+
+    <div class="path-card path-master">
+      <div class="path-title">🌳 大师原典</div>
+      <div class="path-tagline">直接与思想源头对话</div>
+      <ol class="path-books">
+        <li><a href="books/security-analysis/"><span><span class="book-name">证券分析</span> <span class="book-note">— 价值投资的圣经</span></span></a></li>
+        <li><a href="books/buffett-letters/"><span><span class="book-name">巴菲特致股东的信</span> <span class="book-note">— 48年第一手记录</span></span></a></li>
+        <li><a href="books/poor-charlie/"><span><span class="book-name">穷查理宝典</span> <span class="book-note">— 多元思维模型</span></span></a></li>
+        <li><a href="books/alchemy-finance/"><span><span class="book-name">金融炼金术</span> <span class="book-note">— 反身性原典</span></span></a></li>
+        <li><a href="books/stock-operator/"><span><span class="book-name">股票大作手回忆录</span> <span class="book-note">— 投机的百年镜鉴</span></span></a></li>
+      </ol>
+      <div class="path-audience">适合：愿意啃硬书、追求思想深度的读者</div>
+    </div>
+
+  </div>
+</section>
 
 <!-- 书架 -->
 <h2 class="section-title"><span class="emoji">📖</span> 精读笔记</h2>
