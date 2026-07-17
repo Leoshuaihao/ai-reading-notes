@@ -3,461 +3,624 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>我的书架 — AI精读笔记</title>
-<meta name="description" content="你的阅读足迹与投资体系：追踪16本投资经典的阅读进度，汇聚你收藏的投资原则。"/>
+<title>投资修行 — AI精读笔记</title>
+<meta name="description" content="你的投资修行之路：等级、成就、阅读进度、投资体系。像爬山一样看见自己的成长。"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <style>
-  /* ===== 页面骨架 ===== */
-  .my-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+/* ===== 页面骨架 ===== */
+.my-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-  /* ===== Hero ===== */
-  .my-hero {
-    text-align: center; padding: 48px 24px 36px;
-  }
-  .my-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
-  .my-hero .subtitle { color: var(--text-secondary); font-size: 16px; }
+/* ===== Hero ===== */
+.my-hero { text-align: center; padding: 48px 24px 24px; }
+.my-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 4px; }
+.my-hero .subtitle { color: var(--text-secondary); font-size: 15px; }
+.my-hero .level-badge {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+  padding: 10px 24px; border-radius: 24px; font-weight: 700; font-size: 16px;
+  background: var(--accent-light); color: var(--accent);
+}
 
-  /* ===== 统计条 ===== */
-  .stats-bar {
-    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
-    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-    padding: 24px 32px; margin-bottom: 40px; box-shadow: var(--shadow);
-  }
-  .stats-bar .stat-item { text-align: center; }
-  .stats-bar .stat-num { font-size: 28px; font-weight: 800; color: var(--accent); }
-  .stats-bar .stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+/* ===== 山顶进度条（视觉隐喻核心） ===== */
+.mountain-section {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 24px 28px; margin-bottom: 32px; box-shadow: var(--shadow);
+}
+.mountain-section .section-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.mountain-section .section-header h2 { font-size: 18px; font-weight: 700; margin: 0; }
+.mountain-stage {
+  font-size: 13px; color: var(--text-secondary); margin-left: auto;
+}
+.mountain-svg { width: 100%; max-width: 100%; display: block; border-radius: 12px; background: #f8f6f0; }
+.mountain-legend { display: flex; justify-content: center; gap: 24px; margin-top: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); }
 
-  /* ===== 区块标题 ===== */
-  .my-section-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-  .my-section-desc { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
+/* ===== 经验条 ===== */
+.xp-section { margin-bottom: 32px; }
+.xp-bar-wrap { display: flex; align-items: center; gap: 12px; }
+.xp-bar-track { flex: 1; height: 14px; background: var(--tag-bg); border-radius: 7px; overflow: hidden; }
+.xp-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #e08a5f); border-radius: 7px; transition: width 0.6s ease; }
+.xp-label { font-size: 13px; color: var(--text-secondary); white-space: nowrap; }
+.xp-next { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
 
-  /* ===== 阅读进度网格 ===== */
-  .progress-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 16px; margin-bottom: 56px;
-  }
-  .progress-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-    padding: 18px 20px; box-shadow: var(--shadow); transition: all 0.25s;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .progress-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-  .progress-card .book-title { font-size: 15px; font-weight: 700; line-height: 1.4; }
-  .progress-card .progress-track {
-    height: 8px; background: var(--tag-bg); border-radius: 4px; overflow: hidden;
-  }
-  .progress-card .progress-fill {
-    height: 100%; background: linear-gradient(90deg, var(--accent), #e08a5f);
-    border-radius: 4px; transition: width 0.5s ease;
-  }
-  .progress-card .progress-meta {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; color: var(--text-secondary);
-  }
-  .progress-card .continue-link {
-    color: var(--accent); text-decoration: none; font-weight: 600; font-size: 13px;
-  }
-  .progress-card .continue-link:hover { text-decoration: underline; }
-  .progress-card.not-started { opacity: 0.72; }
-  .progress-card.not-started .book-title { color: var(--text-secondary); }
-  .progress-card.not-started .continue-link { color: var(--text-secondary); font-weight: 500; }
-  .progress-card .status-text { font-size: 12px; color: #b0b0b0; }
+/* ===== 能力树 ===== */
+.skill-tree { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-bottom: 40px; }
+.skill-branch {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.skill-branch .branch-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.skill-branch .branch-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; flex-shrink: 0; }
+.skill-branch .branch-name { font-size: 16px; font-weight: 700; }
+.skill-branch .branch-score { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
+.skill-branch .leaf-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.skill-branch .leaf {
+  font-size: 12px; padding: 4px 12px; border-radius: 14px;
+  background: var(--tag-bg); color: var(--text-secondary); transition: all 0.2s;
+  display: flex; align-items: center; gap: 4px;
+}
+.skill-branch .leaf.unlocked { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+.skill-branch .leaf.unlocked::after { content: '✓'; font-size: 11px; }
 
-  /* ===== 我的投资体系 ===== */
-  .principles-section { margin-bottom: 56px; }
-  .principle-group {
-    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-    padding: 20px 24px; margin-bottom: 16px; box-shadow: var(--shadow);
-  }
-  .principle-group .group-title {
-    font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 12px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .principle-group .group-title .count {
-    background: var(--accent-light); color: var(--accent); font-size: 12px;
-    padding: 1px 10px; border-radius: 10px; font-weight: 600;
-  }
-  .principle-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    padding: 10px 0; border-bottom: 1px solid var(--border);
-    font-size: 14px; line-height: 1.7;
-  }
-  .principle-item:last-child { border-bottom: none; }
-  .principle-item .star { color: var(--gold); flex-shrink: 0; font-size: 14px; margin-top: 2px; }
-  .principle-item .p-text { flex: 1; }
-  .principle-item .p-chapter { color: var(--text-secondary); font-size: 12px; margin-top: 2px; }
-  .principle-item .remove-btn {
-    background: none; border: none; color: #c0c0c0; font-size: 16px; cursor: pointer;
-    padding: 0 4px; line-height: 1.4; flex-shrink: 0; font-family: inherit;
-    border-radius: 4px; transition: all 0.15s;
-  }
-  .principle-item .remove-btn:hover { color: var(--accent); background: var(--accent-light); }
+/* ===== 成就徽章 ===== */
+.achieve-section { margin-bottom: 40px; }
+.achieve-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.achieve-badge {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 14px; text-align: center; box-shadow: var(--shadow); transition: all 0.25s;
+  opacity: 0.5;
+}
+.achieve-badge.earned { opacity: 1; border-color: var(--gold); }
+.achieve-badge.earned:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.achieve-icon { font-size: 36px; margin-bottom: 8px; }
+.achieve-name { font-size: 14px; font-weight: 700; line-height: 1.3; }
+.achieve-desc { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+.achieve-badge:not(.earned) .achieve-icon { filter: grayscale(100%); opacity: 0.4; }
+.achieve-badge:not(.earned) .achieve-name { color: var(--text-secondary); }
 
-  /* 导出按钮 */
-  .export-btn {
-    display: inline-block; background: var(--accent); color: #fff; border: none;
-    padding: 12px 32px; border-radius: 24px; font-size: 15px; font-weight: 600;
-    cursor: pointer; font-family: inherit; transition: all 0.2s; margin-top: 8px;
-  }
-  .export-btn:hover { background: #b04f30; }
-  .export-btn.copied { background: var(--green); }
+/* ===== 统计数据 ===== */
+.stats-bar {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 24px 32px; margin-bottom: 40px; box-shadow: var(--shadow);
+}
+.stats-bar .stat-item { text-align: center; }
+.stats-bar .stat-num { font-size: 28px; font-weight: 800; color: var(--accent); }
+.stats-bar .stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 2px; }
 
-  /* 空状态 */
-  .empty-state {
-    background: var(--card); border: 2px dashed var(--border); border-radius: 12px;
-    padding: 32px 28px; text-align: center;
-  }
-  .empty-state .empty-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-  .empty-state .empty-desc { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; }
-  .empty-state .sample-list { text-align: left; max-width: 560px; margin: 0 auto 20px; }
-  .empty-state .sample-item {
-    display: flex; align-items: flex-start; gap: 10px; padding: 8px 0;
-    color: #a8a8a8; font-size: 13px; line-height: 1.7;
-  }
-  .empty-state .sample-item .star { color: #d8c89a; flex-shrink: 0; margin-top: 2px; }
-  .empty-state .sample-item .sample-tag {
-    background: var(--tag-bg); color: #b0b0b0; font-size: 11px; padding: 1px 8px;
-    border-radius: 8px; flex-shrink: 0; margin-top: 3px;
-  }
-  .empty-state .go-shelf {
-    color: var(--accent); text-decoration: none; font-weight: 600; font-size: 14px;
-  }
-  .empty-state .go-shelf:hover { text-decoration: underline; }
+/* ===== 区块标题 ===== */
+.my-section-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.my-section-desc { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
 
-  /* ===== Footer ===== */
-  .my-footer { text-align: center; padding: 48px 0; color: var(--text-secondary); font-size: 14px; }
-  .my-footer a { color: var(--accent); text-decoration: none; }
+/* ===== 阅读进度 ===== */
+.progress-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin-bottom: 48px; }
+.progress-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px 18px; box-shadow: var(--shadow); transition: all 0.25s;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.progress-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.progress-card .book-title { font-size: 14px; font-weight: 700; line-height: 1.4; }
+.progress-card .progress-track { height: 7px; background: var(--tag-bg); border-radius: 4px; overflow: hidden; }
+.progress-card .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #e08a5f); border-radius: 4px; transition: width 0.5s ease; }
+.progress-card .progress-meta { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-secondary); }
+.progress-card .continue-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 13px; }
+.progress-card .continue-link:hover { text-decoration: underline; }
+.progress-card.not-started { opacity: 0.7; }
+.progress-card.not-started .book-title { color: var(--text-secondary); }
+.progress-card.not-started .continue-link { color: var(--text-secondary); font-weight: 500; }
 
-  /* ===== 响应式 ===== */
-  @media (max-width: 768px) {
-    .my-hero { padding: 36px 16px 28px; }
-    .my-hero h1 { font-size: 26px; }
-    .stats-bar { gap: 24px; padding: 20px; }
-    .stats-bar .stat-num { font-size: 24px; }
-    .progress-grid { grid-template-columns: 1fr; }
-    .my-container { padding: 0 16px; }
-  }
+/* ===== 投资体系 ===== */
+.principles-section { margin-bottom: 56px; }
+.principle-group {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.principle-group .group-title { font-size: 15px; font-weight: 700; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.principle-group .group-title .count { background: var(--accent-light); color: var(--accent); font-size: 12px; padding: 1px 10px; border-radius: 10px; font-weight: 600; }
+.principle-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.7; }
+.principle-item:last-child { border-bottom: none; }
+.principle-item .star { color: var(--gold); flex-shrink: 0; cursor: pointer; font-size: 15px; margin-top: 2px; transition: transform 0.15s; }
+.principle-item .star:hover { transform: scale(1.2); }
+.principle-item .item-text { flex: 1; }
+.principle-item .item-chapter { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
+.export-btn {
+  display: inline-block; margin-top: 20px; padding: 12px 28px; border-radius: 24px;
+  background: var(--accent); color: #fff; border: none; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+.export-btn:hover { background: #b04f30; transform: translateY(-1px); }
+.export-btn.copied { background: var(--green) !important; }
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
+.empty-state .example-principles { margin-top: 24px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
+.empty-state .example-principles .ex-item {
+  padding: 10px 16px; background: var(--tag-bg); border-radius: 8px;
+  margin-bottom: 8px; font-size: 14px; color: #b0b0b0;
+}
+.empty-state .example-principles .ex-item .ex-label {
+  font-size: 11px; color: #d0d0d0;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .my-hero { padding: 36px 16px 20px; }
+  .my-hero h1 { font-size: 24px; }
+  .stats-bar { gap: 20px; padding: 18px; }
+  .stats-bar .stat-num { font-size: 22px; }
+  .skill-tree { grid-template-columns: 1fr; }
+  .progress-grid { grid-template-columns: 1fr; }
+  .achieve-grid { grid-template-columns: repeat(2, 1fr); }
+  .mountain-section { padding: 16px 14px; }
+}
 </style>
 </head>
 <body>
 
-<!-- Top Navigation -->
-<nav class="top-nav" role="navigation" aria-label="站点导航">
-  <span class="logo" aria-label="AI精读笔记"><a href="index.html" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+<!-- ==================== 顶部导航 ==================== -->
+<nav class="top-nav" role="navigation" aria-label="顶部导航">
+  <span class="logo"><a href="./" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
   <div class="nav-links">
-    <a href="index.html" tabindex="0">🏠 书架首页</a>
-    <a href="diagnose.html" tabindex="0">🔍 股票诊断</a>
-    <a href="concepts.html" tabindex="0">🕸️ 概念地图</a>
-    <a href="my.html" class="active" tabindex="0">📚 我的书架</a>
+    <a href="index.html">🏠 首页</a>
+    <a href="diagnose.html">🔍 股票诊断</a>
+    <a href="concepts.html">🕸️ 概念地图</a>
+    <a class="active" href="my.html">📚 投资修行</a>
   </div>
-  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <div class="my-container">
 
-<!-- ==================== HERO ==================== -->
-<header class="my-hero">
-  <h1>📚 我的书架</h1>
-  <p class="subtitle">你的阅读足迹与投资体系</p>
-</header>
+<!-- ==================== Hero ==================== -->
+<section class="my-hero">
+  <h1>⛰️ 投资修行之路</h1>
+  <p class="subtitle">像爬山一样，每一步都看得见的成长</p>
+  <div class="level-badge" id="levelBadge">🏔️ 山中独行</div>
+  <div class="mountain-stage" id="stageHint" style="margin-top:8px;">你正在攀登投资这座山</div>
+</section>
 
-<!-- ==================== 统计条 ==================== -->
-<div class="stats-bar" id="stats-bar" aria-label="阅读统计">
-  <div class="stat-item">
-    <div class="stat-num" id="stat-started">0/16</div>
-    <div class="stat-label">已开始阅读</div>
+<!-- ==================== 山顶进度图 ==================== -->
+<section class="mountain-section">
+  <div class="section-header">
+    <h2>🏔️ 你的位置</h2>
+    <span class="mountain-stage" id="mountainStage">定级中…</span>
   </div>
-  <div class="stat-item">
-    <div class="stat-num" id="stat-chapters">0</div>
-    <div class="stat-label">累计展开章节</div>
+  <svg class="mountain-svg" id="mountainSvg" viewBox="0 0 960 240" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景天空渐变 -->
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#d6eaf8"/><stop offset="100%" stop-color="#e8f0f4"/>
+      </linearGradient>
+      <linearGradient id="mountainGrad1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#5b7d5a"/><stop offset="100%" stop-color="#3d5c3c"/>
+      </linearGradient>
+      <linearGradient id="mountainGrad2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#7a8ea0"/><stop offset="100%" stop-color="#556a7a"/>
+      </linearGradient>
+      <linearGradient id="mountainGrad3" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f5f0e8"/><stop offset="100%" stop-color="#e0d8c8"/>
+      </linearGradient>
+    </defs>
+    <rect width="960" height="240" fill="url(#skyGrad)"/>
+    <!-- 云朵 -->
+    <ellipse cx="180" cy="40" rx="60" ry="20" fill="#fff" opacity="0.7"/>
+    <ellipse cx="200" cy="35" rx="40" ry="15" fill="#fff" opacity="0.6"/>
+    <ellipse cx="720" cy="55" rx="50" ry="18" fill="#fff" opacity="0.7"/>
+    <ellipse cx="740" cy="48" rx="35" ry="12" fill="#fff" opacity="0.5"/>
+    <!-- 五座山 -->
+    <!-- 山1·价值（左） -->
+    <path d="M0 220 L60 100 L120 65 L180 80 L210 130 L240 220" fill="url(#mountainGrad1)" opacity="0.85"/>
+    <text x="105" y="145" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">价值</text>
+    <!-- 山2·成长 -->
+    <path d="M160 220 L220 140 L280 90 L340 120 L380 180 L420 220" fill="url(#mountainGrad1)" opacity="0.75"/>
+    <text x="270" y="155" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">成长</text>
+    <!-- 山3·心理（中·最高） -->
+    <path d="M340 220 L400 170 L480 45 L520 55 L570 130 L610 220" fill="url(#mountainGrad2)" opacity="0.9"/>
+    <text x="455" y="100" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">心理</text>
+    <!-- 山4·周期 -->
+    <path d="M530 220 L590 160 L650 110 L690 140 L730 180 L760 220" fill="url(#mountainGrad2)" opacity="0.75"/>
+    <text x="645" y="165" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">周期</text>
+    <!-- 山5·不确定 -->
+    <path d="M690 220 L740 170 L800 120 L830 145 L870 185 L920 220" fill="url(#mountainGrad3)" opacity="0.9"/>
+    <text x="780" y="170" text-anchor="middle" fill="#666" font-size="11" font-weight="600">不确定</text>
+    <!-- 太阳 -->
+    <circle cx="860" cy="40" r="25" fill="#f9d97c" opacity="0.9"/>
+    <circle cx="860" cy="40" r="35" fill="#f9d97c" opacity="0.15"/>
+    <!-- 徒步者标记（动态位置） -->
+    <g id="hikerGroup">
+      <text x="480" y="60" text-anchor="middle" font-size="32">🥾</text>
+    </g>
+    <!-- 旗帜标记 -->
+    <g id="flagGroup"></g>
+  </svg>
+  <div class="mountain-legend">
+    <span>🥾 = 你的当前位置</span>
+    <span>5座大山 = 投资五大流派</span>
+    <span>🚩 = 通关里程碑</span>
   </div>
-  <div class="stat-item">
-    <div class="stat-num" id="stat-principles">0</div>
-    <div class="stat-label">收藏的原则</div>
+</section>
+
+<!-- ==================== 经验条 ==================== -->
+<section class="xp-section" id="xpSection">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+    <div class="my-section-title" style="margin-bottom:0;">⚡ 修行经验</div>
+    <span class="xp-label" id="xpLabel">等级 1 · 见习学徒</span>
   </div>
+  <div class="xp-bar-wrap">
+    <span style="font-size:13px;color:var(--text-secondary)">Lv.<span id="xpLevel">1</span></span>
+    <div class="xp-bar-track"><div class="xp-bar-fill" id="xpFill"></div></div>
+    <span style="font-size:13px;color:var(--text-secondary)">Lv.<span id="xpLevelNext">2</span></span>
+  </div>
+  <div class="xp-next" id="xpNext">再来 X 点经验，你就升级到「初级行者」</div>
+</section>
+
+<!-- ==================== 统计数据 ==================== -->
+<div class="stats-bar" id="statsBar">
+  <div class="stat-item"><div class="stat-num" id="statLevel">1</div><div class="stat-label">修行等级</div></div>
+  <div class="stat-item"><div class="stat-num" id="statBooks">0</div><div class="stat-label">本在读书</div></div>
+  <div class="stat-item"><div class="stat-num" id="statChapters">0</div><div class="stat-label">章已读</div></div>
+  <div class="stat-item"><div class="stat-num" id="statPrinciples">0</div><div class="stat-label">条收藏原则</div></div>
+  <div class="stat-item"><div class="stat-num" id="statTotalXp">0</div><div class="stat-label">总经验值</div></div>
 </div>
 
-<!-- ==================== 阅读进度区 ==================== -->
-<section aria-labelledby="progress-title">
-  <h2 class="my-section-title" id="progress-title">📖 阅读进度</h2>
-  <p class="my-section-desc">进度按你在每本书中展开过的章节数计算，点击「继续阅读」回到书中。</p>
-  <div class="progress-grid" id="progress-grid"></div>
+<!-- ==================== 五维能力树 ==================== -->
+<section id="skillTreeSection">
+  <h3 class="my-section-title">🌳 五维能力树</h3>
+  <p class="my-section-desc">每读完一本书，对应分支就点亮一颗技能叶。五棵大树全亮时，你就是完整的投资人。</p>
+  <div class="skill-tree" id="skillTree"></div>
 </section>
 
-<!-- ==================== 我的投资体系区 ==================== -->
-<section class="principles-section" aria-labelledby="principles-title">
-  <h2 class="my-section-title" id="principles-title">🏗️ 我的投资体系</h2>
-  <p class="my-section-desc">在书籍页面点击要点旁的 ☆ 收藏原则，它们会汇聚成你自己的投资体系。</p>
-  <div id="principles-container"></div>
+<!-- ==================== 成就徽章 ==================== -->
+<section class="achieve-section" id="achieveSection">
+  <h3 class="my-section-title">🏅 修行成就</h3>
+  <p class="my-section-desc" id="achieveDesc">0/10 个成就已解锁</p>
+  <div class="achieve-grid" id="achieveGrid"></div>
 </section>
 
-</div><!-- .my-container -->
+<!-- ==================== 阅读进度 ==================== -->
+<section id="progressSection">
+  <h3 class="my-section-title">📖 阅读进度</h3>
+  <p class="my-section-desc">每本书的修行进度一览。点「继续」回到上次读到的地方。</p>
+  <div class="progress-grid" id="progressGrid"></div>
+</section>
 
-<!-- ==================== FOOTER ==================== -->
-<footer class="my-footer" role="contentinfo">
-  <p>📚 AI精读笔记 · 我的书架</p>
-  <p style="margin-top:8px;">阅读进度与收藏原则保存在你的浏览器本地（localStorage），不上传任何数据。</p>
-  <p style="margin-top:16px;font-size:13px;">
-    <a href="index.html">🏠 书架首页</a> ·
-    <a href="diagnose.html">🔍 股票诊断</a> ·
-    <a href="concepts.html">🕸️ 概念地图</a>
-  </p>
-</footer>
+<!-- ==================== 我的投资体系 ==================== -->
+<section class="principles-section" id="principlesSection">
+  <h3 class="my-section-title">🔨 我的投资体系</h3>
+  <p class="my-section-desc">在书籍页面点击要点旁的 ☆ 收藏原则。它们汇聚成你的投资体系。</p>
+  <div id="principlesContainer"></div>
+  <button class="export-btn" id="exportBtn" onclick="exportPrinciples()">📋 导出我的体系</button>
+</section>
+
+<div class="shelf-footer" style="text-align:center;padding:40px 0;color:var(--text-secondary);font-size:14px;">
+  <p>📚 AI精读笔记 · 用投资大师的方法论，建立你的投资体系</p>
+  <p style="margin-top:8px;font-size:12px;">修行数据仅存储在你的浏览器中，不会上传到任何服务器。</p>
+</div>
+
+</div>
 
 <script>
-(function() {
-  'use strict';
+// ===== 书籍数据库 =====
+const BOOKS = [
+  {slug:'fisher',title:'怎样选择成长股',chapters:8, school:'growth', schoolName:'成长'},
+  {slug:'howard-marks',title:'投资最重要的事',chapters:21, school:'cycle', schoolName:'周期'},
+  {slug:'buffett',title:'巴菲特之道',chapters:8, school:'value', schoolName:'价值'},
+  {slug:'market-cycle',title:'周期',chapters:18, school:'cycle', schoolName:'周期'},
+  {slug:'buffett-letters',title:'巴菲特致股东的信',chapters:12, school:'value', schoolName:'价值'},
+  {slug:'alchemy-finance',title:'金融炼金术',chapters:12, school:'cycle', schoolName:'周期'},
+  {slug:'poor-charlie',title:'穷查理宝典',chapters:12, school:'mind', schoolName:'心理'},
+  {slug:'intelligent-investor',title:'聪明的投资者',chapters:20, school:'value', schoolName:'价值'},
+  {slug:'peter-lynch',title:'彼得·林奇的成功投资',chapters:20, school:'growth', schoolName:'成长'},
+  {slug:'security-analysis',title:'证券分析',chapters:17, school:'value', schoolName:'价值'},
+  {slug:'beating-street',title:'战胜华尔街',chapters:13, school:'growth', schoolName:'成长'},
+  {slug:'stock-operator',title:'股票大作手回忆录',chapters:24, school:'mind', schoolName:'心理'},
+  {slug:'economic-moat',title:'巴菲特的护城河',chapters:14, school:'value', schoolName:'价值'},
+  {slug:'fooled-by-randomness',title:'随机漫步的傻瓜',chapters:14, school:'uncertainty', schoolName:'不确定'},
+  {slug:'black-swan',title:'黑天鹅',chapters:19, school:'uncertainty', schoolName:'不确定'},
+  {slug:'antifragile',title:'反脆弱',chapters:24, school:'uncertainty', schoolName:'不确定'},
+];
 
-  // ==================== 书目数据 ====================
-  var BOOKS = [
-    { slug: 'fisher', title: '怎样选择成长股', chapters: 8 },
-    { slug: 'howard-marks', title: '投资最重要的事', chapters: 21 },
-    { slug: 'buffett', title: '巴菲特之道', chapters: 8 },
-    { slug: 'market-cycle', title: '周期', chapters: 18 },
-    { slug: 'buffett-letters', title: '巴菲特致股东的信', chapters: 12 },
-    { slug: 'alchemy-finance', title: '金融炼金术', chapters: 12 },
-    { slug: 'poor-charlie', title: '穷查理宝典', chapters: 12 },
-    { slug: 'intelligent-investor', title: '聪明的投资者', chapters: 20 },
-    { slug: 'peter-lynch', title: '彼得·林奇的成功投资', chapters: 20 },
-    { slug: 'security-analysis', title: '证券分析', chapters: 17 },
-    { slug: 'beating-street', title: '战胜华尔街', chapters: 13 },
-    { slug: 'stock-operator', title: '股票大作手回忆录', chapters: 24 },
-    { slug: 'economic-moat', title: '巴菲特的护城河', chapters: 14 },
-    { slug: 'fooled-by-randomness', title: '随机漫步的傻瓜', chapters: 14 },
-    { slug: 'black-swan', title: '黑天鹅', chapters: 19 },
-    { slug: 'antifragile', title: '反脆弱', chapters: 24 }
+// ===== 等级系统 =====
+const LEVELS = [
+  {level:1, name:'见习学徒', xpNeeded:0, emoji:'🌱'},
+  {level:2, name:'初级行者', xpNeeded:10, emoji:'🥾'},
+  {level:3, name:'中级行者', xpNeeded:30, emoji:'🧗'},
+  {level:4, name:'高阶行者', xpNeeded:60, emoji:'🏔️'},
+  {level:5, name:'见习智者', xpNeeded:100, emoji:'🔮'},
+  {level:6, name:'贤者', xpNeeded:160, emoji:'🧙'},
+  {level:7, name:'大贤者', xpNeeded:240, emoji:'👑'},
+  {level:8, name:'宗师', xpNeeded:340, emoji:'💎'},
+  {level:9, name:'传奇宗师', xpNeeded:460, emoji:'⭐'},
+];
+
+// ===== 成就系统 =====
+const ACHIEVEMENTS = [
+  {id:'first_step', name:'初窥门径', desc:'读完第1章', icon:'📖', check: d=>d.totalChapters>=1},
+  {id:'five_chapters', name:'渐入佳境', desc:'读完5章', icon:'📚', check: d=>d.totalChapters>=5},
+  {id:'twenty_chapters', name:'手不释卷', desc:'读完20章', icon:'📕', check: d=>d.totalChapters>=20},
+  {id:'first_book', name:'第一座山', desc:'完整读完1本书', icon:'⛰️', check: d=>d.completedBooks>=1},
+  {id:'three_books', name:'攀登者', desc:'完整读完3本书', icon:'🧗', check: d=>d.completedBooks>=3},
+  {id:'collector_10', name:'集思广益', desc:'收藏10条原则', icon:'💡', check: d=>d.totalPrinciples>=10},
+  {id:'collector_30', name:'博采众长', desc:'收藏30条原则', icon:'🌟', check: d=>d.totalPrinciples>=30},
+  {id:'five_schools', name:'融会贯通', desc:'五大流派各读1本', icon:'🌍', check: d=>d.schoolsRead>=5},
+  {id:'all_books', name:'博览群书', desc:'开始阅读全部16本', icon:'🏆', check: d=>d.booksStarted>=16},
+  {id:'level_5', name:'智者之名', desc:'达到见习智者(Lv.5)', icon:'🔮', check: d=>d.level>=5},
+];
+
+// ===== 经验值计算 =====
+function calcXP(chaptersRead, principlesCollected, completedBooks, booksStarted) {
+  // 每章=1XP，每条收藏原则=2XP，每完成一本书=外加5XP，每开始一本=1XP
+  return chaptersRead * 1 + principlesCollected * 2 + completedBooks * 5 + booksStarted * 1;
+}
+
+function getLevel(xp) {
+  for (let i = LEVELS.length-1; i >= 0; i--) {
+    if (xp >= LEVELS[i].xpNeeded) return LEVELS[i];
+  }
+  return LEVELS[0];
+}
+
+// ===== 读取数据 =====
+function loadData() {
+  const progress = safeJSON(localStorage.getItem('reading_progress'), {});
+  const principles = safeJSON(localStorage.getItem('my_principles'), []);
+  return {progress, principles};
+}
+
+function safeJSON(str, fallback) {
+  try { return JSON.parse(str) || fallback; } catch(e) { return fallback; }
+}
+
+function computeStats(data) {
+  const {progress, principles} = data;
+  let totalChapters = 0, completedBooks = 0, booksStarted = 0;
+  let schools = new Set();
+
+  BOOKS.forEach(b => {
+    const p = progress[b.slug];
+    if (p && p.chaptersRead && p.chaptersRead.length > 0) {
+      booksStarted++;
+      totalChapters += p.chaptersRead.length;
+      if (p.chaptersRead.length >= b.chapters) completedBooks++;
+      if (p.chaptersRead.length > 0) schools.add(b.school);
+    }
+  });
+
+  const xp = calcXP(totalChapters, principles.length, completedBooks, booksStarted);
+  const level = getLevel(xp);
+  return {totalChapters, completedBooks, booksStarted, schools, schoolsRead: schools.size, totalPrinciples: principles.length, xp, level};
+}
+
+// ===== 渲染 =====
+function renderAll() {
+  const data = loadData();
+  const stats = computeStats(data);
+  const {progress, principles} = data;
+
+  updateLevelBadge(stats);
+  updateMountain(stats, progress);
+  updateXPBar(stats);
+  updateStatsBar(stats);
+  updateSkillTree(stats, progress);
+  updateAchievements(stats);
+  updateProgressGrid(progress);
+  updatePrinciples(principles);
+}
+
+// ===== 等级徽章 =====
+function updateLevelBadge(stats) {
+  const badge = document.getElementById('levelBadge');
+  const hint = document.getElementById('stageHint');
+  badge.textContent = `${stats.level.emoji} ${stats.level.name}`;
+  const msgs = {
+    1:'山脚下，你刚刚迈出第一步。路很长，但每一步都算数。',
+    2:'你已经找到节奏——这座山值得爬。',
+    3:'半山腰的风开始不一样了。你的视野在变化。',
+    4:'离山顶还有一段，但你已不是出发时的自己。',
+    5:'你开始懂得，看山不是山，看水不是水。',
+    6:'智慧正在沉淀——思考变成了直觉。',
+    7:'你是这个领域少有的思考者。继续攀登。',
+    8:'大师的境界不在于知道答案，而在于问对问题。',
+    9:'你是传奇。现在，去帮助下一个攀登者。',
+  };
+  hint.textContent = msgs[stats.level.level] || msgs[9];
+  document.getElementById('mountainStage').textContent = `${stats.level.emoji} ${stats.level.name} · ${stats.xp}点经验`;
+}
+
+// ===== 山顶图 =====
+function updateMountain(stats, progress) {
+  // 计算总进度百分比
+  const totalCh = BOOKS.reduce((s,b)=>s+b.chapters,0);
+  const pct = Math.min(stats.totalChapters / totalCh, 1);
+  const svg = document.getElementById('mountainSvg');
+  // 移除旧标记
+  const hg = document.getElementById('hikerGroup');
+  hg.innerHTML = '';
+  const fg = document.getElementById('flagGroup');
+  fg.innerHTML = '';
+
+  // 计算徒步者位置（水平移动，从左到右代表总进度）
+  const x = 50 + pct * 860;
+  const y = 195 - pct * 110; // 越高越往上
+
+  // 徒步者
+  hg.innerHTML = `<text x="${x}" y="${y}" text-anchor="middle" font-size="28">🥾</text>
+    <text x="${x}" y="${y-22}" text-anchor="middle" font-size="11" fill="#333" font-weight="700">${stats.level.emoji} ${stats.level.name}</text>`;
+
+  // 里程碑旗帜（25%,50%,75%位置）
+  const flags = [0.25, 0.50, 0.75];
+  flags.forEach(f => {
+    const fx = 50 + f * 860;
+    const fy = 195 - f * 110;
+    const label = f===0.25?'山麓':f===0.50?'山腰':'近顶';
+    const earned = pct >= f ? '#e74c3c' : '#ccc';
+    fg.innerHTML += `<text x="${fx}" y="${fy-8}" text-anchor="middle" font-size="14" fill="${earned}">🚩</text>
+      <text x="${fx}" y="${fy-18}" text-anchor="middle" font-size="10" fill="${earned=== '#ccc'?'#bbb':'#888'}">${label}</text>`;
+  });
+}
+
+// ===== 经验条 =====
+function updateXPBar(stats) {
+  const cur = stats.level;
+  const nx = LEVELS[cur.level] || LEVELS[8]; // next level if exists
+  const cxp = stats.xp - cur.xpNeeded;
+  const mxp = (nx.xpNeeded - cur.xpNeeded) || 1;
+  document.getElementById('xpFill').style.width = Math.min(cxp/mxp*100, 100) + '%';
+  document.getElementById('xpLevel').textContent = cur.level;
+  document.getElementById('xpLevelNext').textContent = nx.level;
+  document.getElementById('xpLabel').textContent = `等级 ${cur.level} · ${cur.name}`;
+  const remain = Math.max(0, nx.xpNeeded - stats.xp);
+  document.getElementById('xpNext').textContent = remain > 0
+    ? `再来 ${remain} 点经验，你就升级到「${nx.name}」`
+    : '已达到最高等级！';
+}
+
+// ===== 统计条 =====
+function updateStatsBar(stats) {
+  document.getElementById('statLevel').textContent = stats.level.level;
+  document.getElementById('statBooks').textContent = stats.booksStarted;
+  document.getElementById('statChapters').textContent = stats.totalChapters;
+  document.getElementById('statPrinciples').textContent = stats.totalPrinciples;
+  document.getElementById('statTotalXp').textContent = stats.xp;
+  document.getElementById('levelBadge').textContent = `${stats.level.emoji} ${stats.level.name}`;
+}
+
+// ===== 能力树 =====
+function updateSkillTree(stats, progress) {
+  const schools = [
+    {key:'value', name:'价值判断', icon:'🏦', color:'#2c6faa', desc:'识别被低估的资产'},
+    {key:'growth', name:'成长洞察', icon:'📈', color:'#2d7d46', desc:'找到能持续增长的企业'},
+    {key:'cycle', name:'周期认知', icon:'🔄', color:'var(--accent)', desc:'校准市场位置'},
+    {key:'mind', name:'心理修炼', icon:'🧘', color:'#7b4fbf', desc:'战胜人性弱点'},
+    {key:'uncertainty', name:'不确定驾驭', icon:'🌪️', color:'#b8860b', desc:'与随机性共舞'},
   ];
 
-  // ==================== localStorage 安全读写 ====================
-  function loadJSON(key, fallback) {
-    try {
-      var raw = localStorage.getItem(key);
-      if (!raw) return fallback;
-      var data = JSON.parse(raw);
-      return data == null ? fallback : data;
-    } catch (e) {
-      return fallback;
-    }
-  }
-  function saveJSON(key, value) {
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
+  const tree = document.getElementById('skillTree');
+  tree.innerHTML = schools.map(s => {
+    const books = BOOKS.filter(b => b.school === s.key);
+    const readCount = books.filter(b => {
+      const p = progress[b.slug];
+      return p && p.chaptersRead && p.chaptersRead.length > 0;
+    }).length;
 
-  function escapeHTML(str) {
-    return String(str)
-      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
+    return `<div class="skill-branch">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:${s.color}">${s.icon}</div>
+        <div>
+          <div class="branch-name">${s.name}</div>
+          <div class="branch-score">${readCount}/${books.length} 本书已读 · ${s.desc}</div>
+        </div>
+      </div>
+      <div class="leaf-list">
+        ${books.map(b => {
+          const p = progress[b.slug];
+          const read = p && p.chaptersRead && p.chaptersRead.length > 0;
+          return `<span class="leaf${read?' unlocked':''}">${read?'⭐':'🌿'} ${b.title}</span>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
 
-  // ==================== 阅读进度渲染 ====================
-  function countChaptersRead(entry, total) {
-    if (!entry || !Array.isArray(entry.chaptersRead)) return 0;
-    var n = entry.chaptersRead.filter(function(id) { return /^ch\d+$/.test(String(id)); }).length;
-    return Math.min(n, total);
-  }
+// ===== 成就 =====
+function updateAchievements(stats) {
+  const grid = document.getElementById('achieveGrid');
+  const earned = ACHIEVEMENTS.filter(a => a.check(stats));
+  document.getElementById('achieveDesc').textContent = `${earned.length}/${ACHIEVEMENTS.length} 个成就已解锁`;
 
-  function renderProgress() {
-    var progress = loadJSON('reading_progress', {});
-    if (typeof progress !== 'object' || Array.isArray(progress)) progress = {};
-    var grid = document.getElementById('progress-grid');
-    var html = '';
-    var startedCount = 0;
-    var totalChaptersRead = 0;
+  grid.innerHTML = ACHIEVEMENTS.map(a => {
+    const ok = a.check(stats);
+    return `<div class="achieve-badge${ok?' earned':''}">
+      <div class="achieve-icon">${ok ? a.icon : '🔒'}</div>
+      <div class="achieve-name">${a.name}</div>
+      <div class="achieve-desc">${a.desc}</div>
+    </div>`;
+  }).join('');
+}
 
-    BOOKS.forEach(function(book) {
-      var entry = progress[book.slug];
-      var started = !!(entry && (entry.visits > 0 || (Array.isArray(entry.chaptersRead) && entry.chaptersRead.length > 0)));
-      var readCount = countChaptersRead(entry, book.chapters);
-      var pct = book.chapters > 0 ? Math.round(readCount / book.chapters * 100) : 0;
-      if (started) startedCount++;
-      totalChaptersRead += readCount;
+// ===== 阅读进度网格 =====
+function updateProgressGrid(progress) {
+  const grid = document.getElementById('progressGrid');
+  grid.innerHTML = BOOKS.map(b => {
+    const p = progress[b.slug];
+    const cr = p && p.chaptersRead ? p.chaptersRead.length : 0;
+    const pct = Math.round(cr / b.chapters * 100);
+    const started = cr > 0;
+    return `<div class="progress-card${started?'':' not-started'}">
+      <div class="book-title">${b.title}</div>
+      <div class="progress-track"><div class="progress-fill" style="width:${pct}%;${pct===0?'background:transparent':''}"></div></div>
+      <div class="progress-meta">
+        <span>${cr}/${b.chapters} 章（${pct}%）</span>
+        ${started
+          ? `<a class="continue-link" href="books/${b.slug}/">继续 →</a>`
+          : `<a class="continue-link" href="books/${b.slug}/">开始读 →</a>`}
+      </div>
+    </div>`;
+  }).join('');
+}
 
-      if (started) {
-        html += '<div class="progress-card">' +
-          '<div class="book-title">《' + escapeHTML(book.title) + '》</div>' +
-          '<div class="progress-track" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="《' + escapeHTML(book.title) + '》阅读进度">' +
-            '<div class="progress-fill" style="width:' + pct + '%"></div>' +
-          '</div>' +
-          '<div class="progress-meta">' +
-            '<span>' + readCount + '/' + book.chapters + ' 章 · ' + pct + '%</span>' +
-            '<a class="continue-link" href="books/' + book.slug + '/">继续阅读 →</a>' +
-          '</div>' +
-        '</div>';
-      } else {
-        html += '<div class="progress-card not-started">' +
-          '<div class="book-title">《' + escapeHTML(book.title) + '》</div>' +
-          '<div class="progress-track"><div class="progress-fill" style="width:0%"></div></div>' +
-          '<div class="progress-meta">' +
-            '<span class="status-text">未开始</span>' +
-            '<a class="continue-link" href="books/' + book.slug + '/">开始阅读 →</a>' +
-          '</div>' +
-        '</div>';
-      }
-    });
-
-    grid.innerHTML = html;
-    document.getElementById('stat-started').textContent = startedCount + '/' + BOOKS.length;
-    document.getElementById('stat-chapters').textContent = String(totalChaptersRead);
-  }
-
-  // ==================== 我的投资体系渲染 ====================
-  var SAMPLE_PRINCIPLES = [
-    { text: '买股票就是买公司的一部分，价格终将回归价值', book: '聪明的投资者' },
-    { text: '在别人贪婪时恐惧，在别人恐惧时贪婪', book: '巴菲特之道' },
-    { text: '最重要的不是预测未来，而是知道自己身处周期的什么位置', book: '周期' }
-  ];
-
-  function loadPrinciples() {
-    var arr = loadJSON('my_principles', []);
-    return Array.isArray(arr) ? arr : [];
+// ===== 投资体系 =====
+function updatePrinciples(principles) {
+  const container = document.getElementById('principlesContainer');
+  if (principles.length === 0) {
+    container.innerHTML = `<div class="empty-state">
+      <p>还没有收藏任何原则 📝</p>
+      <p style="font-size:13px;margin-top:6px;">阅读书籍页面时，点击章末要点旁的 ☆ 即可收藏</p>
+      <div class="example-principles">
+        <div class="ex-item"><span class="ex-label">示例</span> 安全边际是投资的中心概念——为错误留出缓冲</div>
+        <div class="ex-item"><span class="ex-label">示例</span> 市场先生是你的仆人，不是你的向导</div>
+        <div class="ex-item"><span class="ex-label">示例</span> 你不需要预测黑天鹅何时来，只需确保来临时你站在受益侧</div>
+      </div>
+      <a href="index.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-weight:600;">去书架逛逛 →</a>
+    </div>`;
+    return;
   }
 
-  function slugToTitle(slug) {
-    for (var i = 0; i < BOOKS.length; i++) {
-      if (BOOKS[i].slug === slug) return BOOKS[i].title;
-    }
-    return slug || '未知书籍';
-  }
+  // 按书分组
+  const groups = {};
+  principles.forEach(p => {
+    const key = p.book || '其他';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(p);
+  });
 
-  function renderPrinciples() {
-    var principles = loadPrinciples();
-    var container = document.getElementById('principles-container');
-    document.getElementById('stat-principles').textContent = String(principles.length);
+  container.innerHTML = Object.entries(groups).map(([book, items]) => `
+    <div class="principle-group">
+      <div class="group-title">📖 ${book} <span class="count">${items.length}条</span></div>
+      ${items.map((item,i) => `
+        <div class="principle-item">
+          <span class="star" onclick="removePrinciple('${item.text.replace(/'/g,"\\'")}', null)" title="取消收藏">★</span>
+          <div>
+            <div class="item-text">${item.text}</div>
+            ${item.chapter?`<div class="item-chapter">${item.chapter}</div>`:''}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
 
-    if (principles.length === 0) {
-      var sampleHTML = '';
-      SAMPLE_PRINCIPLES.forEach(function(s) {
-        sampleHTML += '<div class="sample-item">' +
-          '<span class="star">★</span>' +
-          '<span>' + escapeHTML(s.text) + '<span style="color:#c0c0c0;">（《' + escapeHTML(s.book) + '》）</span></span>' +
-          '<span class="sample-tag">示例</span>' +
-        '</div>';
-      });
-      container.innerHTML =
-        '<div class="empty-state">' +
-          '<div class="empty-title">你的投资体系还是一张白纸 ✍️</div>' +
-          '<div class="empty-desc">每位大师的智慧里，总有几条会击中你。去书里把它们摘下来，拼成你自己的体系——比如像这样：</div>' +
-          '<div class="sample-list">' + sampleHTML + '</div>' +
-          '<a class="go-shelf" href="index.html">去书架逛逛，开始收藏你的第一条原则 →</a>' +
-        '</div>';
-      return;
-    }
+// ===== 导出 =====
+function exportPrinciples() {
+  const principles = safeJSON(localStorage.getItem('my_principles'), []);
+  if (principles.length === 0) return;
+  const text = principles.map((p,i) => `${i+1}. ${p.text}${p.book?' ——《'+p.book+'》':''}${p.chapter?' ('+p.chapter+')':''}`).join('\n\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('exportBtn');
+    btn.textContent = '✓ 已复制到剪贴板';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 导出我的体系'; btn.classList.remove('copied'); }, 2000);
+  });
+}
 
-    // 按书分组（保持收藏顺序）
-    var groups = {};
-    var order = [];
-    principles.forEach(function(p, i) {
-      if (!p || !p.text) return;
-      var key = p.bookSlug || p.book || 'unknown';
-      if (!groups[key]) {
-        groups[key] = { name: p.book || slugToTitle(p.bookSlug), items: [] };
-        order.push(key);
-      }
-      groups[key].items.push({ p: p, index: i });
-    });
+// ===== 删除原则 =====
+function removePrinciple(text) {
+  let principles = safeJSON(localStorage.getItem('my_principles'), []);
+  principles = principles.filter(p => p.text !== text);
+  localStorage.setItem('my_principles', JSON.stringify(principles));
+  renderAll();
+}
 
-    var html = '';
-    order.forEach(function(key) {
-      var g = groups[key];
-      var itemsHTML = '';
-      g.items.forEach(function(item) {
-        var chapterHTML = item.p.chapter
-          ? '<div class="p-chapter">出自：' + escapeHTML(item.p.chapter) + '</div>'
-          : '';
-        itemsHTML += '<div class="principle-item">' +
-          '<span class="star">★</span>' +
-          '<div class="p-text">' + escapeHTML(item.p.text) + chapterHTML + '</div>' +
-          '<button class="remove-btn" data-index="' + item.index + '" title="删除这条原则" aria-label="删除这条原则">×</button>' +
-        '</div>';
-      });
-      html += '<div class="principle-group">' +
-        '<div class="group-title">《' + escapeHTML(g.name) + '》<span class="count">' + g.items.length + ' 条</span></div>' +
-        itemsHTML +
-      '</div>';
-    });
-
-    html += '<button class="export-btn" id="export-btn">📋 导出我的体系</button>';
-    container.innerHTML = html;
-
-    // 删除按钮
-    container.querySelectorAll('.remove-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var idx = parseInt(btn.getAttribute('data-index'), 10);
-        var arr = loadPrinciples();
-        if (isNaN(idx) || idx < 0 || idx >= arr.length) return;
-        arr.splice(idx, 1);
-        saveJSON('my_principles', arr);
-        renderPrinciples();
-      });
-    });
-
-    // 导出按钮
-    var exportBtn = document.getElementById('export-btn');
-    if (exportBtn) {
-      exportBtn.addEventListener('click', function() {
-        var arr = loadPrinciples();
-        var lines = ['我的投资体系 — 摘自 AI精读笔记', ''];
-        var byBook = {};
-        var bookOrder = [];
-        arr.forEach(function(p) {
-          if (!p || !p.text) return;
-          var name = p.book || slugToTitle(p.bookSlug);
-          if (!byBook[name]) { byBook[name] = []; bookOrder.push(name); }
-          byBook[name].push(p);
-        });
-        bookOrder.forEach(function(name) {
-          lines.push('【《' + name + '》】');
-          byBook[name].forEach(function(p) {
-            var suffix = p.chapter ? '（' + p.chapter + '）' : '';
-            lines.push('· ' + p.text + suffix);
-          });
-          lines.push('');
-        });
-        var textOut = lines.join('\n').trim() + '\n';
-
-        function onCopied() {
-          var original = exportBtn.textContent;
-          exportBtn.textContent = '已复制 ✓';
-          exportBtn.classList.add('copied');
-          setTimeout(function() {
-            exportBtn.textContent = original;
-            exportBtn.classList.remove('copied');
-          }, 2000);
-        }
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textOut).then(onCopied, function() { fallbackCopy(textOut, onCopied); });
-        } else {
-          fallbackCopy(textOut, onCopied);
-        }
-      });
-    }
-  }
-
-  function fallbackCopy(text, onSuccess) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.cssText = 'position:fixed;top:-1000px;opacity:0;';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      if (document.execCommand('copy')) onSuccess();
-    } catch (e) { /* 复制失败静默 */ }
-    document.body.removeChild(ta);
-  }
-
-  // ==================== 初始化 ====================
-  renderProgress();
-  renderPrinciples();
-})();
+// ===== 启动 =====
+renderAll();
 </script>
-
 </body>
 </html>
