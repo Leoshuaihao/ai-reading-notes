@@ -313,84 +313,33 @@
     .practice-summary .summary-stats { flex-direction: column; gap: 8px; }
   }
 
-  /* ===== 新用户引导面板 ===== */
-  .onboarding-panel {
-    background: #fff; border-radius: 20px; box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-    border: 1px solid var(--border); padding: 36px 40px; margin-bottom: 28px;
-    text-align: center; transition: opacity 0.4s;
+  /* ===== 新用户引导横幅（轻量增强式） ===== */
+  .onboarding-banner {
+    background: #fdf7f0; border: 1px solid #eadcc8; border-radius: 14px;
+    padding: 16px 24px; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px; position: relative;
   }
-  .onboarding-panel .ob-header { margin-bottom: 24px; }
-  .onboarding-panel .ob-header .ob-step-badge {
-    display: inline-block; font-size: 12px; font-weight: 600;
-    background: var(--accent-light); color: var(--accent);
-    padding: 4px 14px; border-radius: 12px; margin-bottom: 12px;
+  .onboarding-banner.ob-result-banner { background: #f0f7f0; border-color: #c5d6b0; }
+  .ob-banner-icon { font-size: 28px; flex-shrink: 0; }
+  .ob-banner-text { flex: 1; font-size: 14px; color: #5c4a2a; line-height: 1.6; }
+  .ob-banner-text strong { color: #3d2e1e; }
+  .ob-result-banner .ob-banner-text { color: #3d5a3c; }
+  .ob-banner-btn {
+    background: var(--accent); color: #fff; border: none; cursor: pointer;
+    padding: 10px 22px; border-radius: 20px; font-size: 14px; font-weight: 600;
+    white-space: nowrap; font-family: inherit; text-decoration: none;
+    transition: background 0.2s; flex-shrink: 0;
   }
-  .onboarding-panel .ob-header h2 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-  .onboarding-panel .ob-header p { color: var(--text-secondary); font-size: 14px; }
-
-  /* 步骤1：域选择卡片 */
-  .ob-domain-choices {
-    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  .ob-banner-btn:hover { background: #b04f30; }
+  .ob-dismiss-btn {
+    position: absolute; top: 8px; right: 12px;
+    background: none; border: none; font-size: 16px; cursor: pointer;
+    color: var(--text-secondary); padding: 4px; font-family: inherit;
   }
-  .ob-domain-choice {
-    flex: 1; min-width: 150px; max-width: 200px;
-    background: var(--tag-bg); border: 2px solid transparent; border-radius: 14px;
-    padding: 22px 14px; cursor: pointer; transition: all 0.25s;
-    text-align: center;
-  }
-  .ob-domain-choice:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-  .ob-domain-choice.selected { border-color: var(--accent); background: var(--accent-light); }
-  .ob-domain-choice .ob-dc-emoji { font-size: 36px; margin-bottom: 10px; }
-  .ob-domain-choice .ob-dc-name { font-weight: 700; font-size: 16px; margin-bottom: 4px; }
-  .ob-domain-choice .ob-dc-master { font-size: 12px; color: var(--text-secondary); }
-  .ob-domain-choice .ob-dc-question { font-size: 11px; color: var(--text-secondary); margin-top: 6px; font-style: italic; }
-
-  /* 步骤2：快速测试 */
-  .ob-quiz-stage .ob-quiz-question { font-size: 18px; font-weight: 700; margin-bottom: 18px; }
-  .ob-quiz-option {
-    display: block; width: 100%; max-width: 420px; margin: 0 auto 10px;
-    text-align: left; cursor: pointer; font-family: inherit;
-    background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
-    padding: 14px 18px; font-size: 15px; color: var(--text);
-    transition: all 0.2s;
-  }
-  .ob-quiz-option:hover { border-color: var(--accent); background: var(--accent-light); }
-
-  /* 步骤3：推荐结果 */
-  .ob-result-card {
-    display: flex; align-items: center; gap: 24px;
-    background: var(--tag-bg); border-radius: 16px; padding: 24px;
-    text-align: left; max-width: 560px; margin: 0 auto;
-  }
-  .ob-result-card .ob-cover {
-    width: 100px; height: 140px; border-radius: 8px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13px; color: #fff; text-align: center;
-    padding: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-  .ob-result-card .ob-info { flex: 1; }
-  .ob-result-card .ob-info h3 { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
-  .ob-result-card .ob-info .ob-author { color: var(--text-secondary); font-size: 13px; margin-bottom: 8px; }
-  .ob-result-card .ob-info .ob-reason { color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin-bottom: 14px; }
-  .ob-start-btn {
-    display: inline-block; background: var(--accent); color: #fff;
-    padding: 12px 28px; border-radius: 24px; font-size: 15px; font-weight: 600;
-    text-decoration: none; transition: all 0.2s;
-  }
-  .ob-start-btn:hover { background: #b04f30; transform: translateY(-1px); }
-  .ob-skip-link {
-    display: inline-block; margin-top: 16px; font-size: 13px;
-    color: var(--text-secondary); cursor: pointer; text-decoration: underline;
-    background: none; border: none; font-family: inherit;
-  }
-  .ob-skip-link:hover { color: var(--accent); }
-
+  .ob-dismiss-btn:hover { color: var(--accent); }
   @media (max-width: 768px) {
-    .onboarding-panel { padding: 24px 18px; }
-    .onboarding-panel .ob-header h2 { font-size: 18px; }
-    .ob-domain-choices { flex-direction: column; }
-    .ob-domain-choice { max-width: none; }
-    .ob-result-card { flex-direction: column; text-align: center; }
+    .onboarding-banner { flex-direction: column; text-align: center; padding: 16px; }
+    .ob-dismiss-btn { top: 4px; right: 8px; }
   }
 
   /* ===== 金句滚动墙 ===== */
@@ -503,34 +452,21 @@
   </div>
 </section>
 
-<!-- 新用户引导面板 -->
-<div class="onboarding-panel" id="onboardingPanel" hidden>
-  <div class="onboarding-step" id="obStep1">
-    <div class="ob-header">
-      <div class="ob-step-badge">第 1 步 / 3</div>
-      <h2>🏔️ 选一座山，开始你的投资修行</h2>
-      <p>五位投资大师代表五个能力域。你对哪个最感兴趣？</p>
-    </div>
-    <div class="ob-domain-choices" id="obDomainChoices"></div>
+<!-- 新用户引导横幅 -->
+<div class="onboarding-banner" id="onboardingBanner" hidden>
+  <div class="ob-banner-icon">🧩</div>
+  <div class="ob-banner-text">
+    <strong>新来的？</strong> 3道题测出你的投资风格，推荐最适合你的第一本精读书。
   </div>
+  <button class="ob-banner-btn" id="obBannerBtn">开始测试 →</button>
+</div>
 
-  <div class="onboarding-step" id="obStep2" hidden>
-    <div class="ob-header">
-      <div class="ob-step-badge">第 2 步 / 3</div>
-      <h2>🧩 快速测一下你的风格</h2>
-      <p>3 道题帮你找到最适合的投资大师</p>
-    </div>
-    <div class="ob-quiz-stage" id="obQuizStage"></div>
-  </div>
-
-  <div class="onboarding-step" id="obStep3" hidden>
-    <div class="ob-header">
-      <div class="ob-step-badge">第 3 步 / 3</div>
-      <h2>📖 你的第一本精读书</h2>
-      <p>基于你的选择，我们推荐从这本书开始</p>
-    </div>
-    <div class="ob-result" id="obResult"></div>
-  </div>
+<!-- 引导结果横幅（测试完成后替换） -->
+<div class="onboarding-banner ob-result-banner" id="onboardingResult" hidden>
+  <div class="ob-banner-icon" id="obResultEmoji">📖</div>
+  <div class="ob-banner-text" id="obResultText"></div>
+  <a class="ob-banner-btn" id="obResultLink" href="#">开始精读 →</a>
+  <button class="ob-dismiss-btn" id="obDismiss">✕</button>
 </div>
 
 <!-- 能力画像雷达 -->
@@ -1258,14 +1194,14 @@
     renderSummary(stats, levelInfo);
   }
 
-  // ===== 新用户引导逻辑 =====
+  // ===== 新用户引导（轻量横幅） =====
   function initOnboarding() {
     var KEY = 'onboarding_done_v2';
     try {
-      if (localStorage.getItem(KEY) === 'true') return; // 已完成引导
+      if (localStorage.getItem(KEY) === 'true') return;
     } catch(e) { return; }
 
-    // 检查是否有任何阅读记录——有则跳过引导
+    // 有阅读记录则跳过
     var progress = AppData.getProgress();
     var hasProgress = Object.keys(progress).some(function(k) {
       return progress[k] && progress[k].chaptersRead && progress[k].chaptersRead.length > 0;
@@ -1275,124 +1211,70 @@
       return;
     }
 
-    var panel = document.getElementById('onboardingPanel');
-    if (!panel) return;
-    panel.hidden = false;
+    var banner = document.getElementById('onboardingBanner');
+    if (!banner) return;
+    banner.hidden = false;
 
-    // 隐藏能力雷达和域卡片（引导完成后显示）
-    var abilitySection = document.querySelector('.ability-section');
-    var domainCards = document.getElementById('domainCards');
-    var quoteWall = document.querySelector('.quote-wall');
-    var bookQuiz = document.querySelector('.book-quiz');
-    var dailyRead = document.querySelector('.daily-read');
-    var practiceSummary = document.querySelector('.practice-summary');
-    var bottomLinks = document.querySelector('.bottom-links');
-    if (abilitySection) abilitySection.style.display = 'none';
-    if (domainCards) domainCards.style.display = 'none';
-    if (quoteWall) quoteWall.style.display = 'none';
-    if (bookQuiz) bookQuiz.style.display = 'none';
-    if (dailyRead) dailyRead.style.display = 'none';
-    if (practiceSummary) practiceSummary.style.display = 'none';
-    if (bottomLinks) bottomLinks.style.display = 'none';
-
-    var selectedDomain = null;
-    var quizAnswers = [];
-
-    // ===== 步骤 1：渲染域选择 =====
-    var choicesEl = document.getElementById('obDomainChoices');
-    AppData.DOMAINS.forEach(function(d) {
-      var card = document.createElement('div');
-      card.className = 'ob-domain-choice';
-      card.innerHTML =
-        '<div class="ob-dc-emoji">' + d.emoji + '</div>' +
-        '<div class="ob-dc-name">' + d.name + '</div>' +
-        '<div class="ob-dc-master">代表大师：' + d.master + '</div>' +
-        '<div class="ob-dc-question">' + d.question + '</div>';
-      card.addEventListener('click', function() {
-        choicesEl.querySelectorAll('.ob-domain-choice').forEach(function(c) { c.classList.remove('selected'); });
-        card.classList.add('selected');
-        selectedDomain = d;
-        // 1秒后自动进入步骤2
+    // 点击"开始测试"→ 滚动到 book-quiz
+    document.getElementById('obBannerBtn').addEventListener('click', function() {
+      var quiz = document.querySelector('.book-quiz');
+      if (quiz) {
+        quiz.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // 自动点击 book-quiz 的开始按钮
         setTimeout(function() {
-          document.getElementById('obStep1').hidden = true;
-          document.getElementById('obStep2').hidden = false;
-          renderQuizQuestion(0);
-        }, 400);
-      });
-      choicesEl.appendChild(card);
+          var startBtn = document.getElementById('quiz-start');
+          if (startBtn && !startBtn.hidden) startBtn.click();
+        }, 600);
+      }
     });
 
-    // ===== 步骤 2：快速测试 =====
-    var quizQuestions = [
-      { q: '做投资决定时，你更相信什么？', a: '数据和财务报表', b: '商业直觉和实地观察' },
-      { q: '市场大跌 20%，你的第一反应？', a: '机会来了，分析后逢低买入', b: '先撤为敬，保住本金再说' },
-      { q: '你怎么看待未来？', a: '未来无法预测，但可以为不确定性做好准备', b: '深度研究可以大概率判断方向' }
-    ];
-    var quizResults = {
-      'AAA': { title: '周期', slug: 'market-cycle', desc: '你是理性的逆向者——马克斯教你在别人恐慌时冷静计算周期位置', coverBg: 'linear-gradient(135deg, #1f5f5b, #0d2f2c)' },
-      'AAB': { title: '聪明的投资者', slug: 'intelligent-investor', desc: '你是天生的价值投资者——格雷厄姆的安全边际就是为你写的', coverBg: 'linear-gradient(135deg, #0d1f15, #2d6a4f)' },
-      'ABA': { title: '反脆弱', slug: 'antifragile', desc: '你重数据又敬畏未知——塔勒布的杠铃策略是你的武器', coverBg: 'linear-gradient(135deg, #2a0d0d, #7a2a2a)' },
-      'ABB': { title: '证券分析', slug: 'security-analysis', desc: '你是严谨的基本面分析者——直接读价值投资的源头原典', coverBg: 'linear-gradient(135deg, #0d1b2a, #2c5282)' },
-      'BAA': { title: '股票大作手回忆录', slug: 'stock-operator', desc: '你有交易者的血液——利弗莫尔的百年智慧等着你', coverBg: 'linear-gradient(135deg, #2c2c1e, #c9a84c)' },
-      'BAB': { title: '彼得·林奇的成功投资', slug: 'peter-lynch', desc: '你适合从身边发现牛股——林奇的常识投资法完美匹配', coverBg: 'linear-gradient(135deg, #1a3a1e, #5cb85c)' },
-      'BBA': { title: '穷查理宝典', slug: 'poor-charlie', desc: '你重直觉也重防御——芒格的多元思维模型帮你避开心理陷阱', coverBg: 'linear-gradient(135deg, #2c2c1e, #c9a84c)' },
-      'BBB': { title: '巴菲特的护城河', slug: 'economic-moat', desc: '你想要稳稳的幸福——先学会识别有护城河的好生意', coverBg: 'linear-gradient(135deg, #0d2a1a, #40916c)' }
-    };
+    // 监听 book-quiz 的结果展示，将结果同步到引导横幅
+    observeQuizResult(KEY, banner);
+  }
 
-    function renderQuizQuestion(i) {
-      var q = quizQuestions[i];
-      var dots = '';
-      for (var d = 0; d < 3; d++) {
-        dots += '<span style="display:inline-block;width:20px;height:4px;border-radius:2px;margin:0 3px;background:' + (d < i ? '#e0a08b' : (d === i ? 'var(--accent)' : 'var(--tag-bg)')) + ';"></span>';
+  function observeQuizResult(KEY, banner) {
+    // 用 MutationObserver 监听 book-quiz 的结果出现
+    var quizCard = document.querySelector('.book-quiz .quiz-card');
+    if (!quizCard) return;
+
+    var observer = new MutationObserver(function() {
+      var resultTitle = quizCard.querySelector('.quiz-result-title');
+      var resultDesc = quizCard.querySelector('.quiz-result-desc');
+      var resultLink = quizCard.querySelector('.quiz-go');
+      if (resultTitle && resultDesc && resultLink) {
+        observer.disconnect();
+
+        // 隐藏引导横幅，显示结果横幅
+        banner.hidden = true;
+        var resultBanner = document.getElementById('onboardingResult');
+        if (resultBanner) {
+          resultBanner.hidden = false;
+          document.getElementById('obResultEmoji').textContent = '📖';
+          document.getElementById('obResultText').innerHTML =
+            '<strong>你的投资大师之书：' + resultTitle.textContent + '</strong><br>' +
+            '<span style="font-size:13px;color:var(--text-secondary);">' + resultDesc.textContent + '</span>';
+          document.getElementById('obResultLink').href = resultLink.getAttribute('href');
+        }
       }
-      var stage = document.getElementById('obQuizStage');
-      stage.innerHTML =
-        '<div style="margin-bottom:16px;">' + dots + ' <span style="font-size:12px;color:var(--text-secondary);">第 ' + (i + 1) + ' / 3 题</span></div>' +
-        '<div class="ob-quiz-question">' + q.q + '</div>' +
-        '<button class="ob-quiz-option" data-pick="A">' + q.a + '</button>' +
-        '<button class="ob-quiz-option" data-pick="B">' + q.b + '</button>';
-      stage.querySelectorAll('.ob-quiz-option').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          quizAnswers[i] = btn.getAttribute('data-pick');
-          if (i < 2) { renderQuizQuestion(i + 1); } else { showResult(); }
-        });
+    });
+    observer.observe(quizCard, { childList: true, subtree: true });
+
+    // 关闭结果横幅
+    var dismissBtn = document.getElementById('obDismiss');
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', function() {
+        var rb = document.getElementById('onboardingResult');
+        if (rb) rb.hidden = true;
+        try { localStorage.setItem(KEY, 'true'); } catch(e) {}
       });
     }
 
-    function showResult() {
-      var key = quizAnswers.join('');
-      var r = quizResults[key] || quizResults['AAA'];
-      var meta = AppData.getBook(r.slug);
-
-      document.getElementById('obStep2').hidden = true;
-      document.getElementById('obStep3').hidden = false;
-
-      var resultEl = document.getElementById('obResult');
-      resultEl.innerHTML =
-        '<div class="ob-result-card">' +
-          '<div class="ob-cover" style="background:' + r.coverBg + ';">《' + r.title + '》</div>' +
-          '<div class="ob-info">' +
-            '<h3>《' + r.title + '》</h3>' +
-            '<div class="ob-author">' + (meta ? (meta.chapters + '章精读') : '') + '</div>' +
-            '<div class="ob-reason">' + r.desc + '</div>' +
-            '<a class="ob-start-btn" href="books/' + r.slug + '/">开始精读 →</a>' +
-          '</div>' +
-        '</div>' +
-        '<button class="ob-skip-link" id="obSkip">先随便逛逛，以后再说</button>';
-
-      document.getElementById('obSkip').addEventListener('click', finishOnboarding);
-    }
-
-    function finishOnboarding() {
-      try { localStorage.setItem(KEY, 'true'); } catch(e) {}
-      panel.hidden = true;
-      if (abilitySection) abilitySection.style.display = '';
-      if (domainCards) domainCards.style.display = '';
-      if (quoteWall) quoteWall.style.display = '';
-      if (bookQuiz) bookQuiz.style.display = '';
-      if (dailyRead) dailyRead.style.display = '';
-      if (practiceSummary) practiceSummary.style.display = '';
-      if (bottomLinks) bottomLinks.style.display = '';
+    // 点击"开始精读"也标记完成
+    var resultLink = document.getElementById('obResultLink');
+    if (resultLink) {
+      resultLink.addEventListener('click', function() {
+        try { localStorage.setItem(KEY, 'true'); } catch(e) {}
+      });
     }
   }
 
