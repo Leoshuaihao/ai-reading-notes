@@ -772,5 +772,69 @@
 })();
 </script>
 
+<script>
+// 书籍进度环
+(function() {
+  function getBookProgress(slug) {
+    try {
+      var raw = localStorage.getItem('reading_progress');
+      if (!raw) return 0;
+      var p = JSON.parse(raw)[slug];
+      if (!p || !p.chaptersRead) return 0;
+      var allBooks = {"alchemy-finance":12,"antifragile":24,"beating-street":13,"black-swan":19,"buffett":8,"buffett-letters":12,"economic-moat":14,"fisher":8,"fooled-by-randomness":14,"howard-marks":21,"intelligent-investor":20,"market-cycle":18,"peter-lynch":20,"poor-charlie":12,"security-analysis":18,"stock-operator":24};
+      var total = allBooks[slug] || 0;
+      if (!total) return 0;
+      var seen = {};
+      p.chaptersRead.forEach(function(c) { seen[c] = true; });
+      return Math.min(Math.round(Object.keys(seen).length / total * 100), 100);
+    } catch(e) { return 0; }
+  }
+
+  function makeRing(pct) {
+    var r = 18, c = 2 * Math.PI * r, dash = c * pct / 100;
+    return '<div class="progress-ring-wrap">' +
+      '<svg viewBox="0 0 44 44">' +
+        '<circle class="pr-bg" cx="22" cy="22" r="' + r + '"/>' +
+        '<circle class="pr-fill" cx="22" cy="22" r="' + r + '" stroke-dasharray="' + dash + ' ' + (c - dash) + '"/>' +
+      '</svg>' +
+      '<span class="pr-text">' + pct + '%</span></div>';
+  }
+
+  var cards = document.querySelectorAll('.book-card');
+  var totalRead = 0, totalChapters = 0;
+
+  cards.forEach(function(card) {
+    var link = card.querySelector('a.card-btn[href]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    var m = href.match(/books\/([^\/]+)/);
+    if (!m) return;
+    var slug = m[1];
+    var pct = getBookProgress(slug);
+
+    // Stats
+    var allBooks = {"alchemy-finance":12,"antifragile":24,"beating-street":13,"black-swan":19,"buffett":8,"buffett-letters":12,"economic-moat":14,"fisher":8,"fooled-by-randomness":14,"howard-marks":21,"intelligent-investor":20,"market-cycle":18,"peter-lynch":20,"poor-charlie":12,"security-analysis":18,"stock-operator":24};
+    var total = allBooks[slug] || 0;
+    var read = Math.round(pct / 100 * total);
+    totalRead += read;
+    totalChapters += total;
+
+    if (pct > 0) {
+      var cover = card.querySelector('.card-cover');
+      if (cover) cover.insertAdjacentHTML('beforeend', makeRing(pct));
+    }
+  });
+
+  // 总体完成率
+  if (totalChapters > 0) {
+    var overallPct = Math.round(totalRead / totalChapters * 100);
+    var hero = document.querySelector('.shelf-hero .stats-line');
+    if (hero) {
+      hero.innerHTML += ' · <strong>' + overallPct + '%</strong> 已读完';
+    }
+  }
+})();
+</script>
+
 </body>
 </html>
