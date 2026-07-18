@@ -165,6 +165,7 @@
   <div class="ability-main-wrap" id="abilityActive" hidden>
     <div class="ability-radar-svg" id="radarChart"></div>
     <div class="ability-stats" id="abilityStats"></div>
+    <button class="poster-btn" id="posterBtn" style="display:none;">  分享成就海报</button>
   </div>
 
   <!-- 未测评用户：潜力种子态 -->
@@ -741,6 +742,7 @@
     // 有数据：显示雷达图
     if (activeEl) activeEl.hidden = false;
     if (seedEl) seedEl.hidden = true;
+    var pb = document.getElementById("posterBtn"); if (pb) pb.style.display = "block";
 
     var cx = 200, cy = 200, r = 150;
     var n = 5;
@@ -1431,6 +1433,183 @@
 })();
 </script>
 
+<!-- ===== 成就海报 ===== -->
+<script>
+(function() {
+  var canvas = document.getElementById('posterCanvas');
+  var modal = document.getElementById('posterModal');
+  var dl = document.getElementById('posterDownload');
+
+  function drawPoster() {
+    var ctx = canvas.getContext('2d');
+    var W = 750, H = 1000;
+    ctx.clearRect(0, 0, W, H);
+
+    // 背景渐变
+    var grad = ctx.createLinearGradient(0, 0, W, H);
+    grad.addColorStop(0, '#1a1a2e');
+    grad.addColorStop(0.5, '#16213e');
+    grad.addColorStop(1, '#0f3460');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+
+    // 装饰点阵
+    ctx.fillStyle = 'rgba(255,255,255,0.03)';
+    for (var i = 0; i < 60; i++) {
+      ctx.beginPath();
+      ctx.arc(Math.random()*W, Math.random()*H, Math.random()*8+2, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    // 获取数据
+    var xp = 0; try { xp = AppData.computeXP ? AppData.computeXP() : 0; } catch(e) {}
+    var lv = 0; try { lv = AppData.computeLevel ? AppData.computeLevel(xp) : 1; } catch(e) {}
+    var levels = AppData.LEVELS || [{name:'阅读者',emoji:'📖'}];
+    var lvInfo = levels[Math.min(lv-1, levels.length-1)] || levels[0];
+    var streak = {current:0}; try { streak = AppData.getStreak ? AppData.getStreak() : {current:0}; } catch(e) {}
+    
+    // 计算总已读章节
+    var totalRead = 0;
+    try {
+      var p = AppData.getProgress ? AppData.getProgress() : {};
+      Object.keys(p).forEach(function(slug) {
+        if (p[slug] && p[slug].chaptersRead) {
+          totalRead += p[slug].chaptersRead.length;
+        }
+      });
+    } catch(e) {}
+
+    // 随机金句
+    var quotes = AppData.CONCEPT_QUOTES || [];
+    var quote = quotes.length ? quotes[Math.floor(Math.random()*quotes.length)] : {text:'阅读是最好的投资',who:'— 本杰明·富兰克林'};
+
+    // 标题
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 42px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('我的修行成就', W/2, 120);
+
+    // 分隔线
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(W/2-120, 145);
+    ctx.lineTo(W/2+120, 145);
+    ctx.stroke();
+
+    // 等级展示
+    ctx.font = 'bold 80px system-ui';
+    ctx.fillText(lvInfo.emoji || '📖', W/2, 280);
+    ctx.font = 'bold 32px system-ui';
+    ctx.fillStyle = '#f5936d';
+    ctx.fillText('Lv.' + lv + ' ' + (lvInfo.name || ''), W/2, 330);
+
+    // 统计区块
+    var statsY = 420;
+    var stats = [
+      {num: xp, label: '修行经验'},
+      {num: streak.current, label: '连续学习'},
+      {num: totalRead, label: '章节已读'}
+    ];
+    var cardWidth = 180, gap = 30, startX = (W - (cardWidth*3 + gap*2)) / 2;
+    stats.forEach(function(s, i) {
+      var x = startX + i*(cardWidth+gap);
+      // 卡片背景
+      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      ctx.beginPath();
+      roundRect(ctx, x, statsY, cardWidth, 130, 14);
+      ctx.fill();
+
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 36px system-ui';
+      ctx.textAlign = 'center';
+      ctx.fillText(s.num, x + cardWidth/2, statsY + 55);
+      ctx.font = '14px system-ui';
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.fillText(s.label, x + cardWidth/2, statsY + 90);
+    });
+
+    // 金句
+    var quoteY = 620;
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.beginPath();
+    roundRect(ctx, 60, quoteY, W-120, 160, 14);
+    ctx.fill();
+
+    ctx.font = '22px system-ui';
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.textAlign = 'center';
+    wrapText(ctx, '\ + quote.text + ', W/2, quoteY + 40, W-180, 32);
+
+    ctx.font = '16px system-ui';
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.fillText(quote.who || '', W/2, quoteY + 120);
+
+    // 底部品牌
+    ctx.font = '14px system-ui';
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.fillText('AI精读笔记 · 用投资大师的方法论建立你的投资体系', W/2, H-50);
+
+    // 更新下载链接
+    dl.href = canvas.toDataURL('image/png');
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.moveTo(x+r, y);
+    ctx.lineTo(x+w-r, y);
+    ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+    ctx.lineTo(x+w, y+h-r);
+    ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+    ctx.lineTo(x+r, y+h);
+    ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+    ctx.lineTo(x, y+r);
+    ctx.quadraticCurveTo(x, y, x+r, y);
+  }
+
+  function wrapText(ctx, text, x, y, maxW, lineH) {
+    var words = text.split('');
+    var line = '';
+    var cy = y;
+    for (var i = 0; i < words.length; i++) {
+      var test = line + words[i];
+      if (ctx.measureText(test).width > maxW && i > 0) {
+        ctx.fillText(line, x, cy);
+        line = words[i];
+        cy += lineH;
+      } else {
+        line = test;
+      }
+    }
+    ctx.fillText(line, x, cy);
+  }
+
+  // 按钮事件
+  document.getElementById('posterBtn').addEventListener('click', function() {
+    drawPoster();
+    modal.hidden = false;
+  });
+
+  document.getElementById('posterClose').addEventListener('click', function() {
+    modal.hidden = true;
+  });
+  document.getElementById('posterBackdrop').addEventListener('click', function() {
+    modal.hidden = true;
+  });
+
+  // 复制到剪贴板
+  document.getElementById('posterCopy').addEventListener('click', function() {
+    canvas.toBlob(function(blob) {
+      try {
+        navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+        alert('已复制到剪贴板！可粘贴到微信/聊天中分享');
+      } catch(e) {
+        alert('复制失败，请使用「保存图片」按钮下载后分享');
+      }
+    });
+  });
+})();
+</script>
+
 <!-- ===== 屏间导航控制 ===== -->
 <script>
 (function() {
@@ -1474,5 +1653,16 @@
   <a href="bookshelf.html"><span class="mti"></span>书架</a>
   <a href="my.html"><span class="mti"></span>我的</a>
 </nav>
+<div class="poster-modal" id="posterModal" hidden>
+  <div class="poster-backdrop" id="posterBackdrop"></div>
+  <div class="poster-dialog">
+    <button class="poster-close" id="posterClose">&times;</button>
+    <canvas id="posterCanvas" width="750" height="1000"></canvas>
+    <div class="poster-actions">
+      <a class="poster-download" id="posterDownload" download="ai-reading-achievement.png">  保存图片</a>
+      <button class="poster-copy-btn" id="posterCopy">  复制到剪贴板</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
