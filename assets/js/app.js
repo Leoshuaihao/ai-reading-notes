@@ -323,6 +323,11 @@
           progressFill.style.width = pct + '%';
           progressText.textContent = '已读 ' + (idx + 1) + '/' + totalChapters + ' 章';
         }
+
+        // 前情提要：当进入第N章（N>1），显示前面章节的一句话总结
+        if (id && id.indexOf('ch') === 0 && entry.target.classList.contains('chapter-card')) {
+          showRecap(entry.target, id);
+        }
       }
     });
   }, { rootMargin: '-60px 0px -60% 0px' });
@@ -330,6 +335,92 @@
   document.querySelectorAll('[id]').forEach(function(el) {
     observer.observe(el);
   });
+
+  // ==================== 前情提要 ====================
+  var recapInserted = {};
+
+  function showRecap(currentCard, currentId) {
+    // 只对章节卡片（#chN）生效，且每个章节只插入一次
+    if (recapInserted[currentId]) return;
+
+    // 收集当前章节之前所有章节的 takeaway
+    var allCards = document.querySelectorAll('.chapter-card');
+    var takeaways = [];
+    var foundCurrent = false;
+
+    allCards.forEach(function(card) {
+      if (card.id === currentId) {
+        foundCurrent = true;
+        return; // 不包含当前章节本身
+      }
+      if (foundCurrent) return; // 跳过当前之后的章节
+
+      // 只收集有 id 的章节卡片
+      if (!card.id || card.id.indexOf('ch') !== 0) return;
+
+      var titleEl = card.querySelector('.ch-title');
+      var title = titleEl ? titleEl.textContent.trim() : (card.id);
+      var items = card.querySelectorAll('.takeaway-list li');
+      items.forEach(function(li) {
+        takeaways.push({ chapter: title, text: li.textContent.trim() });
+      });
+    });
+
+    if (takeaways.length === 0) return;
+
+    recapInserted[currentId] = true;
+
+    // 创建前情提要卡片
+    var recap = document.createElement('div');
+    recap.className = 'recap-card';
+    recap.setAttribute('aria-label', '前情提要');
+
+    var html = '<div class="recap-header">📌 前情提要 — 已读章节的核心结论</div>';
+    html += '<ul class="recap-list">';
+    takeaways.forEach(function(t) {
+      var shortText = t.text.length > 80 ? t.text.slice(0, 80) + '…' : t.text;
+      html += '<li><span class="recap-chapter">' + t.chapter + '</span> ' + shortText + '</li>';
+    });
+    html += '</ul>';
+
+    recap.innerHTML = html;
+
+    // 插入到章节卡片的 ch-header 之后
+    var header = currentCard.querySelector('.ch-header');
+    if (header) {
+      header.parentNode.insertBefore(recap, header.nextSibling);
+    }
+  }
+
+  // 前情提要 CSS 注入（仅注入一次）
+  if (!document.getElementById('recap-style')) {
+    var recapStyle = document.createElement('style');
+    recapStyle.id = 'recap-style';
+    recapStyle.textContent =
+      '.recap-card {' +
+        'background:#f8f6f0;border:1px solid #e8e5df;border-radius:10px;' +
+        'padding:16px 20px;margin:12px 0 16px;font-size:13px;' +
+      '}' +
+      '.recap-card .recap-header {' +
+        'font-weight:700;color:#8a7a6a;margin-bottom:8px;font-size:12px;' +
+        'letter-spacing:0.5px;' +
+      '}' +
+      '.recap-card .recap-list {list-style:none;margin:0;padding:0;}' +
+      '.recap-card .recap-list li {' +
+        'padding:6px 0;border-bottom:1px solid #e8e5df;line-height:1.6;color:#5c4a2a;' +
+      '}' +
+      '.recap-card .recap-list li:last-child {border-bottom:none;}' +
+      '.recap-card .recap-chapter {' +
+        'display:inline-block;background:#e0d8c8;color:#5c4a2a;' +
+        'font-size:11px;font-weight:600;padding:1px 8px;border-radius:8px;margin-right:6px;' +
+        'white-space:nowrap;' +
+      '}' +
+      '@media (max-width:768px) {' +
+        '.recap-card {padding:12px 14px;font-size:12px;}' +
+        '.recap-card .recap-chapter {font-size:10px;}' +
+      '}';
+    document.head.appendChild(recapStyle);
+  }
 
   // ==================== 回到顶部按钮 ====================
   var backToTop = document.querySelector('.back-to-top');
