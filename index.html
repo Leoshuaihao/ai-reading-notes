@@ -1632,8 +1632,9 @@
 <!-- ===== AI 阅读问答 ===== -->
 <script>
 (function() {
-  var DS_KEY = '';  // Key已移至服务端环境变量
-  var DS_URL = '/api/chat';
+  // 检测是否本地运行（有Node服务器）
+  var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  var DS_URL = isLocal ? '/api/chat' : '';
 
   var bookSel = document.getElementById('aicBook');
   var domainSel = document.getElementById('aicDomain');
@@ -1686,6 +1687,12 @@
     var slug = bookSel.value;
     var question = input.value.trim();
     if (!slug || !question) return;
+    
+    // 非本地环境提示
+    if (!isLocal) {
+      addMsg('a', '', 'AI问答功能需要在本地运行。\n\n启动方式：\ncd ai-reading-notes/server\nnpm install\nnpm start\n\n然后访问 http://localhost:3000');
+      return;
+    }
 
     var title = AppData.BOOK_META[slug].title;
 
