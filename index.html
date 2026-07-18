@@ -236,6 +236,48 @@
     <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
   </section>
 
+  <!-- 我的投资体系 -->
+  <section class="invest-journal" aria-label="我的投资体系" id="investJournal">
+    <div class="summary-title" style="margin-bottom:16px;">我的投资体系</div>
+
+    <!-- 快速记录 -->
+    <div class="journal-form-wrap" id="journalFormWrap">
+      <div class="journal-form-title">记录一笔决策</div>
+      <div class="journal-form">
+        <div class="jf-row">
+          <input type="text" class="jf-input" id="jfSymbol" placeholder="标的/股票代码" maxlength="30">
+          <select class="jf-select" id="jfAction">
+            <option value="buy">买入</option><option value="sell">卖出</option>
+            <option value="hold" selected>持有</option><option value="watch">观察</option>
+          </select>
+          <select class="jf-select" id="jfEmotion">
+            <option value="calm">冷静</option><option value="excited">兴奋</option>
+            <option value="confident" selected>坚定</option>
+            <option value="anxious">紧张</option><option value="hesitate">犹豫</option><option value="regretful">后悔</option>
+          </select>
+        </div>
+        <div class="jf-row">
+          <textarea class="jf-textarea" id="jfReason" placeholder="决策理由（引用了哪位大师的什么原则？）" rows="2" maxlength="300"></textarea>
+        </div>
+        <div class="jf-row jf-row-end">
+          <span class="jf-hint" id="jfHint"></span>
+          <button class="jf-btn" id="jfSubmit">记录决策</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 决策列表 -->
+    <div class="journal-list" id="journalList">
+      <div class="journal-empty" id="journalEmpty">
+        <div class="journal-empty-icon"></div>
+        <div class="journal-empty-text">还没有记录过投资决策。<br>读完书后，来记录你的第一笔思考吧。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 回访提醒 -->
+  <section class="review-reminder" id="reviewReminder" hidden></section>
+
   <!-- 底部链接 -->
   <div class="bottom-links">
     <a class="go-bookshelf" href="bookshelf.html">查看完整书架 </a>
@@ -763,12 +805,26 @@
     var d = new Date();
     var dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
     var pick = concepts[dayOfYear % concepts.length];
+    var mastery = AppData.getConceptMastery(pick.id);
+    var masteryRing = '';
+    if (mastery > 0) {
+      var dashLen = 2 * Math.PI * 14;
+      var dashOff = dashLen * (1 - mastery / 100);
+      masteryRing = '<div class="tcc-mastery">' +
+        '<svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" fill="none" stroke="#e8e3d5" stroke-width="3"/>' +
+        '<circle cx="18" cy="18" r="14" fill="none" stroke="' + pick.color + '" stroke-width="3" stroke-dasharray="' + dashLen + '" stroke-dashoffset="' + dashOff + '" stroke-linecap="round" transform="rotate(-90 18 18)"/>' +
+        '<text x="18" y="22" text-anchor="middle" fill="#3d2e1e" font-size="10" font-weight="700" font-family="system-ui,sans-serif">' + mastery + '</text></svg>' +
+        '<span class="tcc-mastery-label">掌握度</span></div>';
+    } else {
+      masteryRing = '<div class="tcc-mastery tcc-mastery-zero"><span class="tcc-mastery-label">待探索</span></div>';
+    }
     el.innerHTML =
       '<div class="today-concept-card">' +
         '<div class="tcc-badge">今日概念</div>' +
         '<a class="tcc-name" href="concepts.html#' + pick.id + '" style="color:' + pick.color + '">' + pick.name + '</a>' +
         '<div class="tcc-brief">' + pick.brief + '</div>' +
         '<div class="tcc-master">代表大师：' + pick.master + '</div>' +
+        masteryRing +
         '<a class="tcc-link" href="concepts.html#' + pick.id + '">看多位大师怎么说 </a>' +
       '</div>';
   }
@@ -1008,6 +1064,144 @@
     show(0);
     timer = setInterval(next, 8000);
   });
+})();
+</script>
+
+<!-- ===== 投资体系：决策日志 ===== -->
+<script>
+(function() {
+  var KEY_JOURNAL = 'investment_journal';
+  var emptyHTML = null; // 缓存空状态HTML，避免innerHTML清空后丢失
+
+  function loadJournals() {
+    try {
+      return JSON.parse(localStorage.getItem(KEY_JOURNAL)) || [];
+    } catch(e) { return []; }
+  }
+
+  function saveJournals(entries) {
+    try { localStorage.setItem(KEY_JOURNAL, JSON.stringify(entries)); } catch(e) {}
+  }
+
+  var actionMap = { buy: '买入', sell: '卖出', hold: '持有', watch: '观察' };
+  var emotionMap = { calm: '冷静', excited: '兴奋', confident: '坚定', anxious: '紧张', hesitate: '犹豫', regretful: '后悔' };
+
+  function renderJournals() {
+    var entries = loadJournals();
+    var list = document.getElementById('journalList');
+    if (!emptyHTML) emptyHTML = document.getElementById('journalEmpty').outerHTML;
+
+    if (entries.length === 0) {
+      list.innerHTML = emptyHTML;
+      return;
+    }
+
+    list.innerHTML = '';
+    entries.slice().reverse().forEach(function(entry, idx) {
+      var realIdx = entries.length - 1 - idx;
+      var div = document.createElement('div');
+      div.className = 'journal-entry';
+      div.innerHTML =
+        '<span class="je-date">' + entry.date + '</span>' +
+        '<span class="je-symbol">' + (entry.symbol || '未指定') + '</span>' +
+        '<span class="je-tag ' + entry.action + '">' + (actionMap[entry.action] || entry.action) + '</span>' +
+        '<span class="je-tag emotion">' + (emotionMap[entry.emotion] || entry.emotion) + '</span>' +
+        '<span class="je-reason" title="' + (entry.reason || '').replace(/"/g, '&quot;') + '">' + (entry.reason || '') + '</span>' +
+        '<button class="je-delete" data-idx="' + realIdx + '" title="删除">&times;</button>';
+      list.appendChild(div);
+    });
+
+    Array.prototype.forEach.call(list.querySelectorAll('.je-delete'), function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(btn.getAttribute('data-idx'));
+        var entries = loadJournals();
+        if (idx >= 0 && idx < entries.length) {
+          entries.splice(idx, 1);
+          saveJournals(entries);
+          renderJournals();
+        }
+      });
+    });
+  }
+
+  document.getElementById('jfSubmit').addEventListener('click', function() {
+    var symbol = (document.getElementById('jfSymbol').value || '').trim();
+    var action = document.getElementById('jfAction').value;
+    var emotion = document.getElementById('jfEmotion').value;
+    var reason = (document.getElementById('jfReason').value || '').trim();
+    var hint = document.getElementById('jfHint');
+
+    if (!reason) { hint.textContent = '请填写决策理由'; return; }
+
+    var entries = loadJournals();
+    entries.push({
+      date: new Date().toISOString().slice(0, 10),
+      symbol: symbol || '',
+      action: action,
+      emotion: emotion,
+      reason: reason
+    });
+    saveJournals(entries);
+    renderJournals();
+
+    // 清空表单
+    document.getElementById('jfSymbol').value = '';
+    document.getElementById('jfReason').value = '';
+    hint.textContent = '已记录！';
+    setTimeout(function() { hint.textContent = ''; }, 2000);
+  });
+
+  document.addEventListener('DOMContentLoaded', renderJournals);
+})();
+</script>
+
+<!-- ===== 回访提醒 ===== -->
+<script>
+(function() {
+  function renderReviewReminder() {
+    var reviews = AppData.getReviewChapters();
+    var section = document.getElementById('reviewReminder');
+    if (!section || reviews.length === 0) return;
+
+    var total = 0;
+    // Count all chapters that need review across all time periods
+    var allReviews;
+    try {
+      var times = AppData.getReadTimes();
+      var today = new Date(); today.setHours(0,0,0,0);
+      var count = 0;
+      Object.keys(times).forEach(function(k) {
+        var d = new Date(times[k] + 'T00:00:00');
+        var diff = Math.floor((today.getTime() - d.getTime()) / 86400000);
+        if (diff >= 7) count++;
+      });
+      total = count;
+    } catch(e) { total = reviews.length; }
+
+    section.hidden = false;
+    section.innerHTML =
+      '<div class="review-title">回 访 提 醒</div>' +
+      '<div class="review-list">' +
+        reviews.map(function(r) {
+          var icon = r.level === 7 ? '🕐' : (r.level === 30 ? '📅' : '⏰');
+          var tag = r.level === 7 ? r.days + '天前' : (r.level === 30 ? '1个月前' : r.days + '天前');
+          return '<div class="journal-entry review-card-inner">' +
+            '<span class="review-icon">' + icon + '</span>' +
+            '<div class="review-info">' +
+              '<div class="review-book">《' + r.title + '》第' + r.ch + '章</div>' +
+              '<div class="review-chapter">首次阅读于 ' + tag + '</div>' +
+            '</div>' +
+            '<span class="review-days">' + r.days + ' 天前</span>' +
+            '<a class="review-link" href="books/' + r.slug + '/#ch' + r.ch + '">回顾</a>' +
+          '</div>';
+        }).join('') +
+      '</div>' +
+      '<div class="review-progress">' +
+        '<span class="review-progress-text">' + total + ' 个章节等待回访 · 7天/30天/90天周期</span>' +
+      '</div>';
+  }
+
+  document.addEventListener('DOMContentLoaded', renderReviewReminder);
 })();
 </script>
 

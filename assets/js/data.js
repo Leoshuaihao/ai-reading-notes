@@ -114,18 +114,18 @@ var AppData = (function() {
 
   /** 核心概念（概念地图数据） */
   var CONCEPTS = [
-    { id: 'intrinsic-value', name: '内在价值', domain: 'valuation', color: '#2c6faa', brief: '企业真正值多少钱——一切估值的起点', master: '格雷厄姆' },
-    { id: 'margin-of-safety', name: '安全边际', domain: 'valuation', color: '#2c6faa', brief: '买价与价值间的缓冲垫——为未知留出余地', master: '格雷厄姆' },
-    { id: 'mr-market', name: '市场先生', domain: 'valuation', color: '#2c6faa', brief: '情绪化的报价员——利用他的报价', master: '格雷厄姆' },
-    { id: 'moat', name: '护城河', domain: 'business', color: '#2d7d46', brief: '保护超额利润的结构性竞争优势', master: '巴菲特' },
-    { id: 'circle-of-competence', name: '能力圈', domain: 'business', color: '#2d7d46', brief: '只在自己真正理解的领域下注', master: '巴菲特' },
-    { id: 'growth-stock', name: '成长股', domain: 'business', color: '#2d7d46', brief: '能持续成长十年的企业特征', master: '费雪' },
-    { id: 'risk', name: '风险', domain: 'cycle', color: '#c75b39', brief: '不是波动性，是永久性损失的概率', master: '马克斯' },
-    { id: 'concept-cycle', name: '周期', domain: 'cycle', color: '#c75b39', brief: '无法预测未来，但可感知位置', master: '马克斯' },
-    { id: 'black-swan', name: '黑天鹅与肥尾', domain: 'uncertainty', color: '#b8860b', brief: '极端事件塑造历史——钟形曲线是骗局', master: '塔勒布' },
-    { id: 'misjudgment', name: '人类误判心理', domain: 'mind', color: '#7b4fbf', brief: '25种心理偏误的叠加共振效应', master: '芒格' },
-    { id: 'contrarian', name: '逆向投资', domain: 'mind', color: '#7b4fbf', brief: '在众人恐惧处买入，以正确为前提', master: '马克斯' },
-    { id: 'concentration', name: '集中与分散', domain: 'mind', color: '#7b4fbf', brief: '下重注还是广撒网——世纪分歧', master: '费雪' }
+    { id: 'intrinsic-value', name: '内在价值', domain: 'valuation', color: '#2c6faa', brief: '企业真正值多少钱——一切估值的起点', master: '格雷厄姆', books: ['security-analysis','intelligent-investor','buffett-letters','buffett','fisher'] },
+    { id: 'margin-of-safety', name: '安全边际', domain: 'valuation', color: '#2c6faa', brief: '买价与价值间的缓冲垫——为未知留出余地', master: '格雷厄姆', books: ['security-analysis','intelligent-investor','buffett-letters','antifragile'] },
+    { id: 'mr-market', name: '市场先生', domain: 'valuation', color: '#2c6faa', brief: '情绪化的报价员——利用他的报价', master: '格雷厄姆', books: ['intelligent-investor','buffett-letters'] },
+    { id: 'moat', name: '护城河', domain: 'business', color: '#2d7d46', brief: '保护超额利润的结构性竞争优势', master: '巴菲特', books: ['economic-moat','buffett','poor-charlie','fisher'] },
+    { id: 'circle-of-competence', name: '能力圈', domain: 'business', color: '#2d7d46', brief: '只在自己真正理解的领域下注', master: '巴菲特', books: ['poor-charlie','buffett-letters','buffett','peter-lynch'] },
+    { id: 'growth-stock', name: '成长股', domain: 'business', color: '#2d7d46', brief: '能持续成长十年的企业特征', master: '费雪', books: ['fisher','peter-lynch','economic-moat'] },
+    { id: 'risk', name: '风险', domain: 'cycle', color: '#c75b39', brief: '不是波动性，是永久性损失的概率', master: '马克斯', books: ['howard-marks','intelligent-investor','market-cycle','antifragile'] },
+    { id: 'concept-cycle', name: '周期', domain: 'cycle', color: '#c75b39', brief: '无法预测未来，但可感知位置', master: '马克斯', books: ['market-cycle','howard-marks','stock-operator'] },
+    { id: 'black-swan', name: '黑天鹅与肥尾', domain: 'uncertainty', color: '#b8860b', brief: '极端事件塑造历史——钟形曲线是骗局', master: '塔勒布', books: ['black-swan','antifragile'] },
+    { id: 'misjudgment', name: '人类误判心理', domain: 'mind', color: '#7b4fbf', brief: '25种心理偏误的叠加共振效应', master: '芒格', books: ['poor-charlie','howard-marks','buffett-letters'] },
+    { id: 'contrarian', name: '逆向投资', domain: 'mind', color: '#7b4fbf', brief: '在众人恐惧处买入，以正确为前提', master: '马克斯', books: ['howard-marks','market-cycle','intelligent-investor','stock-operator'] },
+    { id: 'concentration', name: '集中与分散', domain: 'mind', color: '#7b4fbf', brief: '下重注还是广撒网——世纪分歧', master: '费雪', books: ['fisher','intelligent-investor','poor-charlie','peter-lynch'] }
   ];
 
   /** 概念对比金句（用于首页金句墙改造） */
@@ -319,6 +319,78 @@ var AppData = (function() {
     return streak;
   }
 
+  // ==================== 章节阅读时间追踪 ====================
+  var KEY_READ_TIMES = 'chapter_read_times';
+
+  function getReadTimes() { return safeJSON(localStorage.getItem(KEY_READ_TIMES), {}); }
+
+  /** 记录章节首次阅读时间（只记录首次） */
+  function recordChapterRead(slug, ch) {
+    var times = getReadTimes();
+    var key = slug + '_' + ch;
+    if (!times[key]) {
+      times[key] = new Date().toISOString().slice(0, 10);
+      safeSet(KEY_READ_TIMES, times);
+    }
+    return times[key];
+  }
+
+  /** 计算需回访的章节（7天/30天/90天） */
+  function getReviewChapters() {
+    var times = getReadTimes();
+    var progress = getProgress();
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var reviews = [];
+
+    Object.keys(times).forEach(function(key) {
+      var parts = key.split('_');
+      var slug = parts[0];
+      var ch = parseInt(parts[1]);
+      var readDate = new Date(times[key] + 'T00:00:00');
+      var diffMs = today.getTime() - readDate.getTime();
+      var diffDays = Math.floor(diffMs / 86400000);
+
+      var level = null;
+      if (diffDays >= 7 && diffDays < 30) level = 7;
+      else if (diffDays >= 30 && diffDays < 90) level = 30;
+      else if (diffDays >= 90) level = 90;
+
+      if (level) {
+        var meta = BOOK_META[slug];
+        if (meta) {
+          reviews.push({ slug: slug, ch: ch, title: meta.title, days: diffDays, level: level });
+        }
+      }
+    });
+
+    // 最多返回5条，按天数降序
+    reviews.sort(function(a, b) { return b.days - a.days; });
+    return reviews.slice(0, 5);
+  }
+
+  /** 计算概念掌握度（基于相关书籍阅读进度） */
+  function getConceptMastery(conceptId) {
+    var concept = null;
+    for (var i = 0; i < CONCEPTS.length; i++) {
+      if (CONCEPTS[i].id === conceptId) { concept = CONCEPTS[i]; break; }
+    }
+    if (!concept || !concept.books || !concept.books.length) return 0;
+
+    var totalBooks = concept.books.length;
+    var readBooks = 0;
+    var progress = getProgress();
+
+    concept.books.forEach(function(slug) {
+      var bp = getBookProgress ? getBookProgress(slug) : { pct: 0 };
+      // 如果这本书读了超过50%，算"涉猎了该概念"
+      if (bp.pct >= 50) readBooks++;
+      else if (bp.pct > 0 && bp.pct < 50) readBooks += 0.5;
+    });
+
+    return Math.round(Math.min(readBooks / totalBooks, 1) * 100);
+  }
+
   // ==================== 公开 API ====================
   return {
     // 数据查询
@@ -352,6 +424,14 @@ var AppData = (function() {
     // Streak
     getStreak: getStreak,
     markToday: markToday,
+
+    // 章节回访
+    recordChapterRead: recordChapterRead,
+    getReadTimes: getReadTimes,
+    getReviewChapters: getReviewChapters,
+
+    // 概念掌握度
+    getConceptMastery: getConceptMastery,
 
     // 工具
     safeJSON: safeJSON

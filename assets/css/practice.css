@@ -345,6 +345,123 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   border: 2px solid var(--accent); color: var(--accent); background: var(--accent-light);
 }
 
+/* ===== 投资体系 ===== */
+.invest-journal {
+  max-width: 880px; margin: 28px auto 0; padding: 0 24px;
+  background: #fff; border: 1px solid #e8e3d5; border-radius: 14px;
+  padding: 28px 32px;
+}
+.invest-journal .summary-title { text-align: center; }
+
+/* 决策表单 */
+.journal-form-wrap { margin-bottom: 20px; }
+.journal-form-title {
+  font-size: 14px; font-weight: 700; color: #3d2e1e;
+  margin-bottom: 12px; padding-left: 2px;
+}
+.journal-form { display: flex; flex-direction: column; gap: 10px; }
+.journal-form .jf-row {
+  display: flex; gap: 10px; align-items: center;
+}
+.jf-input, .jf-select, .jf-textarea {
+  font-family: system-ui, sans-serif; font-size: 14px;
+  border: 1px solid #dcd5c4; border-radius: 8px;
+  padding: 10px 12px; color: #3d2e1e; background: #fefdfb;
+  transition: border-color 0.2s;
+}
+.jf-input:focus, .jf-select:focus, .jf-textarea:focus {
+  border-color: var(--accent); outline: none; box-shadow: 0 0 0 2px rgba(245,147,109,0.12);
+}
+.jf-input { flex: 1; min-width: 0; }
+.jf-select { min-width: 70px; cursor: pointer; }
+.jf-textarea { flex: 1; resize: none; }
+.jf-row-end { justify-content: space-between; }
+.jf-hint { font-size: 12px; color: var(--text-sub, #a09080); }
+.jf-btn {
+  padding: 10px 24px; background: var(--accent); color: #fff;
+  border: none; border-radius: 20px; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+}
+.jf-btn:hover { background: #b04f30; }
+.jf-btn:active { transform: scale(0.97); }
+
+/* 决策列表 */
+.journal-list { display: flex; flex-direction: column; gap: 12px; }
+.journal-entry {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+  background: #fdfbf7; border: 1px solid #e8e3d5; border-radius: 10px;
+  padding: 14px 18px; transition: all 0.2s;
+}
+.journal-entry:hover { border-color: var(--accent); background: #fef9f3; }
+.journal-entry .je-date {
+  font-size: 12px; color: #999; white-space: nowrap; min-width: 80px;
+}
+.journal-entry .je-symbol {
+  font-size: 14px; font-weight: 700; color: #3d2e1e;
+}
+.je-tag {
+  display: inline-block; padding: 3px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 600;
+}
+.je-tag.buy { background: #ffeae0; color: #c75b39; }
+.je-tag.sell { background: #e0f2e0; color: #2d7d46; }
+.je-tag.hold { background: #e0e8f2; color: #2c6faa; }
+.je-tag.watch { background: #f0ede0; color: #b8860b; }
+.je-tag.emotion { background: #f0e6f6; color: #7b4fbf; }
+.je-reason {
+  flex: 1; min-width: 120px; font-size: 13px; color: #6b6b6b;
+  line-height: 1.5; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.je-delete {
+  color: #ccc; cursor: pointer; font-size: 16px; padding: 0 4px;
+  background: none; border: none; transition: color 0.2s;
+}
+.je-delete:hover { color: var(--accent); }
+.journal-empty {
+  text-align: center; padding: 24px; color: #bbb;
+}
+.journal-empty-icon { font-size: 40px; margin-bottom: 8px; }
+.journal-empty-text { font-size: 14px; line-height: 1.6; }
+
+/* ===== 回访提醒 ===== */
+.review-reminder {
+  max-width: 880px; margin: 24px auto 0; padding: 0 24px;
+  background: linear-gradient(135deg, #fef7ed 0%, #fef9f5 100%);
+  border: 1px solid #eadcc8; border-radius: 14px;
+  padding: 24px 28px;
+}
+.review-reminder .review-title {
+  text-align: center; font-size: 14px; font-weight: 700;
+  color: #b8860b; margin-bottom: 14px; letter-spacing: 2px;
+}
+.review-reminder .review-list { display: flex; flex-direction: column; gap: 10px; }
+.review-card-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.review-icon { font-size: 24px; flex-shrink: 0; }
+.review-info { flex: 1; }
+.review-book {
+  font-size: 13px; color: #3d2e1e; font-weight: 600; line-height: 1.4;
+}
+.review-chapter { font-size: 12px; color: #8a7a6a; margin-top: 2px; }
+.review-days {
+  font-size: 11px; color: #b0a090; white-space: nowrap;
+}
+.review-link {
+  padding: 6px 16px; background: var(--accent); color: #fff;
+  border-radius: 16px; font-size: 13px; font-weight: 600;
+  text-decoration: none; white-space: nowrap; transition: background 0.2s;
+}
+.review-link:hover { background: #b04f30; }
+.review-progress {
+  display: flex; justify-content: flex-end; margin-top: 12px;
+}
+.review-progress-text {
+  font-size: 12px; color: #b0a090;
+}
+
 /* ===== 底部链接 ===== */
 .bottom-links {
   display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 8px;
@@ -509,6 +626,18 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 }
 .today-concept-card .tcc-link:hover { background: var(--blue); color: #fff; }
 
+/* 概念掌握度环 */
+.tcc-mastery {
+  display: flex; align-items: center; gap: 6px;
+  margin: 4px 0;
+}
+.tcc-mastery .tcc-mastery-label {
+  font-size: 11px; color: var(--text-sub, #a09080); font-weight: 500;
+}
+.tcc-mastery-zero {
+  padding: 4px 0; font-size: 12px; color: #bbb;
+}
+
 /* ===== 域卡片内概念 chips ===== */
 .domain-concept-chips {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -637,6 +766,16 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   .daily-read { flex-direction: column; text-align: center; padding: 20px; }
   .quote-wall .quote-inner { padding: 20px 16px; }
   .quote-wall .dual-text { font-size: 13px; }
+
+  /* 移动端投资体系 */
+  .journal-form .jf-row { flex-direction: column; }
+  .jf-row-end { flex-direction: column; gap: 8px; align-items: stretch; }
+  .journal-entry { flex-wrap: wrap; gap: 6px; }
+  .je-tag { font-size: 10px; padding: 2px 8px; }
+
+  /* 移动端回访提醒 */
+  .review-card-inner { flex-direction: column; text-align: center; }
+  .review-progress { justify-content: center; }
 
   /* 移动端金字塔文字放大 */
   .hero-pyramid-wrap svg text { font-size: 16px !important; }
