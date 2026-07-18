@@ -164,6 +164,7 @@
     <a href="diagnose.html">🔍 股票诊断</a>
     <a href="concepts.html">🕸️ 概念地图</a>
     <a href="bookshelf.html">📚 书架</a>
+    <a class="active" href="my.html">🧘 我的</a>
   </div>
 </nav>
 
@@ -353,7 +354,7 @@ function computeStats(data) {
   return {
     totalChapters: xpStats.chaptersTotal,
     completedBooks: xpStats.completedBooks,
-    booksStarted: xpStats.startedDomains > 0 ? Object.keys(data.progress).filter(function(k) { return data.progress[k] && data.progress[k].chaptersRead && data.progress[k].chaptersRead.length > 0; }).length : 0,
+    booksStarted: Object.keys(data.progress).filter(function(k) { return data.progress[k] && data.progress[k].chaptersRead && data.progress[k].chaptersRead.length > 0; }).length,
     schools: schools,
     schoolsRead: schools.size,
     totalPrinciples: xpStats.principles,
@@ -491,39 +492,41 @@ function updateStatsBar(stats) {
 
 // ===== 能力树 =====
 function updateSkillTree(stats, progress) {
-  const schools = [
-    {key:'value', name:'价值判断', icon:'🏦', color:'#2c6faa', desc:'识别被低估的资产'},
-    {key:'growth', name:'成长洞察', icon:'📈', color:'#2d7d46', desc:'找到能持续增长的企业'},
-    {key:'cycle', name:'周期认知', icon:'🔄', color:'var(--accent)', desc:'校准市场位置'},
-    {key:'mind', name:'心理修炼', icon:'🧘', color:'#7b4fbf', desc:'战胜人性弱点'},
-    {key:'uncertainty', name:'不确定驾驭', icon:'🌪️', color:'#b8860b', desc:'与随机性共舞'},
-  ];
+  // 从 data.js DOMAINS 动态生成能力树，与 index.html 五域卡片保持一致
+  var domainToSkill = {
+    'business':     { name: '商业认知', icon: '🧭', desc: '识别好生意' },
+    'valuation':    { name: '资产估值', icon: '⚖️', desc: '量化公司价值' },
+    'cycle':        { name: '周期认知', icon: '🔄', desc: '校准市场位置' },
+    'mind':         { name: '心性修炼', icon: '🧘', desc: '战胜人性弱点' },
+    'uncertainty':  { name: '不确定驾驭', icon: '🌪️', desc: '与随机性共舞' }
+  };
 
-  const tree = document.getElementById('skillTree');
-  tree.innerHTML = schools.map(s => {
-    const books = BOOKS.filter(b => b.school === s.key);
-    const readCount = books.filter(b => {
-      const p = progress[b.slug];
-      return p && p.chaptersRead && p.chaptersRead.length > 0;
+  var tree = document.getElementById('skillTree');
+  var html = '';
+  AppData.DOMAINS.forEach(function(d) {
+    var skill = domainToSkill[d.key] || { name: d.name, icon: d.emoji, desc: d.question };
+    var domainBooks = d.books.map(function(b) { return AppData.getBook(b.slug); }).filter(Boolean);
+    var readCount = domainBooks.filter(function(b) {
+      var p = progress[b.slug || '']; return p && p.chaptersRead && p.chaptersRead.length > 0;
     }).length;
 
-    return `<div class="skill-branch">
-      <div class="branch-header">
-        <div class="branch-icon" style="background:${s.color}">${s.icon}</div>
-        <div>
-          <div class="branch-name">${s.name}</div>
-          <div class="branch-score">${readCount}/${books.length} 本书已读 · ${s.desc}</div>
-        </div>
-      </div>
-      <div class="leaf-list">
-        ${books.map(b => {
-          const p = progress[b.slug];
-          const read = p && p.chaptersRead && p.chaptersRead.length > 0;
-          return `<span class="leaf${read?' unlocked':''}">${read?'⭐':'🌿'} ${b.title}</span>`;
-        }).join('')}
-      </div>
-    </div>`;
-  }).join('');
+    html += '<div class="skill-branch">' +
+      '<div class="branch-header">' +
+        '<div class="branch-icon" style="background:' + d.color + '">' + skill.icon + '</div>' +
+        '<div>' +
+          '<div class="branch-name">' + skill.name + '</div>' +
+          '<div class="branch-score">' + readCount + '/' + domainBooks.length + ' 本书已读 · ' + skill.desc + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="leaf-list">';
+    domainBooks.forEach(function(b) {
+      var p = progress[b.slug || ''];
+      var read = p && p.chaptersRead && p.chaptersRead.length > 0;
+      html += '<span class="leaf' + (read ? ' unlocked' : '') + '">' + (read ? '⭐' : '🌿') + ' ' + b.title + '</span>';
+    });
+    html += '</div></div>';
+  });
+  tree.innerHTML = html;
 }
 
 // ===== 成就 =====
@@ -575,7 +578,7 @@ function updatePrinciples(principles) {
         <div class="ex-item"><span class="ex-label">示例</span> 市场先生是你的仆人，不是你的向导</div>
         <div class="ex-item"><span class="ex-label">示例</span> 你不需要预测黑天鹅何时来，只需确保来临时你站在受益侧</div>
       </div>
-      <a href="index.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-weight:600;">去书架逛逛 →</a>
+      <a href="bookshelf.html" style="display:inline-block;margin-top:20px;color:var(--accent);font-weight:600;">去书架逛逛 →</a>
     </div>`;
     return;
   }
