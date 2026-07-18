@@ -14,33 +14,78 @@
   /* ===== 修行 Hero ===== */
   .practice-hero {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #fff; border-radius: 20px; padding: 48px 40px 40px;
-    text-align: center; margin-bottom: 32px; position: relative; overflow: hidden;
+    color: #fff; border-radius: 20px; padding: 40px 40px 32px;
+    text-align: center; margin-bottom: 28px; position: relative; overflow: hidden;
   }
   .practice-hero::before {
     content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle at 30% 70%, rgba(199,91,57,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(44,111,170,0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 70%, rgba(199,91,57,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(44,111,170,0.08) 0%, transparent 50%);
     pointer-events: none;
   }
-  .practice-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; position: relative; }
-  .practice-hero .subtitle { color: #a0b4c8; font-size: 17px; margin-bottom: 20px; position: relative; }
+  .practice-hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; position: relative; }
+  .practice-hero .subtitle { color: #a0b4c8; font-size: 15px; margin-bottom: 16px; position: relative; }
   .practice-hero .level-badge {
     display: inline-flex; align-items: center; gap: 8px; position: relative;
     background: rgba(184,134,11,0.18); border: 1px solid rgba(218,165,32,0.55);
-    color: #f5d78e; font-size: 15px; font-weight: 700;
-    padding: 8px 22px; border-radius: 24px; margin-bottom: 22px;
+    color: #f5d78e; font-size: 14px; font-weight: 700;
+    padding: 6px 20px; border-radius: 24px; margin-bottom: 20px;
   }
   .practice-hero .mini-mountains {
-    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; position: relative;
+    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; position: relative;
+    margin-bottom: 24px;
   }
   .practice-hero .mini-mountain {
-    font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 16px;
+    font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 14px;
     background: rgba(255,255,255,0.08); color: #7a8fa0;
     border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;
   }
   .practice-hero .mini-mountain.lit {
     color: #fff; border-color: transparent;
+  }
+  .hero-pyramid-wrap {
+    position: relative; max-width: 520px; margin: 0 auto;
+  }
+  .hero-pyramid-wrap svg { display: block; width: 100%; height: auto; }
+
+  /* ===== 能力画像雷达 ===== */
+  .ability-section {
+    background: #fff; border-radius: 16px; box-shadow: var(--shadow);
+    border: 1px solid var(--border); padding: 32px 28px; margin-bottom: 28px;
+  }
+  .ability-section .ability-header {
+    text-align: center; margin-bottom: 20px;
+  }
+  .ability-section .ability-header h2 {
+    font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px;
+  }
+  .ability-section .ability-header p {
+    font-size: 13px; color: var(--text-secondary);
+  }
+  .ability-radar-wrap {
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    flex-wrap: wrap;
+  }
+  .ability-radar-svg { flex-shrink: 0; }
+  .ability-radar-svg svg { display: block; width: 320px; height: 320px; }
+  .ability-stats {
+    display: flex; flex-direction: column; gap: 10px; min-width: 160px;
+  }
+  .ability-stat-card {
+    background: var(--tag-bg); border-radius: 10px; padding: 12px 16px;
+  }
+  .ability-stat-card .stat-label {
+    font-size: 11px; color: var(--text-secondary); margin-bottom: 2px;
+  }
+  .ability-stat-card .stat-value {
+    font-size: 18px; font-weight: 700; color: var(--text);
+  }
+  .ability-stat-card .stat-value strong { font-weight: 800; }
+  @media (max-width: 768px) {
+    .ability-radar-wrap { flex-direction: column; gap: 20px; }
+    .ability-radar-svg svg { width: 280px; height: 280px; }
+    .ability-stats { flex-direction: row; flex-wrap: wrap; gap: 8px; min-width: auto; width: 100%; }
+    .ability-stat-card { flex: 1; min-width: 120px; }
   }
 
   /* ===== 五张域卡片 ===== */
@@ -257,12 +302,67 @@
 
 <div class="container">
 
-<!-- Hero：投资修行 -->
+<!-- Hero：投资修行 + 金字塔 -->
 <section class="practice-hero">
   <h1>⛰️ 投资修行</h1>
   <p class="subtitle">五位投资大师代表五座山。你不用同时爬所有山——但每座山都有自己的风景。</p>
   <div class="level-badge" id="heroLevelBadge">🌱 Lv.1 见习学徒 · 0 XP</div>
   <div class="mini-mountains" id="miniMountains"></div>
+
+  <!-- 五层知识体系金字塔 -->
+  <div class="hero-pyramid-wrap">
+    <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- Pyramid: single triangle, apex (260,20), base (40,280)-(480,280) -->
+      <!-- 5 bands, each 52px tall -->
+      <defs>
+        <clipPath id="pyr-clip">
+          <polygon points="260,20 40,280 480,280"/>
+        </clipPath>
+      </defs>
+      <!-- Background triangle outline -->
+      <polygon points="260,20 40,280 480,280" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+      <!-- Band 5: 不确定性 (top) — y:20→72 -->
+      <polygon points="260,20 222.6,72 297.4,72" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+      <!-- Band 4: 周期 — y:72→124 -->
+      <polygon points="222.6,72 297.4,72 334.8,124 185.2,124" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+      <!-- Band 3: 商业 — y:124→176 -->
+      <polygon points="185.2,124 334.8,124 372.2,176 147.8,176" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+      <!-- Band 2: 估值 — y:176→228 -->
+      <polygon points="147.8,176 372.2,176 409.6,228 110.4,228" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+      <!-- Band 1: 心性 (base) — y:228→280 -->
+      <polygon points="110.4,228 409.6,228 480,280 40,280" fill="rgba(255,255,255,0.20)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+      <!-- Center axis -->
+      <line x1="260" y1="28" x2="260" y2="272" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" stroke-dasharray="2,4"/>
+
+      <!-- Labels inside each band -->
+      <text x="260" y="52" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🌪️ 不确定性</text>
+      <text x="260" y="104" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🔄 经济周期</text>
+      <text x="260" y="156" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🧭 商业本质</text>
+      <text x="260" y="208" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">⚖️ 资产估值</text>
+      <text x="260" y="260" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🧘 投资心性</text>
+
+      <!-- Position marker — right side -->
+      <g id="pyramidMarker" transform="translate(420,200)">
+        <rect x="-2" y="-10" width="56" height="20" rx="10" fill="rgba(255,255,255,0.9)"/>
+        <text x="26" y="4" text-anchor="middle" fill="#16213e" font-size="10" font-weight="700" font-family="system-ui,sans-serif">你在這</text>
+      </g>
+      <line x1="418" y1="204" x2="410" y2="204" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" stroke-dasharray="3,3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 能力画像雷达 -->
+<section class="ability-section" aria-label="能力画像">
+  <div class="ability-header">
+    <h2>🎯 能力画像</h2>
+    <p>测评 + 阅读数据，实时反映你的五维能力</p>
+  </div>
+  <div class="ability-radar-wrap">
+    <div class="ability-radar-svg" id="radarChart"></div>
+    <div class="ability-stats" id="abilityStats"></div>
+  </div>
 </section>
 
 <!-- 五张域卡片（书籍列与进度由 JS 动态渲染） -->
@@ -820,6 +920,156 @@
       tag.title = d.name + '：已读 ' + dp.read + '/' + dp.total + ' 章';
       wrap.appendChild(tag);
     });
+
+    // 更新金字塔位置标记
+    updatePyramidMarker(stats);
+  }
+
+  // ===== 渲染：金字塔位置标记 =====
+  function updatePyramidMarker(stats) {
+    var marker = document.getElementById('pyramidMarker');
+    if (!marker) return;
+    // 根据 XP 计算在金字塔中的位置（底部=心性，顶部=不确定性）
+    var maxXP = LEVELS[LEVELS.length - 1].xpNeeded;
+    var pct = Math.min(stats.xp / maxXP, 1);
+    // 金字塔 y 范围：顶部 20 → 底部 280，但我们要反过来（XP 越高越往上）
+    var y = 270 - pct * 240;
+    // 根据当前层级决定在哪个域
+    var domainIdx = 0;
+    if (stats.startedDomains >= 5) domainIdx = 4;
+    else if (stats.startedDomains >= 3) domainIdx = 3;
+    else if (stats.startedDomains >= 2) domainIdx = 2;
+    else if (stats.startedDomains >= 1) domainIdx = 1;
+    y = 260 - domainIdx * 50;
+    marker.setAttribute('transform', 'translate(420,' + y + ')');
+    // 更新引线
+    var line = marker.parentNode.querySelector('line');
+    if (line) {
+      line.setAttribute('y1', y + 4);
+      line.setAttribute('y2', y + 4);
+    }
+  }
+
+  // ===== 渲染：能力雷达图 =====
+  function renderRadar(stats) {
+    var chartEl = document.getElementById('radarChart');
+    var statsEl = document.getElementById('abilityStats');
+    if (!chartEl || !statsEl) return;
+
+    // 计算五维能力值（从阅读数据推导）
+    var dims = [];
+    var dimNames = ['心性', '估值', '商业', '周期', '不确定性'];
+    var dimColors = ['#7b4fbf', '#2c6faa', '#2d7d46', '#c75b39', '#b8860b'];
+    var domainKeys = ['mind', 'valuation', 'business', 'cycle', 'uncertainty'];
+    domainKeys.forEach(function(key) {
+      var dp = computeDomainProgress(key);
+      dims.push(Math.min(dp.pct, 100));
+    });
+
+    // 如果所有维度都是 0，显示默认值（新用户）
+    var allZero = dims.every(function(d) { return d === 0; });
+    if (allZero) dims = [15, 10, 5, 5, 0];
+
+    var cx = 160, cy = 160, r = 130;
+    var n = 5;
+    var angleStep = Math.PI * 2 / n;
+    var startAngle = -Math.PI / 2; // 从顶部开始
+
+    function polarToCart(angle, radius) {
+      return {
+        x: cx + radius * Math.cos(angle),
+        y: cy + radius * Math.sin(angle)
+      };
+    }
+
+    // 构建 SVG
+    var svgParts = [];
+    svgParts.push('<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">');
+
+    // 网格圆环
+    [0.25, 0.5, 0.75, 1].forEach(function(scale) {
+      svgParts.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * scale) + '" fill="none" stroke="#e8e5df" stroke-width="0.5"/>');
+    });
+
+    // 轴线
+    for (var i = 0; i < n; i++) {
+      var a = startAngle + i * angleStep;
+      var p = polarToCart(a, r);
+      svgParts.push('<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '" stroke="#e8e5df" stroke-width="0.5"/>');
+    }
+
+    // 数据多边形
+    var dataPoints = [];
+    for (var i = 0; i < n; i++) {
+      var a = startAngle + i * angleStep;
+      var val = dims[i] / 100;
+      var p = polarToCart(a, r * val);
+      dataPoints.push(p.x + ',' + p.y);
+    }
+    svgParts.push('<polygon points="' + dataPoints.join(' ') + '" fill="rgba(199,91,57,0.12)" stroke="#c75b39" stroke-width="1.5" stroke-linejoin="round"/>');
+
+    // 数据点 + 数值标签
+    for (var i = 0; i < n; i++) {
+      var a = startAngle + i * angleStep;
+      var val = dims[i] / 100;
+      var p = polarToCart(a, r * val);
+      svgParts.push('<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="#c75b39" stroke="#fff" stroke-width="2"/>');
+      // 数值标签
+      var lp = polarToCart(a, r * val + 16);
+      svgParts.push('<text x="' + lp.x + '" y="' + lp.y + '" text-anchor="middle" fill="#6b6b6b" font-size="10" font-weight="600" font-family="system-ui,sans-serif">' + dims[i] + '</text>');
+    }
+
+    // 轴标签
+    var labelOffset = r + 22;
+    var labels = [
+      { name: '心性', sub: '修炼内功' },
+      { name: '估值', sub: '量化价值' },
+      { name: '商业', sub: '看透模式' },
+      { name: '周期', sub: '读懂时间' },
+      { name: '不确定性', sub: '接受无常' }
+    ];
+    var textAnchors = ['middle', 'start', 'start', 'end', 'end'];
+    for (var i = 0; i < n; i++) {
+      var a = startAngle + i * angleStep;
+      var p = polarToCart(a, labelOffset);
+      svgParts.push('<text x="' + p.x + '" y="' + p.y + '" text-anchor="' + textAnchors[i] + '" fill="#2c2c2c" font-size="12" font-weight="700" font-family="system-ui,sans-serif">' + labels[i].name + '</text>');
+      var subP = polarToCart(a, labelOffset + 14);
+      svgParts.push('<text x="' + subP.x + '" y="' + subP.y + '" text-anchor="' + textAnchors[i] + '" fill="#999" font-size="10" font-family="system-ui,sans-serif">' + labels[i].sub + '</text>');
+    }
+
+    // 中心等级徽章
+    svgParts.push('<circle cx="' + cx + '" cy="' + cy + '" r="22" fill="#fff" stroke="#e8e5df" stroke-width="0.8"/>');
+    svgParts.push('<text x="' + cx + '" y="' + (cy - 3) + '" text-anchor="middle" fill="#2c2c2c" font-size="11" font-weight="700" font-family="system-ui,sans-serif">Lv.' + (LEVELS.findIndex(function(l) { return l.xpNeeded <= stats.xp; }) + 1) + '</text>');
+    svgParts.push('<text x="' + cx + '" y="' + (cy + 11) + '" text-anchor="middle" fill="#999" font-size="9" font-family="system-ui,sans-serif">' + stats.xp + ' XP</text>');
+
+    svgParts.push('</svg>');
+    chartEl.innerHTML = svgParts.join('');
+
+    // 右侧统计卡片
+    var strongest = 0, weakest = 0;
+    for (var i = 1; i < n; i++) {
+      if (dims[i] > dims[strongest]) strongest = i;
+      if (dims[i] < dims[weakest]) weakest = i;
+    }
+    var avg = Math.round(dims.reduce(function(a, b) { return a + b; }, 0) / n);
+
+    statsEl.innerHTML =
+      '<div class="ability-stat-card">' +
+        '<div class="stat-label">综合评分</div>' +
+        '<div class="stat-value"><strong>' + avg + '</strong> <span style="color:#999;font-size:12px">/ 100</span></div>' +
+      '</div>' +
+      '<div class="ability-stat-card">' +
+        '<div class="stat-label">最强维度</div>' +
+        '<div class="stat-value" style="color:' + dimColors[strongest] + '">' + dimNames[strongest] + ' <span style="color:#999;font-size:12px">' + dims[strongest] + '</span></div>' +
+      '</div>' +
+      '<div class="ability-stat-card">' +
+        '<div class="stat-label">最弱维度</div>' +
+        '<div class="stat-value" style="color:' + dimColors[weakest] + '">' + dimNames[weakest] + ' <span style="color:#999;font-size:12px">' + dims[weakest] + '</span></div>' +
+      '</div>' +
+      '<div class="ability-stat-card">' +
+        '<div class="stat-label">建议下一步</div>' +
+        '<div class="stat-value" style="color:#2c6faa">资产评估 <span style="color:#999;font-size:12px">↗</span></div>' +
+      '</div>';
   }
 
   // ===== 渲染：修行总览 =====
@@ -867,6 +1117,7 @@
     var levelInfo = computeLevel(stats.xp);
 
     renderHero(stats, levelInfo);
+    renderRadar(stats);
 
     var container = document.getElementById('domainCards');
     container.innerHTML = '';
