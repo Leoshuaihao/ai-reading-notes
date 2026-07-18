@@ -33,7 +33,9 @@ var AppData = (function() {
     'economic-moat':        { title: '巴菲特的护城河',     chapters: 14, school: 'value',       schoolName: '价值' },
     'fooled-by-randomness': { title: '随机漫步的傻瓜',     chapters: 14, school: 'uncertainty', schoolName: '不确定' },
     'black-swan':           { title: '黑天鹅',             chapters: 19, school: 'uncertainty', schoolName: '不确定' },
-    'antifragile':          { title: '反脆弱',             chapters: 24, school: 'uncertainty', schoolName: '不确定' }
+    'antifragile':          { title: '反脆弱',             chapters: 24, school: 'uncertainty', schoolName: '不确定' },
+    'principles':          { title: '原则',               chapters: 16, school: 'mind',        schoolName: '心理' },
+    'random-walk':          { title: '漫步华尔街',         chapters: 15, school: 'uncertainty', schoolName: '不确定' }
   };
 
   /** 五域修行体系 */
@@ -88,7 +90,8 @@ var AppData = (function() {
       master: '查理·芒格', masterInitial: '芒', color: '#7b4fbf',
       books: [
         { slug: 'stock-operator', lv: 1 },
-        { slug: 'poor-charlie', lv: 2 }
+        { slug: 'poor-charlie', lv: 2 },
+        { slug: 'principles', lv: 2 }
       ],
       cross: [
         { slug: 'intelligent-investor', ch: 8, label: '第8章「市场先生」' },
@@ -103,7 +106,8 @@ var AppData = (function() {
       books: [
         { slug: 'black-swan', lv: 3 },
         { slug: 'fooled-by-randomness', lv: 3 },
-        { slug: 'antifragile', lv: 4 }
+        { slug: 'antifragile', lv: 4 },
+        { slug: 'random-walk', lv: 3 }
       ],
       cross: [
         { slug: 'market-cycle', ch: 8, label: '第8章「风险态度周期」' },

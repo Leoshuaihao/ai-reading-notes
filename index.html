@@ -321,7 +321,25 @@
     <a class="go-top" href="#top">投资修行 · 回到顶部</a>
   </div>
 
-  <!-- 数据管理 -->
+    <!-- AI 阅读问答 -->
+  <section class="ai-chat" id="aiChat">
+    <div class="summary-title" style="margin-bottom:16px;">AI 阅读问答</div>
+    <div class="aic-select-row">
+      <select class="aic-select" id="aicBook"><option value="">选择一本书提问</option></select>
+      <select class="aic-select aic-select-sm" id="aicDomain" style="width:140px;"><option value="">全部域</option><option value="business">商业认知</option><option value="valuation">资产估值</option><option value="cycle">周期与市场</option><option value="mind">心性与哲学</option><option value="uncertainty">不确定性</option></select>
+    </div>
+    <div class="aic-messages" id="aicMessages">
+      <div class="aic-empty">选择一本书，向 AI 提问关于这本书的任何问题。基于精读内容回答。</div>
+    </div>
+    <div class="aic-input-row">
+      <textarea class="aic-input" id="aicInput" placeholder="输入你的问题…" rows="1" maxlength="500"></textarea>
+      <button class="aic-send" id="aicSend" disabled>发送</button>
+    </div>
+    <div class="aic-status" id="aicStatus"></div>
+  </section>
+
+
+<!-- 数据管理 -->
   <div class="data-mgmt" id="dataMgmt">
     <span class="dm-label"></span>
     <button class="dm-btn dm-export" id="dmExport" title="备份所有数据到本地文件"> 导出备份</button>
@@ -1608,6 +1626,123 @@
       }
     });
   });
+})();
+</script>
+
+<!-- ===== AI 阅读问答 ===== -->
+<script>
+(function() {
+  var DS_KEY = 'sk-1b3b9a4abf1246faa75b2d84c425b1d5';
+  var DS_URL = 'https://api.deepseek.com/chat/completions';
+
+  var bookSel = document.getElementById('aicBook');
+  var domainSel = document.getElementById('aicDomain');
+  var input = document.getElementById('aicInput');
+  var sendBtn = document.getElementById('aicSend');
+  var msgs = document.getElementById('aicMessages');
+  var status = document.getElementById('aicStatus');
+
+  // 初始化书籍下拉
+  var slugs = Object.keys(AppData.BOOK_META).sort(function(a,b) {
+    return (AppData.BOOK_META[a].title||'').localeCompare(AppData.BOOK_META[b].title||'','zh');
+  });
+  slugs.forEach(function(slug) {
+    var o = document.createElement('option');
+    o.value = slug;
+    o.textContent = AppData.BOOK_META[slug].title;
+    o.setAttribute('data-domain', AppData.BOOK_META[slug].school || '');
+    bookSel.appendChild(o);
+  });
+
+  // 域筛选
+  domainSel.addEventListener('change', function() {
+    var domain = this.value;
+    Array.prototype.forEach.call(bookSel.options, function(o) {
+      if (!o.value) return;
+      var d = o.getAttribute('data-domain');
+      o.hidden = domain && d !== domain;
+    });
+    bookSel.value = '';
+    checkSend();
+  });
+
+  bookSel.addEventListener('change', checkSend);
+  input.addEventListener('input', function() {
+    checkSend();
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+  });
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!sendBtn.disabled) sendQ(); }
+  });
+
+  function checkSend() {
+    sendBtn.disabled = !bookSel.value || !input.value.trim();
+  }
+
+  sendBtn.addEventListener('click', sendQ);
+
+  function sendQ() {
+    var slug = bookSel.value;
+    var question = input.value.trim();
+    if (!slug || !question) return;
+
+    var title = AppData.BOOK_META[slug].title;
+
+    // 添加问题
+    addMsg('q', '', question);
+    input.value = '';
+    checkSend();
+
+    // 加载中
+    var loadingDiv = document.createElement('div');
+    loadingDiv.className = 'aic-msg aic-msg-loading';
+    loadingDiv.textContent = '正在思考…';
+    msgs.appendChild(loadingDiv);
+    msgs.scrollTop = msgs.scrollHeight;
+    status.textContent = '';
+
+    var t0 = Date.now();
+
+    fetch(DS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + DS_KEY },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages: [
+          { role: 'system', content: '你是《' + title + '》的 AI 精读助手。基于这本书的内容和投资理念，用中文回答用户问题。回答要简洁、有深度，引用书中的具体概念和章节。如果问题超出本书范围，可以结合投资常识补充，但要说明哪些是你的补充。' },
+          { role: 'user', content: question }
+        ],
+        temperature: 0.7, max_tokens: 1024
+      })
+    }).then(function(r) { return r.json(); })
+    .then(function(data) {
+      loadingDiv.remove();
+      var answer = data.choices && data.choices[0] ? data.choices[0].message.content : '(AI 未返回答案)';
+      addMsg('a', '《' + title + '》', answer);
+      var elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+      status.textContent = '响应耗时 ' + elapsed + 's · AI 精读问答';
+    })
+    .catch(function(err) {
+      loadingDiv.remove();
+      addMsg('a', '', '(请求失败: ' + err.message + ')');
+      status.textContent = '网络错误';
+    });
+  }
+
+  function addMsg(type, title, text) {
+    var div = document.createElement('div');
+    div.className = 'aic-msg';
+    if (type === 'q') {
+      div.innerHTML = '<div class="aic-msg-q">  你问' + (title ? ' · ' + title : '') + '</div><div>' + text.replace(/</g,'&lt;') + '</div>';
+    } else {
+      div.innerHTML = '<div class="aic-msg-a">' + text.replace(/
+/g,'<br>') + '</div>';
+    }
+    if (msgs.querySelector('.aic-empty')) msgs.querySelector('.aic-empty').remove();
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
 })();
 </script>
 
