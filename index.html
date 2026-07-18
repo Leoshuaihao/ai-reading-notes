@@ -236,9 +236,51 @@
     }
     .domain-head { flex-direction: column; gap: 8px; }
     .domain-progress-badge { text-align: left; align-self: flex-start; }
-    .book-row { flex-wrap: wrap; row-gap: 4px; padding: 10px 4px; }
-    .book-row .book-name { flex-basis: calc(100% - 130px); }
-    .book-row .mini-bar { margin-left: 65px; width: 110px; }
+
+    /* 书籍行：移动端简化 */
+    .book-row {
+      flex-wrap: wrap; row-gap: 4px; padding: 12px 6px;
+      min-height: 44px; /* iOS 触控目标 */
+    }
+    .book-row .lv-dot { width: 8px; height: 8px; }
+    .book-row .lv-tag { width: 40px; font-size: 11px; }
+    .book-row .book-name {
+      flex-basis: calc(100% - 100px);
+      font-size: 14px;
+    }
+    .book-row .mini-bar {
+      display: none; /* 移动端隐藏迷你进度条，用右侧文字替代 */
+    }
+    .book-row .book-count {
+      width: auto; font-size: 11px;
+    }
+    .book-row .book-go {
+      font-size: 12px; padding: 4px 10px;
+      min-height: 36px; display: flex; align-items: center;
+    }
+
+    /* 跨山连接：移动端折叠 */
+    .domain-links {
+      margin-top: 8px; padding-top: 8px;
+    }
+    .domain-links .links-label {
+      cursor: pointer; user-select: none;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .domain-links .links-label::after {
+      content: ' ▾'; font-size: 10px;
+    }
+    .domain-links .links-label.open::after {
+      content: ' ▴';
+    }
+    .domain-links .cross-rows-wrap {
+      overflow: hidden; transition: max-height 0.3s;
+    }
+    .domain-links .cross-rows-wrap.collapsed {
+      max-height: 0;
+    }
+    .cross-row { padding: 5px 0; }
+
     .practice-summary { padding: 20px 18px; }
     .practice-summary .summary-stats { flex-direction: column; gap: 8px; }
   }
@@ -777,7 +819,10 @@
 
     // 跨山连接
     var links = el('div', 'domain-links');
-    links.appendChild(el('div', 'links-label', '🔗 跨山连接 · 来自其他山的相关章节'));
+    var labelEl = el('div', 'links-label', '🔗 跨山连接 · 来自其他山的相关章节');
+    links.appendChild(labelEl);
+
+    var crossWrap = el('div', 'cross-rows-wrap');
     domain.cross.forEach(function(c) {
       var meta = BOOK_META[c.slug];
       var row = el('div', 'cross-row');
@@ -786,9 +831,21 @@
       var a = el('a', null, '去读 →');
       a.href = 'books/' + c.slug + '/#ch' + c.ch;
       row.appendChild(a);
-      links.appendChild(row);
+      crossWrap.appendChild(row);
     });
+    links.appendChild(crossWrap);
     card.appendChild(links);
+
+    // 移动端：跨山连接折叠交互
+    if (window.innerWidth <= 768) {
+      crossWrap.classList.add('collapsed');
+      labelEl.classList.remove('open');
+      labelEl.addEventListener('click', function() {
+        var isOpen = !crossWrap.classList.contains('collapsed');
+        crossWrap.classList.toggle('collapsed', isOpen);
+        labelEl.classList.toggle('open', isOpen);
+      });
+    }
 
     return card;
   }
