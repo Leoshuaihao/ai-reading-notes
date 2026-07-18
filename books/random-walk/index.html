@@ -6,379 +6,970 @@
 <title>漫步华尔街 — AI精读笔记</title>
 <meta name="description" content="AI驱动的《漫步华尔街》深度精读笔记。伯顿·马尔基尔的经典著作，逐章解读投资智慧。"/>
 <meta property="og:title" content="漫步华尔街 — AI精读笔记"/>
+<meta property="og:description" content="AI驱动的《漫步华尔街》深度精读笔记。伯顿·马尔基尔的《漫步华尔街》是随机漫步理论和有效市场假说的经典通俗读物。第11版更新了行为金融学、聪明β、生命周期投资等最新内容。核心观点：短期股价不可预测，"/>
 <meta property="og:type" content="article"/>
 <meta property="og:image" content="../../assets/img/og-image.png"/>
 <link rel="stylesheet" href="../../assets/css/style.css"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Book","name":"漫步华尔街","author":{"@type":"Person","name":"伯顿·马尔基尔"},"inLanguage":"zh","datePublished":"1973"}
+{"@context":"https://schema.org","@type":"Book","name":"漫步华尔街","author":{"@type":"Person","name":"伯顿·马尔基尔"},"inLanguage":"zh","datePublished":"1973","description":"伯顿·马尔基尔的《漫步华尔街》是随机漫步理论和有效市场假说的经典通俗读物。第11版更新了行为金融学、聪明β、生命周期投资等最新内容。核心观点：短期股价不可预测，长期指数化投资是普通投资者的最佳策略。这"}
 </script>
 </head>
 <body>
-<nav class="top-nav"><span class="logo"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
-<div class="nav-links">
-<a href="../../index.html">🏠 修行</a>
-<a href="../../bookshelf.html">📚 书架</a>
-<a href="../../my.html">🧘 我的</a>
-<a class="active" href="#overview">概览</a>
-<a href="#roadmap">路线图</a>
-<a href="#intro">导言</a>
-</div></nav>
-<div class="container">
+<nav class="top-nav" role="navigation" aria-label="章节导航">
+  <span class="logo"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <div class="nav-links">
+    <a href="../../index.html">🏠 修行</a>
+    <a href="../../bookshelf.html">📚 书架</a>
+    <a href="../../my.html">🧘 我的</a>
+    <a class="active" href="#overview">概览</a>
+    <a href="#roadmap">路线图</a>
+    <a href="#intro">导言</a>
+<a href="#ch1">第1章 · 随机漫步与两种投资理论</a>
+<a href="#ch2">第2章 · 投机狂潮：从郁金香到南海泡沫</a>
+<a href="#ch3">第3章 · 专业机构的投机狂欢</a>
+<a href="#ch4">第4章 · 互联网泡沫与房地产泡沫的双重启示</a>
+<a href="#ch5">第5章 · 技术分析与基本面分析的本质</a>
+<a href="#ch6">第6章 · 技术分析真的能预测股价吗？</a>
+<a href="#ch7">第7章 · 基本面分析的局限与市场有效性</a>
+<a href="#ch8">第8章 · 风险决定收益：现代投资组合理论入门</a>
+<a href="#ch9">第9章 · 风险测量与资产定价的科学</a>
+<a href="#ch10">第10章 · 非理性投资的心理学根源</a>
+<a href="#ch11">第11章 · 聪明β策略的真相与陷阱</a>
+<a href="#ch12">第12章 · 随机漫步者的投资健身手册</a>
+<a href="#ch13">第13章 · 预测长期收益的关键因素</a>
+<a href="#ch14">第14章 · 生命周期决定资产配置</a>
+<a href="#ch15">第15章 · 指数基金、选股与主动管理</a>
+  </div>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单"><span></span><span></span><span></span></button>
+</nav>
 
-<section class="book-hero">
-<h1>漫步华尔街</h1>
-<p class="subtitle">伯顿·马尔基尔 · 1973 · 不确定性与风险域 · 15章精读</p>
+<div class="container wide">
+
+<!-- BOOK HERO -->
+<section class="book-hero" id="overview" aria-labelledby="hero-title">
+  <div class="cover" aria-hidden="true" style="background: linear-gradient(135deg, #0d2a3a 0%, #1a4a5a 50%, #0a2030 100%);">A Random
+Walk Down
+Wall Street</div>
+  <div class="info">
+    <h1 id="hero-title">《漫步华尔街》<span style="font-size:16px;font-weight:400;color:var(--text-secondary);display:block;margin-top:4px;">原书第11版</span></h1>
+    <div class="author">伯顿·马尔基尔</div>
+    <div class="meta-row">
+      <span class="tag primary">📖 不确定性与风险域</span>
+      <span class="tag">⏱️ 精读约 8-10 小时</span>
+      <span class="tag">📅 1973</span>
+      <span class="tag">📑 15章精读</span>
+    </div>
+    <p class="desc">伯顿·马尔基尔的《漫步华尔街》是随机漫步理论和有效市场假说的经典通俗读物。第11版更新了行为金融学、聪明β、生命周期投资等最新内容。核心观点：短期股价不可预测，长期指数化投资是普通投资者的最佳策略。这本书影响了无数投资者放弃主动选股，转向被动指数投资。</p>
+    <a class="cta-btn" href="#intro" onclick="event.preventDefault();var t=document.querySelector('#intro');if(t){var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}" aria-label="开始精读">🚀 开始精读</a>
+  </div>
 </section>
 
-<section class="why-section" id="overview">
-<h2>为什么值得精读</h2>
-<p class="why-intro">伯顿·马尔基尔以半个世纪的实证研究，证明了指数投资的长期有效性，是资产配置的必读经典。</p>
-<div class="why-grid">
-<div class="why-item"><h3><span class="wi-icon">🏆</span>经典地位</h3><p>伯顿·马尔基尔的代表作，投资领域的必读书目。</p></div>
-<div class="why-item"><h3><span class="wi-icon">🎯</span>核心贡献</h3><p>全书围绕核心投资理念展开，提供了完整的思维框架。</p></div>
-<div class="why-item"><h3><span class="wi-icon">🇨🇳</span>中文读者价值</h3><p>帮助中国投资者理解海外经典投资思想，并思考如何应用于A股实践。</p></div>
-<div class="why-item"><h3><span class="wi-icon">✨</span>精读特色</h3><p>每章提供文化背景、反方观点、中国市场关联等多维度解读。</p></div>
+<!-- WHY THIS BOOK -->
+<section aria-labelledby="why-title">
+  <h2 class="section-title" id="why-title"><span class="emoji">💡</span> 为什么这本书值得精读？</h2>
+  <div class="why-section">
+    <div class="why-item">
+      <div class="why-icon">📊</div>
+      <h3 class="why-title">50年长销不衰的投资经典</h3>
+      <div class="why-desc">自1973年首版以来，《漫步华尔街》已更新至第11版，畅销50年。马尔基尔是普林斯顿大学经济学教授，曾任美国总统经济顾问委员会委员。这本书是商学院投资课程的必读参考书。</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🎲</div>
+      <h3 class="why-title">随机漫步理论的最佳通俗解读</h3>
+      <div class="why-desc">马尔基尔用生动的语言解释了为什么短期股价走势不可预测——股价已经反映了所有已知信息，未来的变化是「随机」的。这个理论对执着于「预测走势」的投资者是当头棒喝。</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📈</div>
+      <h3 class="why-title">指数基金的理论奠基之作</h3>
+      <div class="why-desc">马尔基尔不仅理论上是有效市场假说的拥护者，实践上也是指数基金的坚定倡导者。本书直接推动了指数基金行业的发展。约翰·博格尔创立先锋500指数基金时，深受本书影响。</div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🇨🇳</div>
+      <h3 class="why-title">对A股散户化市场的深刻启示</h3>
+      <div class="why-desc">中国A股市场散户占比高、情绪化交易明显、市场效率较低。马尔基尔的理论既揭示了为什么大多数主动基金跑不赢指数，也指出了市场非有效处可能存在的超额收益机会，对中国投资者特别有启发。</div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR BIO -->
+<section aria-labelledby="author-title">
+  <h2 class="section-title" id="author-title"><span class="emoji">👤</span> 作者简介</h2>
+  <div class="author-bio">
+    <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #0d2a3a 0%, #1a4a5a 50%, #0a2030 100%);">BM</div>
+    <div class="bio-content">
+      <h3>伯顿·马尔基尔</h3>
+      <p>伯顿·马尔基尔（Burton G. Malkiel），1932年生于波士顿。普林斯顿大学经济学教授，曾任该校经济系主任。耶鲁大学管理学院院长。美国总统经济顾问委员会委员。美国金融学会前会长。马尔基尔是有效市场假说的坚定拥护者，1973年出版《漫步华尔街》，成为指数投资运动的奠基之作。他长期担任先锋集团（Vanguard）董事，推动指数基金发展。学术研究涵盖市场效率、行为金融、技术分析有效性等领域。第11版新增了聪明β、行为金融学等前沿内容。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER NAV -->
+<section class="chapter-nav" id="roadmap" aria-labelledby="roadmap-title">
+  <h2 class="section-title" id="roadmap-title"><span class="emoji">📋</span> 章节导航</h2>
+  <div class="nav-links">
+<a href="#ch1">第1章 · 随机漫步与两种投资理论</a>
+<a href="#ch2">第2章 · 投机狂潮：从郁金香到南海泡沫</a>
+<a href="#ch3">第3章 · 专业机构的投机狂欢</a>
+<a href="#ch4">第4章 · 互联网泡沫与房地产泡沫的双重启示</a>
+<a href="#ch5">第5章 · 技术分析与基本面分析的本质</a>
+<a href="#ch6">第6章 · 技术分析真的能预测股价吗？</a>
+<a href="#ch7">第7章 · 基本面分析的局限与市场有效性</a>
+<a href="#ch8">第8章 · 风险决定收益：现代投资组合理论入门</a>
+<a href="#ch9">第9章 · 风险测量与资产定价的科学</a>
+<a href="#ch10">第10章 · 非理性投资的心理学根源</a>
+<a href="#ch11">第11章 · 聪明β策略的真相与陷阱</a>
+<a href="#ch12">第12章 · 随机漫步者的投资健身手册</a>
+<a href="#ch13">第13章 · 预测长期收益的关键因素</a>
+<a href="#ch14">第14章 · 生命周期决定资产配置</a>
+<a href="#ch15">第15章 · 指数基金、选股与主动管理</a>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<div class="progress-section" id="progress-section">
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-text">阅读进度：<span id="progress-percent">0%</span> · <span id="progress-chapters">0/15</span> 章</div>
 </div>
-</section>
 
-<section class="chapter-nav" id="roadmap">
-<h3><span class="nav-icon">📋</span>章节导航</h3>
-<div class="nav-links">
-<a href="#ch1">1.两大分析流派</a>
-<a href="#ch2">2.技术分析的迷思</a>
-<a href="#ch3">3.基本面分析的局限</a>
-<a href="#ch4">4.聪明的β，真的聪明吗？</a>
-<a href="#ch5">5.投资者健身手册</a>
-<a href="#ch6">6.生命周期投资指南</a>
-<a href="#ch7">7.三种漫步法，指数为王</a>
-<a href="#ch8">8.投资与投机</a>
-<a href="#ch9">9.投机狂潮与空中楼阁</a>
-<a href="#ch10">10.机构投资者的投机狂潮</a>
-<a href="#ch11">11.21世纪初的超级泡沫</a>
-<a href="#ch12">12.技术分析与基本面分析</a>
-<a href="#ch13">13.技术分析批判</a>
-<a href="#ch14">14.基本面分析有效吗</a>
-<a href="#ch15">15.现代投资组合理论</a>
-
-</div>
-</section>
-
+<!-- CHAPTERS -->
 <section id="intro">
-<article class="chapter-card" id="ch1" aria-labelledby="ch1-title">
-  <div class="ch-header">
-    <div class="ch-num">1</div>
-    <div>
-      <h2 class="ch-title" id="ch1-title">第1章 · 两大分析流派</h2>
+  <article class="chapter-card" id="ch1" aria-labelledby="ch1-title">
+    <div class="ch-header">
+      <div class="ch-num">1</div>
+      <div>
+        <h2 class="ch-title" id="ch1-title">第1章 · 随机漫步与两种投资理论</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">随机漫步</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">股票价格短期走势可以预测吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">短期股价无法预测，个人投资者可凭借长期投资战胜专业机构。</span></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">分析流派</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何理性看待技术分析与基本面分析在投资中的实际效用？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">技术分析与基本面分析各有优劣，投资者需警惕其局限性并灵活运用。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章在《漫步华尔街》中位于投资策略部分，核心回答投资者如何通过技术分析与基本面分析预测股价，并揭示其局限。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Charts can tell us something, but not everything.</div></details><div class="zh">「图表能告诉我们一些事情，但不是全部。」</div><div class="why">💬 强调技术分析的局限性，提醒投资者勿过度依赖图表。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">分析流派</h3><div class="concept-body"><p>技术分析基于历史价格和成交量预测未来走势，假设市场行为反映所有信息且趋势会重复，但有效市场假说质疑其有效性。基本面分析则通过评估公司财务和宏观经济判断内在价值，但信息不对称和未来不确定性可能削弱其效果。本章强调两者均非完美，综合使用可弥补缺陷。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>有效市场理论认为股价已反映所有信息，技术分析无法产生超额收益；基本面分析也因市场非理性而失效。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场散户占比高，技术分析如K线图流行，但政策波动和情绪驱动常使基本面分析失灵，需结合两者。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Technical Analysis</strong></td><td class="zh">技术分析</td><td>基于历史价格和成交量预测股价</td></tr><tr><td><strong>Fundamental Analysis</strong></td><td class="zh">基本面分析</td><td>评估公司内在价值以决定投资</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>技术分析依赖图表趋势，但易受随机性影响</li><li>基本面分析需警惕信息滞后和未来不确定性</li><li>两种方法结合可提供更全面的投资视角</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么技术分析在有效市场中可能失效？</p>
-<p class="hint">💡 提示：考虑价格是否已反映所有信息</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
-  <div class="ch-header">
-    <div class="ch-num">2</div>
-    <div>
-      <h2 class="ch-title" id="ch2-title">第2章 · 技术分析的迷思</h2>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">随机漫步</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">股价走势真的无法预测吗？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">技术分析看似有理，实则无法战胜市场随机性。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于《漫步华尔街》第六部分，核心回答技术分析是否有效，以及为何在随机漫步理论下仍有人信奉它。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">A stock market prediction should be taken with a grain of salt, or perhaps a whole salt shaker.</div></details><div class="zh">「股市预测应持保留态度，或许该整罐盐都撒上。」</div><div class="why">💬 强调预测的不可靠性，呼应随机漫步主题。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">随机漫步</h3><div class="concept-body"><p>随机漫步理论认为股价变动不可预测，过去走势无法预示未来，因此技术分析（如趋势线、头肩顶等）本质无效。本章深入剖析技术分析者的常见谬误，包括数据挖掘偏差、过度拟合和确认偏误，并指出其看似有效的原因如自我实现预言和幸存者偏差。最终结论是：长期看，技术分析无法持续战胜市场。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>20世纪60年代美国股市技术分析盛行，尤以查尔斯·道提出的道氏理论为鼻祖。本章批判了当时流行的图表派，并引用尤金·法玛的有效市场假说作为理论支撑。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>技术分析师反击称，随机漫步理论忽视市场心理和趋势惯性，并援引成功案例（如威廉·江恩）证明其方法有效。但作者认为这些案例多为事后解释或统计巧合。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场散户占比高，技术分析（如MACD、K线形态）仍被广泛使用。但实证研究表明，A股同样符合随机漫步特征，短期追涨杀跌往往亏损。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Random Walk Theory</strong></td><td class="zh">随机漫步理论</td><td>股价变动不可预测，类似醉汉脚步。</td></tr><tr><td><strong>Technical Analysis</strong></td><td class="zh">技术分析</td><td>基于历史价格预测未来走势。</td></tr><tr><td><strong>Efficient Market Hypothesis</strong></td><td class="zh">有效市场假说</td><td>股价已反映所有已知信息。</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>技术分析无法持续提供超额收益。</li><li>随机漫步理论否定股价趋势的可预测性。</li><li>幸存者偏差和确认偏误让技术分析师自认为有效。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么技术分析师常说‘趋势是你的朋友’？</p>
-<p class="hint">💡 提示：思考自我实现预言和数据挖掘偏差。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
-  <div class="ch-header">
-    <div class="ch-num">3</div>
-    <div>
-      <h2 class="ch-title" id="ch3-title">第3章 · 基本面分析的局限</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书开篇，奠定投资理念基础。核心回答：个人投资者能否战胜专业机构？并介绍两种经典资产估值方法——坚实基础理论与空中楼阁理论。</p></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">有效市场假说</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">证券分析师能否持续选出好股票？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">基本面分析难以战胜市场，有效市场理论建议被动投资。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于第三部分，探讨基本面分析的实际效果与有效市场理论，回答分析师能否预测股票走势的问题。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The crystal ball is cloudy.</div></details><div class="zh">「水晶球浑浊不清。」</div><div class="why">💬 比喻预测未来的困难，强调基本面分析的局限。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">有效市场假说</h3><div class="concept-body"><p>本章核心在于揭示基本面分析的局限性。作者通过分析证券分析师预测能力的不足、共同基金业绩的平庸，以及有效市场假说的半强式和强式有效形式，论证了即使专业分析师也难以持续战胜市场。水晶球浑浊不清，因为未来充满不确定性；分析师虽努力研究，但信息已反映在股价中，导致选股如同抛硬币。有效市场理论认为，在强式有效市场中，即使内幕信息也无法带来超额收益。高频交易虽短期获利，但未否定市场有效性。因此，投资者应转向指数投资等被动策略。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>美国共同基金行业在20世纪中后期快速发展，但研究表明多数基金业绩低于市场指数，引发了对主动管理价值的质疑。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>反对者认为，市场并非完全有效，行为金融学指出投资者非理性行为导致价格偏离，且少数明星基金经理能持续跑赢市场。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场散户占比高、波动大，基本面分析可能短期有效，但长期看，指数化投资正逐渐被接受，如沪深300指数基金表现优于多数主动基金。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Efficient Market Hypothesis</strong></td><td class="zh">有效市场假说</td><td>市场价格反映所有信息</td></tr><tr><td><strong>Semi-strong Form</strong></td><td class="zh">半强式有效</td><td>价格反映公开信息</td></tr><tr><td><strong>Strong Form</strong></td><td class="zh">强式有效</td><td>价格反映所有信息包括内幕</td></tr><tr><td><strong>High-frequency Trading</strong></td><td class="zh">高频交易</td><td>利用速度优势的短期交易</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>证券分析师的预测能力有限，长期难以跑赢市场。</li><li>有效市场假说认为市场已充分反映信息。</li><li>投资者应转向被动指数投资策略。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么多数共同基金业绩不如市场指数？</p>
-<p class="hint">💡 提示：考虑信息效率和交易成本。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
-  <div class="ch-header">
-    <div class="ch-num">4</div>
-    <div>
-      <h2 class="ch-title" id="ch4-title">第4章 · 聪明的β，真的聪明吗？</h2>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">何为愤世嫉俗者？就是这样一种人：知道所有东西的价格，却不知道任何东西的价值。</div></details>
+      <div class="zh">「何为愤世嫉俗者？就是这样一种人：知道所有东西的价格，却不知道任何东西的价值。」</div>
+      <div class="why">💬 这句话点明投资核心：关注价值而非价格，是全书理念的基石。</div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">聪明的β</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">“聪明的β”基金是否真的比传统指数基金更聪明？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">“聪明的β”策略看似聪明，但实际表现往往不如低成本市值加权指数基金。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于全书第四部分，核心回答：基于市值加权的指数化投资是否仍是普通投资者的最佳策略，以及“聪明的β”策略是否值得采用。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Smart beta is not necessarily smart, and it may be quite dangerous for investors.</div></details><div class="zh">「“聪明的β”未必聪明，对投资者来说甚至可能相当危险。」</div><div class="why">💬 警示投资者不要盲目追求复杂策略，简单低成本可能更可靠。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">聪明的β</h3><div class="concept-body"><p>“聪明的β”指通过非市值权重（如价值、动量、低波动等因子）构建的指数基金，旨在超越传统市值加权指数。其优点在于可能获得因子溢价，但缺点包括：因子可能失效、高费用、复杂性和追踪误差。作者通过分析发现，多数“聪明的β”基金未能持续跑赢市场，且风险调整后收益不具优势。因此，对普通投资者而言，低成本、广分散的市值加权指数基金仍是更可靠的选择。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>支持者认为因子倾斜能系统性获得超额收益，但作者指出历史数据可能受幸存者偏差影响，且因子拥挤交易会削弱未来表现。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场也有类似“聪明的β”产品（如红利低波ETF），但因子有效性不稳定，投资者应警惕高费用和短期业绩陷阱，坚持长期持有宽基指数。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Smart Beta</strong></td><td class="zh">聪明的β</td><td>非市值加权的因子策略指数</td></tr><tr><td><strong>Factor Investing</strong></td><td class="zh">因子投资</td><td>基于特定因子构建组合</td></tr><tr><td><strong>Market Cap Weighting</strong></td><td class="zh">市值加权</td><td>按公司市值分配权重</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>“聪明的β”基金费用更高，但长期表现未必优于传统指数。</li><li>因子倾斜策略可能带来短期超额，但存在失效和拥挤风险。</li><li>对普通投资者，低成本、广分散的市值加权指数仍是最佳选择。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么“聪明的β”基金的费用通常高于传统指数基金？</p>
-<p class="hint">💡 提示：思考其主动管理和因子筛选成本。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
-  <div class="ch-header">
-    <div class="ch-num">5</div>
-    <div>
-      <h2 class="ch-title" id="ch5-title">第5章 · 投资者健身手册</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">随机漫步</h3>
+        <div class="concept-body"><p>本章提出两个核心概念：随机漫步与投资/投机区分。随机漫步理论认为股票短期价格无法预测，专业分析师与图表分析无用，甚至猴子投飞镖选股效果相当。作者强调个人投资者可以做得和专家一样好，甚至更出色，例如2008年危机中专业人士因复杂衍生品巨亏，而稳健的个人投资者反而获益。作者明确区分投资与投机：投资是为获得可合理预期的长期收入（股利、利息、租金）及资产增值；投机则追求短期快速回报。本书定位为投资指南，而非投机手册，副标题可概括为“稳步致富”。</p></div>
+      </div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">投资纪律</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何制定并执行一个适合个人情况的投资计划？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">通过十个练习和一个体检，系统化构建个人投资计划，强调纪律、准备和多样化。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>作为全书的实践指南，本章将投资理论转化为具体行动步骤，回答“如何构建并执行一个适合个人的投资计划”这一核心问题。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The most important investment you can make is in yourself.</div></details><div class="zh">「你能做的最重要的投资就是投资自己。」</div><div class="why">💬 强调个人知识、纪律和准备是投资成功的根本。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">投资纪律</h3><div class="concept-body"><p>本章提出了一个系统化的个人投资健身计划，包含10个练习和一次最终体检。核心思想是投资成功不仅依赖知识，更依赖纪律和准备。练习1强调收集信息（如财务新闻、公司年报）作为漫步的基础。练习2和3关注风险底线：建立现金储备和适当保险以防急需，并让现金收益跑赢通胀。练习4强调税收效率，利用免税账户和长期持有策略。练习5要求明确个人投资目标（如退休、购房），因为不同目标对应不同风险承受能力和时间跨度。练习6指出自有房产是多数人最重要的投资，租房可能错失资产增值。练习7和8介绍债券和另类投资（黄金、收藏品）的漫步要点，提醒其风险和流动性问题。练习9警示佣金成本差异巨大，低成本指数基金是明智选择。练习10强调多样化以规避“塌陷区”（如单一股票风险）。最后“体格检查”建议定期审视投资组合，确保仍符合目标。整章将被动投资哲学融入可操作步骤，强调简单、低成本、分散化的长期策略。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>练习6关于自有房产的建议在中国同样适用，但需注意中国房地产市场波动大、政策影响强，房产投资需谨慎评估流动性风险。练习10的多样化策略在A股市场尤为重要，因个股和行业波动剧烈。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>random walk</strong></td><td class="zh">随机漫步</td><td>股价变动不可预测的理论</td></tr><tr><td><strong>diversification</strong></td><td class="zh">多样化</td><td>分散投资以降低风险</td></tr><tr><td><strong>cash reserve</strong></td><td class="zh">现金储备</td><td>应对紧急需求的流动资金</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>建立现金储备和保险是投资前的基础保障。</li><li>明确个人投资目标（时间、风险承受力）是选择策略的前提。</li><li>通过低成本指数基金实现多样化，避免高佣金和单一风险。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">如果你突然需要一笔大额现金（如医疗费），你的现金储备能支撑多久？</p>
-<p class="hint">💡 提示：回顾练习2，思考应急资金的比例。</p>
-<p class="q">检查你的投资组合，是否有超过10%的资产集中在单只股票或单一行业？</p>
-<p class="hint">💡 提示：练习10的多样化原则提示分散风险。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
-  <div class="ch-header">
-    <div class="ch-num">6</div>
-    <div>
-      <h2 class="ch-title" id="ch6-title">第6章 · 生命周期投资指南</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中提及华尔街专业人士使用复杂衍生工具和高频交易，以及2008年金融危机中专业人士因不懂衍生品而巨亏，反映了美国金融市场的过度创新与风险失控。</p></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">生命周期投资</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何根据年龄和生命周期调整投资组合以实现退休目标？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">根据生命周期动态调整资产配置，是降低风险、提高长期收益的关键。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于《漫步华尔街》后半部分，聚焦个人投资者，核心回答如何根据年龄和生命周期进行资产配置与退休投资管理。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Rebalancing your portfolio can reduce risk and, in some cases, increase returns.</div></details><div class="zh">「重新调整投资组合可以降低风险，在某些情况下还能提高收益。」</div><div class="why">💬 强调再平衡的双重好处，是生命周期投资的核心操作。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">生命周期投资</h3><div class="concept-body"><p>生命周期投资指南强调根据个人年龄、收入和风险承受能力动态调整资产配置。核心原则包括：资产配置五项原则，如分散投资、风险与收益匹配；重新调整资产类别权重可降低风险并可能提高收益；根据生命周期制定投资计划的三条一般准则，如年轻时可多配置股票，年老时转向债券。生命周期基金自动调整配置，适合长期投资者。退休后，投资者应继续持有退休前的投资组合，但需调整以应对现金流需求，如从增长导向转向收入导向，同时保持适度风险以对抗通胀。关键是通过定期再平衡和多元化，实现资产保值增值，确保退休生活财务安全。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>美国401(k)和IRA退休账户制度是本章背景，允许税前缴费和税收递延，推动了生命周期基金和目标日期基金的发展。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>中国养老金第三支柱（个人养老金账户）与生命周期基金模式类似，可借鉴美国经验，年轻投资者可多配权益类基金，年老时转向固收类产品。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Life-cycle investing</strong></td><td class="zh">生命周期投资</td><td>根据年龄调整资产配置</td></tr><tr><td><strong>Asset allocation</strong></td><td class="zh">资产配置</td><td>分散投资降低风险</td></tr><tr><td><strong>Rebalancing</strong></td><td class="zh">再平衡</td><td>定期调整权重维持风险水平</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>资产配置五项原则是投资成功的基石，需根据个人情况灵活应用。</li><li>重新调整资产类别权重可降低风险，甚至提高收益。</li><li>退休后投资应从增长转向收入，但需保留适度股票敞口对抗通胀。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">如果你30岁，收入稳定，如何根据生命周期指南配置资产？</p>
-<p class="hint">💡 提示：参考年轻时可多配股票的原则</p>
-<p class="q">退休后，为何仍需持有一定比例的股票？</p>
-<p class="hint">💡 提示：考虑通胀和长期收益</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
-  <div class="ch-header">
-    <div class="ch-num">7</div>
-    <div>
-      <h2 class="ch-title" id="ch7-title">第7章 · 三种漫步法，指数为王</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>市场专业人士反驳随机漫步理论，认为学术界人士脱离实际，分不清牛熊。他们用基本面分析和技术分析两种武器来对抗学术界的随机漫步攻击。</p></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">指数基金</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">对于个人投资者，哪种投资方法最省心且长期回报最高？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">长期投资低成本指数基金，是个人投资者战胜大多数专业基金经理的最优策略。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章作为全书的结尾章，总结并重申了核心观点：对个人投资者而言，长期投资指数基金是战胜市场的最优策略，并对比了其他两种漫步方法。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">If investors buy and hold index funds rather than struggling to buy and sell individual stocks or actively managed funds, their financial situation would be much better.</div></details><div class="zh">「倘若投资者买入并持有指数基金，而不是勉为其难地买卖个股或主动管理型基金，那么他们的财务境遇就会好得多。」</div><div class="why">💬 这是全书最核心的结论，用最直白的语言点明了个人投资者的最佳路径。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">指数基金</h3><div class="concept-body"><p>本章的核心概念是“三种漫步华尔街的方法”，即投资者可选的三种投资路径。第一种是“省心省力漫步法”，即投资指数基金，这是作者毕生推崇并认为最有效的方法。其核心逻辑在于，主动管理型基金的高昂费用和交易成本会严重侵蚀回报，而长期持有低成本、分散化的指数基金，其业绩能超越大多数专业基金经理。第二种是“亲力亲为漫步法”，指投资者自己运用选股规则进行个股投资，这需要极高的专业知识和时间精力。第三种是“使用替身漫步法”，即雇佣专业的投资顾问或购买主动管理基金。作者通过数十年数据和案例（如1969年1万美元投资指数基金与主动基金40多年后的巨大收益差距）证明，第一种方法对普通投资者来说最为省心且回报最高。本章也再次为“有效市场假说”辩护，指出尽管市场存在泡沫和危机，但长期来看，市场定价依然非常有效，战胜市场极其困难。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>本章提及的“晨星公司”是美国最著名的共同基金独立评级和研究机构，为投资者提供基金业绩、风险、费用等全面信息，其“晨星评级”是美国个人投资者选择基金的重要参考。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>尽管作者坚信指数投资，但仍有学者和专业人士质疑市场有效性的可靠性。1987年股灾、互联网泡沫以及2008-2009年金融危机等极端事件，被用来反驳市场总是有效定价的观点，认为市场存在非理性行为和可被利用的定价错误。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>中国A股市场的主动管理型基金同样面临“基金赚钱，基民不赚钱”的困境，高换手率和申赎费用是重要原因。近年来，国内指数基金（如沪深300、中证500ETF）规模快速增长，费率也逐步下降，越来越多的投资者开始接受并实践“省心省力漫步法”。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Index Fund</strong></td><td class="zh">指数基金</td><td>跟踪特定市场指数的被动型基金</td></tr><tr><td><strong>Active Management Fund</strong></td><td class="zh">主动管理型基金</td><td>由基金经理主动选股择时操作的基金</td></tr><tr><td><strong>Efficient Market Hypothesis</strong></td><td class="zh">有效市场假说</td><td>认为市场价格已反映所有信息的理论</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>长期投资指数基金能战胜大多数主动管理型基金，主要归功于其低费率和低交易成本。</li><li>投资者的风险承受能力很大程度上取决于其年龄和薪资收入，生命周期投资策略至关重要。</li><li>尽管存在市场危机，但有效市场假说依然成立，战胜市场非常困难。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么说指数基金是“省心省力漫步法”？它的核心优势是什么？</p>
-<p class="hint">💡 提示：考虑费用、分散化、以及战胜主动基金经理的概率。</p>
-<p class="q">作者列举了金融领域的诸多创新（如ETF、目标日期基金等），你认为哪一项创新对个人投资者帮助最大？为什么？</p>
-<p class="hint">💡 提示：思考这些创新如何解决了普通投资者在投资中遇到的痛点。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
-  <div class="ch-header">
-    <div class="ch-num">8</div>
-    <div>
-      <h2 class="ch-title" id="ch8-title">第8章 · 投资与投机</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股市场短期波动剧烈，散户常依赖技术分析或内幕消息追涨杀跌，正符合随机漫步理论的警示。投资者应避免频繁交易，转向长期价值投资，关注公司基本面与现金流。</p></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">随机漫步</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">股票短期价格可以预测吗？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">个人投资者可以做得和专家一样好，甚至更好，秘诀是坚持长期投资而非短期投机。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章是全书开篇，奠定基础。核心回答：个人投资者能否战胜专业机构？什么是投资、投机与随机漫步？</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">What is a cynic? A man who knows the price of everything and the value of nothing.</div></details><div class="zh">「何为愤世嫉俗者？就是这样一种人：知道所有东西的价格，却不知道任何东西的价值。」</div><div class="why">💬 讽刺只关注价格波动而忽视资产内在价值的投机者。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">随机漫步</h3><div class="concept-body"><p>本章首先区分了投资与投机：投资旨在获得长期、可预期的收入（股利、利息、租金）及资产增值；投机则追求短期价差。作者强调本书是为投资者而非投机者所写，目标是“稳步致富”。核心概念“随机漫步”指股票短期价格无法根据过去历史预测，因此技术分析、盈利预测等均无效。但作者并不完全否定基本面分析，而是后续章节将对比基本面与技术分析。本章还驳斥了“个人投资者无法战胜专业机构”的观点，指出专业投资者也会犯大错（如2008年衍生品危机、2000年科技股泡沫），而稳健的个人投资者反而能长期获利。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>市场专业人士认为通过基本面分析和技术分析可以预测股价，反对随机漫步理论；部分学者后来也认为市场有一定可预测性。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>中国A股市场同样存在大量散户与机构博弈，且散户常迷信技术分析、追涨杀跌，正符合“随机漫步”警示的陷阱。长期持有优质蓝筹股、指数基金才是适合中国普通投资者的“稳步致富”之道。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>random walk</strong></td><td class="zh">随机漫步</td><td>股价短期不可预测</td></tr><tr><td><strong>fundamental analysis</strong></td><td class="zh">基本面分析</td><td>分析公司内在价值</td></tr><tr><td><strong>technical analysis</strong></td><td class="zh">技术分析</td><td>分析历史价格与成交量</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>个人投资者无需畏惧专业机构，长期投资可胜出。</li><li>投资与投机的核心区别在于持有期限和回报预期。</li><li>股票短期价格无法预测，即随机漫步理论。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">你过去买入股票时，是期望几天内获利还是几年后增值？这属于投资还是投机？</p>
-<p class="hint">💡 提示：对照书中投资与投机的定义进行判断。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
-  <div class="ch-header">
-    <div class="ch-num">9</div>
-    <div>
-      <h2 class="ch-title" id="ch9-title">第9章 · 投机狂潮与空中楼阁</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>random walk</strong></td><td class="zh">随机漫步</td><td>股票短期价格无法根据过去历史预测</td></tr><tr><td><strong>firm-foundation theory</strong></td><td class="zh">坚实基础理论</td><td>资产价值取决于其内在基本面</td></tr><tr><td><strong>castle-in-the-air theory</strong></td><td class="zh">空中楼阁理论</td><td>资产价值取决于投资者心理预期</td></tr><tr><td><strong>investment</strong></td><td class="zh">投资</td><td>长期持有以获取合理预期收入与增值</td></tr><tr><td><strong>speculation</strong></td><td class="zh">投机</td><td>短期买卖追求快速回报</td></tr><tr><td><strong>fundamental analysis</strong></td><td class="zh">基本面分析</td><td>分析公司财务状况与行业前景</td></tr><tr><td><strong>technical analysis</strong></td><td class="zh">技术分析</td><td>根据历史价格与成交量预测走势</td></tr></table>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">空中楼阁理论</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么投机泡沫总会以崩盘告终？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">投机泡沫基于心理预期而非价值，终将屈服于金融万有引力定律。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于全书第2章，通过历史泡沫案例揭示市场非理性行为，回答为何投机泡沫终将破灭。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">In crowds it is stupidity and not mother wit that is accumulated.</div></details><div class="zh">「在群体中积聚的是愚蠢，而不是让人明智的常识。」</div><div class="why">💬 揭示群体非理性心理是投机泡沫的核心驱动力。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">空中楼阁理论</h3><div class="concept-body"><p>本章核心是“空中楼阁理论”，即投机者基于心理预期而非内在价值推高资产价格，形成泡沫。作者以郁金香球茎热为例，说明当贪婪取代理性，价格脱离基本面，市场参与者沉迷于快速致富幻想。泡沫中，杠杆工具（如看涨期权）放大收益和风险，但最终“金融万有引力定律”导致价格崩盘。历史证明，大众心理驱动投机，但猜透群体反应极其危险，多数人无法全身而退。这一概念挑战了有效市场假说，强调情绪和从众行为在定价中的关键作用。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>修正主义史学家如彼得·加伯认为，郁金香球茎热时期的定价可能比普遍认为的更具合理性，但马尔基尔仍坚持泡沫的极端非理性本质。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>中国A股市场历史上多次出现概念炒作（如2015年杠杆牛），与郁金香热类似，投资者无视估值，追逐短期暴富，最终面临暴跌风险。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Tulipmania</strong></td><td class="zh">郁金香球茎热</td><td>17世纪荷兰的投机狂潮</td></tr><tr><td><strong>Call Option</strong></td><td class="zh">看涨期权</td><td>放大投机收益和风险的金融工具</td></tr><tr><td><strong>Financial Gravity</strong></td><td class="zh">金融万有引力定律</td><td>价格终将回归价值的比喻</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>投机泡沫由大众贪婪和从众心理驱动，脱离价值基础。</li><li>杠杆工具（如看涨期权）会放大泡沫的涨跌幅度。</li><li>历史表明，泡沫终将破灭，全身而退者寥寥无几。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">郁金香球茎热中，为什么水手吃掉球茎会引发严重法律后果？</p>
-<p class="hint">💡 提示：思考球茎当时的社会价值和投机心理。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch10" aria-labelledby="ch10-title">
-  <div class="ch-header">
-    <div class="ch-num">10</div>
-    <div>
-      <h2 class="ch-title" id="ch10-title">第10章 · 机构投资者的投机狂潮</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>股票短期价格无法预测，随机漫步理论成立</li><li>个人投资者可战胜专业机构，关键在于坚持长期投资</li><li>投资与投机本质不同：投资追求长期稳健回报，投机追求短期暴利</li></ul>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">博傻理论</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">专业投资者为何也会参与投机泡沫？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">专业投资者并非更理性，他们同样会参与投机，期待更傻的傻瓜接盘。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于全书第一部分，核心回答专业机构投资者是否比大众更理性、能避免投机泡沫的问题。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Speculators thought they would double their money overnight no matter what they bought. The frightening thing was that it happened.</div></details><div class="zh">「投机者以为无论自己买入什么股票，都会在一夜之间翻倍。可怕的是，这种事居然真的发生了。」</div><div class="why">💬 揭示投机狂热中非理性预期自我实现的危险现象。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">博傻理论</h3><div class="concept-body"><p>本章揭示了20世纪60-90年代专业机构投资者参与的多轮投机泡沫，包括60年代的“增长型股票热”和“新股发行热”。专业投资者并非基于坚实基础原则估值，而是预期有更傻的傻瓜以更高价格接盘（博傻理论）。例如，公司通过将名称改为含“电子”、“硅片”等时髦词汇，市盈率即可从6倍飙升至42倍，即使业务毫无关联。SEC虽能打击欺诈，但无法阻止投资者自愿参与投机。这些泡沫最终破灭，证明机构心智并非健全。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>20世纪60年代美国处于太空时代和电子技术革命初期，投资者对高科技概念股极度追捧，导致新股发行狂热，类似南海泡沫时期的欺诈行为。SEC的监管仅限于要求披露风险，无法阻止投机。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场历史上多次出现概念炒作，如2015年“互联网+”概念股、2020年“元宇宙”概念股，投资者追逐名称时髦的公司，忽视基本面，与本章描述的“电子热”现象高度相似。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Greater Fool Theory</strong></td><td class="zh">博傻理论</td><td>预期有更傻的买家以更高价格买入</td></tr><tr><td><strong>Tronics Boom</strong></td><td class="zh">电子热</td><td>20世纪60年代新股名称含'电子'即受追捧</td></tr><tr><td><strong>New Issue Boom</strong></td><td class="zh">新股发行热</td><td>大量新股发行，投资者盲目认购</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>专业机构投资者也会参与投机泡沫，并非心智健全。</li><li>20世纪60年代增长型股票热中，市盈率高达80倍以上。</li><li>公司改名含'电子'等时髦词汇即可推高股价，无需实质业务。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么专业投资者明知股价过高仍会买入？</p>
-<p class="hint">💡 提示：思考博傻理论在投资决策中的作用。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch11" aria-labelledby="ch11-title">
-  <div class="ch-header">
-    <div class="ch-num">11</div>
-    <div>
-      <h2 class="ch-title" id="ch11-title">第11章 · 21世纪初的超级泡沫</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾过去一年，你是否有过追涨杀跌的经历？结果如何？</p>
+<p class="hint">💡 提示：思考是否受短期波动影响</p>
+<p class="q">你目前持有的股票是基于基本面还是技术分析？</p>
+<p class="hint">💡 提示：区分投资与投机行为</p>
+</div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">正反馈环</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么互联网泡沫能膨胀到如此巨大？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">21世纪初的互联网泡沫由正反馈环驱动，最终导致8万亿美元市值蒸发。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章深入剖析21世纪初互联网与房地产两场超级泡沫的形成、膨胀与破裂，揭示市场非理性与投资者心理的极端表现。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">If you can keep your head when all about you are losing theirs...</div></details><div class="zh">「如果举世失控，唯你能保持清醒……」</div><div class="why">💬 吉卜林诗句被用作警句，强调在泡沫中保持理性的重要性。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">正反馈环</h3><div class="concept-body"><p>核心概念是'正反馈环'（positive feedback loops），由罗伯特·希勒提出。当股价开始上涨，吸引更多人买入，媒体争相报道，进一步推动股价上升，形成自我强化的循环。这种机制类似庞氏骗局，需要不断有新的投资者接盘，直到'博傻'骗局找不到更傻的参与者。互联网泡沫中，纳斯达克指数从1998年底到2000年3月上涨2倍多，市盈率超100倍，思科市值接近6000亿美元，估值完全脱离合理预期。最终泡沫破裂，8万亿美元市值蒸发，思科跌去90%以上市值。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>美国互联网泡沫（1995-2000年）与房地产泡沫（2006-2008年）是21世纪初最具破坏力的金融事件，后者引发全球金融危机。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>当时华尔街权威机构如高盛认为网络公司烧钱是'投资者感情用事'，不是长期风险，但事实证明这是短期风险，数百家公司数月内破产。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场曾出现类似概念炒作，如2015年'互联网+'热潮，许多公司改名或蹭概念后股价暴涨，随后暴跌。投资者需警惕'正反馈环'引发的非理性繁荣。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>positive feedback loops</strong></td><td class="zh">正反馈环</td><td>股价上涨吸引更多买家，自我强化</td></tr><tr><td><strong>Ponzi scheme</strong></td><td class="zh">庞氏骗局</td><td>需新投资者接盘，否则崩溃</td></tr><tr><td><strong>greater fool theory</strong></td><td class="zh">博傻理论</td><td>买入只因相信有更傻的人接盘</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>互联网泡沫由新技术和新商业机会双重驱动，形成正反馈环。</li><li>泡沫顶峰时，估值完全脱离合理预期，如思科市盈率超100倍。</li><li>公司更名蹭概念能短期推高股价，但最终暴跌归零。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">如何识别当前市场中的正反馈环信号？</p>
-<p class="hint">💡 提示：观察媒体热度、散户情绪、估值水平是否极端。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch12" aria-labelledby="ch12-title">
-  <div class="ch-header">
-    <div class="ch-num">12</div>
-    <div>
-      <h2 class="ch-title" id="ch12-title">第12章 · 技术分析与基本面分析</h2>
+  </article>
+  <article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
+    <div class="ch-header">
+      <div class="ch-num">2</div>
+      <div>
+        <h2 class="ch-title" id="ch2-title">第2章 · 投机狂潮：从郁金香到南海泡沫</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">投机泡沫</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">投机泡沫如何形成并最终崩溃？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">投机泡沫由大众非理性狂热驱动，最终因金融万有引力定律而崩溃。</span></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">技术分析</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">技术分析和基本面分析如何预测股价？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">技术分析靠图表预测心理，基本面分析靠价值评估逻辑。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于《漫步华尔街》第二部分，核心回答专业投资者使用哪些分析方法预测股价，以及这些方法是否有效。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The greatest talent is to estimate the true value of things.</div></details><div class="zh">「最了不起的天赋莫过于能估测事物的真实价值。」</div><div class="why">💬 强调基本面分析的核心：准确估值。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">技术分析</h3><div class="concept-body"><p>技术分析基于空中楼阁理论，认为股价反映所有信息（第一原则），且趋势会延续（第二原则），因此图表师只研究股价和成交量历史，忽略基本面，试图预测心理博弈。基本面分析基于坚实基础理论，通过研究盈利、股利、利率和风险等确定股票内在价值，认为市场终会反映真实价值。两者本质区别在于：技术分析侧重心理层面（90%心理，10%逻辑），而基本面分析侧重逻辑层面（90%逻辑，10%心理）。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>中国A股市场散户占比高，技术分析（如K线图、均线）应用广泛，但有效性受质疑；基本面分析（如估值模型）在机构投资者中更受重视，但市场波动性大，两者均需谨慎使用。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>technical analysis</strong></td><td class="zh">技术分析</td><td>通过股价和成交量历史预测未来走势</td></tr><tr><td><strong>fundamental analysis</strong></td><td class="zh">基本面分析</td><td>通过公司基本面确定股票内在价值</td></tr><tr><td><strong>chartist</strong></td><td class="zh">图表师</td><td>使用技术分析的投资者</td></tr><tr><td><strong>fundamentalist</strong></td><td class="zh">基本面分析师</td><td>使用基本面分析的投资者</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>技术分析基于空中楼阁理论，关注心理博弈。</li><li>基本面分析基于坚实基础理论，关注内在价值。</li><li>两者在逻辑与心理侧重上截然不同。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">技术分析的两大原则是什么？</p>
-<p class="hint">💡 提示：思考信息反映和趋势延续。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch13" aria-labelledby="ch13-title">
-  <div class="ch-header">
-    <div class="ch-num">13</div>
-    <div>
-      <h2 class="ch-title" id="ch13-title">第13章 · 技术分析批判</h2>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">随机漫步</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么技术分析无法可靠预测股价？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">技术分析基于历史模式预测股价，但实证表明股价变动近乎随机，无法带来持续超额收益。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章在《漫步华尔街》中批判技术分析，回答为何基于历史价格预测股价的方法无效，强调随机漫步理论。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The nature of things is not always on the surface; skim milk can masquerade as cream.</div></details><div class="zh">「事物的本质很少呈现在表象之上，脱了脂的牛奶也可以假充护肤霜。」</div><div class="why">💬 隐喻技术分析的表面模式可能欺骗投资者。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">随机漫步</h3><div class="concept-body"><p>本章核心批判技术分析的有效性。作者指出，技术分析师通过图表模式预测股价，但学术研究显示，股价变动与随机漫步相似，过去走势无法可靠预测未来。技术分析的操作规则（如追涨杀跌）在考虑交易成本和税金后，并不优于简单的买入持有策略。作者以硬币抛掷类比，说明股价连续涨跌的频率与随机事件无异，驳斥了市场存在可重复趋势的观点。技术分析依赖‘墙纸原理’，假设历史会重演，但实证检验表明，股市记忆微弱，趋势短暂且不可靠，无法让投资者持续获利。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>本章提及美国华尔街技术分析师的行话（如‘持涨杀跌’）和学术界的批判传统，反映了20世纪60-70年代有效市场假说兴起时对技术分析的挑战。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>技术分析师认为，股价存在趋势，过去走势可预测未来，投资者应顺势操作。他们声称失败源于未坚守图表信号，而非方法本身缺陷。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>在A股市场，技术分析（如K线、均线）仍被散户广泛使用，但学术研究同样质疑其有效性。中国投资者应警惕过度依赖技术指标，避免追涨杀跌的陷阱。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>technical analysis</strong></td><td class="zh">技术分析</td><td>基于历史价格预测股价</td></tr><tr><td><strong>random walk</strong></td><td class="zh">随机漫步</td><td>股价变动不可预测的理论</td></tr><tr><td><strong>wallpaper principle</strong></td><td class="zh">墙纸原理</td><td>假设历史会重复的模式</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>技术分析不优于买入持有策略，考虑成本后更差。</li><li>股价变动与随机抛硬币相似，趋势不可靠。</li><li>学术检验揭示技术分析预测力微弱。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为何技术分析师常失败却坚持己见？</p>
-<p class="hint">💡 提示：考虑认知偏差和沉没成本。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch14" aria-labelledby="ch14-title">
-  <div class="ch-header">
-    <div class="ch-num">14</div>
-    <div>
-      <h2 class="ch-title" id="ch14-title">第14章 · 基本面分析有效吗</h2>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书第2章，通过分析荷兰郁金香球茎热和英国南海泡沫等历史事件，回答“投机泡沫如何形成并最终崩溃”这一核心问题，揭示大众心理在金融市场中的非理性作用。</p></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">有效市场理论</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">基本面分析能否帮助投资者持续战胜市场？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">基本面分析的盈利预测并不比简单外推更准确，有效市场理论质疑其超额收益能力。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章位于《漫步华尔街》第7章，核心回答基本面分析是否有效，以及有效市场理论对此的质疑，帮助投资者理解专业分析与市场效率的关系。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">“Earnings are the name of the game in stock playing, and they always will be.”</div></details><div class="zh">「“盈利是玩股票时最核心的问题，而且将永远如此。”」</div><div class="why">💬 强调盈利在股票投资中的核心地位，但本章质疑其预测的可靠性。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">有效市场理论</h3><div class="concept-body"><p>本章深入探讨基本面分析的有效性。基本面分析师通过研究公司财务数据、管理团队、行业前景等预测未来盈利，但学术研究显示，过去的盈利增长对预测未来几乎没有帮助。例如，作者和约翰·克拉格的研究表明，华尔街顶级分析师的5年期盈利预测，甚至不如简单的历史外推模型准确。有效市场理论认为，所有公开信息已迅速反映在股价中，因此基本面分析难以持续获得超额收益。这挑战了华尔街专业人士的自信，强调市场效率的普遍性，即即使业余投资者也难以被专业击败。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div><div class="context-box"><p>本章提及猪湾事件后肯尼迪的反思，反映美国政治与金融的互动。20世纪90年代华尔街分析师从传统统计师转变为时髦的明星，体现了美国金融业的职业文化变迁。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>华尔街专业人士认为基本面分析越来越强大，个人投资者无法战胜专业团队；而学术界则认为蒙眼猴子选股也能与专业经理匹敌，质疑分析师的预测能力。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>在中国A股市场，基本面分析同样面临挑战。例如，茅台等白马股的盈利增长可持续性常被高估，而中小盘股的盈利波动大。投资者应警惕“过去增长预示未来”的陷阱，结合市场情绪和资金流向决策。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Fundamental Analysis</strong></td><td class="zh">基本面分析</td><td>通过研究公司基本面预测股价</td></tr><tr><td><strong>Efficient Market Theory</strong></td><td class="zh">有效市场理论</td><td>市场已反映所有信息，难以超额收益</td></tr><tr><td><strong>Earnings Predictions</strong></td><td class="zh">盈利预测</td><td>分析师对盈利增长的预估</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>基本面分析师预测未来盈利时，依赖过去盈利增长，但学术研究显示这几乎无预测价值。</li><li>作者的研究发现，华尔街分析师的预测不如简单历史外推模型准确。</li><li>有效市场理论认为，即使专业分析师也难以持续战胜市场，个人投资者无需恐慌。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">为什么说过去的盈利增长不能可靠预测未来？</p>
-<p class="hint">💡 提示：回顾IBM、宝丽来等公司案例，思考增长模式的不可持续性。</p>
-</div></div>
-
-</article>
-<article class="chapter-card" id="ch15" aria-labelledby="ch15-title">
-  <div class="ch-header">
-    <div class="ch-num">15</div>
-    <div>
-      <h2 class="ch-title" id="ch15-title">第15章 · 现代投资组合理论</h2>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">In a crowd, it is stupidity and not common sense that is accumulated.</div></details>
+      <div class="zh">「在群体中积聚的是愚蠢，而不是让人明智的常识。」</div>
+      <div class="why">💬 这句金句揭示了投机泡沫的核心心理机制：群体非理性导致价格脱离价值。</div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">风险</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">风险如何决定投资收益？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">现代投资组合理论认为，承担更大风险是获得更高收益的唯一途径。</span></div></div>
-  </div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>本章介绍学术界的现代投资组合理论（MPT），核心是阐述风险与收益的关系，以及如何通过分散化降低风险。</p></div></div>
-<div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The risk of a security is measured by the variance or standard deviation of its returns.</div></details><div class="zh">「证券的风险通过其收益率的方差或标准差来衡量。」</div><div class="why">💬 简明定义了现代投资组合理论的核心风险度量方法。</div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div><div class="concept-box"><h3 class="concept-name">风险</h3><div class="concept-body"><p>现代投资组合理论的核心是认为风险（而非预测能力）决定收益。风险被定义为收益率的离散程度，通常用方差或标准差衡量。通过构建分散化的投资组合，可以在不牺牲预期收益的情况下降低整体风险。理论强调，承担更高风险是获得高于市场平均收益的唯一途径，而非依靠选股或择时。</p></div></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div><div class="counter-box"><p>部分批评者认为风险与方差无关，因为离散可能源于意外之喜（高于预期的收益），投资者不会视其为风险。</p></div></div>
-<div class="block"><div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p>A股市场波动性较大，散户占比高，现代投资组合理论中的分散化原则同样适用，但需注意中国市场的政策风险和非理性波动。</p></div></div>
-<div class="block"><h3 class="block-label">📊 关键术语词典</h3><table class="term-table"><tr><td><strong>Modern Portfolio Theory (MPT)</strong></td><td class="zh">现代投资组合理论</td><td>通过分散化降低风险的理论</td></tr><tr><td><strong>Variance</strong></td><td class="zh">方差</td><td>衡量收益率离散程度的指标</td></tr><tr><td><strong>Standard Deviation</strong></td><td class="zh">标准差</td><td>方差的平方根，常用风险度量</td></tr></table></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</h3><ul class="takeaway-list"><li>风险是决定收益差异的关键因素，而非预测能力。</li><li>投资风险定义为收益率的方差或标准差。</li><li>分散化投资可以在不降低预期收益的情况下减少风险。</li></ul></div>
-<div class="block"><h3 class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</h3><div class="exercise-box"><p class="q">如何用方差和标准差衡量投资组合的风险？</p>
-<p class="hint">💡 提示：回顾预期收益率和方差的计算公式。</p>
-</div></div>
-
-</article>
-
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">投机泡沫</h3>
+        <div class="concept-body"><p>本章核心概念是“投机泡沫”，指资产价格因大众非理性狂热而脱离基本面，最终因金融万有引力定律而崩溃的现象。以荷兰郁金香球茎热为例，1634-1637年间，花叶病导致稀有球茎价格飙升，贵族、平民甚至女佣都参与其中，使用“要求选择权”（看涨期权）放大杠杆，价格在1637年1月20倍上涨后，2月迅速暴跌，球茎变得几乎一文不值。南海公司泡沫中，公司利用政府债务转换和垄断权，在无实际盈利能力下推高股价，通过股票股利稀释和形象工程维持价格，最终因贸易失败和战争影响而崩溃。作者强调，尽管有修正主义史学家如彼得·加伯认为定价存在一定合理性，但价格暴涨暴跌的速度无法用基本面解释，这正是大众非理性心理的典型表现。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>修正主义史学家彼得·加伯认为，郁金香球茎热时期的定价比普遍认为的更合理，例如稀有球茎“永远的奥古斯都”在狂热前价格已很高，且崩溃后个别球茎仍值钱。但作者反驳称，加伯无法解释1637年1月20倍上涨和2月暴跌的速度，这表明价格最终由大众心理而非基本面驱动。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，类似投机泡沫屡见不鲜，如2015年创业板牛市、2020年口罩概念股炒作等。投资者应警惕大众狂热，避免追涨杀跌，关注公司基本面，利用历史教训识别价格与价值的偏离。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>call options</strong></td><td class="zh">看涨期权</td><td>赋予持有人在固定价格买入资产的权利</td></tr><tr><td><strong>financial gravity</strong></td><td class="zh">金融万有引力定律</td><td>价格最终会回归基本面</td></tr><tr><td><strong>South Sea Company</strong></td><td class="zh">南海公司</td><td>18世纪英国投机泡沫中的核心公司</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>投机泡沫中，价格脱离基本面，由大众非理性心理驱动。</li><li>杠杆工具（如看涨期权）放大收益和风险，加速泡沫膨胀与崩溃。</li><li>历史多次证明，投机泡沫最终因恐慌性抛售而崩溃。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾A股历史，哪些事件符合投机泡沫的特征？</p>
+<p class="hint">💡 提示：关注2015年牛市和2020年口罩股</p>
+<p class="q">如何运用本章观点识别当前市场的投机风险？</p>
+<p class="hint">💡 提示：观察价格与基本面是否严重偏离</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
+    <div class="ch-header">
+      <div class="ch-num">3</div>
+      <div>
+        <h2 class="ch-title" id="ch3-title">第3章 · 专业机构的投机狂欢</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">机构投机</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">专业投资者为何也会陷入投机泡沫？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">专业机构在20世纪60-90年代参与了电子热和集团企业浪潮，基于博傻理论而非价值投资。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》历史泡沫部分，通过分析20世纪60-90年代专业投资者参与的投机泡沫，揭示机构投资者同样会陷入非理性狂热，论证市场有效性的局限性。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">投机者以为无论自己买入什么股票，都会在一夜之间翻倍。可怕的是，这种事居然真的发生了。</div></details>
+      <div class="zh">「投机者以为无论自己买入什么股票，都会在一夜之间翻倍。可怕的是，这种事居然真的发生了。」</div>
+      <div class="why">💬 这句话揭示了投机泡沫中自我实现的预言，是博傻理论的生动体现。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">机构投机</h3>
+        <div class="concept-body"><p>核心概念是“机构心智健全的假象”。尽管专业机构占据纽约证券交易所90%以上的交易量，但20世纪60-90年代，它们却参与了一系列投机运动，包括60年代的“电子热”新股发行潮和集团企业浪潮。在电子热中，投资者盲目追捧名称含“电子”或“硅片”的股票，即使公司业务与电子无关，市盈率也能被推至42倍，如“鞋带股份有限公司”更名为“电子硅片Furth-Burners股份有限公司”后估值飙升。集团企业浪潮则通过收购产生协同效应的幻觉，利用市盈率差异制造每股盈利增长，如艾博电路公司（市盈率20倍）收购贝克尔糖果公司（市盈率10倍）后，合并公司每股盈利从5美元增至6美元，股价从100美元涨至120美元。这些投机行为的核心驱动力是“博傻理论”——专业投资者购买并非基于价值，而是预期有更傻的傻瓜以更高价格接手。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国证券交易委员会（SEC）在新股发行中的角色受限：只要招股说明书合规，SEC无法阻止投资者自尝苦果，风险提示如“本公司无任何资产”形同虚设，这与当时美国金融监管的“披露原则”相关。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>部分专业投资者辩称，回望过去说股价何时过高或过低总是很容易，且在任何给定时间点，股票的合理价格难以确定。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>类比A股2015年“互联网+”概念炒作：大量公司更名包含“科技”“智能”等字眼，市盈率飙升，与电子热如出一辙；集团企业并购浪潮在A股2013-2015年跨界并购中重现，许多公司通过收购制造盈利增长假象。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Synergism</strong></td><td class="zh">协同效应</td><td>2加2等于5的盈利增长幻觉</td></tr><tr><td><strong>Tronics boom</strong></td><td class="zh">电子热</td><td>60年代新股名称含电子即受追捧</td></tr><tr><td><strong>Conglomerate</strong></td><td class="zh">集团企业</td><td>通过收购不同行业公司制造增长</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>专业机构占交易量90%以上仍会参与投机泡沫</li><li>电子热中公司名称含“电子”即可推高市盈率至42倍</li><li>集团企业通过收购制造每股盈利增长，实际并无经营改善</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾A股历史，列举一次类似电子热的名称炒作案例</p>
+<p class="hint">💡 提示：关注2015年互联网+概念</p>
+<p class="q">分析集团企业并购如何影响每股盈利，是否可持续</p>
+<p class="hint">💡 提示：考虑市盈率差异和收购后经营</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
+    <div class="ch-header">
+      <div class="ch-num">4</div>
+      <div>
+        <h2 class="ch-title" id="ch4-title">第4章 · 互联网泡沫与房地产泡沫的双重启示</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">正反馈泡沫</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">互联网泡沫如何通过正反馈环自我强化？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">互联网泡沫由正反馈环驱动，股价脱离基本面，最终导致8万亿美元市值蒸发。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章聚焦21世纪初的互联网和房地产超级泡沫，分析其形成机制、市场非理性行为及毁灭性后果，是全书历史案例部分的核心章节。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">当任何一批股票的价格开始上涨时，泡沫便开始出现了。这股‘吹入炉火的上升气流’鼓动着更多的人买入股票，更多的人买入股票又致使更多的电视和平面媒体进行相关报道，而媒体的报道又导致更多的人买入股票，于是开始就持有互联网公司股票的人便赚了大钱。</div></details>
+      <div class="zh">「当任何一批股票的价格开始上涨时，泡沫便开始出现了。这股‘吹入炉火的上升气流’鼓动着更多的人买入股票，更多的人买入股票又致使更多的电视和平面媒体进行相关报道，而媒体的报道又导致更多的人买入股票，于是开始就持有互联网公司股票的人便赚了大钱。」</div>
+      <div class="why">💬 这段话精准描述了泡沫的自我强化机制，揭示了市场非理性的核心动力。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">正反馈泡沫</h3>
+        <div class="concept-body"><p>本章通过互联网泡沫案例，深入阐释了‘正反馈环’机制：股价上涨吸引媒体关注和更多投资者，形成自我强化的循环，最终演变为庞氏骗局。例如，纳斯达克指数从1998年到2000年3月上涨2倍多，成分股市盈率超100倍；思科市值近6000亿美元，若按15%年增长，25年后将超过美国经济规模，显示估值完全脱离现实。更名游戏也荒唐：63家公司在1998-1999年加入互联网标识，10天内股价涨幅比同类公司多125%，即便核心业务无关。掌上电脑公司IPO后市值达到母公司3Com的2倍，相当于3Com其他资产价值-250亿美元。这些现象证明泡沫中市场定价彻底失效，投资者盲目追逐概念而非价值。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中提到‘正反馈环’和‘庞氏骗局’概念，源自美国金融史对泡沫的经典分析，反映了美国股市中媒体、投资者情绪和投机行为的互动模式。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>中国A股市场在2015年创业板泡沫中曾出现类似现象：大量公司改名‘互联网+’或‘科技’，股价短期暴涨，市盈率超百倍，最终泡沫破裂导致市值大幅缩水。投资者应警惕概念炒作，关注基本面。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>positive feedback loops</strong></td><td class="zh">正反馈环</td><td>股价上涨吸引更多投资者，形成自我强化的循环</td></tr><tr><td><strong>Ponzi scheme</strong></td><td class="zh">庞氏骗局</td><td>依赖新投资者资金支付老投资者回报的欺诈模式</td></tr><tr><td><strong>IPO</strong></td><td class="zh">首次公开发行</td><td>公司首次向公众出售股票</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>泡沫由正反馈环驱动，股价上涨吸引媒体和投资者，形成自我强化循环</li><li>市场估值完全脱离基本面，如思科市值25年后将超美国经济规模</li><li>更名游戏和荒唐初创公司（如Flooz、Pets.com）暴露投资者非理性</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾A股2015年创业板泡沫，哪些现象与互联网泡沫类似？</p>
+<p class="hint">💡 提示：关注更名、市盈率和投资者情绪</p>
+<p class="q">如何识别当前市场中的正反馈环迹象？</p>
+<p class="hint">💡 提示：观察媒体热度、新投资者涌入和估值偏离</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
+    <div class="ch-header">
+      <div class="ch-num">5</div>
+      <div>
+        <h2 class="ch-title" id="ch5-title">第5章 · 技术分析与基本面分析的本质</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">技术分析 vs 基本面分析</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">技术分析与基本面分析的核心区别是什么？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">技术分析靠图表预测心理，基本面分析靠价值评估逻辑，两者方法截然不同。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》第二部分，核心回答专业投资经理如何分析股票，以及技术分析与基本面分析的根本区别。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">When I walk into my office, I shut the world out and concentrate solely on my charts. I cannot say 'buy' just because the sun is shining, nor 'sell' because it's raining. To do so would be harmful to myself and my clients.</div></details>
+      <div class="zh">「当我进入办公室的时候，我就把整个世界都关在了外面，一心一意地研究图表。我不能只是因为外面阳光明媚，就说‘买进’，也不能因为外面下着雨，就说‘卖出’。否则，我会对自己和客户都造成伤害。」</div>
+      <div class="why">💬 这句话生动揭示了技术分析师排除一切干扰、纯粹依赖图表的极端态度。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">技术分析 vs 基本面分析</h3>
+        <div class="concept-body"><p>技术分析与基本面分析是两种截然不同的投资方法。技术分析基于空中楼阁理论，认为股价已反映所有信息，且价格沿趋势运动，因此通过研究历史价格和成交量图表来预测未来走势，属于短线交易。图表师如约翰·迈吉甚至封闭自己以排除基本面信息干扰，仅依赖图形模式（如头肩顶、趋势通道）发出买卖信号。基本面分析则基于坚实基础理论，认为股价90%可从逻辑解释，分析师通过研究盈利、股利、利率和风险来确定股票内在价值，若市场价格低于内在价值则买入，反之卖出。约90%的华尔街分析师自认为是基本面分析师，认为图表师缺乏专业水准。两种方法的分歧在于对市场心理与逻辑的权重不同：技术分析侧重心理博弈，基本面分析侧重价值评估。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在A股市场，技术分析被散户广泛使用，如K线形态、均线系统等；但机构投资者更偏重基本面分析，如研究财报、行业景气度。散户常因过度依赖技术指标而陷入短期博弈，需警惕图表法的局限性。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>technical analysis</strong></td><td class="zh">技术分析</td><td>基于历史价格和成交量预测未来走势</td></tr><tr><td><strong>fundamental analysis</strong></td><td class="zh">基本面分析</td><td>基于公司盈利、股利等确定股票内在价值</td></tr><tr><td><strong>chartist</strong></td><td class="zh">图表师</td><td>使用技术分析方法的投资者</td></tr><tr><td><strong>head-and-shoulders pattern</strong></td><td class="zh">头肩顶形态</td><td>技术分析中预示股价见顶的图形模式</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>技术分析认为所有信息已反映在股价中，只需研究图表。</li><li>基本面分析通过盈利、利率和风险确定股票内在价值。</li><li>图表师是短线交易者，基本面分析师是长线投资者。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">你认为在A股市场中，技术分析和基本面分析哪个更有效？</p>
+<p class="hint">💡 提示：结合散户与机构的投资行为思考</p>
+<p class="q">回顾你最近一次交易，你更依赖图表还是公司财报？</p>
+<p class="hint">💡 提示：反思你的决策依据</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
+    <div class="ch-header">
+      <div class="ch-num">6</div>
+      <div>
+        <h2 class="ch-title" id="ch6-title">第6章 · 技术分析真的能预测股价吗？</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">随机漫步</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">技术分析为什么无法预测股价？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">股价变动类似随机抛硬币，历史模式无法可靠预测未来，技术分析多为统计幻觉。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》的中段，是全书的核心批判章节之一，专门解答技术分析是否有效的问题。作者通过理论和实证分析，揭示技术分析依赖的“趋势”和“模式”多为统计幻觉，其预测能力并不优于随机漫步。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">经过一段时间能量重新积聚之后，大盘开始上扬，发出多头信号。尽管如此，支撑区特征尚未明显出现，且目前道指上方40点处存在一个阻力区，因而就此断言大盘将进一步展开多头行情，显然为时尚早。如果未来数周内底部支撑得到确认，且大盘突破旗形形态，则表明大盘将进一步上扬。万一底部被有效击穿，则中期下降趋势将会延续。就目前的形势来看，投资者很可能持观望态度，等待趋势进一步明朗，同时，大盘很可能窄幅波动。</div></details>
+      <div class="zh">「经过一段时间能量重新积聚之后，大盘开始上扬，发出多头信号。尽管如此，支撑区特征尚未明显出现，且目前道指上方40点处存在一个阻力区，因而就此断言大盘将进一步展开多头行情，显然为时尚早。如果未来数周内底部支撑得到确认，且大盘突破旗形形态，则表明大盘将进一步上扬。万一底部被有效击穿，则中期下降趋势将会延续。就目前的形势来看，投资者很可能持观望态度，等待趋势进一步明朗，同时，大盘很可能窄幅波动。」</div>
+      <div class="why">💬 这段技术分析师的典型建议被作者嘲讽为“如果大盘既不上涨也不下跌，那将保持不变”，揭示了技术分析的模棱两可与预测能力的缺失。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">随机漫步</h3>
+        <div class="concept-body"><p>核心概念是“随机漫步”（Random Walk），指股价变动具有不可预测性，过去的价格走势无法可靠地预测未来。技术分析师认为股市存在可重复的“墙纸原理”（wallpaper principle），即历史价格模式会重演，但学者通过抛硬币实验和大量数据检验发现，股价看似明显的趋势（如连续上涨或头肩顶形态）在随机抛掷硬币的结果中同样会出现，发生频率并不高于随机事件。即使存在短期趋势，也因交易成本和税金而无法让投资者持续获利。作者强调，技术分析师的“破洞鞋子”和含糊其辞的建议（如“如果大盘既不上涨也不下跌，那将保持不变”）揭示了其理论的空洞，而计算机检验进一步证实了技术策略的无效性。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中提到“吉尔伯特与沙利文”的轻歌剧《皇家海军围裙号》，这是19世纪英国著名的歌剧组合，常用于讽刺社会现象。作者引用其歌词“事物的本质很少呈现在表象之上”，暗示技术分析看似揭示市场本质，实则只是表面现象。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>技术分析师认为股市存在趋势，且可通过历史价格模式（如头肩顶、旗形形态）预测未来，并主张“持涨杀跌”等策略。他们常将失败归咎于没有严格遵循图表信号，而非理论本身的缺陷。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在A股市场，投资者也普遍使用技术分析（如K线形态、均线系统），但该章的结论同样适用：短期趋势难以持续盈利，且交易成本和税费会侵蚀收益。中国散户常因追涨杀跌而亏损，正是技术分析幻觉的体现，建议更关注基本面分析和长期持有策略。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Random Walk</strong></td><td class="zh">随机漫步</td><td>股价变动不可预测，过去走势无法预测未来</td></tr><tr><td><strong>Wallpaper Principle</strong></td><td class="zh">墙纸原理</td><td>技术分析假设历史价格模式会重复出现</td></tr><tr><td><strong>Technical Analyst</strong></td><td class="zh">技术分析师</td><td>通过研究历史价格和图表预测股价的从业者</td></tr><tr><td><strong>Head-and-Shoulders Pattern</strong></td><td class="zh">头肩顶形态</td><td>技术分析中常见的反转形态，但随机数据中也会出现</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>技术分析依赖的历史模式在随机抛硬币结果中同样出现，实为统计幻觉。</li><li>股市短期趋势不可靠，交易成本和税金使跟踪趋势策略难以获利。</li><li>计算机检验证实，过去股价变动无法作为预测未来股价的可靠依据。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾你最近一次买卖股票，是否曾根据K线形态或均线做出决策？结果如何？</p>
+<p class="hint">💡 提示：思考决策是否基于随机现象而非基本面</p>
+<p class="q">如果股价变动是随机漫步，那么长期投资策略应如何调整？</p>
+<p class="hint">💡 提示：考虑减少交易频率，关注公司盈利和股利</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
+    <div class="ch-header">
+      <div class="ch-num">7</div>
+      <div>
+        <h2 class="ch-title" id="ch7-title">第7章 · 基本面分析的局限与市场有效性</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">基本面分析局限</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">基本面分析师真能准确预测公司盈利吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">实证表明，专业分析师盈利预测的准确性甚至不如简单外推历史趋势的幼稚模型。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》中段，核心回答两个问题：基本面分析能否准确预测盈利？有效市场理论如何挑战专业投资者的优势？通过实证数据揭示分析师预测的不可靠性。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">直言不讳地说，这些证券分析师（基于行业研究、工厂参观等）认真估测的数据，并不比通过简单外推以往的盈利趋势得到的估计情况准确多少，而我们已看到后者也根本无助于预测未来。</div></details>
+      <div class="zh">「直言不讳地说，这些证券分析师（基于行业研究、工厂参观等）认真估测的数据，并不比通过简单外推以往的盈利趋势得到的估计情况准确多少，而我们已看到后者也根本无助于预测未来。」</div>
+      <div class="why">💬 这句话直接戳破专业分析的神话，用实证数据揭示其预测能力的本质不足。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">基本面分析局限</h3>
+        <div class="concept-body"><p>本章核心观点是基本面分析的有效性极其有限。作者通过实证研究证明，证券分析师对未来1年和5年的盈利预测，并不比简单外推历史趋势的幼稚模型更准确，甚至更差。分析发现，即便对公用事业这类'稳定'行业，预测错误率也高达31.3%，且没有分析师能持续胜出。作者提出五个解释因素：随机事件影响、寻机性会计处理、分析师自身错误、人才流向销售或投资管理、研究部门与投行部门的利益冲突。这一结论直接挑战华尔街专业人士的自信，并引出有效市场理论：如果专业分析师都无法可靠预测，那么市场可能已充分反映所有已知信息，个人投资者难以持续获得超额收益。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>猪湾事件（1961年美国支持古巴流亡者入侵失败）后肯尼迪的反思，引出对专家判断的普遍质疑。扁桃体切除术的过度医疗案例（纽约市学校调查显示仅65名儿童未被建议切除）说明专业判断的不可靠性具有跨行业普遍性。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股市场同样存在分析师预测偏差问题。例如，2020-2023年对新能源、白酒等热门行业的盈利预测频繁大幅修正，投资者不应盲目依赖卖方研究报告，而应结合多维度信息独立判断。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Fundamental Analysis</strong></td><td class="zh">基本面分析</td><td>通过财务数据、行业研究等预测公司价值的方法</td></tr><tr><td><strong>Efficient Market Theory</strong></td><td class="zh">有效市场理论</td><td>市场已充分反映所有可得信息，无法持续获得超额收益</td></tr><tr><td><strong>Random Walk</strong></td><td class="zh">随机漫步</td><td>股价变动不可预测，类似随机游走</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>分析师预测5年期盈利不如幼稚模型准确</li><li>预测1年期盈利比5年期更糟糕</li><li>没有分析师能持续做出优于同行的预测</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾你最近参考的分析师报告，其盈利预测与实际差距多大？</p>
+<p class="hint">💡 提示：对比报告发布后1-2季度的实际盈利</p>
+<p class="q">你认为A股哪些行业最易预测？哪些最难？</p>
+<p class="hint">💡 提示：考虑政策、技术变革等随机因素影响</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
+    <div class="ch-header">
+      <div class="ch-num">8</div>
+      <div>
+        <h2 class="ch-title" id="ch8-title">第8章 · 风险决定收益：现代投资组合理论入门</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">风险-收益权衡</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何量化投资风险并理解风险与收益的关系？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">现代投资组合理论认为，承担更大风险是获得更高收益的代价，风险用收益率标准差衡量。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》第三部分的开篇，系统介绍现代投资组合理论（MPT），核心回答：风险如何定义、如何衡量，以及风险与收益之间的基本关系。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">那些实干家自以为不受任何学理的影响，却往往是某个已故经济学家的思想之奴隶，而那些权威狂人自以为得天启示，其狂想实则源自若干年前的某个三流学者。</div></details>
+      <div class="zh">「那些实干家自以为不受任何学理的影响，却往往是某个已故经济学家的思想之奴隶，而那些权威狂人自以为得天启示，其狂想实则源自若干年前的某个三流学者。」</div>
+      <div class="why">💬 凯恩斯这句话点明，即使反对理论的人也在无形中被理论影响，呼应了本章MPT理论的重要性和普及性。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">风险-收益权衡</h3>
+        <div class="concept-body"><p>本章的核心概念是风险与收益的关系，以及风险的量化方法。作者首先引用凯恩斯的话，指出实干家往往受已故经济学家理论的影响。然后，作者提出有效市场假说导致随机漫步，但现实中有人能战胜市场，学者认为这并非靠预测能力，而是靠承担更大风险。风险被定义为“收益率的离散度”，具体用方差和标准差来衡量。作者通过一个简单例子说明：假设一只股票在三种经济形势下分别有30%、10%、-10%的收益率，且概率各为1/3，则预期收益率为10%，方差为0.0267，标准差为0.1634。作者强调，收益率分布对称时，离散度越大，投资者遭遇失望结果的可能性越大。最后，作者引用伊博森协会1926-2013年的长期研究数据，证明普通股收益率显著高于债券和国债，但标准差也更大，说明承担更大风险是获得更高收益的代价。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>伊博森协会（Ibbotson Associates）是美国著名的金融数据研究机构，其长期回报研究（1926-2013）是金融领域最权威的风险-收益实证分析之一，常被用作教科书的标准参考。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有些批评者认为风险与方差无关，因为如果离散是由意外之喜（结果好于预期）造成的，投资者不会认为这是风险。但作者反驳，只要收益率分布对称，离散度或方差仍可有效衡量风险。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，投资者同样可应用此理论：通过计算个股或指数的历史收益率标准差来评估风险。例如，创业板指数的标准差通常高于沪深300，其长期平均收益也更高，但波动更大，投资者需根据自身风险承受能力选择。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>modern portfolio theory (MPT)</strong></td><td class="zh">现代投资组合理论</td><td>通过分散投资优化风险-收益的理论</td></tr><tr><td><strong>standard deviation</strong></td><td class="zh">标准差</td><td>衡量收益率离散度的核心风险指标</td></tr><tr><td><strong>expected return</strong></td><td class="zh">预期收益率</td><td>各种可能收益率的加权平均值</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>风险定义为收益率离散度，用方差或标准差量化。</li><li>长期数据表明，股票收益高于债券，但标准差也更大。</li><li>收益率分布对称时，标准差越大，遭遇损失的可能性越大。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">选取一只A股和一只债券基金，计算其近5年年化收益率和标准差，比较风险收益特征。</p>
+<p class="hint">💡 提示：可使用万得或同花顺数据</p>
+<p class="q">如果你投资组合中90%是国债、10%是股票，按本章理论，你的风险主要来自哪部分？</p>
+<p class="hint">💡 提示：股票的标准差远高于国债</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
+    <div class="ch-header">
+      <div class="ch-num">9</div>
+      <div>
+        <h2 class="ch-title" id="ch9-title">第9章 · 风险测量与资产定价的科学</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">资本资产定价模型</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么只有系统风险才能获得风险溢价？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">CAPM揭示：只有不可分散的系统风险（β）才值得投资者要求回报。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》投资理论部分的核心章节，系统讲解现代投资组合理论中的资本资产定价模型（CAPM），回答投资者如何通过测量系统风险（β）来获取超额回报的问题。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">承担多样化可以分散掉的风险，不会获得任何溢价收益。</div></details>
+      <div class="zh">「承担多样化可以分散掉的风险，不会获得任何溢价收益。」</div>
+      <div class="why">💬 这句话是CAPM的核心逻辑，直接否定了旧理论中“所有风险都有回报”的观点。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">资本资产定价模型</h3>
+        <div class="concept-body"><p>资本资产定价模型（CAPM）的核心逻辑是：只有系统风险（市场风险）才能获得风险溢价，非系统风险（公司特有风险）可以通过多样化消除，因此不会获得额外补偿。β值衡量单只股票或组合对市场整体波动的敏感性：β=1表示与市场同步波动，β=2表示波动幅度为市场的两倍，β=0.5表示波动幅度为市场的一半。作者通过组1（高总风险但β=1）和组2（低总风险但β=1）的对比实验说明：在充分多样化（如60只股票）后，两组组合的总风险均降至系统风险水平（β=1），因此预期收益应相等，而非旧理论认为的高总风险对应高收益。这一结论颠覆了传统观念，强调只有不可分散的风险才值得溢价。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>反对者认为CAPM过于简化：β值基于历史数据，无法预测未来；市场并非完全有效，非系统风险有时也能带来超额收益（如小盘股效应）；实践中多样化很难完全消除非系统风险，尤其在全球市场中。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股投资者可应用β值识别股票的系统风险：高β股（如券商、科技股）适合牛市追涨，低β股（如公用事业、消费股）适合熊市避险。但需注意A股β值常因政策干预、散户情绪而波动较大，历史β不能完全代表未来。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Systematic Risk</strong></td><td class="zh">系统风险</td><td>市场整体波动带来的风险，不可多样化消除</td></tr><tr><td><strong>Unsystematic Risk</strong></td><td class="zh">非系统风险</td><td>公司特有因素导致的风险，可通过多样化消除</td></tr><tr><td><strong>Beta (β)</strong></td><td class="zh">贝塔系数</td><td>衡量证券对市场波动的敏感性</td></tr><tr><td><strong>Capital Asset Pricing Model (CAPM)</strong></td><td class="zh">资本资产定价模型</td><td>描述风险与预期收益关系的理论模型</td></tr><tr><td><strong>Risk Premium</strong></td><td class="zh">风险溢价</td><td>承担系统风险所获得的超额收益</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>多样化只能消除非系统风险，无法消除系统风险。</li><li>β值衡量股票相对于市场的波动性：β>1为激进型，β<1为保守型。</li><li>CAPM认为只有系统风险才能获得风险溢价，非系统风险无额外回报。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">请计算某只A股近一年的β值，并判断其属于激进型还是保守型。</p>
+<p class="hint">💡 提示：使用Wind或同花顺数据，与沪深300指数对比</p>
+<p class="q">如果你持有10只β=1.5的股票，组合总风险会是多少？</p>
+<p class="hint">💡 提示：参考图9-1：多样化后总风险降至系统风险水平（β=1.5）</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch10" aria-labelledby="ch10-title">
+    <div class="ch-header">
+      <div class="ch-num">10</div>
+      <div>
+        <h2 class="ch-title" id="ch10-title">第10章 · 非理性投资的心理学根源</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">过度自信</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">投资者为何会高估自己的判断能力？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">投资者普遍高估自身技能，导致过度交易和更差表现。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书第10章，核心挑战传统金融学的理性人假设，系统阐述行为金融学如何揭示投资者系统性非理性行为及其对市场有效性的影响。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">认知心理学研究者已证实，人们在不确定的情形下做判断时，会有一些方面与理性产生系统性偏离。这些偏差中最普遍的一种是，人们往往对自己的信念和能力过于自信，对未来的评估过于乐观。</div></details>
+      <div class="zh">「认知心理学研究者已证实，人们在不确定的情形下做判断时，会有一些方面与理性产生系统性偏离。这些偏差中最普遍的一种是，人们往往对自己的信念和能力过于自信，对未来的评估过于乐观。」</div>
+      <div class="why">💬 这句话是行为金融学的核心发现，揭示投资者非理性的根本心理根源。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">过度自信</h3>
+        <div class="concept-body"><p>行为金融学认为投资者存在四种系统性非理性因素：过度自信、判断偏差、羊群效应和风险厌恶。其中过度自信最为典型——实验显示80%-90%的大学生认为自己的驾驶能力高于平均水平，100%的成年男性认为自己与他人相处能力排在前50%。卡尼曼的实验进一步表明，投资者设置99%置信区间时，实际结果超出范围的频率高达20%，而非预期的2%。这种认知偏差导致投资者过度交易，特伦斯·奥迪恩和布拉德·巴布尔的研究证实，个人投资者交易越多表现越差，男性比女性交易更多、结果更糟。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>行为金融学兴起于21世纪初，核心人物丹尼尔·卡尼曼和阿莫斯·特沃斯基是心理学家。卡尼曼因该领域贡献于2002年获得诺贝尔经济学奖（特沃斯基于1996年去世未能获奖），标志着学术界对非理性行为研究的正式认可。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有效市场假说信奉者认为，非理性交易会随机出现并相互抵消，且精明理性的套利交易者总会修正误定价现象，从而维持市场有效性。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股市场散户占比高、换手率大，过度自信和过度交易现象尤为突出。投资者应警惕频繁买卖的冲动，避免因自信而忽视风险，可参考行为金融学结论减少交易频率、坚持长期持有。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>behavioral finance</strong></td><td class="zh">行为金融学</td><td>研究心理因素对金融决策影响的新流派</td></tr><tr><td><strong>overconfidence</strong></td><td class="zh">过度自信</td><td>投资者高估自身知识和控制能力的系统性偏差</td></tr><tr><td><strong>arbitrage</strong></td><td class="zh">套利</td><td>利用价格差异无风险获利的交易行为</td></tr><tr><td><strong>efficient market hypothesis</strong></td><td class="zh">有效市场假说</td><td>认为市场价格充分反映所有信息的理论</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>多数人认为自身能力高于平均水平，这是过度自信的典型表现</li><li>投资者设置的置信区间往往过窄，实际结果超出预期的频率远高于预期</li><li>过度自信导致过度交易，交易越频繁投资表现越差</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">回顾自己过去一年的投资交易次数，是否比预期多？结果如何？</p>
+<p class="hint">💡 提示：比较交易频率与收益率的关系</p>
+<p class="q">你是否曾认为自己能准确预测市场走势？实际准确率如何？</p>
+<p class="hint">💡 提示：回顾预测记录，计算真实准确率</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch11" aria-labelledby="ch11-title">
+    <div class="ch-header">
+      <div class="ch-num">11</div>
+      <div>
+        <h2 class="ch-title" id="ch11-title">第11章 · 聪明β策略的真相与陷阱</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">聪明β</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">“聪明的β”策略真的聪明吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">“聪明的β”策略并非真聪明，传统指数基金才是个人投资者最可靠的选择。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章在《漫步华尔街》后半部分，核心回答“聪明的β”策略是否真的能提升投资组合业绩，并论证为何传统指数基金仍是个人投资者的最佳选择。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">由于出现未预料到的一些情况，伦敦天眼通协会星期二将不召集会议。</div></details>
+      <div class="zh">「由于出现未预料到的一些情况，伦敦天眼通协会星期二将不召集会议。」</div>
+      <div class="why">💬 这句广告语暗示了投资界中看似聪明实则荒谬的策略，呼应本章对“聪明的β”的批判。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">聪明β</h3>
+        <div class="concept-body"><p>“聪明的β”是一种相对消极的投资策略，通过向特定方向倾斜（如价值、小市值、低波动性等）来获得高于市场整体水平的收益，而不增加预期波动性。其理论基础与多因素模型相关，将这些倾斜视为额外风险因素。然而，原文指出该策略存在致命缺陷：价值型股票的低市盈率和低市净率可能反映真实风险（如财务困境），小公司效应可能源于幸存者偏差或风险测量不足。作者认为，这些所谓的“超额收益”无法通过安全测试，可能是市场无效或测量缺陷的产物，而非真正聪明的投资方法。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国金融制度中，指数基金自1973年起被倡导，而“聪明的β”策略近年吸引数千亿美元资金，反映了投资者对低成本被动投资的追求与对超额收益的渴望之间的矛盾。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>支持“聪明的β”策略的观点认为，通过向价值、小市值等倾斜，投资者可以获取额外风险溢价，且费用低于主动管理型基金，从而在风险可控下提升收益。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，投资者可类似应用“聪明的β”策略，例如通过中证500指数基金捕捉小市值效应，或通过沪深300价值指数基金获取价值溢价。但需注意中国市场的波动性更高，幸存者偏差更显著，且风险测量模型可能不适用。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>smart beta</strong></td><td class="zh">聪明的β</td><td>一种通过倾斜投资组合特色获取超额收益的相对消极策略</td></tr><tr><td><strong>value investing</strong></td><td class="zh">价值投资</td><td>寻找低市盈率和低市净率股票的投资方法</td></tr><tr><td><strong>small-firm effect</strong></td><td class="zh">小公司效应</td><td>小型公司股票长期收益高于大型公司股票的现象</td></tr><tr><td><strong>survivorship bias</strong></td><td class="zh">幸存者偏差</td><td>仅关注存活公司而忽略破产公司导致的统计偏差</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>“聪明的β”策略通过向价值、小市值等倾斜试图获得超额收益，但无法通过安全测试。</li><li>价值型股票的低市盈率可能反映真实风险，而非投资机会。</li><li>小公司效应可能源于幸存者偏差或风险测量缺陷，持续性不可靠。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">你能否识别A股市场中哪些基金采用了“聪明的β”策略？</p>
+<p class="hint">💡 提示：查找基金名称中的‘价值’或‘小盘’等关键词。</p>
+<p class="q">如果你持有低市盈率股票，如何判断其低估值是机会还是陷阱？</p>
+<p class="hint">💡 提示：分析公司财务健康状况和行业前景。</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch12" aria-labelledby="ch12-title">
+    <div class="ch-header">
+      <div class="ch-num">12</div>
+      <div>
+        <h2 class="ch-title" id="ch12-title">第12章 · 随机漫步者的投资健身手册</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">复利储蓄</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何通过储蓄和保险为投资打基础？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">尽早定期储蓄，利用复利奇迹，并用现金和保险防范风险。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》第四部分的实务指南开篇，核心回答投资者如何通过储蓄、保险和现金储备为随机漫步做好准备，强调稳健理财的基础而非选股技巧。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">拿钱投资时，你想获得多少利益，应该取决于你想吃得好还是睡得香。</div></details>
+      <div class="zh">「拿钱投资时，你想获得多少利益，应该取决于你想吃得好还是睡得香。」</div>
+      <div class="why">💬 这句金句点明投资目标应平衡收益与风险承受力，强调稳健理财的重要性。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">复利储蓄</h3>
+        <div class="concept-body"><p>核心概念是“定期储蓄与复利的力量”。作者指出，驱动资产增长的最重要因素是储蓄金额，而非投资收益率。复利被爱因斯坦称为“最伟大的数学发现”，意味着收益不仅来自本金，还来自收益的再投资。杰里米·西格尔的数据显示，1802年投入1美元股票，到2013年增值到1800万美元，远超通货膨胀。作者强调，要实现财务安全，必须尽早开始定期储蓄，并信任时间的力量，而非试图抓住市场时机。他警告快速致富策略只会导致快速致穷，建议“缓慢但确定”地积累财富。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及美国婴儿潮时期（1946-1964年）出生的人口约100万将活到100岁，反映了美国社会对退休储蓄不足的普遍担忧，以及A.M.Best保险评级体系在美国保险市场中的权威性。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>中国投资者可借鉴定期储蓄和复利原则，例如通过定投指数基金（如沪深300ETF）长期积累。同时，需配置现金储备（如货币基金）和保险（如重疾险、定期寿险），以应对失业或医疗等突发支出，避免被迫抛售资产。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Compound interest</strong></td><td class="zh">复利</td><td>收益的收益再投资，长期效果惊人</td></tr><tr><td><strong>Term life insurance</strong></td><td class="zh">定期寿险</td><td>低保费、无现金价值的纯保障保险</td></tr><tr><td><strong>Cash reserve</strong></td><td class="zh">现金储备</td><td>流动性高的应急资金，如3个月生活费</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>尽早开始定期储蓄，利用复利长期积累财富</li><li>建立3个月生活费的现金储备应对突发支出</li><li>购买定期寿险而非高保费保单，差额投资于退休计划</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">你每月能储蓄收入的百分之几？如何设定自动储蓄计划？</p>
+<p class="hint">💡 提示：先设定固定金额，逐渐提高比例</p>
+<p class="q">你目前的现金储备够支付几个月生活费？是否需调整？</p>
+<p class="hint">💡 提示：考虑失业或医疗等紧急情况</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch13" aria-labelledby="ch13-title">
+    <div class="ch-header">
+      <div class="ch-num">13</div>
+      <div>
+        <h2 class="ch-title" id="ch13-title">第13章 · 预测长期收益的关键因素</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">收益决定因素</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何预测股票和债券的长期收益？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">股票长期收益≈初始股利收益率+增长率，债券≈到期收益率，短期受估值变化影响。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章聚焦如何理解股票和债券长期收益的决定因素，帮助投资者设置赚钱的投资组合，而非预测短期市场走势。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">从长期的角度看，普通股提供的收益取决于两个关键因素：购买时的股利收益率、盈利和股利的未来增长率。</div></details>
+      <div class="zh">「从长期的角度看，普通股提供的收益取决于两个关键因素：购买时的股利收益率、盈利和股利的未来增长率。」</div>
+      <div class="why">💬 这句话凝练了本章核心公式，直接点明长期投资回报的根源，是理解后续分析的基础。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">收益决定因素</h3>
+        <div class="concept-body"><p>本章核心是提出股票长期收益率的简化公式：初始股利收益率+增长率。以1926-2013年为例，股利收益率约5%，增长率约5%，合计约10%的年均收益率。但短期收益受估值关系（市盈率）变化影响显著，如2000-2009年，初始股利收益率仅1.2%，增长率5.8%，本可获7%收益，但因市盈率暴跌，实际年均亏损6.5%。债券收益则更易计算，长期约等于购买时的到期收益率，但未持有到期时受市场利率变化影响。通货膨胀是关键变量：推高债券利率导致价格下跌，对股票理论上是防范工具，但实际效果需具体分析。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>一些分析师质疑股利在决定股票收益率时的相关性，因公司日益倾向通过股票回购而非增加股利分配盈利，这源于税法优惠（资本利得税率低于股利税率）和管理层通过股票期权获利（回购提升股价和期权价值）。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股投资者可借鉴此框架：长期收益≈初始股息率+盈利增长率。例如，沪深300指数当前股息率约2.5%，若盈利年增8%，长期年化收益约10.5%。但需警惕估值变化（如市盈率从15倍降至10倍）可能大幅侵蚀收益，类似2000-2009年美股。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>dividend yield</strong></td><td class="zh">股利收益率</td><td>股票每股股利除以股价的比率</td></tr><tr><td><strong>valuation relationship</strong></td><td class="zh">估值关系</td><td>股价对股利或盈利的倍数变化</td></tr><tr><td><strong>yield to maturity</strong></td><td class="zh">到期收益率</td><td>持有债券至到期的年化收益率</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>股票长期收益由初始股利收益率和增长率决定</li><li>短期收益受市盈率等估值关系变化显著影响</li><li>债券长期收益约等于购买时的到期收益率</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">计算你持有的某只股票过去5年的年化收益，并分解为初始股息率和增长率</p>
+<p class="hint">💡 提示：使用财报数据计算股息率和盈利增长率</p>
+<p class="q">思考A股当前市盈率水平，预测未来5年收益是否可能受估值压缩影响</p>
+<p class="hint">💡 提示：对比历史市盈率区间，如10-20倍</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch14" aria-labelledby="ch14-title">
+    <div class="ch-header">
+      <div class="ch-num">14</div>
+      <div>
+        <h2 class="ch-title" id="ch14-title">第14章 · 生命周期决定资产配置</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">生命周期配置</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何根据年龄调整股票和债券比例？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">年轻多投股票，年长多配债券，利用长期持有降低风险。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》的投资实践指南，核心回答：如何根据年龄、收入、责任等生命周期因素，制定股票、债券等资产类别的配置策略，以实现风险与收益的平衡。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">人这一生有两种时候不应该投机：一种是担当不起的时候，一种是担当得起的时候。</div></details>
+      <div class="zh">「」</div>
+      <div class="why">💬 马克·吐温这句名言点明生命周期投资核心：风险承担能力决定投机时机。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">生命周期配置</h3>
+        <div class="concept-body"><p>本章提出资产配置的五项原则，核心在于将风险态度与风险承担能力区分。风险与收益正相关，股票长期收益高但短期波动大；投资期限越长，股票风险越低，因此年轻人可配置更多股票。定期等额平均成本法（如每月定投）可降低择时风险，在市场波动中摊平成本。重新平衡资产类别（如定期调整股票/债券比例）既能控制风险，有时还能提升收益。关键在于，承担风险的能力取决于整体财务状况（如工作收入、负债），而非投资性收入；64岁的人依赖投资收入，不能承受大亏，而34岁的人可用工资弥补损失。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>原文引用乔治·华盛顿1美元投资股票的假设，体现美国长期股市的高回报文化（自1790年复合收益率超8%）。伊伯森数据（1926-2013年）展示美国股市年均近10%收益，但每十年约三年亏损，反映美国市场的高波动与长期增长特征。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>定期等额平均成本法有争议，反对者认为在持续上涨市场中会降低收益率（原文表14-3显示，上涨40%市场下累计收益低于波动市场），且无法避免系统性下跌风险。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股市场波动性更高（如上证指数2007-2023年最大回撤超70%），生命周期配置更关键：年轻投资者可加大股票型基金（如沪深300ETF）定投，利用波动摊平成本；年长投资者应配置债券、货币基金等低风险资产，避免退休金受损。定期再平衡（如每年调整一次）也适用于A股，可防止牛市过度追涨。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Asset allocation</strong></td><td class="zh">资产配置</td><td>决定90%以上总收益的关键决策</td></tr><tr><td><strong>Dollar-cost averaging</strong></td><td class="zh">定期等额平均成本法</td><td>定期定额投资，降低择时风险</td></tr><tr><td><strong>Risk tolerance vs. Risk capacity</strong></td><td class="zh">风险态度与风险承担能力</td><td>态度主观，能力取决于财务状况</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>风险与收益正相关，股票长期年化收益近10%但短期波动大</li><li>投资持有期越长，股票风险越低，年轻人应多配股票</li><li>定期再平衡资产类别可降低风险，有时提升收益</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">你当前年龄和收入状况下，股票在投资组合中应占多少比例？</p>
+<p class="hint">💡 提示：参考生命周期阶段：年轻可高至80%</p>
+<p class="q">如果你每月定投1000元到沪深300ETF，市场下跌时你会停止吗？</p>
+<p class="hint">💡 提示：定期等额平均成本法鼓励持续投入</p>
+<p class="q">你的风险承担能力是否与风险态度一致？举例说明。</p>
+<p class="hint">💡 提示：考虑收入来源和负债情况</p>
+</div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch15" aria-labelledby="ch15-title">
+    <div class="ch-header">
+      <div class="ch-num">15</div>
+      <div>
+        <h2 class="ch-title" id="ch15-title">第15章 · 指数基金、选股与主动管理</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">三种漫步法</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">普通投资者该如何漫步华尔街？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">三种投资策略：指数基金、自选股或雇人管理，指数化最省心且胜率最高。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》的投资实操指南，在阐明有效市场理论后，为不同投资者提供了三种股票投资路径：指数基金、自选股票和主动管理基金。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">我们所需要的是一种不收手续费、管理费尽可能低的共同基金，这种基金只是购买数以百计构成股市大型平均指数的成分股，不会试图为逮住“有望获胜的快马”而不停地调仓换股。</div></details>
+      <div class="zh">「我们所需要的是一种不收手续费、管理费尽可能低的共同基金，这种基金只是购买数以百计构成股市大型平均指数的成分股，不会试图为逮住“有望获胜的快马”而不停地调仓换股。」</div>
+      <div class="why">💬 这句是作者1973年提出的指数基金理念，精准预测了未来投资趋势，也是全章核心论点的浓缩。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">三种漫步法</h3>
+        <div class="concept-body"><p>本章核心是“三种步伐”的投资策略。第一种“省心省力漫步法”是投资指数基金，其优势在于低成本、税收高效和表现可预测。作者指出，主动管理型基金平均每年收取约1%的管理费，而指数基金费率仅万分之五，且主动基金周转率接近100%，导致其整体业绩必然跑输指数。即便市场无效，指数化投资仍能通过最低费用获得市场回报率。第二种“亲力亲为漫步法”是自行选股，但作者警告这需要大量时间和精力，且成功率低。第三种“使用替身漫步法”是购买主动管理型共同基金，但作者并不推荐，因为主动管理技能稀缺且难以识别，历史表现优异的基金难以持续。作者强调，指数基金避免了“在大海里捞针”的困境，让投资者直接拥有市场。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中引用狄更斯《大卫·科波菲尔》的理财格言，以及加里森·凯勒虚构的沃比根湖“所有孩子都是中上之资”的比喻，生动说明了主动管理基金平均业绩必然劣于指数的现实。三一教堂与墓园的描述则映射华尔街的机遇与风险。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>中国A股市场同样适用指数基金策略。例如，沪深300指数基金或中证500指数基金，费率远低于主动管理型基金。投资者可借鉴“省心省力漫步法”，将核心资产配置于指数基金，避免频繁交易和择时失误，尤其是对个人投资者而言，指数化投资是降低风险、获取市场平均收益的稳健选择。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table"><tr><td><strong>Index Fund</strong></td><td class="zh">指数基金</td><td>跟踪特定指数，低成本，被动管理</td></tr><tr><td><strong>Active Management</strong></td><td class="zh">主动管理</td><td>基金经理主动选股和择时，费用高</td></tr><tr><td><strong>Standard & Poor's 500 Index</strong></td><td class="zh">标准普尔500指数</td><td>美国大盘股基准，常被指数基金跟踪</td></tr></table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>指数基金因低费率和低周转率，长期跑赢多数主动管理基金</li><li>主动管理基金整体必然劣于市场，因费用和交易成本拖累</li><li>个人投资者应选择省心省力漫步法，以指数基金构建核心组合</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+      <div class="exercise-box"><p class="q">你的投资组合中，指数基金占比多少？主动管理基金是否值得更高费用？</p>
+<p class="hint">💡 提示：比较两类基金过去5年的收益率和费率</p>
+<p class="q">如果你坚持自选股票，如何确保不犯情绪化错误？</p>
+<p class="hint">💡 提示：参考书中规则，如分散化、避免追涨杀跌</p>
+</div>
+    </div>
+  </article>
 </section>
 
-<footer style="text-align:center;padding:48px 0;color:var(--text-secondary);font-size:14px;"><p>📚 AI精读笔记 · 《漫步华尔街》15章精读</p><p style="margin-top:16px;"><a href="../../bookshelf.html" style="color:var(--accent);">← 返回完整书架</a></p></footer></div>
+<!-- CTA -->
+<section class="cta-banner">
+  <h3>读完本书，你的投资认知升级了吗？</h3>
+  <p>前往<a href="../../index.html">修行首页</a>记录你的读书笔记和实践原则，将知识转化为行动。</p>
+</section>
+
+<footer>
+  <p>📚 AI精读笔记 · 《漫步华尔街》15章精读</p>
+  <p><a href="../../bookshelf.html" style="color:var(--accent);">← 返回完整书架</a></p>
+</footer>
+
+</div>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
 <script src="../../assets/js/data.js"></script>
 <script src="../../assets/js/app.js"></script>
-</body></html>
+</body>
+</html>
