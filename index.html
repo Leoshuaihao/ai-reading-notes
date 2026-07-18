@@ -284,6 +284,17 @@
     <a class="go-top" href="#top">投资修行 · 回到顶部</a>
   </div>
 
+  <!-- 数据管理 -->
+  <div class="data-mgmt" id="dataMgmt">
+    <span class="dm-label"></span>
+    <button class="dm-btn dm-export" id="dmExport" title="备份所有数据到本地文件"> 导出备份</button>
+    <label class="dm-btn dm-import" id="dmImportLabel" title="从备份文件恢复数据">
+      导入恢复
+      <input type="file" id="dmImportInput" accept=".json" hidden>
+    </label>
+  </div>
+
+
   <!-- 底部 -->
   <div class="shelf-footer">
     <p>AI精读笔记 · 用投资大师的方法论，建立你的投资体系</p>
@@ -1205,6 +1216,66 @@
 })();
 </script>
 
+<!-- ===== 数据导出/导入 ===== -->
+<script>
+(function() {
+  var DATA_KEYS = [
+    'reading_progress',
+    'my_principles',
+    'investment_journal',
+    'chapter_read_times',
+    'reading_streak',
+    'onboarding_done_v2',
+    'ability_profile'
+  ];
+
+  // 导出
+  document.getElementById('dmExport').addEventListener('click', function() {
+    var backup = {};
+    DATA_KEYS.forEach(function(k) {
+      var v = localStorage.getItem(k);
+      if (v !== null && v !== undefined) backup[k] = v;
+    });
+    backup._exportedAt = new Date().toISOString();
+    backup._version = '1.0';
+    var blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'ai-reading-backup-' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    var label = document.querySelector('.dm-label');
+    if (label) { label.textContent = '已导出'; label.style.color = '#2d7d46'; }
+    setTimeout(function() { if (label) { label.textContent = ''; label.style.color = '#999'; } }, 3000);
+  });
+
+  // 导入
+  document.getElementById('dmImportInput').addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    if (!file) return;
+    var label = document.querySelector('.dm-label');
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      try {
+        var data = JSON.parse(ev.target.result);
+        if (!data._version) throw new Error('format');
+        DATA_KEYS.forEach(function(k) {
+          if (data[k] !== undefined) localStorage.setItem(k, data[k]);
+        });
+        if (label) { label.textContent = '已恢复,刷新生效'; label.style.color = '#2d7d46'; }
+        setTimeout(function() { alert('数据恢复成功！即将刷新页面。'); location.reload(); }, 500);
+      } catch(err) {
+        if (label) { label.textContent = '文件格式错误'; label.style.color = '#c75b39'; }
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+})();
+</script>
 <!-- ===== 屏间导航控制 ===== -->
 <script>
 (function() {
