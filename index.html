@@ -1632,8 +1632,8 @@
 <!-- ===== AI 阅读问答 ===== -->
 <script>
 (function() {
-  var DS_KEY = 'sk-1b3b9a4abf1246faa75b2d84c425b1d5';
-  var DS_URL = 'https://api.deepseek.com/chat/completions';
+  var DS_KEY = '';  // Key已移至服务端环境变量
+  var DS_URL = '/api/chat';
 
   var bookSel = document.getElementById('aicBook');
   var domainSel = document.getElementById('aicDomain');
@@ -1706,7 +1706,7 @@
 
     fetch(DS_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + DS_KEY },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'deepseek-chat',
         messages: [
