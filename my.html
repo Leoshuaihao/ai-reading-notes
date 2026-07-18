@@ -297,39 +297,15 @@
 
 </div>
 
+<script src="assets/js/data.js"></script>
 <script>
-// ===== 书籍数据库 =====
-const BOOKS = [
-  {slug:'fisher',title:'怎样选择成长股',chapters:8, school:'growth', schoolName:'成长'},
-  {slug:'howard-marks',title:'投资最重要的事',chapters:21, school:'cycle', schoolName:'周期'},
-  {slug:'buffett',title:'巴菲特之道',chapters:8, school:'value', schoolName:'价值'},
-  {slug:'market-cycle',title:'周期',chapters:18, school:'cycle', schoolName:'周期'},
-  {slug:'buffett-letters',title:'巴菲特致股东的信',chapters:12, school:'value', schoolName:'价值'},
-  {slug:'alchemy-finance',title:'金融炼金术',chapters:12, school:'cycle', schoolName:'周期'},
-  {slug:'poor-charlie',title:'穷查理宝典',chapters:12, school:'mind', schoolName:'心理'},
-  {slug:'intelligent-investor',title:'聪明的投资者',chapters:20, school:'value', schoolName:'价值'},
-  {slug:'peter-lynch',title:'彼得·林奇的成功投资',chapters:20, school:'growth', schoolName:'成长'},
-  {slug:'security-analysis',title:'证券分析',chapters:17, school:'value', schoolName:'价值'},
-  {slug:'beating-street',title:'战胜华尔街',chapters:13, school:'growth', schoolName:'成长'},
-  {slug:'stock-operator',title:'股票大作手回忆录',chapters:24, school:'mind', schoolName:'心理'},
-  {slug:'economic-moat',title:'巴菲特的护城河',chapters:14, school:'value', schoolName:'价值'},
-  {slug:'fooled-by-randomness',title:'随机漫步的傻瓜',chapters:14, school:'uncertainty', schoolName:'不确定'},
-  {slug:'black-swan',title:'黑天鹅',chapters:19, school:'uncertainty', schoolName:'不确定'},
-  {slug:'antifragile',title:'反脆弱',chapters:24, school:'uncertainty', schoolName:'不确定'},
-];
+// ===== 使用共享数据层 =====
+var BOOKS = Object.keys(AppData.BOOK_META).map(function(slug) {
+  var m = AppData.BOOK_META[slug];
+  return { slug: slug, title: m.title, chapters: m.chapters, school: m.school, schoolName: m.schoolName };
+});
 
-// ===== 等级系统 =====
-const LEVELS = [
-  {level:1, name:'见习学徒', xpNeeded:0, emoji:'🌱'},
-  {level:2, name:'初级行者', xpNeeded:10, emoji:'🥾'},
-  {level:3, name:'中级行者', xpNeeded:30, emoji:'🧗'},
-  {level:4, name:'高阶行者', xpNeeded:60, emoji:'🏔️'},
-  {level:5, name:'见习智者', xpNeeded:100, emoji:'🔮'},
-  {level:6, name:'贤者', xpNeeded:160, emoji:'🧙'},
-  {level:7, name:'大贤者', xpNeeded:240, emoji:'👑'},
-  {level:8, name:'宗师', xpNeeded:340, emoji:'💎'},
-  {level:9, name:'传奇宗师', xpNeeded:460, emoji:'⭐'},
-];
+var LEVELS = AppData.LEVELS;
 
 // ===== 成就系统 =====
 const ACHIEVEMENTS = [
@@ -345,28 +321,25 @@ const ACHIEVEMENTS = [
   {id:'level_5', name:'智者之名', desc:'达到见习智者(Lv.5)', icon:'🔮', check: d=>d.level>=5},
 ];
 
-// ===== 经验值计算 =====
+// ===== 经验值 & 数据（使用共享数据层） =====
 function calcXP(chaptersRead, principlesCollected, completedBooks, booksStarted) {
-  // 每章=1XP，每条收藏原则=2XP，每完成一本书=外加5XP，每开始一本=1XP
+  // 与 AppData.computeXP 公式一致：每章1XP + 每条原则2XP + 每完成书5XP + 每开始书1XP
   return chaptersRead * 1 + principlesCollected * 2 + completedBooks * 5 + booksStarted * 1;
 }
 
 function getLevel(xp) {
-  for (let i = LEVELS.length-1; i >= 0; i--) {
-    if (xp >= LEVELS[i].xpNeeded) return LEVELS[i];
-  }
-  return LEVELS[0];
+  return AppData.computeLevel(xp);
 }
 
-// ===== 读取数据 =====
 function loadData() {
-  const progress = safeJSON(localStorage.getItem('reading_progress'), {});
-  const principles = safeJSON(localStorage.getItem('my_principles'), []);
-  return {progress, principles};
+  return {
+    progress: AppData.getProgress(),
+    principles: AppData.getPrinciples()
+  };
 }
 
 function safeJSON(str, fallback) {
-  try { return JSON.parse(str) || fallback; } catch(e) { return fallback; }
+  return AppData.safeJSON(str, fallback);
 }
 
 function computeStats(data) {
@@ -459,14 +432,14 @@ function updateMountain(stats, progress) {
 
 // ===== 经验条 =====
 function updateXPBar(stats) {
-  const cur = stats.level;
-  const nx = LEVELS[cur.level] || LEVELS[8]; // next level if exists
-  const cxp = stats.xp - cur.xpNeeded;
-  const mxp = (nx.xpNeeded - cur.xpNeeded) || 1;
+  var cur = stats.level;
+  var nx = cur.next || LEVELS[LEVELS.length - 1]; // next level if exists
+  var cxp = stats.xp - cur.xpNeeded;
+  var mxp = (nx.xpNeeded - cur.xpNeeded) || 1;
   document.getElementById('xpFill').style.width = Math.min(cxp/mxp*100, 100) + '%';
   document.getElementById('xpLevel').textContent = cur.level;
   document.getElementById('xpLevelNext').textContent = nx.level;
-  document.getElementById('xpLabel').textContent = `等级 ${cur.level} · ${cur.name}`;
+  document.getElementById('xpLabel').textContent = '等级 ' + cur.level + ' · ' + cur.name;
   const remain = Math.max(0, nx.xpNeeded - stats.xp);
   document.getElementById('xpNext').textContent = remain > 0
     ? `再来 ${remain} 点经验，你就升级到「${nx.name}」`

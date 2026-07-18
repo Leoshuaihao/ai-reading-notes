@@ -446,6 +446,7 @@
     <div class="quiz-stage" id="quiz-stage" hidden></div>
   </div>
 </section>
+<script src="assets/js/data.js"></script>
 <script>
 (function() {
   var questions = [
@@ -559,24 +560,11 @@
 </section>
 <script>
 (function() {
-  var books = [
-    { slug: 'fisher', title: '怎样选择成长股', ch: 8 },
-    { slug: 'howard-marks', title: '投资最重要的事', ch: 21 },
-    { slug: 'buffett', title: '巴菲特之道', ch: 8 },
-    { slug: 'market-cycle', title: '周期', ch: 18 },
-    { slug: 'buffett-letters', title: '巴菲特致股东的信', ch: 12 },
-    { slug: 'alchemy-finance', title: '金融炼金术', ch: 12 },
-    { slug: 'poor-charlie', title: '穷查理宝典', ch: 12 },
-    { slug: 'intelligent-investor', title: '聪明的投资者', ch: 20 },
-    { slug: 'peter-lynch', title: '彼得·林奇的成功投资', ch: 20 },
-    { slug: 'security-analysis', title: '证券分析', ch: 17 },
-    { slug: 'beating-street', title: '战胜华尔街', ch: 13 },
-    { slug: 'stock-operator', title: '股票大作手回忆录', ch: 24 },
-    { slug: 'economic-moat', title: '巴菲特的护城河', ch: 14 },
-    { slug: 'fooled-by-randomness', title: '随机漫步的傻瓜', ch: 14 },
-    { slug: 'black-swan', title: '黑天鹅', ch: 19 },
-    { slug: 'antifragile', title: '反脆弱', ch: 24 }
-  ];
+  var books = [];
+  Object.keys(AppData.BOOK_META).forEach(function(slug) {
+    var m = AppData.BOOK_META[slug];
+    books.push({ slug: slug, title: m.title, ch: m.chapters });
+  });
   var total = 0;
   books.forEach(function(b) { total += b.ch; });
   var d = new Date();
@@ -628,110 +616,12 @@
 (function() {
   'use strict';
 
-  // ===== 静态数据 =====
-  var BOOK_META = {
-    'fisher':               { title: '怎样选择成长股', chapters: 8 },
-    'howard-marks':         { title: '投资最重要的事', chapters: 21 },
-    'buffett':              { title: '巴菲特之道', chapters: 8 },
-    'market-cycle':         { title: '周期', chapters: 18 },
-    'buffett-letters':      { title: '巴菲特致股东的信', chapters: 12 },
-    'alchemy-finance':      { title: '金融炼金术', chapters: 12 },
-    'poor-charlie':         { title: '穷查理宝典', chapters: 12 },
-    'intelligent-investor': { title: '聪明的投资者', chapters: 20 },
-    'peter-lynch':          { title: '彼得·林奇的成功投资', chapters: 20 },
-    'security-analysis':    { title: '证券分析', chapters: 17 },
-    'beating-street':       { title: '战胜华尔街', chapters: 13 },
-    'stock-operator':       { title: '股票大作手回忆录', chapters: 24 },
-    'economic-moat':        { title: '巴菲特的护城河', chapters: 14 },
-    'fooled-by-randomness': { title: '随机漫步的傻瓜', chapters: 14 },
-    'black-swan':           { title: '黑天鹅', chapters: 19 },
-    'antifragile':          { title: '反脆弱', chapters: 24 }
-  };
-
-  var DOMAINS = [
-    {
-      key: 'business', emoji: '🧭', name: '商业认知', question: '能不能识别好生意？',
-      master: '彼得·林奇', masterInitial: '林', color: '#2d7d46',
-      books: [
-        { slug: 'peter-lynch', lv: 1 },
-        { slug: 'beating-street', lv: 1 },
-        { slug: 'fisher', lv: 2 },
-        { slug: 'economic-moat', lv: 2 }
-      ],
-      cross: [
-        { slug: 'intelligent-investor', ch: 20, label: '第20章「安全边际」' },
-        { slug: 'howard-marks', ch: 12, label: '第12章「寻找便宜货」' }
-      ]
-    },
-    {
-      key: 'valuation', emoji: '⚖️', name: '资产估值', question: '这家公司值多少钱？',
-      master: '本杰明·格雷厄姆', masterInitial: '格', color: '#2c6faa',
-      books: [
-        { slug: 'buffett', lv: 1 },
-        { slug: 'intelligent-investor', lv: 2 },
-        { slug: 'security-analysis', lv: 3 },
-        { slug: 'buffett-letters', lv: 3 }
-      ],
-      cross: [
-        { slug: 'poor-charlie', ch: 2, label: '第2章「投资原则检查清单」' },
-        { slug: 'fisher', ch: 3, label: '第3章「15条原则」' }
-      ]
-    },
-    {
-      key: 'cycle', emoji: '🔄', name: '周期与市场', question: '市场现在处于什么位置？',
-      master: '霍华德·马克斯', masterInitial: '马', color: '#c75b39',
-      books: [
-        { slug: 'howard-marks', lv: 2 },
-        { slug: 'market-cycle', lv: 3 },
-        { slug: 'alchemy-finance', lv: 3 }
-      ],
-      cross: [
-        { slug: 'antifragile', ch: 11, label: '第11章「杠铃策略」' },
-        { slug: 'stock-operator', ch: 23, label: '第23章「市场永远不会错」' }
-      ]
-    },
-    {
-      key: 'mind', emoji: '🧘', name: '心性与哲学', question: '我怎么不被情绪干掉？',
-      master: '查理·芒格', masterInitial: '芒', color: '#7b4fbf',
-      books: [
-        { slug: 'stock-operator', lv: 1 },
-        { slug: 'poor-charlie', lv: 2 }
-      ],
-      cross: [
-        { slug: 'intelligent-investor', ch: 8, label: '第8章「市场先生」' },
-        { slug: 'howard-marks', ch: 9, label: '第9章「钟摆意识」' },
-        { slug: 'buffett-letters', ch: 6, label: '第6章「市场先生与波动」' }
-      ]
-    },
-    {
-      key: 'uncertainty', emoji: '🌪️', name: '不确定性与风险', question: '我不知道的事如何伤害我？',
-      master: '纳西姆·塔勒布', masterInitial: '塔', color: '#b8860b',
-      books: [
-        { slug: 'black-swan', lv: 3 },
-        { slug: 'fooled-by-randomness', lv: 3 },
-        { slug: 'antifragile', lv: 4 }
-      ],
-      cross: [
-        { slug: 'market-cycle', ch: 8, label: '第8章「风险态度周期」' },
-        { slug: 'security-analysis', ch: 1, label: '导言「安全边际」' }
-      ]
-    }
-  ];
-
-  var LV_COLOR = { 1: '#4caf50', 2: '#2196F3', 3: '#FF9800', 4: '#e74c3c' };
-  var LV_EMOJI = { 1: '🌱', 2: '🌿', 3: '🍂', 4: '🌋' };
-
-  var LEVELS = [
-    { level: 1, name: '见习学徒', xpNeeded: 0,   emoji: '🌱' },
-    { level: 2, name: '初级行者', xpNeeded: 10,  emoji: '🥾' },
-    { level: 3, name: '中级行者', xpNeeded: 30,  emoji: '🧗' },
-    { level: 4, name: '高阶行者', xpNeeded: 60,  emoji: '🏔️' },
-    { level: 5, name: '见习智者', xpNeeded: 100, emoji: '🔮' },
-    { level: 6, name: '贤者',     xpNeeded: 160, emoji: '🧙' },
-    { level: 7, name: '大贤者',   xpNeeded: 240, emoji: '👑' },
-    { level: 8, name: '宗师',     xpNeeded: 340, emoji: '💎' },
-    { level: 9, name: '传奇宗师', xpNeeded: 460, emoji: '⭐' }
-  ];
+  // ===== 静态数据（来自共享 data.js） =====
+  var BOOK_META = AppData.BOOK_META;
+  var DOMAINS = AppData.DOMAINS;
+  var LEVELS = AppData.LEVELS;
+  var LV_COLOR = AppData.LV_COLOR;
+  var LV_EMOJI = AppData.LV_EMOJI;
 
   // ===== 数据读取 =====
   function safeJSON(str, fallback) {
