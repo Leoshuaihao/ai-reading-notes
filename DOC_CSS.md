@@ -9,10 +9,11 @@
 | 属性 | 值 |
 |------|-----|
 | 文件路径 | `assets/css/style.css` |
-| 当前行数 | ~524 行 |
+| 当前行数 | ~523 行 |
 | 加载方式 | `<link rel="stylesheet" href="../../assets/css/style.css">` |
-| 适用范围 | 所有书籍页面 + 书架首页 |
+| 适用范围 | 所有书籍页面 + 书架首页 + 概念地图 + 个人中心 + 诊断引擎 |
 | 设计理念 | 温润、阅读感、类纸质书 |
+| V2 新增 | 内联 `<style>` 块（index.html: 修行Hero/域卡片/雷达图/引导面板/金句墙/测试/streak；bookshelf.html: 书架网格/进度条；concepts.html: 概念云/折叠卡；my.html: 登山SVG/能力树/成就） |
 
 ---
 
@@ -363,3 +364,28 @@ body {
 ```
 
 这是整个样式表的最后一段，新增样式请添加在此之上。
+
+---
+
+## 11. V2 新增组件（内联样式）
+
+以下组件样式位于各自页面的 `<style>` 块中，不在 style.css 中：
+
+| 页面 | 组件 | 关键类名 |
+|------|------|---------|
+| index.html | 修行Hero | `.practice-hero`, `.mini-mountains`, `.hero-pyramid-wrap` |
+| index.html | 能力雷达 | `.ability-section`, `.ability-radar-wrap`, `.ability-stat-card` |
+| index.html | 域卡片 | `.domain-card`, `.domain-head`, `.book-row`, `.mini-bar`, `.domain-links` |
+| index.html | 金句墙 | `.quote-wall`, `.quote-inner`, `.quote-bar`, `.quote-dot` |
+| index.html | 趣味测试 | `.book-quiz`, `.quiz-card`, `.quiz-option`, `.quiz-result` |
+| index.html | 今日精读 | `.daily-read` |
+| index.html | 引导面板 | `.onboarding-panel`, `.ob-domain-choices`, `.ob-result-card` |
+| index.html | Streak | `.streak-row`, `.streak-badge`, `.streak-week`, `.streak-day` |
+| bookshelf.html | 书架网格 | `.shelf-hero`, `.book-grid`, `.book-card`, `.card-cover` |
+| bookshelf.html | 进度条 | `.card-progress`, `.progress-track`, `.progress-fill` |
+| concepts.html | 概念云 | `.concept-hero`, `.chip-cloud`, `.chip`, `.concept-card` |
+| concepts.html | 主题域 | `.domain`, `.domain-head`, `.domain-grid` |
+| my.html | 登山SVG | `.mountain-section`, `.mountain-svg`, `.mountain-legend` |
+| my.html | 能力树 | `.skill-tree`, `.skill-branch`, `.leaf` |
+| my.html | 成就 | `.achieve-grid`, `.achieve-badge` |
+| my.html | 原则墙 | `.principles-section`, `.principle-group`, `.principle-item` |

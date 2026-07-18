@@ -268,4 +268,35 @@ grep -oP 'class="nav-links"[^>]*>.*?</nav>' books/new-book/index.html \
 
 ### 8.3 代码/技术术语
 
+平台不涉及代码展示。JS 变量名、CSS 类名使用英文属于技术惯例，不在中文化检查范围内。
+
+---
+
+## 9. V2 新增术语
+
+V2 新增塔勒布三部曲相关术语：
+
+| 英文 | 统一译法 |
+|------|---------|
+| Black Swan | 黑天鹅 |
+| Antifragile | 反脆弱 |
+| Fooled by Randomness | 随机漫步的傻瓜 |
+| Lindy Effect | 林迪效应 |
+| Barbell Strategy | 杠铃策略 |
+| Via Negativa | 否定法 |
+| Convexity | 凸性 |
+| Optionality | 选择权 |
+| Skin in the Game | 风险共担 |
+
+V2 新增 UI 术语：
+
+| 概念 | 统一用词 |
+|------|---------|
+| Streak | 连续学习 / 打卡 |
+| Onboarding | 新用户引导 |
+| Recap | 前情提要 |
+| XP (Experience Points) | 经验值 |
+
+### 8.3 代码/技术术语
+
 平台不涉及代码展示。如果未来添加，代码注释可用英文，但面向用户的说明文字必须中文。

@@ -8,10 +8,11 @@
 
 | 文件 | 行数 | 模式 | 职责 |
 |------|------|------|------|
-| `assets/js/app.js` | ~378 行 | IIFE | 核心交互：折叠/展开、导航、TOC、进度条、滚动 |
-| `assets/js/chat.js` | ~200 行 | IIFE | AI 对话模块：消息收发、API 调用、打字效果 |
+| `assets/js/data.js` | 302 行 | IIFE (AppData) | V2 统一数据层：BOOK_META/DOMAINS/LEVELS + localStorage 读写 + XP/等级/Streak API |
+| `assets/js/app.js` | 700 行 | IIFE | 核心交互：折叠/展开、导航、TOC、进度条、原则收藏、前情提要、自动打卡 |
+| `assets/js/chat.js` | 324 行 | IIFE | AI 对话模块：消息收发、API 调用、打字效果 |
 
-两个文件都是 IIFE（立即执行函数表达式）模式，无全局变量污染。
+三个文件都是 IIFE（立即执行函数表达式）模式，无全局变量污染。V2 新增 data.js 作为所有页面的唯一数据源。
 
 ---
 
@@ -278,3 +279,53 @@ chat.js 依赖:
 ### 进度条不更新
 - 检查章节元素是否有 `id` 属性且以 `ch` 开头或为 `intro`
 - 检查 `.progress-section` 是否存在于页面
+
+---
+
+## 8. V2 新增模块
+
+### 8.1 data.js — 统一数据层
+
+```javascript
+// 静态数据查询
+AppData.BOOK_META           // 16本书元数据
+AppData.DOMAINS             // 5域修行体系
+AppData.LEVELS              // 9级等级表
+AppData.getBook('fisher')   // 获取单书信息
+
+// 进度读写
+AppData.getBookProgress('fisher')  // { read, total, pct }
+AppData.markChapterRead('fisher', 3)  // 标记第3章已读
+
+// XP 与等级
+AppData.computeXP()         // { xp, chaptersTotal, completedBooks, ... }
+AppData.computeLevel(xp)    // { level, name, emoji, next }
+
+// Streak
+AppData.getStreak()         // { dates, current, longest }
+AppData.markToday()         // 今日打卡
+
+// 原则
+AppData.getPrinciples()     // [{ text, book, chapter, ... }]
+AppData.addPrinciple({...}) // 收藏原则（自动去重）
+```
+
+### 8.2 app.js 新增功能
+
+| 模块 | 行数范围 | 功能 |
+|------|---------|------|
+| 原则收藏按钮 | ~556-602 | 在 `.takeaway-list li` 后注入 ☆/★ 按钮 |
+| 自动打卡 | ~604-608 | 页面加载时调用 `AppData.markToday()` |
+| 前情提要 | ~334-406 | IntersectionObserver 触发，收集前N-1章 takeaway 渲染 recap 卡片 |
+
+### 8.3 index.html 内联 JS 新增模块
+
+| 模块 | 功能 |
+|------|------|
+| 五域渲染 | `renderDomainCard()` — 动态生成域卡片含书籍行+进度+跨山连接 |
+| 雷达图 | `renderRadar()` — SVG 五维能力雷达图 |
+| 金句墙 | 20条金句 6s 轮播 |
+| 趣味测试 | 3题推荐投资大师 |
+| 今日精读 | 日期哈希随机推荐章节 |
+| 引导面板 | 3步新用户引导（域选择→测试→推荐） |
+| Streak 渲染 | `renderStreak()` — 连续天数 + 近7天日历 |

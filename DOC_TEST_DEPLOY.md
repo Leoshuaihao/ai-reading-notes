@@ -40,14 +40,21 @@ python3 -m http.server 8080
 # save as: test_screenshots.py
 from playwright.sync_api import sync_playwright
 
-BOOKS = [
-    ("首页", "index.html"),
-    ("怎样选择成长股", "books/fisher/index.html"),
-    ("投资最重要的事", "books/howard-marks/index.html"),
-    ("巴菲特之道", "books/buffett/index.html"),
-    ("金融炼金术", "books/alchemy-finance/index.html"),
-    ("周期", "books/market-cycle/index.html"),
-    ("巴菲特致股东信", "books/buffett-letters/index.html"),
+PAGES = [
+    ("修行首页", "index.html"),
+    ("完整书架", "bookshelf.html"),
+    ("概念地图", "concepts.html"),
+    ("个人中心", "my.html"),
+    ("诊断引擎", "diagnose.html"),
+    ("精读指南(示例)", "reading-guide.html"),
+]
+
+# 16本书页面
+BOOK_SLUGS = [
+    "fisher", "howard-marks", "buffett", "market-cycle", "buffett-letters",
+    "alchemy-finance", "poor-charlie", "intelligent-investor", "peter-lynch",
+    "security-analysis", "beating-street", "stock-operator", "economic-moat",
+    "fooled-by-randomness", "black-swan", "antifragile"
 ]
 
 VIEWPORTS = [
