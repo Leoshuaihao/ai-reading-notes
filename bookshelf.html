@@ -116,6 +116,42 @@
     display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
     margin-bottom: 24px;
   }
+
+/* 入门推荐 */
+.beginner-guide {
+  background: linear-gradient(135deg, #fef7f0, #fef9f5);
+  border: 1px solid #eadcc8; border-radius: 14px;
+  padding: 20px 24px; margin-bottom: 20px;
+}
+.bg-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 14px;
+}
+.bg-title { font-size: 15px; font-weight: 700; color: #b8860b; }
+.bg-close {
+  background: none; border: none; font-size: 20px; color: #ccc;
+  cursor: pointer; line-height: 1; padding: 0 4px;
+}
+.bg-close:hover { color: var(--accent); }
+.bg-books { display: flex; gap: 12px; }
+.bg-book {
+  flex: 1; display: flex; flex-direction: column; gap: 6px;
+  padding: 14px; background: #fff; border: 1px solid #e8e3d5; border-radius: 10px;
+  text-decoration: none; transition: all 0.2s;
+}
+.bg-book:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.bg-book-num {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 12px; font-weight: 700; display: flex;
+  align-items: center; justify-content: center;
+}
+.bg-book-title { font-size: 14px; font-weight: 700; color: #3d2e1e; }
+.bg-book-why { font-size: 12px; color: #999; line-height: 1.5; }
+
+@media (max-width: 768px) {
+  .bg-books { flex-direction: column; }
+}
+
   .filter-btn {
     padding: 8px 18px; border-radius: 20px; border: 1px solid var(--border);
     background: var(--tag-bg); font-size: 14px; font-weight: 600;
@@ -168,6 +204,33 @@
   <button class="filter-btn" data-filter="mind">🧘 心理</button>
   <button class="filter-btn" data-filter="uncertainty">🌪️ 不确定</button>
 </div>
+
+<!-- 书架 -->
+<!-- 入门推荐 -->
+<div class="beginner-guide" id="beginnerGuide">
+  <div class="bg-header">
+    <span class="bg-title"> 新来不知从哪开始？试试这三本：</span>
+    <button class="bg-close" id="bgClose" title="不再显示">&times;</button>
+  </div>
+  <div class="bg-books">
+    <a class="bg-book" href="books/howard-marks/">
+      <span class="bg-book-num">1</span>
+      <span class="bg-book-title">投资最重要的事</span>
+      <span class="bg-book-why">21条投资箴言，建立投资思维框架</span>
+    </a>
+    <a class="bg-book" href="books/fisher/">
+      <span class="bg-book-num">2</span>
+      <span class="bg-book-title">怎样选择成长股</span>
+      <span class="bg-book-why">学会用「闲聊法」挖掘十倍股</span>
+    </a>
+    <a class="bg-book" href="books/intelligent-investor/">
+      <span class="bg-book-num">3</span>
+      <span class="bg-book-title">聪明的投资者</span>
+      <span class="bg-book-why">价值投资圣经，理解安全边际</span>
+    </a>
+  </div>
+</div>
+
 
 <!-- 书架 -->
 <h2 class="section-title"><span class="emoji">📖</span> 精读笔记</h2>
@@ -688,6 +751,24 @@
       });
     });
   });
+})();
+</script>
+
+<script>
+// 入门推荐关闭
+(function() {
+  if (localStorage.getItem('beginner_guide_closed') === 'true') {
+    var el = document.getElementById('beginnerGuide');
+    if (el) el.hidden = true;
+  }
+  var btn = document.getElementById('bgClose');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      localStorage.setItem('beginner_guide_closed', 'true');
+      var el = document.getElementById('beginnerGuide');
+      if (el) el.hidden = true;
+    });
+  }
 })();
 </script>
 
