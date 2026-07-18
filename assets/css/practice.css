@@ -17,14 +17,14 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 }
 
 .practice-screen.screen-hero {
-  background: linear-gradient(175deg, #1a1a2e 0%, #16213e 35%, #0f2233 100%);
-  color: #fff; justify-content: flex-start; padding-top: 80px;
+  background: linear-gradient(175deg, #111122 0%, #1a1a3e 30%, #16213e 60%, #0f2233 100%);
+  color: #fff; justify-content: flex-start; padding-top: 64px; min-height: auto; padding-bottom: 48px;
 }
 .practice-screen.screen-ability {
   background: #faf9f5; padding-top: 72px;
 }
 .practice-screen.screen-domains {
-  background: #f4f2ec; padding-top: 72px; justify-content: flex-start;
+  background: #f5f3ed; padding-top: 72px; justify-content: flex-start;
 }
 
 /* 屏幕导航指示器 */
@@ -58,55 +58,59 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* 屏幕标题 */
 .screen-title {
-  text-align: center; margin-bottom: 28px;
+  text-align: center; margin-bottom: 32px;
 }
 .screen-title h2 {
-  font-size: 22px; font-weight: 800; color: var(--text);
-  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 26px; font-weight: 800; color: var(--text);
+  display: inline-flex; align-items: center; gap: 10px;
+  letter-spacing: 0.5px;
 }
 .screen-title p {
-  font-size: 14px; color: var(--text-secondary); margin-top: 4px;
+  font-size: 14px; color: var(--text-secondary); margin-top: 6px; font-weight: 400;
 }
 
 /* ===== Hero 屏 ===== */
 .practice-hero {
-  max-width: 880px; margin: 0 auto; width: 100%;
+  max-width: 920px; margin: 0 auto; width: 100%;
   text-align: center; padding: 0 24px; position: relative;
 }
-.practice-hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: 0.5px; }
+.practice-hero h1 { font-size: 38px; font-weight: 900; margin-bottom: 8px; letter-spacing: 1px; background: linear-gradient(180deg, #fff 0%, #d8dce8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .practice-hero .subtitle {
-  color: #a0b4c8; font-size: 15px; margin-bottom: 20px;
+  color: #889ab0; font-size: 16px; margin-bottom: 20px; font-weight: 400; letter-spacing: 0.5px;
 }
 .practice-hero .level-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(184,134,11,0.18); border: 1px solid rgba(218,165,32,0.55);
+  background: rgba(184,134,11,0.20); border: 1px solid rgba(218,165,32,0.6);
   color: #f5d78e; font-size: 14px; font-weight: 700;
-  padding: 6px 20px; border-radius: 24px; margin-bottom: 20px;
+  padding: 7px 22px; border-radius: 24px; margin-bottom: 18px; backdrop-filter: blur(4px);
 }
 .practice-hero .mini-mountains {
   display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 .practice-hero .mini-mountain {
-  font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 14px;
+  font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 14px;
   background: rgba(255,255,255,0.08); color: #7a8fa0;
   border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;
 }
-.practice-hero .mini-mountain.lit { color: #fff; border-color: transparent; }
+.practice-hero .mini-mountain.lit { color: #fff; border-color: transparent; background: rgba(255,255,255,0.18); }
 
 .hero-pyramid-wrap {
-  position: relative; max-width: 520px; margin: 0 auto;
+  position: relative; max-width: 560px; margin: 0 auto;
 }
 .hero-pyramid-wrap svg { display: block; width: 100%; height: auto; }
 
 /* 金字塔底部滚动提示 */
 .hero-scroll-hint {
-  text-align: center; margin-top: 32px; padding-bottom: 8px;
+  text-align: center; margin-top: 28px; padding-bottom: 8px;
 }
 .hero-scroll-hint span {
-  display: inline-block; animation: hintBounce 1.8s ease-in-out infinite;
-  font-size: 13px; color: rgba(255,255,255,0.35); cursor: pointer;
+  display: inline-block; animation: hintBounce 2s ease-in-out infinite;
+  font-size: 13px; color: rgba(255,255,255,0.45); cursor: pointer; padding: 6px 16px;
+  border-radius: 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s;
 }
+.hero-scroll-hint span:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.15); }
 @keyframes hintBounce {
   0%, 100% { transform: translateY(0); opacity: 0.3; }
   50% { transform: translateY(6px); opacity: 0.7; }
@@ -117,42 +121,42 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* ===== 能力画像屏 ===== */
 .ability-section {
-  max-width: 880px; margin: 0 auto; width: 100%; padding: 0 24px;
+  max-width: 920px; margin: 0 auto; width: 100%; padding: 0 24px;
 }
 .ability-section .ability-header {
-  text-align: center; margin-bottom: 24px;
+  text-align: center; margin-bottom: 28px;
 }
 .ability-section .ability-header h2 {
-  font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px;
+  font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 4px;
 }
 .ability-section .ability-header p {
-  font-size: 13px; color: var(--text-secondary);
+  font-size: 14px; color: var(--text-secondary);
 }
 
 .ability-main-wrap {
-  display: flex; align-items: center; gap: 36px;
-  background: #fff; border-radius: 20px; box-shadow: var(--shadow);
-  border: 1px solid var(--border); padding: 36px 32px;
+  display: flex; align-items: center; gap: 40px;
+  background: #fff; border-radius: 22px; box-shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--border); padding: 40px 36px;
   flex-wrap: wrap; justify-content: center;
 }
 .ability-radar-svg { flex-shrink: 0; overflow: visible; }
-.ability-radar-svg svg { display: block; width: 340px; height: 340px; overflow: visible; }
+.ability-radar-svg svg { display: block; width: 360px; height: 360px; overflow: visible; }
 .ability-stats {
-  display: flex; flex-direction: column; gap: 10px; min-width: 170px;
+  display: flex; flex-direction: column; gap: 12px; min-width: 180px;
 }
 .ability-stat-card {
-  background: var(--tag-bg); border-radius: 12px; padding: 14px 18px;
-  transition: transform 0.2s;
+  background: var(--tag-bg); border-radius: 14px; padding: 16px 20px;
+  transition: all 0.2s; border: 1px solid var(--border);
 }
-.ability-stat-card:hover { transform: translateY(-2px); }
+.ability-stat-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
 .ability-stat-card .stat-label {
-  font-size: 11px; color: var(--text-secondary); margin-bottom: 3px;
-  letter-spacing: 0.5px;
+  font-size: 12px; color: var(--text-secondary); margin-bottom: 4px;
+  letter-spacing: 0.5px; font-weight: 500;
 }
 .ability-stat-card .stat-value {
-  font-size: 18px; font-weight: 700; color: var(--text);
+  font-size: 20px; font-weight: 800; color: var(--text);
 }
-.ability-stat-card .stat-value strong { font-weight: 800; }
+.ability-stat-card .stat-value strong { font-weight: 900; }
 
 /* 种子态特殊样式 */
 .ability-seed-state { text-align: center; padding: 36px 20px; }
@@ -180,27 +184,28 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* ===== 五域卡片屏 ===== */
 .domains-wrap {
-  max-width: 880px; margin: 0 auto; width: 100%; padding: 0 24px;
+  max-width: 920px; margin: 0 auto; width: 100%; padding: 0 24px;
 }
 
 .domain-card {
-  background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
-  border: 1px solid var(--border); border-left: 4px solid var(--domain-color, var(--accent));
-  padding: 28px 32px 20px; margin-bottom: 20px; transition: transform 0.2s;
+  background: var(--card); border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--border); border-left: 5px solid var(--domain-color, var(--accent));
+  padding: 28px 32px 22px; margin-bottom: 20px; transition: all 0.25s ease;
 }
-.domain-card:hover { transform: translateY(-1px); }
+.domain-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
 
 .domain-head {
   display: flex; align-items: flex-start; justify-content: space-between;
   gap: 16px; margin-bottom: 18px;
 }
 .domain-title { font-size: 20px; font-weight: 800; line-height: 1.4; }
-.domain-title .domain-emoji { margin-right: 4px; }
+.domain-title .domain-emoji { margin-right: 4px; font-size: 22px; }
 .domain-title .domain-q { font-size: 15px; font-weight: 600; color: var(--text-secondary); }
 .domain-desc {
   font-size: 13px; color: var(--text-secondary); line-height: 1.7;
-  margin-bottom: 14px; padding: 10px 14px; background: var(--tag-bg);
-  border-radius: 8px; border-left: 3px solid var(--domain-color, var(--accent));
+  margin-bottom: 14px; padding: 12px 16px; background: var(--tag-bg);
+  border-radius: 10px; border-left: 3px solid var(--domain-color, var(--accent));
   display: none; /* 默认隐藏，悬停/展开显示 */
 }
 .domain-card.expanded .domain-desc { display: block; }
@@ -209,7 +214,7 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   font-size: 13px; color: var(--text-secondary);
 }
 .domain-master .master-avatar {
-  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
   display: inline-flex; align-items: center; justify-content: center;
   font-size: 13px; font-weight: 700; color: var(--domain-color, var(--accent));
   background: color-mix(in srgb, var(--domain-color, #999) 14%, transparent);
@@ -219,7 +224,7 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   flex-shrink: 0; text-align: right; font-size: 13px; font-weight: 700;
   color: var(--domain-color, var(--accent)); white-space: nowrap;
   background: color-mix(in srgb, var(--domain-color, #999) 10%, transparent);
-  padding: 6px 14px; border-radius: 14px;
+  padding: 7px 16px; border-radius: 16px;
 }
 .domain-progress-badge .sub {
   display: block; font-size: 11px; font-weight: 500; color: var(--text-secondary);
@@ -229,13 +234,14 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 .domain-books { display: flex; flex-direction: column; }
 .book-row {
   display: flex; align-items: center; gap: 10px;
-  padding: 9px 6px; border-radius: 8px; transition: background 0.2s;
+  padding: 10px 8px; border-radius: 10px; transition: all 0.2s;
+  border: 1px solid transparent;
 }
-.book-row:hover { background: var(--tag-bg); }
-.book-row .lv-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.book-row:hover { background: var(--tag-bg); border-color: var(--border); }
+.book-row .lv-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .book-row .lv-tag {
   font-size: 12px; font-weight: 600; color: var(--text-secondary);
-  flex-shrink: 0; width: 46px;
+  flex-shrink: 0; width: 48px;
 }
 .book-row .book-name {
   font-size: 15px; font-weight: 600; color: var(--text);
@@ -244,11 +250,11 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 }
 .book-row .book-name:hover { color: var(--accent); }
 .book-row .mini-bar {
-  width: 120px; height: 6px; border-radius: 3px; background: var(--border);
+  width: 120px; height: 7px; border-radius: 4px; background: var(--border);
   overflow: hidden; flex-shrink: 0;
 }
 .book-row .mini-bar .mini-fill {
-  height: 100%; border-radius: 3px; background: var(--domain-color, var(--accent));
+  height: 100%; border-radius: 4px; background: var(--domain-color, var(--accent));
   transition: width 0.5s;
 }
 .book-row .book-count {
@@ -258,9 +264,9 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 .book-row .book-count.not-started { color: #b0b0b0; }
 .book-row .book-go {
   font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none;
-  flex-shrink: 0; padding: 3px 10px; border-radius: 12px; transition: background 0.2s;
+  flex-shrink: 0; padding: 4px 12px; border-radius: 12px; transition: all 0.2s;
 }
-.book-row .book-go:hover { background: rgba(44,111,170,0.1); }
+.book-row .book-go:hover { background: rgba(44,111,170,0.1); color: var(--accent); }
 
 /* 跨山连接 */
 .domain-links {
@@ -294,11 +300,14 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* ===== 修行总览 ===== */
 .practice-summary {
-  background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
+  background: var(--card); border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
   border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 32px;
+  transition: all 0.25s ease;
 }
+.practice-summary:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
 .practice-summary .summary-title {
-  font-size: 19px; font-weight: 800; margin-bottom: 18px;
+  font-size: 20px; font-weight: 800; margin-bottom: 18px;
   display: flex; align-items: center; gap: 8px;
 }
 .practice-summary .summary-stats {
@@ -317,7 +326,7 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 }
 .practice-summary .xp-bar .xp-fill {
   height: 100%; border-radius: 5px;
-  background: linear-gradient(90deg, var(--gold), #e0a840);
+  background: linear-gradient(90deg, #c8a030, #e0a840, #f5c850);
   transition: width 0.6s ease;
 }
 
@@ -347,10 +356,12 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* ===== 投资体系 ===== */
 .invest-journal {
-  max-width: 880px; margin: 28px auto 0; padding: 0 24px;
-  background: #fff; border: 1px solid #e8e3d5; border-radius: 14px;
+  max-width: 920px; margin: 28px auto 0; padding: 0 24px;
+  background: #fff; border: 1px solid #e8e3d5; border-radius: 16px;
   padding: 28px 32px;
+  transition: all 0.25s ease;
 }
+.invest-journal:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 .invest-journal .summary-title { text-align: center; }
 
 /* 决策表单 */
@@ -426,11 +437,13 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* ===== 回访提醒 ===== */
 .review-reminder {
-  max-width: 880px; margin: 24px auto 0; padding: 0 24px;
+  max-width: 920px; margin: 24px auto 0; padding: 0 24px;
   background: linear-gradient(135deg, #fef7ed 0%, #fef9f5 100%);
-  border: 1px solid #eadcc8; border-radius: 14px;
+  border: 1px solid #eadcc8; border-radius: 16px;
   padding: 24px 28px;
+  transition: all 0.25s ease;
 }
+.review-reminder:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
 .review-reminder .review-title {
   text-align: center; font-size: 14px; font-weight: 700;
   color: #b8860b; margin-bottom: 14px; letter-spacing: 2px;
@@ -464,25 +477,27 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* ===== 底部链接 ===== */
 .bottom-links {
-  display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 8px;
+  display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 8px; margin-top: 32px;
 }
 .bottom-links a {
   text-decoration: none; font-size: 15px; font-weight: 600;
   padding: 12px 28px; border-radius: 24px; transition: all 0.2s;
 }
-.bottom-links .go-bookshelf { background: var(--accent); color: #fff; }
-.bottom-links .go-bookshelf:hover { background: #b04f30; }
+.bottom-links .go-bookshelf { background: linear-gradient(135deg, var(--accent), #d47352); color: #fff; box-shadow: 0 4px 12px rgba(199,91,57,0.25); }
+.bottom-links .go-bookshelf:hover { background: linear-gradient(135deg, #b04f30, #c75b39); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(199,91,57,0.3); }
 .bottom-links .go-top {
   background: var(--tag-bg); color: var(--text-secondary); border: 1px solid var(--border);
 }
-.bottom-links .go-top:hover { color: var(--accent); border-color: var(--accent); }
+.bottom-links .go-top:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-light); }
 
 /* ===== 数据管理 ===== */
 .data-mgmt {
-  max-width: 880px; margin: 20px auto 0; padding: 16px 24px;
-  background: #fdfaf5; border: 1px dashed #dcd5c4; border-radius: 12px;
+  max-width: 920px; margin: 20px auto 0; padding: 16px 24px;
+  background: #fdfaf5; border: 1px dashed #dcd5c4; border-radius: 14px;
   display: flex; align-items: center; justify-content: center; gap: 14px;
+  transition: all 0.2s;
 }
+.data-mgmt:hover { border-color: var(--accent); background: #fef9f3; }
 .dm-label {
   font-size: 13px; color: #999;
 }
@@ -497,10 +512,12 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 .dm-export:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 /* ===== 阅读笔记 ===== */
 .note-section {
-  max-width: 880px; margin: 24px auto 0; padding: 0 24px;
-  background: #fff; border: 1px solid #e8e3d5; border-radius: 14px;
+  max-width: 920px; margin: 24px auto 0; padding: 0 24px;
+  background: #fff; border: 1px solid #e8e3d5; border-radius: 16px;
   padding: 28px 32px;
+  transition: all 0.25s ease;
 }
+.note-section:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 .note-section .summary-title { text-align: center; }
 
 .note-form-wrap { margin-bottom: 20px; }
@@ -805,13 +822,13 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 /* ===== 响应式 ===== */
 @media (max-width: 768px) {
   .practice-hero { padding: 0 16px; }
-  .practice-hero h1 { font-size: 26px; }
+  .practice-hero h1 { font-size: 28px; }
   .practice-hero .subtitle { font-size: 14px; }
 
   .domain-card {
     padding: 18px 16px 14px;
     border-left: 1px solid var(--border);
-    border-top: 4px solid var(--domain-color, var(--accent));
+    border-top: 5px solid var(--domain-color, var(--accent));
   }
   .domain-head { flex-direction: column; gap: 8px; }
   .domain-progress-badge { text-align: left; align-self: flex-start; }
@@ -867,8 +884,8 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   .review-progress { justify-content: center; }
 
   /* 移动端金字塔文字放大 */
-  .hero-pyramid-wrap svg text { font-size: 16px !important; }
-  .hero-pyramid-wrap svg text[opacity="0.65"] { font-size: 14px !important; }
+  .hero-pyramid-wrap svg text { font-size: 18px !important; }
+  .hero-pyramid-wrap svg text[opacity="0.85"] { font-size: 13px !important; }
 }
 
 /* 数据管理 移动端 */
@@ -945,9 +962,11 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 
 /* AI 阅读问答 */
 .ai-chat {
-  max-width: 880px; margin: 24px auto 0; padding: 28px 32px;
-  background: #fff; border: 1px solid #e8e3d5; border-radius: 14px;
+  max-width: 920px; margin: 24px auto 0; padding: 28px 32px;
+  background: #fff; border: 1px solid #e8e3d5; border-radius: 16px;
+  transition: all 0.25s ease;
 }
+.ai-chat:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 .ai-chat .summary-title { text-align: center; }
 .aic-select-row { display: flex; gap: 10px; margin-bottom: 16px; }
 .aic-select {

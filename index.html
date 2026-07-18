@@ -42,30 +42,50 @@
 
   <!-- 五层知识体系金字塔（域色版） -->
   <div class="hero-pyramid-wrap">
-    <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <!-- 五域色渐变 -->
-        <linearGradient id="g-uncertainty" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#b8860b" stop-opacity="0.30"/>
-          <stop offset="100%" stop-color="#b8860b" stop-opacity="0.10"/>
-        </linearGradient>
-        <linearGradient id="g-cycle" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#c75b39" stop-opacity="0.28"/>
-          <stop offset="100%" stop-color="#c75b39" stop-opacity="0.10"/>
-        </linearGradient>
-        <linearGradient id="g-business" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#2d7d46" stop-opacity="0.28"/>
-          <stop offset="100%" stop-color="#2d7d46" stop-opacity="0.10"/>
-        </linearGradient>
-        <linearGradient id="g-valuation" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#2c6faa" stop-opacity="0.28"/>
-          <stop offset="100%" stop-color="#2c6faa" stop-opacity="0.10"/>
-        </linearGradient>
-        <linearGradient id="g-mind" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#7b4fbf" stop-opacity="0.30"/>
-          <stop offset="100%" stop-color="#7b4fbf" stop-opacity="0.12"/>
-        </linearGradient>
-        <!-- 发光滤镜 -->
+      <!-- 五域色渐变（更明亮） -->
+      <linearGradient id="g-uncertainty" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#e8c050" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#e8c050" stop-opacity="0.18"/>
+      </linearGradient>
+      <linearGradient id="g-cycle" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f09060" stop-opacity="0.52"/>
+        <stop offset="100%" stop-color="#f09060" stop-opacity="0.16"/>
+      </linearGradient>
+      <linearGradient id="g-business" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#5aca78" stop-opacity="0.52"/>
+        <stop offset="100%" stop-color="#5aca78" stop-opacity="0.16"/>
+      </linearGradient>
+      <linearGradient id="g-valuation" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6ab0e8" stop-opacity="0.52"/>
+        <stop offset="100%" stop-color="#6ab0e8" stop-opacity="0.16"/>
+      </linearGradient>
+      <linearGradient id="g-mind" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#b090e8" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#b090e8" stop-opacity="0.18"/>
+      </linearGradient>
+        <!-- 文字发光滤镜 -->
+        <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feFlood flood-color="rgba(0,0,0,0.6)" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+          <feMerge>
+            <feMergeNode in="shadow"/>
+            <feMergeNode in="shadow"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <filter id="textGlowLight" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="1.5" result="blur"/>
+          <feFlood flood-color="rgba(255,255,255,0.15)" result="color"/>
+          <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+          <feMerge>
+            <feMergeNode in="shadow"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        <!-- 标记发光 -->
         <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="3" result="blur"/>
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -73,47 +93,55 @@
       </defs>
 
       <!-- 背景三角形轮廓 -->
-      <polygon points="260,20 40,300 480,300" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+      <polygon points="260,20 40,320 480,320" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
 
-      <!-- L5 顶部：不确定性 · 塔勒布 · 金色 -->
-      <polygon points="260,20 215,76 305,76" fill="url(#g-uncertainty)" stroke="rgba(184,134,11,0.3)" stroke-width="0.6"/>
-      <!-- L4：周期 · 马克斯 · 陶土橙 -->
-      <polygon points="215,76 305,76 348,132 172,132" fill="url(#g-cycle)" stroke="rgba(199,91,57,0.3)" stroke-width="0.6"/>
-      <!-- L3：商业 · 林奇 · 绿色 -->
-      <polygon points="172,132 348,132 390,188 130,188" fill="url(#g-business)" stroke="rgba(45,125,70,0.3)" stroke-width="0.6"/>
-      <!-- L2：估值 · 格雷厄姆 · 蓝色 -->
-      <polygon points="130,188 390,188 432,244 88,244" fill="url(#g-valuation)" stroke="rgba(44,111,170,0.3)" stroke-width="0.6"/>
-      <!-- L1 基底：心性 · 芒格 · 紫色 -->
-      <polygon points="88,244 432,244 480,300 40,300" fill="url(#g-mind)" stroke="rgba(123,79,191,0.3)" stroke-width="0.6"/>
+      <!-- 金字塔层 -->
+      <polygon points="260,20 215,80 305,80" fill="url(#g-uncertainty)" stroke="rgba(232,192,80,0.6)" stroke-width="1.2"/>
+      <polygon points="215,80 305,80 348,140 172,140" fill="url(#g-cycle)" stroke="rgba(240,144,96,0.6)" stroke-width="1.2"/>
+      <polygon points="172,140 348,140 390,200 130,200" fill="url(#g-business)" stroke="rgba(90,202,120,0.6)" stroke-width="1.2"/>
+      <polygon points="130,200 390,200 432,260 88,260" fill="url(#g-valuation)" stroke="rgba(106,176,232,0.6)" stroke-width="1.2"/>
+      <polygon points="88,260 432,260 480,320 40,320" fill="url(#g-mind)" stroke="rgba(176,144,232,0.6)" stroke-width="1.2"/>
+
+      <!-- 发光层 -->
+      <polygon points="260,20 215,80 305,80" fill="none" stroke="rgba(232,192,80,0.25)" stroke-width="3" filter="url(#glow)"/>
+      <polygon points="215,80 305,80 348,140 172,140" fill="none" stroke="rgba(240,144,96,0.2)" stroke-width="3" filter="url(#glow)"/>
+      <polygon points="172,140 348,140 390,200 130,200" fill="none" stroke="rgba(90,202,120,0.2)" stroke-width="3" filter="url(#glow)"/>
+      <polygon points="130,200 390,200 432,260 88,260" fill="none" stroke="rgba(106,176,232,0.2)" stroke-width="3" filter="url(#glow)"/>
+      <polygon points="88,260 432,260 480,320 40,320" fill="none" stroke="rgba(176,144,232,0.25)" stroke-width="3" filter="url(#glow)"/>
 
       <!-- 分隔线 -->
-      <line x1="215" y1="76" x2="305" y2="76" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-      <line x1="172" y1="132" x2="348" y2="132" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-      <line x1="130" y1="188" x2="390" y2="188" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-      <line x1="88" y1="244" x2="432" y2="244" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      <line x1="215" y1="80" x2="305" y2="80" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <line x1="172" y1="140" x2="348" y2="140" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <line x1="130" y1="200" x2="390" y2="200" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+      <line x1="88" y1="260" x2="432" y2="260" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
 
-      <!-- 标签（带域色微光） -->
-      <text x="260" y="54" text-anchor="middle" fill="#d4a843" font-size="11" font-weight="700" font-family="system-ui,sans-serif">不确定性与风险</text>
-      <text x="260" y="95" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">塔勒布 · 杠铃策略</text>
+      <!-- 文字标签 -->
+      <!-- L5: 不确定性与风险 -->
+      <text x="260" y="58" text-anchor="middle" fill="#ffe060" font-size="14" font-weight="900" font-family="system-ui,-apple-system,sans-serif" filter="url(#textGlow)">不确定性与风险</text>
+      <text x="260" y="100" text-anchor="middle" fill="#e0c860" font-size="11" font-weight="500" font-family="system-ui,-apple-system,sans-serif" opacity="0.9">塔勒布 · 杠铃策略</text>
 
-      <text x="260" y="110" text-anchor="middle" fill="#e09070" font-size="11" font-weight="700" font-family="system-ui,sans-serif">周期与市场</text>
-      <text x="260" y="151" text-anchor="middle" fill="#e09070" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">马克斯 · 周期定位</text>
+      <!-- L4: 周期与市场 -->
+      <text x="260" y="118" text-anchor="middle" fill="#ff9e70" font-size="14" font-weight="900" font-family="system-ui,-apple-system,sans-serif" filter="url(#textGlow)">周期与市场</text>
+      <text x="260" y="160" text-anchor="middle" fill="#e8a078" font-size="11" font-weight="500" font-family="system-ui,-apple-system,sans-serif" opacity="0.9">马克斯 · 周期定位</text>
 
-      <text x="260" y="166" text-anchor="middle" fill="#5aaa6c" font-size="11" font-weight="700" font-family="system-ui,sans-serif">商业认知</text>
-      <text x="260" y="207" text-anchor="middle" fill="#5aaa6c" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">林奇 · 从身边发现好生意</text>
+      <!-- L3: 商业认知 -->
+      <text x="260" y="178" text-anchor="middle" fill="#7ef098" font-size="14" font-weight="900" font-family="system-ui,-apple-system,sans-serif" filter="url(#textGlow)">商业认知</text>
+      <text x="260" y="220" text-anchor="middle" fill="#68c880" font-size="11" font-weight="500" font-family="system-ui,-apple-system,sans-serif" opacity="0.9">林奇 · 从身边发现好生意</text>
 
-      <text x="260" y="222" text-anchor="middle" fill="#6ba3d4" font-size="11" font-weight="700" font-family="system-ui,sans-serif">资产估值</text>
-      <text x="260" y="263" text-anchor="middle" fill="#6ba3d4" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">格雷厄姆 · 安全边际</text>
+      <!-- L2: 资产估值 -->
+      <text x="260" y="238" text-anchor="middle" fill="#88d8ff" font-size="14" font-weight="900" font-family="system-ui,-apple-system,sans-serif" filter="url(#textGlow)">资产估值</text>
+      <text x="260" y="280" text-anchor="middle" fill="#68a8e0" font-size="11" font-weight="500" font-family="system-ui,-apple-system,sans-serif" opacity="0.9">格雷厄姆 · 安全边际</text>
 
-      <text x="260" y="278" text-anchor="middle" fill="#b090d8" font-size="11" font-weight="700" font-family="system-ui,sans-serif">投资心性</text>
-      <text x="260" y="317" text-anchor="middle" fill="#b090d8" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">芒格 · 多元思维模型</text>
+      <!-- L1: 投资心性 -->
+      <text x="260" y="298" text-anchor="middle" fill="#d8b0ff" font-size="14" font-weight="900" font-family="system-ui,-apple-system,sans-serif" filter="url(#textGlow)">投资心性</text>
+      <text x="260" y="338" text-anchor="middle" fill="#b088d8" font-size="11" font-weight="500" font-family="system-ui,-apple-system,sans-serif" opacity="0.9">芒格 · 多元思维模型</text>
 
       <!-- 位置标记 -->
-      <g id="pyramidMarker" transform="translate(420,250)" filter="url(#glow)">
-        <rect x="-4" y="-12" width="64" height="24" rx="12" fill="rgba(255,255,255,0.92)"/>
-        <text x="28" y="4" text-anchor="middle" fill="#16213e" font-size="11" font-weight="700" font-family="system-ui,sans-serif">你在这里</text>
+      <g id="pyramidMarker" transform="translate(420,270)" filter="url(#glow)">
+        <rect x="-8" y="-14" width="72" height="28" rx="14" fill="rgba(255,255,255,0.95)"/>
+        <text x="28" y="5" text-anchor="middle" fill="#1a1a2e" font-size="12" font-weight="800" font-family="system-ui,-apple-system,sans-serif">你在这里</text>
       </g>
-      <line id="pyramidMarkerLine" x1="416" y1="254" x2="432" y2="254" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <line id="pyramidMarkerLine" x1="416" y1="274" x2="432" y2="274" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-dasharray="4,4"/>
     </svg>
   </div>
 

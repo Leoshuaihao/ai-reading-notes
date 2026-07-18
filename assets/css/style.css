@@ -1,19 +1,19 @@
 /* ===== CSS Variables & Reset ===== */
 :root {
-  --bg: #faf9f5;
+  --bg: #faf8f3;
   --card: #ffffff;
-  --text: #2c2c2c;
-  --text-secondary: #6b6b6b;
+  --text: #2a2a2a;
+  --text-secondary: #666666;
   --accent: #c75b39;
   --accent-light: #fdf0e8;
   --border: #e8e5df;
-  --tag-bg: #f4f1ea;
+  --tag-bg: #f5f2ea;
   --gold: #b8860b;
   --green: #2d7d46;
   --blue: #2c6faa;
   --purple: #7b4fbf;
-  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow: 0 2px 6px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -365,12 +365,161 @@ body {
 .roadmap .part-card .part-title { font-weight: 700; font-size: 16px; margin: 8px 0 4px; }
 .roadmap .part-card .part-pages { color: var(--text-secondary); font-size: 13px; }
 
-/* ===== Why This Book ===== */
-.why-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
-.why-item { background: var(--card); border-radius: 10px; padding: 24px; box-shadow: var(--shadow); }
+/* ===== Chapter Navigation ===== */
+.chapter-nav {
+  background: linear-gradient(135deg, #fdf8f0, #fef9f5);
+  border: 1px solid #eadcc8;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+}
+.chapter-nav h3 {
+  margin: 0 0 16px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chapter-nav h3 .nav-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: var(--gold);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+.chapter-nav .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chapter-nav .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  background: var(--card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.chapter-nav .nav-links a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.chapter-nav .nav-links a::before {
+  content: "#";
+  font-size: 11px;
+  opacity: 0.5;
+}
+.why-section {
+  margin-bottom: 32px;
+}
+.why-section > h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.why-section > h2::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 26px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+.why-section .why-intro {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.why-item {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 24px 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.why-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--border));
+}
+.why-item::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--accent);
+  opacity: 0.6;
+}
+.why-item:nth-child(2)::before { background: var(--green); }
+.why-item:nth-child(3)::before { background: var(--blue); }
+.why-item:nth-child(4)::before { background: var(--purple); }
+.why-item h3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.why-item h3 .wi-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  background: var(--accent-light);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.why-item:nth-child(2) h3 .wi-icon { background: rgba(45,125,70,0.12); color: var(--green); }
+.why-item:nth-child(3) h3 .wi-icon { background: rgba(44,111,170,0.12); color: var(--blue); }
+.why-item:nth-child(4) h3 .wi-icon { background: rgba(123,79,191,0.12); color: var(--purple); }
+.why-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+/* 旧格式兼容：.why-section 直接包含 .why-item (2x2 grid) */
+.why-section:has(>.why-item) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.why-section:has(>.why-item) .why-item {
+  padding: 24px;
+}
 .why-item .why-icon { font-size: 28px; margin-bottom: 10px; }
 .why-item .why-title { font-weight: 700; font-size: 15px; margin-bottom: 6px; }
-.why-item .why-desc { color: var(--text-secondary); font-size: 14px; }
+.why-item .why-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 
 /* ===== Author Bio ===== */
 .author-bio {
@@ -501,7 +650,9 @@ body {
   .book-hero .sample-badge { top: 10px; left: 10px; font-size: 11px; padding: 3px 10px; }
   .book-hero .meta-row { gap: 4px; }
   .book-hero .meta-row .tag { font-size: 11px; padding: 3px 8px; }
-  .why-section { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .why-section:has(>.why-item) { grid-template-columns: 1fr; }
+  .why-item { padding: 18px 16px; }
   .roadmap { grid-template-columns: 1fr; }
   .chapter-card { padding: 20px; }
   .toggle-btn { width: 100%; justify-content: center; }
