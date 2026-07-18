@@ -12,7 +12,6 @@ __pycache__/
 
 # 原始文件（仅保留工程化后的版本）
 epub_extracted/
-reading-guide.html
 
 # 开发工具
 server.py
