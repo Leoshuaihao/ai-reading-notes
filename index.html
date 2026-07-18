@@ -1256,12 +1256,14 @@
         banner.hidden = true;
         var resultBanner = document.getElementById('onboardingResult');
         if (resultBanner) {
+          var titleText = (resultTitle.textContent || '').trim();
+          var descText = (resultDesc.textContent || '').trim();
           resultBanner.hidden = false;
           document.getElementById('obResultEmoji').textContent = '📖';
           document.getElementById('obResultText').innerHTML =
-            '<strong>你的投资大师之书：' + resultTitle.textContent + '</strong><br>' +
-            '<span style="font-size:13px;color:var(--text-secondary);">' + resultDesc.textContent + '</span>';
-          document.getElementById('obResultLink').href = resultLink.getAttribute('href');
+            '<strong>你的投资大师之书：' + (titleText || '为你推荐一本精读书') + '</strong><br>' +
+            '<span style="font-size:13px;color:var(--text-secondary);">' + (descText || '点击下方按钮开始精读之旅') + '</span>';
+          document.getElementById('obResultLink').href = resultLink.getAttribute('href') || 'books/intelligent-investor/';
         }
       }
     });
