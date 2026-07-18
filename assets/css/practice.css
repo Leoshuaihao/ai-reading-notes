@@ -478,7 +478,58 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 }
 .book-quiz .quiz-retry:hover { color: var(--accent); }
 
-/* ===== 金句墙 ===== */
+/* ===== 今日概念卡片 ===== */
+.today-concept {
+  max-width: 880px; margin: 0 auto 20px; padding: 0 24px;
+}
+.today-concept-card {
+  background: linear-gradient(135deg, #faf9f5, #f0efe8);
+  border: 1px solid var(--border); border-radius: 14px;
+  padding: 20px 24px; display: flex; align-items: center; gap: 18px;
+  flex-wrap: wrap; box-shadow: var(--shadow);
+}
+.today-concept-card .tcc-badge {
+  flex-shrink: 0; background: var(--accent); color: #fff;
+  padding: 4px 14px; border-radius: 14px; font-size: 12px; font-weight: 700;
+}
+.today-concept-card .tcc-name {
+  font-size: 18px; font-weight: 800; text-decoration: none;
+}
+.today-concept-card .tcc-brief {
+  font-size: 13px; color: var(--text-secondary); flex: 1; min-width: 160px;
+}
+.today-concept-card .tcc-master {
+  font-size: 12px; color: #999; white-space: nowrap;
+}
+.today-concept-card .tcc-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none;
+  padding: 6px 16px; border: 1px solid var(--blue); border-radius: 18px;
+  transition: all 0.2s; white-space: nowrap;
+}
+.today-concept-card .tcc-link:hover { background: var(--blue); color: #fff; }
+
+/* ===== 域卡片内概念 chips ===== */
+.domain-concept-chips {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin: 8px 0; padding: 6px 0;
+}
+.domain-concept-chips .concept-chips-label {
+  font-size: 11px; color: #b0a898; font-weight: 600; white-space: nowrap;
+}
+.domain-concept-chips .concept-chip {
+  display: inline-block; font-size: 12px; font-weight: 500;
+  padding: 3px 10px; border-radius: 12px; text-decoration: none;
+  color: var(--chip-color, var(--accent));
+  background: color-mix(in srgb, var(--chip-color, var(--accent)) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--chip-color, var(--accent)) 25%, transparent);
+  transition: all 0.2s;
+}
+.domain-concept-chips .concept-chip:hover {
+  background: var(--chip-color, var(--accent)); color: #fff;
+}
+
+/* ===== 概念对比金句墙 ===== */
 .quote-wall {
   max-width: 880px; margin: 0 auto 24px; position: relative;
 }
@@ -487,24 +538,35 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   letter-spacing: 3px; font-weight: 500;
 }
 .quote-wall .quote-inner {
-  background: #fdf7f0; border-radius: 12px; padding: 36px 40px;
+  background: #fdf7f0; border-radius: 12px; padding: 28px 32px;
   position: relative; overflow: hidden; min-height: 100px;
-  display: flex; align-items: center; border: 1px solid #eadcc8;
+  border: 1px solid #eadcc8; transition: opacity 0.5s ease; opacity: 1;
 }
-.quote-wall .quote-bar {
-  position: absolute; left: 0; top: 28px; bottom: 28px; width: 4px;
-  background: linear-gradient(180deg, var(--accent), #e07b5f);
-  border-radius: 0 4px 4px 0;
+.quote-wall .quote-inner.fading { opacity: 0; }
+.quote-wall .dual-concept-name {
+  text-align: center; font-size: 16px; font-weight: 800; color: var(--accent);
+  margin-bottom: 16px; letter-spacing: 1px;
 }
-.quote-wall .quote-content {
-  padding-left: 24px; transition: opacity 0.5s ease; opacity: 1;
+.quote-wall .dual-columns {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: start;
 }
-.quote-wall .quote-content.fading { opacity: 0; }
-.quote-wall .quote-text {
-  font-size: 18px; font-weight: 600; line-height: 1.8;
-  color: #3d2e1e; margin-bottom: 10px;
+.quote-wall .dual-left, .quote-wall .dual-right {
+  padding: 14px 16px; background: rgba(255,255,255,0.6); border-radius: 10px;
+  position: relative;
 }
-.quote-wall .quote-source { font-size: 13px; color: #8a7a6a; }
+.quote-wall .dual-left { border-left: 3px solid var(--accent); }
+.quote-wall .dual-right { border-left: 3px solid var(--blue); }
+.quote-wall .dual-vs {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: #c5b8a0; padding-top: 10px;
+}
+.quote-wall .dual-text {
+  font-size: 14px; font-weight: 500; line-height: 1.8;
+  color: #3d2e1e; margin-bottom: 8px;
+}
+.quote-wall .dual-who {
+  font-size: 12px; color: #8a7a6a;
+}
 .quote-wall .quote-indicators {
   display: flex; justify-content: center; gap: 8px; margin-top: 14px;
 }
@@ -514,6 +576,12 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 }
 .quote-wall .quote-dot.active {
   background: var(--accent); width: 24px; border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .quote-wall .dual-columns { grid-template-columns: 1fr; gap: 12px; }
+  .quote-wall .dual-vs { padding-top: 0; }
+  .today-concept-card { flex-direction: column; text-align: center; gap: 10px; }
 }
 
 /* ===== 响应式 ===== */
@@ -567,9 +635,8 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   .onboarding-banner { flex-direction: column; text-align: center; padding: 16px; }
   .ob-dismiss-btn { top: 4px; right: 8px; }
   .daily-read { flex-direction: column; text-align: center; padding: 20px; }
-  .quote-wall { padding: 0 16px; }
-  .quote-wall .quote-inner { padding: 24px 20px; }
-  .quote-wall .quote-text { font-size: 15px; }
+  .quote-wall .quote-inner { padding: 20px 16px; }
+  .quote-wall .dual-text { font-size: 13px; }
 
   /* 移动端金字塔文字放大 */
   .hero-pyramid-wrap svg text { font-size: 16px !important; }

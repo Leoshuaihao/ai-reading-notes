@@ -107,6 +107,24 @@
     .shelf-hero .subtitle { font-size: 15px; }
     .book-grid { grid-template-columns: 1fr; }
     .diagnose-banner { flex-direction: column; text-align: center; padding: 24px; }
+    .filter-bar { gap: 6px; }
+    .filter-btn { padding: 6px 12px; font-size: 13px; }
+  }
+
+  /* 流派筛选栏 */
+  .filter-bar {
+    display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 20px; border: 1px solid var(--border);
+    background: var(--tag-bg); font-size: 14px; font-weight: 600;
+    color: var(--text-secondary); cursor: pointer; font-family: inherit;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-btn.active {
+    background: var(--accent); color: #fff; border-color: var(--accent);
   }
 </style>
 </head>
@@ -139,6 +157,16 @@
     <p>输入一只 A 股，用费雪的 15 条原则或马克斯的 21 条原则逐条打分。不是荐股，是教你用大师的方法看公司。</p>
   </div>
   <a class="banner-btn" href="diagnose.html">开始诊断 →</a>
+</div>
+
+<!-- 筛选按钮 -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="growth">🌱 成长</button>
+  <button class="filter-btn" data-filter="value">💰 价值</button>
+  <button class="filter-btn" data-filter="cycle">🔄 周期</button>
+  <button class="filter-btn" data-filter="mind">🧘 心理</button>
+  <button class="filter-btn" data-filter="uncertainty">🌪️ 不确定</button>
 </div>
 
 <!-- 书架 -->
@@ -602,6 +630,64 @@
       '</div>';
     hero.appendChild(overallDiv);
   }
+})();
+</script>
+
+<!-- 流派筛选 -->
+<script>
+(function() {
+  // 书标题 → 流派映射
+  var titleMap = {
+    '怎样选择成长股': 'growth',
+    '投资最重要的事': 'cycle',
+    '巴菲特之道': 'value',
+    '周期': 'cycle',
+    '巴菲特致股东的信': 'value',
+    '金融炼金术': 'cycle',
+    '穷查理宝典': 'mind',
+    '聪明的投资者': 'value',
+    '彼得·林奇的成功投资': 'growth',
+    '证券分析': 'value',
+    '战胜华尔街': 'growth',
+    '股票大作手回忆录': 'mind',
+    '巴菲特的护城河': 'value',
+    '随机漫步的傻瓜': 'uncertainty',
+    '黑天鹅': 'uncertainty',
+    '反脆弱': 'uncertainty'
+  };
+
+  // 为每张卡片打上 data-school
+  document.querySelectorAll('.book-card').forEach(function(card) {
+    var h3 = card.querySelector('h3');
+    if (h3) {
+      var title = (h3.textContent || '').trim();
+      // 部分匹配
+      Object.keys(titleMap).forEach(function(key) {
+        if (title.indexOf(key) !== -1) {
+          card.setAttribute('data-school', titleMap[key]);
+        }
+      });
+    }
+  });
+
+  // 筛选逻辑
+  var btns = document.querySelectorAll('.filter-btn');
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var filter = btn.getAttribute('data-filter');
+      btns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      document.querySelectorAll('.book-card').forEach(function(card) {
+        var school = card.getAttribute('data-school');
+        if (filter === 'all' || school === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 })();
 </script>
 

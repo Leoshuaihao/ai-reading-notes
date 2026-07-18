@@ -112,6 +112,56 @@ var AppData = (function() {
     }
   ];
 
+  /** 核心概念（概念地图数据） */
+  var CONCEPTS = [
+    { id: 'intrinsic-value', name: '内在价值', domain: 'valuation', color: '#2c6faa', brief: '企业真正值多少钱——一切估值的起点', master: '格雷厄姆' },
+    { id: 'margin-of-safety', name: '安全边际', domain: 'valuation', color: '#2c6faa', brief: '买价与价值间的缓冲垫——为未知留出余地', master: '格雷厄姆' },
+    { id: 'mr-market', name: '市场先生', domain: 'valuation', color: '#2c6faa', brief: '情绪化的报价员——利用他的报价', master: '格雷厄姆' },
+    { id: 'moat', name: '护城河', domain: 'business', color: '#2d7d46', brief: '保护超额利润的结构性竞争优势', master: '巴菲特' },
+    { id: 'circle-of-competence', name: '能力圈', domain: 'business', color: '#2d7d46', brief: '只在自己真正理解的领域下注', master: '巴菲特' },
+    { id: 'growth-stock', name: '成长股', domain: 'business', color: '#2d7d46', brief: '能持续成长十年的企业特征', master: '费雪' },
+    { id: 'risk', name: '风险', domain: 'cycle', color: '#c75b39', brief: '不是波动性，是永久性损失的概率', master: '马克斯' },
+    { id: 'concept-cycle', name: '周期', domain: 'cycle', color: '#c75b39', brief: '无法预测未来，但可感知位置', master: '马克斯' },
+    { id: 'black-swan', name: '黑天鹅与肥尾', domain: 'uncertainty', color: '#b8860b', brief: '极端事件塑造历史——钟形曲线是骗局', master: '塔勒布' },
+    { id: 'misjudgment', name: '人类误判心理', domain: 'mind', color: '#7b4fbf', brief: '25种心理偏误的叠加共振效应', master: '芒格' },
+    { id: 'contrarian', name: '逆向投资', domain: 'mind', color: '#7b4fbf', brief: '在众人恐惧处买入，以正确为前提', master: '马克斯' },
+    { id: 'concentration', name: '集中与分散', domain: 'mind', color: '#7b4fbf', brief: '下重注还是广撒网——世纪分歧', master: '费雪' }
+  ];
+
+  /** 概念对比金句（用于首页金句墙改造） */
+  var CONCEPT_QUOTES = [
+    {
+      concept: '安全边际',
+      left:  { text: '安全边际是投资的中心概念——为错误、厄运、未知留出缓冲。', who: '格雷厄姆', book: '聪明的投资者', slug: 'intelligent-investor' },
+      right: { text: '安全边际本质是负凸性的对冲——为"未知的未知"留出空间。', who: '塔勒布', book: '反脆弱', slug: 'antifragile' }
+    },
+    {
+      concept: '风险的定义',
+      left:  { text: '风险不是波动性——它是永久性损失的概率。', who: '霍华德·马克斯', book: '投资最重要的事', slug: 'howard-marks' },
+      right: { text: '真正的风险在你的模型之外——从未发生过的事才最危险。', who: '塔勒布', book: '黑天鹅', slug: 'black-swan' }
+    },
+    {
+      concept: '市场先生',
+      left:  { text: '市场先生是你的仆人，不是你的向导——利用他，别追随他。', who: '格雷厄姆', book: '聪明的投资者', slug: 'intelligent-investor' },
+      right: { text: '华尔街没有新鲜事——因为投机像群山一样古老。', who: '利弗莫尔', book: '股票大作手回忆录', slug: 'stock-operator' }
+    },
+    {
+      concept: '集中与分散',
+      left:  { text: '好机会一生只有几次，来了就要下重注。', who: '查理·芒格', book: '穷查理宝典', slug: 'poor-charlie' },
+      right: { text: '90%极度保守 + 10%极度激进——比100%中庸更稳健。', who: '塔勒布', book: '反脆弱', slug: 'antifragile' }
+    },
+    {
+      concept: '护城河',
+      left:  { text: '我们要的是被宽阔护城河保护的经济城堡。', who: '巴菲特', book: '致股东的信', slug: 'buffett-letters' },
+      right: { text: '用15条原则找到能持续成长十年的企业，然后几乎永远不卖。', who: '菲利普·费雪', book: '怎样选择成长股', slug: 'fisher' }
+    },
+    {
+      concept: '逆向思维',
+      left:  { text: '在别人沮丧卖出时买入——需要最大的勇气，但提供最大的利润。', who: '霍华德·马克斯', book: '投资最重要的事', slug: 'howard-marks' },
+      right: { text: '别人贪婪时恐惧，别人恐惧时贪婪。', who: '巴菲特', book: '致股东的信', slug: 'buffett-letters' }
+    }
+  ];
+
   /** 等级体系 */
   var LEVELS = [
     { level: 1, name: '见习学徒', xpNeeded: 0,   emoji: '🌱' },
@@ -274,6 +324,8 @@ var AppData = (function() {
     // 数据查询
     BOOK_META: BOOK_META,
     DOMAINS: DOMAINS,
+    CONCEPTS: CONCEPTS,
+    CONCEPT_QUOTES: CONCEPT_QUOTES,
     LEVELS: LEVELS,
     LV_COLOR: LV_COLOR,
     LV_EMOJI: LV_EMOJI,

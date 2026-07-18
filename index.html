@@ -177,6 +177,10 @@
     <a class="seed-btn" href="#quiz-intro" onclick="document.getElementById('quiz-start').click();return false">先测测你的投资风格 </a>
   </div>
 </div>
+
+  <!-- 今日概念卡片 -->
+  <div class="today-concept" id="todayConcept"></div>
+</div>
 </section>
 
 <!-- ========== 第三屏：五域修行 ========== -->
@@ -190,14 +194,21 @@
   <!-- 域卡片由JS动态渲染 -->
   <div id="domainCards"></div>
 
-  <!-- 金句墙 -->
+  <!-- 概念对比金句墙 -->
   <section class="quote-wall">
-    <div class="quote-label">金 句 拾 贝</div>
-    <div class="quote-inner">
-      <div class="quote-bar"></div>
-      <div class="quote-content" id="quote-content">
-        <div class="quote-text" id="quote-text"></div>
-        <div class="quote-source" id="quote-source"></div>
+    <div class="quote-label">概 念 之 间</div>
+    <div class="quote-inner concept-dual" id="conceptDual">
+      <div class="dual-concept-name" id="dualConceptName"></div>
+      <div class="dual-columns">
+        <div class="dual-left" id="dualLeft">
+          <div class="dual-text" id="dualLeftText"></div>
+          <div class="dual-who" id="dualLeftWho"></div>
+        </div>
+        <div class="dual-vs">VS</div>
+        <div class="dual-right" id="dualRight">
+          <div class="dual-text" id="dualRightText"></div>
+          <div class="dual-who" id="dualRightWho"></div>
+        </div>
       </div>
     </div>
     <div class="quote-indicators" id="quote-dots"></div>
@@ -482,6 +493,22 @@
       card.appendChild(descEl);
     }
 
+    // 关联概念 chips（概念地图第二层露出）
+    var domainConcepts = AppData.CONCEPTS.filter(function(c) { return c.domain === domain.key; });
+    if (domainConcepts.length) {
+      var chipsWrap = el('div', 'domain-concept-chips');
+      chipsWrap.appendChild(el('span', 'concept-chips-label', '关联概念：'));
+      domainConcepts.forEach(function(c) {
+        var chip = el('a', 'concept-chip');
+        chip.textContent = c.name;
+        chip.href = 'concepts.html#' + c.id;
+        chip.style.setProperty('--chip-color', c.color);
+        chip.title = c.brief;
+        chipsWrap.appendChild(chip);
+      });
+      card.appendChild(chipsWrap);
+    }
+
     // 展开按钮
     var expandBtn = el('button', 'domain-expand-btn');
     expandBtn.innerHTML = '简介 <span class="expand-arrow">▾</span>';
@@ -728,6 +755,24 @@
       '</div>';
   }
 
+  // ===== 今日概念卡片（概念地图首页第一层露出） =====
+  function renderTodayConcept() {
+    var el = document.getElementById('todayConcept');
+    if (!el) return;
+    var concepts = AppData.CONCEPTS;
+    var d = new Date();
+    var dayOfYear = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+    var pick = concepts[dayOfYear % concepts.length];
+    el.innerHTML =
+      '<div class="today-concept-card">' +
+        '<div class="tcc-badge">今日概念</div>' +
+        '<a class="tcc-name" href="concepts.html#' + pick.id + '" style="color:' + pick.color + '">' + pick.name + '</a>' +
+        '<div class="tcc-brief">' + pick.brief + '</div>' +
+        '<div class="tcc-master">代表大师：' + pick.master + '</div>' +
+        '<a class="tcc-link" href="concepts.html#' + pick.id + '">看多位大师怎么说 </a>' +
+      '</div>';
+  }
+
   // ===== 修行总览 =====
   function renderSummary(stats, levelInfo) {
     var box = document.getElementById('summaryStats');
@@ -817,6 +862,7 @@
 
     renderHero(stats, levelInfo);
     renderRadar(stats);
+    renderTodayConcept();
 
     var container = document.getElementById('domainCards');
     container.innerHTML = '';
@@ -914,67 +960,53 @@
 })();
 </script>
 
-<!-- ===== 金句墙轮播 ===== -->
+<!-- ===== 概念对比金句墙 ===== -->
 <script>
 (function() {
-  var quotes = [
-    { text: '"在别人沮丧地卖出时买入，在别人兴奋地买入时卖出——这需要最大的勇气，但提供最大的利润。"', source: '《投资最重要的事》· 霍华德·马克斯', slug: 'howard-marks' },
-    { text: '"安全边际不是一种策略，它是一种性格。"', source: '《聪明的投资者》· 本杰明·格雷厄姆', slug: 'intelligent-investor' },
-    { text: '"风会吹灭蜡烛，却能助燃烈火。"', source: '《反脆弱》· 纳西姆·塔勒布', slug: 'antifragile' },
-    { text: '"你不需要预测黑天鹅何时来——只需确保来临时你站在受益侧。"', source: '《黑天鹅》· 纳西姆·塔勒布', slug: 'black-swan' },
-    { text: '"市场先生是你的仆人，不是你的向导。"', source: '《聪明的投资者》· 本杰明·格雷厄姆', slug: 'intelligent-investor' },
-    { text: '"投资中唯一可控的事：校准你在周期中的位置。"', source: '《周期》· 霍华德·马克斯', slug: 'market-cycle' },
-    { text: '"华尔街没有新鲜事，因为投机像群山一样古老。"', source: '《股票大作手回忆录》· 杰西·利弗莫尔', slug: 'stock-operator' },
-    { text: '"如果你不知道一家公司是如何赚钱的，就不要买它的股票。"', source: '《彼得·林奇的成功投资》· 彼得·林奇', slug: 'peter-lynch' },
-    { text: '"你不需要在每个投球时都挥棒。等待属于你的那个球。"', source: '《投资最重要的事》· 霍华德·马克斯', slug: 'howard-marks' },
-    { text: '"护城河不是用来防守的，是用来让竞争者绝望的。"', source: '《巴菲特的护城河》· 帕特·多尔西', slug: 'economic-moat' },
-    { text: '"杀死我的东西不会让我更强——但会让别人更强。"', source: '《反脆弱》· 纳西姆·塔勒布', slug: 'antifragile' },
-    { text: '"历史不会爬行，它只会跳跃。"', source: '《黑天鹅》· 纳西姆·塔勒布', slug: 'black-swan' },
-    { text: '"用15%的费雪找到增长、用85%的格雷厄姆守住底线——这就是巴菲特的完整配方。"', source: '《怎样选择成长股》· 菲利普·费雪', slug: 'fisher' },
-    { text: '"市场永远不会错——但意见常常会错。"', source: '《股票大作手回忆录》· 杰西·利弗莫尔', slug: 'stock-operator' },
-    { text: '"买股票就是买公司，而不是买一张会涨的纸。"', source: '《巴菲特致股东的信》· 沃伦·巴菲特', slug: 'buffett-letters' },
-    { text: '"股票投资不是赌博——如果你用正确的方法做。"', source: '《彼得·林奇的成功投资》· 彼得·林奇', slug: 'peter-lynch' },
-    { text: '"内在价值是分析师的起点，不是终点。"', source: '《证券分析》· 本杰明·格雷厄姆', slug: 'security-analysis' },
-    { text: '"价格是你付出的，价值是你得到的。"', source: '《巴菲特之道》· 罗伯特·哈格斯特朗', slug: 'buffett' },
-    { text: '"投资最重要的事不是买什么，而是什么时候买、付多少钱。"', source: '《投资最重要的事》· 霍华德·马克斯', slug: 'howard-marks' },
-    { text: '"反脆弱系统的美妙之处：你对波动越不敏感，波动越拿你没办法。"', source: '《反脆弱》· 纳西姆·塔勒布', slug: 'antifragile' }
-  ];
+  var pairs = AppData.CONCEPT_QUOTES;
   var current = 0;
   var timer = null;
 
   function show(index) {
-    var content = document.getElementById('quote-content');
-    var text = document.getElementById('quote-text');
-    var source = document.getElementById('quote-source');
-    var q = quotes[index];
-    content.classList.add('fading');
+    var p = pairs[index];
+    var wrap = document.getElementById('conceptDual');
+    var cname = document.getElementById('dualConceptName');
+    var leftText = document.getElementById('dualLeftText');
+    var leftWho = document.getElementById('dualLeftWho');
+    var rightText = document.getElementById('dualRightText');
+    var rightWho = document.getElementById('dualRightWho');
+
+    wrap.classList.add('fading');
     setTimeout(function() {
-      text.textContent = q.text;
-      source.innerHTML = '<a href="books/' + q.slug + '/" style="color:#8a7a6a;text-decoration:none;">' + q.source + ' </a>';
-      content.classList.remove('fading');
+      cname.textContent = '「' + p.concept + '」';
+      leftText.textContent = p.left.text;
+      leftWho.innerHTML = '<a href="books/' + p.left.slug + '/" style="color:#8a7a6a;text-decoration:none;">' + p.left.who + ' · 《' + p.left.book + '》 </a>';
+      rightText.textContent = p.right.text;
+      rightWho.innerHTML = '<a href="books/' + p.right.slug + '/" style="color:#8a7a6a;text-decoration:none;">' + p.right.who + ' · 《' + p.right.book + '》 </a>';
+      wrap.classList.remove('fading');
       var dots = document.querySelectorAll('.quote-dot');
       dots.forEach(function(dot, i) { dot.classList.toggle('active', i === index); });
     }, 250);
   }
 
-  function next() { current = (current + 1) % quotes.length; show(current); }
+  function next() { current = (current + 1) % pairs.length; show(current); }
 
   document.addEventListener('DOMContentLoaded', function() {
     var dotsContainer = document.getElementById('quote-dots');
-    quotes.forEach(function(_, i) {
+    pairs.forEach(function(_, i) {
       var dot = document.createElement('button');
       dot.className = 'quote-dot';
-      dot.setAttribute('aria-label', '第' + (i + 1) + '句');
+      dot.setAttribute('aria-label', '第' + (i + 1) + '组对比');
       dot.addEventListener('click', function() {
         clearInterval(timer);
         current = i;
         show(i);
-        timer = setInterval(next, 6000);
+        timer = setInterval(next, 8000);
       });
       dotsContainer.appendChild(dot);
     });
     show(0);
-    timer = setInterval(next, 6000);
+    timer = setInterval(next, 8000);
   });
 })();
 </script>
