@@ -28,3 +28,7 @@ ux_*.png
 
 preview_*.png
 ux_test_report.json
+# 备份文件
+*.bak
+# 测试文件
+*.tmp

@@ -6,13 +6,15 @@
   'use strict';
 
   // ==================== 配置 ====================
-  // MVP阶段：前端直连 DeepSeek API（后续迁移到 Cloudflare Workers 代理）
-  var API_ENDPOINT = 'https://api.deepseek.com/v1/chat/completions';
-  var API_KEY = 'sk-85d9e3305bef4a47b3417f3eb3f93e2c';
+  // 生产环境：通过 Cloudflare Workers 代理调用 DeepSeek API
+  // Worker 部署后，将 WORKER_URL 替换为实际的 Worker 地址
+  var WORKER_URL = '';  // TODO: 填入 Cloudflare Workers 代理地址
+  var API_ENDPOINT = WORKER_URL || 'https://api.deepseek.com/v1/chat/completions';
+  // API_KEY 由 Worker 代理管理，前端不持有密钥
+  // 本地 / 无 Worker 环境降级为模拟模式
+  var API_KEY = '';
   var MODEL = 'deepseek-chat';
-  // 开发阶段：检测是否在本地 file:// 协议下，是则用模拟模式
-  var IS_LOCAL = window.location.protocol === 'file:';
-  var USE_REAL_API = !IS_LOCAL;    // 非本地自动启用真实API
+  var USE_REAL_API = false;    // Worker 未部署时使用模拟模式
   var DAILY_LIMIT = 20;            // 免费用户每日轮数
   var RATE_LIMIT_WINDOW = 10000;   // 10秒窗口
   var RATE_LIMIT_MAX = 5;          // 窗口内最多5条
