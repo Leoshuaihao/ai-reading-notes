@@ -27,7 +27,7 @@ var AppData = (function() {
     'poor-charlie':         { title: '穷查理宝典',         chapters: 12, school: 'mind',        schoolName: '心理' },
     'intelligent-investor': { title: '聪明的投资者',       chapters: 20, school: 'value',       schoolName: '价值' },
     'peter-lynch':          { title: '彼得·林奇的成功投资', chapters: 20, school: 'growth',      schoolName: '成长' },
-    'security-analysis':    { title: '证券分析',           chapters: 17, school: 'value',       schoolName: '价值' },
+    'security-analysis':    { title: '证券分析',           chapters: 18, school: 'value',       schoolName: '价值' },
     'beating-street':       { title: '战胜华尔街',         chapters: 13, school: 'growth',      schoolName: '成长' },
     'stock-operator':       { title: '股票大作手回忆录',   chapters: 24, school: 'mind',        schoolName: '心理' },
     'economic-moat':        { title: '巴菲特的护城河',     chapters: 14, school: 'value',       schoolName: '价值' },
@@ -40,6 +40,7 @@ var AppData = (function() {
   var DOMAINS = [
     {
       key: 'business', emoji: '🧭', name: '商业认知', question: '能不能识别好生意？',
+      description: '理解企业的商业模式、竞争优势和护城河——这是投资的地基。林奇教我们从身边发现好公司，费雪教我们深度调研，多尔西教我们识别护城河。',
       master: '彼得·林奇', masterInitial: '林', color: '#2d7d46',
       books: [
         { slug: 'peter-lynch', lv: 1 },
@@ -54,6 +55,7 @@ var AppData = (function() {
     },
     {
       key: 'valuation', emoji: '⚖️', name: '资产估值', question: '这家公司值多少钱？',
+      description: '格雷厄姆开创的「安全边际」原则是价值投资的基石。学会用数字说话——内在价值、DCF、PE/PB，把模糊的直觉转化为可量化的判断。',
       master: '本杰明·格雷厄姆', masterInitial: '格', color: '#2c6faa',
       books: [
         { slug: 'buffett', lv: 1 },
@@ -68,6 +70,7 @@ var AppData = (function() {
     },
     {
       key: 'cycle', emoji: '🔄', name: '周期与市场', question: '市场现在处于什么位置？',
+      description: '霍华德·马克斯的钟摆理论告诉我们：市场在恐惧与贪婪之间永恒摇摆。学会读懂周期信号——信贷、情绪、估值——你就能在极端时刻做出逆向决策。',
       master: '霍华德·马克斯', masterInitial: '马', color: '#c75b39',
       books: [
         { slug: 'howard-marks', lv: 2 },
@@ -81,6 +84,7 @@ var AppData = (function() {
     },
     {
       key: 'mind', emoji: '🧘', name: '心性与哲学', question: '我怎么不被情绪干掉？',
+      description: '芒格的多元思维模型提醒我们：投资最大的敌人是镜子里的那个人。认知偏差、从众心理、损失厌恶——这些心理陷阱每年让投资者付出惨痛代价。这一域帮你建立投资纪律。',
       master: '查理·芒格', masterInitial: '芒', color: '#7b4fbf',
       books: [
         { slug: 'stock-operator', lv: 1 },
@@ -94,6 +98,7 @@ var AppData = (function() {
     },
     {
       key: 'uncertainty', emoji: '🌪️', name: '不确定性与风险', question: '我不知道的事如何伤害我？',
+      description: '塔勒布的「黑天鹅」系列重塑了我们对风险的理解。真正危险的不是已知风险，而是你不知道你不知道的东西。学会构建反脆弱组合，从波动中获益而非受害。',
       master: '纳西姆·塔勒布', masterInitial: '塔', color: '#b8860b',
       books: [
         { slug: 'black-swan', lv: 3 },

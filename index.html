@@ -1,570 +1,247 @@
 <!DOCTYPE html>
-<html lang="zh-CN" id="top">
+<html lang="zh-CN" id="top" class="practice-page">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>⛰️ 投资修行 — AI精读笔记</title>
-<meta name="description" content="五位投资大师代表五座山：商业认知、资产估值、周期与市场、心性与哲学、不确定性与风险。按能力域修行，每座山独立攀登。"/>
-<meta property="og:title" content="⛰️ 投资修行 — AI精读笔记"/>
+<title>投资修行 — AI精读笔记</title>
+<meta name="description" content="五域修行体系：商业认知、资产估值、周期与市场、心性与哲学、不确定性与风险。五位投资大师带你攀登五座山。"/>
+<meta property="og:title" content="投资修行 — AI精读笔记"/>
 <meta property="og:description" content="五位投资大师代表五座山。你不用同时爬所有山——但每座山都有自己的风景。"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://ai-reading.workbuddy.com"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
-<style>
-  /* ===== 修行 Hero ===== */
-  .practice-hero {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    color: #fff; border-radius: 20px; padding: 40px 40px 32px;
-    text-align: center; margin-bottom: 28px; position: relative; overflow: hidden;
-  }
-  .practice-hero::before {
-    content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle at 30% 70%, rgba(199,91,57,0.12) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(44,111,170,0.08) 0%, transparent 50%);
-    pointer-events: none;
-  }
-  .practice-hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; position: relative; }
-  .practice-hero .subtitle { color: #a0b4c8; font-size: 15px; margin-bottom: 16px; position: relative; }
-  .practice-hero .level-badge {
-    display: inline-flex; align-items: center; gap: 8px; position: relative;
-    background: rgba(184,134,11,0.18); border: 1px solid rgba(218,165,32,0.55);
-    color: #f5d78e; font-size: 14px; font-weight: 700;
-    padding: 6px 20px; border-radius: 24px; margin-bottom: 20px;
-  }
-  .practice-hero .mini-mountains {
-    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; position: relative;
-    margin-bottom: 24px;
-  }
-  .practice-hero .mini-mountain {
-    font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 14px;
-    background: rgba(255,255,255,0.08); color: #7a8fa0;
-    border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s;
-  }
-  .practice-hero .mini-mountain.lit {
-    color: #fff; border-color: transparent;
-  }
-  .hero-pyramid-wrap {
-    position: relative; max-width: 520px; margin: 0 auto;
-  }
-  .hero-pyramid-wrap svg { display: block; width: 100%; height: auto; }
-
-  /* ===== 能力画像雷达 ===== */
-  .ability-section {
-    background: #fff; border-radius: 16px; box-shadow: var(--shadow);
-    border: 1px solid var(--border); padding: 32px 28px; margin-bottom: 28px;
-  }
-  .ability-section .ability-header {
-    text-align: center; margin-bottom: 20px;
-  }
-  .ability-section .ability-header h2 {
-    font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px;
-  }
-  .ability-section .ability-header p {
-    font-size: 13px; color: var(--text-secondary);
-  }
-  .ability-radar-wrap {
-    display: flex; align-items: center; justify-content: center; gap: 32px;
-    flex-wrap: wrap;
-  }
-  .ability-radar-svg { flex-shrink: 0; }
-  .ability-radar-svg svg { display: block; width: 320px; height: 320px; }
-  .ability-stats {
-    display: flex; flex-direction: column; gap: 10px; min-width: 160px;
-  }
-  .ability-stat-card {
-    background: var(--tag-bg); border-radius: 10px; padding: 12px 16px;
-  }
-  .ability-stat-card .stat-label {
-    font-size: 11px; color: var(--text-secondary); margin-bottom: 2px;
-  }
-  .ability-stat-card .stat-value {
-    font-size: 18px; font-weight: 700; color: var(--text);
-  }
-  .ability-stat-card .stat-value strong { font-weight: 800; }
-  @media (max-width: 768px) {
-    .ability-radar-wrap { flex-direction: column; gap: 20px; }
-    .ability-radar-svg svg { width: 280px; height: 280px; }
-    .ability-stats { flex-direction: row; flex-wrap: wrap; gap: 8px; min-width: auto; width: 100%; }
-    .ability-stat-card { flex: 1; min-width: 120px; }
-  }
-
-  /* ===== 五张域卡片 ===== */
-  .domain-card {
-    background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
-    border: 1px solid var(--border); border-left: 4px solid var(--domain-color, var(--accent));
-    padding: 26px 30px 20px; margin-bottom: 22px;
-  }
-  .domain-head {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 16px; margin-bottom: 16px;
-  }
-  .domain-title { font-size: 20px; font-weight: 800; line-height: 1.4; }
-  .domain-title .domain-emoji { margin-right: 4px; }
-  .domain-title .domain-q { font-size: 15px; font-weight: 600; color: var(--text-secondary); }
-  .domain-master {
-    display: flex; align-items: center; gap: 8px; margin-top: 8px;
-    font-size: 13px; color: var(--text-secondary);
-  }
-  .domain-master .master-avatar {
-    width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: var(--domain-color, var(--accent));
-    background: color-mix(in srgb, var(--domain-color, #999) 14%, transparent);
-    border: 1px solid color-mix(in srgb, var(--domain-color, #999) 35%, transparent);
-  }
-  .domain-progress-badge {
-    flex-shrink: 0; text-align: right; font-size: 13px; font-weight: 700;
-    color: var(--domain-color, var(--accent)); white-space: nowrap;
-    background: color-mix(in srgb, var(--domain-color, #999) 10%, transparent);
-    padding: 6px 14px; border-radius: 14px;
-  }
-  .domain-progress-badge .sub { display: block; font-size: 11px; font-weight: 500; color: var(--text-secondary); }
-
-  /* 书籍行 */
-  .domain-books { display: flex; flex-direction: column; }
-  .book-row {
-    display: flex; align-items: center; gap: 10px;
-    padding: 9px 6px; border-radius: 8px; transition: background 0.2s;
-  }
-  .book-row:hover { background: var(--tag-bg); }
-  .book-row .lv-dot {
-    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
-  }
-  .book-row .lv-tag {
-    font-size: 12px; font-weight: 600; color: var(--text-secondary);
-    flex-shrink: 0; width: 46px;
-  }
-  .book-row .book-name {
-    font-size: 15px; font-weight: 600; color: var(--text);
-    text-decoration: none; flex: 1; min-width: 0;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
-  .book-row .book-name:hover { color: var(--accent); }
-  .book-row .mini-bar {
-    width: 120px; height: 6px; border-radius: 3px; background: var(--border);
-    overflow: hidden; flex-shrink: 0;
-  }
-  .book-row .mini-bar .mini-fill {
-    height: 100%; border-radius: 3px; background: var(--domain-color, var(--accent));
-    transition: width 0.5s;
-  }
-  .book-row .book-count {
-    font-size: 12px; color: var(--text-secondary); flex-shrink: 0;
-    width: 58px; text-align: right; font-variant-numeric: tabular-nums;
-  }
-  .book-row .book-count.not-started { color: #b0b0b0; }
-  .book-row .book-go {
-    font-size: 13px; font-weight: 600; color: var(--blue); text-decoration: none;
-    flex-shrink: 0; padding: 3px 10px; border-radius: 12px; transition: background 0.2s;
-  }
-  .book-row .book-go:hover { background: rgba(44,111,170,0.1); }
-
-  /* 跨山连接 */
-  .domain-links {
-    border-top: 1px dashed var(--border); margin-top: 12px; padding-top: 12px;
-  }
-  .domain-links .links-label {
-    font-size: 12px; color: #b0a898; font-weight: 600; margin-bottom: 6px;
-  }
-  .domain-links .cross-row {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 12px; color: #9a948a; padding: 3px 0;
-  }
-  .domain-links .cross-row .cross-book { font-weight: 600; }
-  .domain-links .cross-row a {
-    color: var(--blue); text-decoration: none; opacity: 0.75; font-weight: 600;
-  }
-  .domain-links .cross-row a:hover { opacity: 1; text-decoration: underline; }
-
-  /* ===== 修行总览 ===== */
-  .practice-summary {
-    background: var(--card); border-radius: 16px; box-shadow: var(--shadow);
-    border: 1px solid var(--border); padding: 28px 32px; margin-bottom: 32px;
-  }
-  .practice-summary .summary-title {
-    font-size: 19px; font-weight: 800; margin-bottom: 18px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .practice-summary .summary-stats {
-    display: flex; flex-wrap: wrap; gap: 12px 28px; margin-bottom: 20px;
-  }
-  .practice-summary .stat-chip {
-    font-size: 14px; color: var(--text-secondary);
-  }
-  .practice-summary .stat-chip strong { color: var(--text); font-weight: 700; }
-  .practice-summary .xp-bar-head {
-    display: flex; justify-content: space-between; align-items: baseline;
-    font-size: 13px; color: var(--text-secondary); margin-bottom: 6px;
-  }
-  .practice-summary .xp-bar {
-    height: 10px; border-radius: 5px; background: var(--border); overflow: hidden;
-  }
-  .practice-summary .xp-bar .xp-fill {
-    height: 100%; border-radius: 5px;
-    background: linear-gradient(90deg, var(--gold), #e0a840);
-    transition: width 0.6s ease;
-  }
-
-  /* 打卡 Streak */
-  .streak-row {
-    display: flex; align-items: center; justify-content: center; gap: 18px;
-    margin-bottom: 16px; flex-wrap: wrap;
-  }
-  .streak-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #fdf7f0; border: 1px solid #eadcc8; border-radius: 16px;
-    padding: 8px 18px; font-size: 14px; font-weight: 600; color: #5c4a2a;
-  }
-  .streak-badge .streak-fire { font-size: 20px; }
-  .streak-badge.lit { background: #fef3e0; border-color: #e0a840; color: #b8860b; }
-  .streak-week {
-    display: flex; gap: 5px;
-  }
-  .streak-day {
-    width: 28px; height: 28px; border-radius: 6px;
-    background: var(--tag-bg); font-size: 11px; font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text-secondary);
-  }
-  .streak-day.done { background: var(--accent); color: #fff; }
-  .streak-day.today { border: 2px solid var(--accent); color: var(--accent); background: var(--accent-light); }
-  @media (max-width: 768px) {
-    .streak-row { gap: 10px; }
-    .streak-day { width: 24px; height: 24px; font-size: 10px; }
-  }
-
-  /* ===== 底部链接 ===== */
-  .bottom-links {
-    display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
-    margin-bottom: 8px;
-  }
-  .bottom-links a {
-    text-decoration: none; font-size: 15px; font-weight: 600;
-    padding: 12px 28px; border-radius: 24px; transition: all 0.2s;
-  }
-  .bottom-links .go-bookshelf { background: var(--accent); color: #fff; }
-  .bottom-links .go-bookshelf:hover { background: #b04f30; }
-  .bottom-links .go-top {
-    background: var(--tag-bg); color: var(--text-secondary);
-    border: 1px solid var(--border);
-  }
-  .bottom-links .go-top:hover { color: var(--accent); border-color: var(--accent); }
-
-  .shelf-footer { text-align: center; padding: 40px 0; color: var(--text-secondary); font-size: 14px; }
-
-  /* ===== 响应式 ===== */
-  @media (max-width: 768px) {
-    .practice-hero { padding: 32px 18px 28px; }
-    .practice-hero h1 { font-size: 24px; }
-    .practice-hero .subtitle { font-size: 14px; }
-    .domain-card {
-      padding: 18px 16px 14px;
-      border-left: 1px solid var(--border);
-      border-top: 4px solid var(--domain-color, var(--accent));
-    }
-    .domain-head { flex-direction: column; gap: 8px; }
-    .domain-progress-badge { text-align: left; align-self: flex-start; }
-
-    /* 书籍行：移动端简化 */
-    .book-row {
-      flex-wrap: wrap; row-gap: 4px; padding: 12px 6px;
-      min-height: 44px; /* iOS 触控目标 */
-    }
-    .book-row .lv-dot { width: 8px; height: 8px; }
-    .book-row .lv-tag { width: 40px; font-size: 11px; }
-    .book-row .book-name {
-      flex-basis: calc(100% - 100px);
-      font-size: 14px;
-    }
-    .book-row .mini-bar {
-      display: none; /* 移动端隐藏迷你进度条，用右侧文字替代 */
-    }
-    .book-row .book-count {
-      width: auto; font-size: 11px;
-    }
-    .book-row .book-go {
-      font-size: 12px; padding: 4px 10px;
-      min-height: 36px; display: flex; align-items: center;
-    }
-
-    /* 跨山连接：移动端折叠 */
-    .domain-links {
-      margin-top: 8px; padding-top: 8px;
-    }
-    .domain-links .links-label {
-      cursor: pointer; user-select: none;
-      display: flex; align-items: center; gap: 4px;
-    }
-    .domain-links .links-label::after {
-      content: ' ▾'; font-size: 10px;
-    }
-    .domain-links .links-label.open::after {
-      content: ' ▴';
-    }
-    .domain-links .cross-rows-wrap {
-      overflow: hidden; transition: max-height 0.3s;
-    }
-    .domain-links .cross-rows-wrap.collapsed {
-      max-height: 0;
-    }
-    .cross-row { padding: 5px 0; }
-
-    .practice-summary { padding: 20px 18px; }
-    .practice-summary .summary-stats { flex-direction: column; gap: 8px; }
-  }
-
-  /* ===== 新用户引导横幅（轻量增强式） ===== */
-  .onboarding-banner {
-    background: #fdf7f0; border: 1px solid #eadcc8; border-radius: 14px;
-    padding: 16px 24px; margin-bottom: 20px;
-    display: flex; align-items: center; gap: 14px; position: relative;
-  }
-  .onboarding-banner.ob-result-banner { background: #f0f7f0; border-color: #c5d6b0; }
-  .onboarding-banner[hidden] { display: none !important; }
-  .ob-banner-icon { font-size: 28px; flex-shrink: 0; }
-  .ob-banner-text { flex: 1; font-size: 14px; color: #5c4a2a; line-height: 1.6; }
-  .ob-banner-text strong { color: #3d2e1e; }
-  .ob-result-banner .ob-banner-text { color: #3d5a3c; }
-  .ob-banner-btn {
-    background: var(--accent); color: #fff; border: none; cursor: pointer;
-    padding: 10px 22px; border-radius: 20px; font-size: 14px; font-weight: 600;
-    white-space: nowrap; font-family: inherit; text-decoration: none;
-    transition: background 0.2s; flex-shrink: 0;
-  }
-  .ob-banner-btn:hover { background: #b04f30; }
-  .ob-dismiss-btn {
-    position: absolute; top: 8px; right: 12px;
-    background: none; border: none; font-size: 16px; cursor: pointer;
-    color: var(--text-secondary); padding: 4px; font-family: inherit;
-  }
-  .ob-dismiss-btn:hover { color: var(--accent); }
-  @media (max-width: 768px) {
-    .onboarding-banner { flex-direction: column; text-align: center; padding: 16px; }
-    .ob-dismiss-btn { top: 4px; right: 8px; }
-  }
-
-  /* ===== 金句滚动墙 ===== */
-  .quote-wall {
-    max-width: 880px; margin: 0 auto 40px; position: relative;
-  }
-  .quote-wall .quote-label {
-    text-align: center; font-size: 12px; color: #b0a090; margin-bottom: 12px;
-    letter-spacing: 3px; font-weight: 500;
-  }
-  .quote-wall .quote-inner {
-    background: #fdf7f0; border-radius: 12px; padding: 36px 40px;
-    position: relative; overflow: hidden; min-height: 100px;
-    display: flex; align-items: center; border: 1px solid #eadcc8;
-  }
-  .quote-wall .quote-bar {
-    position: absolute; left: 0; top: 28px; bottom: 28px; width: 4px;
-    background: linear-gradient(180deg, var(--accent), #e07b5f);
-    border-radius: 0 4px 4px 0;
-  }
-  .quote-wall .quote-content {
-    padding-left: 24px; transition: opacity 0.5s ease; opacity: 1;
-  }
-  .quote-wall .quote-content.fading { opacity: 0; }
-  .quote-wall .quote-text {
-    font-size: 18px; font-weight: 600; line-height: 1.8;
-    color: #3d2e1e; margin-bottom: 10px;
-  }
-  .quote-wall .quote-source {
-    font-size: 13px; color: #8a7a6a;
-  }
-  .quote-wall .quote-indicators {
-    display: flex; justify-content: center; gap: 8px; margin-top: 14px;
-  }
-  .quote-wall .quote-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #d4c5a0; cursor: pointer; transition: all 0.3s; border: none;
-  }
-  .quote-wall .quote-dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
-
-  @media (max-width: 768px) {
-    .quote-wall { padding: 0 16px; }
-    .quote-wall .quote-inner { padding: 24px 20px; }
-    .quote-wall .quote-text { font-size: 15px; }
-  }
-</style>
+<link rel="stylesheet" href="assets/css/practice.css"/>
 </head>
 <body>
 
 <nav class="top-nav" role="navigation" aria-label="顶部导航">
-  <span class="logo"><a href="./" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <span class="logo"><a href="./" style="color:var(--accent);text-decoration:none;">AI精读</a></span>
   <div class="nav-links">
-    <a href="./" class="active">🏠 修行</a>
-    <a href="diagnose.html">🔍 股票诊断</a>
-    <a href="concepts.html">🕸️ 概念地图</a>
-    <a href="bookshelf.html">📚 书架</a>
-    <a href="my.html">🧘 我的</a>
+    <a href="./" class="active">修行</a>
+    <a href="diagnose.html">股票诊断</a>
+    <a href="concepts.html">概念地图</a>
+    <a href="bookshelf.html">书架</a>
+    <a href="my.html">我的</a>
   </div>
 </nav>
 
-<div class="container">
+<!-- 屏幕导航指示器 -->
+<div class="screen-nav" id="screenNav" aria-label="页面导航">
+  <button class="screen-nav-dot active" data-screen="0" aria-label="第1屏：知识体系"></button>
+  <button class="screen-nav-dot" data-screen="1" aria-label="第2屏：能力画像"></button>
+  <button class="screen-nav-dot" data-screen="2" aria-label="第3屏：五域修行"></button>
+</div>
 
-<!-- Hero：投资修行 + 金字塔 -->
-<section class="practice-hero">
-  <h1>⛰️ 投资修行</h1>
-  <p class="subtitle">五位投资大师代表五座山。你不用同时爬所有山——但每座山都有自己的风景。</p>
-  <div class="level-badge" id="heroLevelBadge">🌱 Lv.1 见习学徒 · 0 XP</div>
+<!-- ========== 第一屏：Hero + 金字塔 ========== -->
+<section class="practice-screen screen-hero" id="screenHero">
+<div class="practice-hero">
+  <h1>投资修行</h1>
+  <p class="subtitle">你的投资认知体系 —— 从五座山开始，逐层攀登</p>
+  <div class="level-badge" id="heroLevelBadge">Lv.1 见习学徒 · 0 XP</div>
   <div class="mini-mountains" id="miniMountains"></div>
 
-  <!-- 五层知识体系金字塔 -->
+  <!-- 五层知识体系金字塔（域色版） -->
   <div class="hero-pyramid-wrap">
-    <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
-      <!-- Pyramid: single triangle, apex (260,20), base (40,280)-(480,280) -->
-      <!-- 5 bands, each 52px tall -->
+    <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <clipPath id="pyr-clip">
-          <polygon points="260,20 40,280 480,280"/>
-        </clipPath>
+        <!-- 五域色渐变 -->
+        <linearGradient id="g-uncertainty" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b8860b" stop-opacity="0.30"/>
+          <stop offset="100%" stop-color="#b8860b" stop-opacity="0.10"/>
+        </linearGradient>
+        <linearGradient id="g-cycle" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#c75b39" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#c75b39" stop-opacity="0.10"/>
+        </linearGradient>
+        <linearGradient id="g-business" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2d7d46" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#2d7d46" stop-opacity="0.10"/>
+        </linearGradient>
+        <linearGradient id="g-valuation" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2c6faa" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#2c6faa" stop-opacity="0.10"/>
+        </linearGradient>
+        <linearGradient id="g-mind" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7b4fbf" stop-opacity="0.30"/>
+          <stop offset="100%" stop-color="#7b4fbf" stop-opacity="0.12"/>
+        </linearGradient>
+        <!-- 发光滤镜 -->
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
       </defs>
-      <!-- Background triangle outline -->
-      <polygon points="260,20 40,280 480,280" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
 
-      <!-- Band 5: 不确定性 (top) — y:20→72 -->
-      <polygon points="260,20 222.6,72 297.4,72" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
-      <!-- Band 4: 周期 — y:72→124 -->
-      <polygon points="222.6,72 297.4,72 334.8,124 185.2,124" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
-      <!-- Band 3: 商业 — y:124→176 -->
-      <polygon points="185.2,124 334.8,124 372.2,176 147.8,176" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
-      <!-- Band 2: 估值 — y:176→228 -->
-      <polygon points="147.8,176 372.2,176 409.6,228 110.4,228" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
-      <!-- Band 1: 心性 (base) — y:228→280 -->
-      <polygon points="110.4,228 409.6,228 480,280 40,280" fill="rgba(255,255,255,0.20)" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+      <!-- 背景三角形轮廓 -->
+      <polygon points="260,20 40,300 480,300" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
 
-      <!-- Center axis -->
-      <line x1="260" y1="28" x2="260" y2="272" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" stroke-dasharray="2,4"/>
+      <!-- L5 顶部：不确定性 · 塔勒布 · 金色 -->
+      <polygon points="260,20 215,76 305,76" fill="url(#g-uncertainty)" stroke="rgba(184,134,11,0.3)" stroke-width="0.6"/>
+      <!-- L4：周期 · 马克斯 · 陶土橙 -->
+      <polygon points="215,76 305,76 348,132 172,132" fill="url(#g-cycle)" stroke="rgba(199,91,57,0.3)" stroke-width="0.6"/>
+      <!-- L3：商业 · 林奇 · 绿色 -->
+      <polygon points="172,132 348,132 390,188 130,188" fill="url(#g-business)" stroke="rgba(45,125,70,0.3)" stroke-width="0.6"/>
+      <!-- L2：估值 · 格雷厄姆 · 蓝色 -->
+      <polygon points="130,188 390,188 432,244 88,244" fill="url(#g-valuation)" stroke="rgba(44,111,170,0.3)" stroke-width="0.6"/>
+      <!-- L1 基底：心性 · 芒格 · 紫色 -->
+      <polygon points="88,244 432,244 480,300 40,300" fill="url(#g-mind)" stroke="rgba(123,79,191,0.3)" stroke-width="0.6"/>
 
-      <!-- Labels inside each band -->
-      <text x="260" y="52" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🌪️ 不确定性</text>
-      <text x="260" y="104" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🔄 经济周期</text>
-      <text x="260" y="156" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🧭 商业本质</text>
-      <text x="260" y="208" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">⚖️ 资产估值</text>
-      <text x="260" y="260" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-weight="600" font-family="system-ui,sans-serif">🧘 投资心性</text>
+      <!-- 分隔线 -->
+      <line x1="215" y1="76" x2="305" y2="76" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      <line x1="172" y1="132" x2="348" y2="132" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      <line x1="130" y1="188" x2="390" y2="188" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      <line x1="88" y1="244" x2="432" y2="244" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
 
-      <!-- Position marker — right side -->
-      <g id="pyramidMarker" transform="translate(420,200)">
-        <rect x="-2" y="-10" width="56" height="20" rx="10" fill="rgba(255,255,255,0.9)"/>
-        <text x="26" y="4" text-anchor="middle" fill="#16213e" font-size="10" font-weight="700" font-family="system-ui,sans-serif">你在這</text>
+      <!-- 标签（带域色微光） -->
+      <text x="260" y="54" text-anchor="middle" fill="#d4a843" font-size="11" font-weight="700" font-family="system-ui,sans-serif">不确定性与风险</text>
+      <text x="260" y="95" text-anchor="middle" fill="#d4a843" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">塔勒布 · 杠铃策略</text>
+
+      <text x="260" y="110" text-anchor="middle" fill="#e09070" font-size="11" font-weight="700" font-family="system-ui,sans-serif">周期与市场</text>
+      <text x="260" y="151" text-anchor="middle" fill="#e09070" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">马克斯 · 周期定位</text>
+
+      <text x="260" y="166" text-anchor="middle" fill="#5aaa6c" font-size="11" font-weight="700" font-family="system-ui,sans-serif">商业认知</text>
+      <text x="260" y="207" text-anchor="middle" fill="#5aaa6c" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">林奇 · 从身边发现好生意</text>
+
+      <text x="260" y="222" text-anchor="middle" fill="#6ba3d4" font-size="11" font-weight="700" font-family="system-ui,sans-serif">资产估值</text>
+      <text x="260" y="263" text-anchor="middle" fill="#6ba3d4" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">格雷厄姆 · 安全边际</text>
+
+      <text x="260" y="278" text-anchor="middle" fill="#b090d8" font-size="11" font-weight="700" font-family="system-ui,sans-serif">投资心性</text>
+      <text x="260" y="317" text-anchor="middle" fill="#b090d8" font-size="9" font-weight="400" font-family="system-ui,sans-serif" opacity="0.65">芒格 · 多元思维模型</text>
+
+      <!-- 位置标记 -->
+      <g id="pyramidMarker" transform="translate(420,250)" filter="url(#glow)">
+        <rect x="-4" y="-12" width="64" height="24" rx="12" fill="rgba(255,255,255,0.92)"/>
+        <text x="28" y="4" text-anchor="middle" fill="#16213e" font-size="11" font-weight="700" font-family="system-ui,sans-serif">你在这里</text>
       </g>
-      <line x1="418" y1="204" x2="410" y2="204" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" stroke-dasharray="3,3"/>
+      <line id="pyramidMarkerLine" x1="416" y1="254" x2="432" y2="254" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" stroke-dasharray="3,3"/>
     </svg>
   </div>
+
+  <div class="hero-scroll-hint">
+    <span onclick="document.getElementById('screenAbility').scrollIntoView({behavior:'smooth'})">向下探索你的能力画像 </span>
+  </div>
+</div>
 </section>
 
-<!-- 新用户引导横幅 -->
+<!-- ========== 新用户引导横幅 ========== -->
 <div class="onboarding-banner" id="onboardingBanner" hidden>
-  <div class="ob-banner-icon">🧩</div>
+  <div class="ob-banner-icon"></div>
   <div class="ob-banner-text">
     <strong>新来的？</strong> 3道题测出你的投资风格，推荐最适合你的第一本精读书。
   </div>
-  <button class="ob-banner-btn" id="obBannerBtn">开始测试 →</button>
+  <button class="ob-banner-btn" id="obBannerBtn">开始测试 </button>
 </div>
 
-<!-- 引导结果横幅（测试完成后替换） -->
 <div class="onboarding-banner ob-result-banner" id="onboardingResult" hidden>
-  <div class="ob-banner-icon" id="obResultEmoji">📖</div>
+  <div class="ob-banner-icon" id="obResultEmoji"></div>
   <div class="ob-banner-text" id="obResultText"></div>
-  <a class="ob-banner-btn" id="obResultLink" href="#">开始精读 →</a>
-  <button class="ob-dismiss-btn" id="obDismiss">✕</button>
+  <a class="ob-banner-btn" id="obResultLink" href="#">开始精读 </a>
+  <button class="ob-dismiss-btn" id="obDismiss"></button>
 </div>
 
-<!-- 能力画像雷达 -->
-<section class="ability-section" aria-label="能力画像">
-  <div class="ability-header">
-    <h2>🎯 能力画像</h2>
-    <p>测评 + 阅读数据，实时反映你的五维能力</p>
-  </div>
-  <div class="ability-radar-wrap">
-    <div class="ability-radar-svg" id="radarChart"></div>
-    <div class="ability-stats" id="abilityStats"></div>
-  </div>
-</section>
-
-<!-- 五张域卡片（书籍列与进度由 JS 动态渲染） -->
-<div id="domainCards"></div>
-
-<!-- 金句滚动墙 -->
-<section class="quote-wall">
-  <div class="quote-label">金 句 拾 贝</div>
-  <div class="quote-inner">
-    <div class="quote-bar"></div>
-    <div class="quote-content" id="quote-content">
-      <div class="quote-text" id="quote-text"></div>
-      <div class="quote-source" id="quote-source"></div>
-    </div>
-  </div>
-  <div class="quote-indicators" id="quote-dots"></div>
-</section>
-
-<!-- 趣味测试：这本书是谁的菜？ -->
-<style>
-  .book-quiz { margin-bottom: 24px; }
-  .book-quiz [hidden] { display: none !important; }
-  .book-quiz .quiz-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-    box-shadow: var(--shadow); padding: 30px 40px; overflow: hidden;
-  }
-  .book-quiz .quiz-intro { display: flex; align-items: center; gap: 24px; }
-  .book-quiz .quiz-intro-text { flex: 1; }
-  .book-quiz .quiz-intro-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-  .book-quiz .quiz-intro-sub { font-size: 14px; color: var(--text-secondary); }
-  .book-quiz .quiz-start-btn {
-    background: var(--accent); color: #fff; border: none; cursor: pointer;
-    padding: 12px 28px; border-radius: 24px; font-size: 15px; font-weight: 600;
-    transition: background 0.2s; white-space: nowrap; font-family: inherit;
-  }
-  .book-quiz .quiz-start-btn:hover { background: #b04f30; }
-  .book-quiz .quiz-progress { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
-  .book-quiz .quiz-dot { width: 22px; height: 5px; border-radius: 3px; background: var(--tag-bg); transition: background 0.3s; }
-  .book-quiz .quiz-dot.done { background: #e0a08b; }
-  .book-quiz .quiz-dot.now { background: var(--accent); }
-  .book-quiz .quiz-count { font-size: 12px; color: var(--text-secondary); margin-left: 6px; }
-  .book-quiz .quiz-question { font-size: 18px; font-weight: 700; margin-bottom: 18px; }
-  .book-quiz .quiz-option {
-    display: block; width: 100%; text-align: left; cursor: pointer; font-family: inherit;
-    background: var(--bg); border: 1px solid var(--border); border-radius: 12px;
-    padding: 14px 18px; font-size: 15px; color: var(--text); margin-bottom: 10px;
-    transition: all 0.2s;
-  }
-  .book-quiz .quiz-option:hover { border-color: var(--accent); background: var(--accent-light); }
-  .book-quiz .quiz-step { opacity: 0; transform: translateX(28px); transition: opacity 0.35s ease, transform 0.35s ease; }
-  .book-quiz .quiz-step.quiz-step-in { opacity: 1; transform: translateX(0); }
-  .book-quiz .quiz-result { text-align: center; padding: 8px 0; }
-  .book-quiz .quiz-result-label { font-size: 12px; color: var(--text-secondary); letter-spacing: 2px; margin-bottom: 8px; }
-  .book-quiz .quiz-result-title { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 10px; }
-  .book-quiz .quiz-result-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.8; max-width: 520px; margin: 0 auto 20px; }
-  .book-quiz .quiz-result-actions { display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap; }
-  .book-quiz .quiz-go {
-    background: var(--accent); color: #fff; padding: 12px 30px; border-radius: 24px;
-    font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s;
-  }
-  .book-quiz .quiz-go:hover { background: #b04f30; }
-  .book-quiz .quiz-retry {
-    background: none; border: none; cursor: pointer; font-family: inherit;
-    font-size: 13px; color: var(--text-secondary); text-decoration: underline; padding: 4px;
-  }
-  .book-quiz .quiz-retry:hover { color: var(--accent); }
-  @media (max-width: 768px) {
-    .book-quiz .quiz-card { padding: 22px 20px; }
-    .book-quiz .quiz-intro { flex-direction: column; text-align: center; gap: 14px; }
-  }
-</style>
+<!-- 趣味测试 -->
 <section class="book-quiz" aria-label="趣味测试：这本书是谁的菜">
   <div class="quiz-card">
     <div class="quiz-intro" id="quiz-intro">
       <div class="quiz-intro-text">
-        <div class="quiz-intro-title">🧩 这本书是谁的菜？</div>
+        <div class="quiz-intro-title">这本书是谁的菜？</div>
         <div class="quiz-intro-sub">3 道题找到属于你的投资大师</div>
       </div>
-      <button type="button" class="quiz-start-btn" id="quiz-start">开始测试 →</button>
+      <button type="button" class="quiz-start-btn" id="quiz-start">开始测试 </button>
     </div>
     <div class="quiz-stage" id="quiz-stage" hidden></div>
   </div>
 </section>
+
+<!-- ========== 第二屏：能力画像 ========== -->
+<section class="practice-screen screen-ability" id="screenAbility">
+<div class="ability-section" aria-label="能力画像">
+  <div class="screen-title">
+    <h2>能力画像</h2>
+    <p>阅读数据驱动的五维投资能力评估</p>
+  </div>
+
+  <!-- 已测评用户：雷达图 + 统计 -->
+  <div class="ability-main-wrap" id="abilityActive" hidden>
+    <div class="ability-radar-svg" id="radarChart"></div>
+    <div class="ability-stats" id="abilityStats"></div>
+  </div>
+
+  <!-- 未测评用户：潜力种子态 -->
+  <div class="ability-main-wrap ability-seed-state" id="abilitySeed">
+    <div class="seed-icon">🌱</div>
+    <div class="seed-title">你的能力画像还是一颗种子</div>
+    <div class="seed-desc">
+      阅读大师的作品，你的五维能力将像植物的根须一样，沿着商业、估值、周期、心性与不确定性五个方向自然生长。
+    </div>
+    <a class="seed-btn" href="#quiz-intro" onclick="document.getElementById('quiz-start').click();return false">先测测你的投资风格 </a>
+  </div>
+</div>
+</section>
+
+<!-- ========== 第三屏：五域修行 ========== -->
+<section class="practice-screen screen-domains" id="screenDomains">
+<div class="domains-wrap">
+  <div class="screen-title">
+    <h2>五域修行</h2>
+    <p>五位大师，五座山 —— 选择你的攀登路线</p>
+  </div>
+
+  <!-- 域卡片由JS动态渲染 -->
+  <div id="domainCards"></div>
+
+  <!-- 金句墙 -->
+  <section class="quote-wall">
+    <div class="quote-label">金 句 拾 贝</div>
+    <div class="quote-inner">
+      <div class="quote-bar"></div>
+      <div class="quote-content" id="quote-content">
+        <div class="quote-text" id="quote-text"></div>
+        <div class="quote-source" id="quote-source"></div>
+      </div>
+    </div>
+    <div class="quote-indicators" id="quote-dots"></div>
+  </section>
+
+  <!-- 今日精读 -->
+  <section class="daily-read" aria-label="今日精读">
+    <div class="daily-icon"></div>
+    <div class="daily-body">
+      <div class="daily-label">今 日 精 读</div>
+      <div class="daily-text" id="daily-read-text"></div>
+    </div>
+    <a class="daily-btn" id="daily-read-link" href="books/fisher/">去读这一章 </a>
+  </section>
+
+  <!-- 修行总览 -->
+  <section class="practice-summary" aria-label="修行总览">
+    <div class="summary-title">修行总览</div>
+    <div class="streak-row" id="streakRow"></div>
+    <div class="summary-stats" id="summaryStats"></div>
+    <div class="xp-bar-head">
+      <span id="xpBarLabel">经验值</span>
+      <span id="xpBarNums"></span>
+    </div>
+    <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
+  </section>
+
+  <!-- 底部链接 -->
+  <div class="bottom-links">
+    <a class="go-bookshelf" href="bookshelf.html">查看完整书架 </a>
+    <a class="go-top" href="#top">投资修行 · 回到顶部</a>
+  </div>
+
+  <!-- 底部 -->
+  <div class="shelf-footer">
+    <p>AI精读笔记 · 用投资大师的方法论，建立你的投资体系</p>
+    <p style="margin-top:8px;font-size:12px;">精读笔记为原创解读内容，基于公开书籍进行评论和介绍，不替代原书阅读。</p>
+  </div>
+</div>
+</section>
+
 <script src="assets/js/data.js"></script>
+
+<!-- ===== 趣味测试逻辑 ===== -->
 <script>
 (function() {
   var questions = [
@@ -624,7 +301,7 @@
         '<div class="quiz-result-title">《' + r.title + '》</div>' +
         '<p class="quiz-result-desc">' + r.desc + '</p>' +
         '<div class="quiz-result-actions">' +
-          '<a class="quiz-go" href="books/' + r.slug + '/">进入精读 →</a>' +
+          '<a class="quiz-go" href="books/' + r.slug + '/">进入精读 </a>' +
           '<button type="button" class="quiz-retry" id="quiz-retry">再测一次</button>' +
         '</div>' +
       '</div>';
@@ -643,48 +320,15 @@
 })();
 </script>
 
-<!-- 今日精读：每日随机一章 -->
-<style>
-  .daily-read {
-    background: #fdf7f0; border: 1px solid #eadcc8; border-left: 3px solid var(--gold);
-    border-radius: 12px; padding: 20px 28px; margin-bottom: 40px;
-    display: flex; align-items: center; gap: 18px;
-  }
-  .daily-read .daily-read-icon { font-size: 26px; }
-  .daily-read .daily-read-body { flex: 1; }
-  .daily-read .daily-read-label {
-    font-size: 12px; color: #b0a090; letter-spacing: 2px;
-    margin-bottom: 4px; font-weight: 500;
-  }
-  .daily-read .daily-read-text { font-size: 16px; color: #3d2e1e; }
-  .daily-read .daily-read-text strong { font-weight: 700; }
-  .daily-read .daily-read-btn {
-    background: var(--gold); color: #fff; padding: 10px 22px; border-radius: 22px;
-    font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;
-    transition: opacity 0.2s;
-  }
-  .daily-read .daily-read-btn:hover { opacity: 0.85; }
-  @media (max-width: 768px) {
-    .daily-read { flex-direction: column; text-align: center; padding: 20px; }
-  }
-</style>
-<section class="daily-read" aria-label="今日精读">
-  <div class="daily-read-icon">📅</div>
-  <div class="daily-read-body">
-    <div class="daily-read-label">今 日 精 读</div>
-    <div class="daily-read-text" id="daily-read-text"></div>
-  </div>
-  <a class="daily-read-btn" id="daily-read-link" href="books/fisher/">去读这一章 →</a>
-</section>
+<!-- ===== 今日精读推荐逻辑 ===== -->
 <script>
 (function() {
   var books = [];
   Object.keys(AppData.BOOK_META).forEach(function(slug) {
     var m = AppData.BOOK_META[slug];
-    books.push({ slug: slug, title: m.title, ch: m.chapters });
+    books.push({ slug: slug, title: m.title, ch: m.chapters, school: m.school, schoolName: m.schoolName });
   });
 
-  // 获取已读章节，用于过滤
   var progress = AppData.getProgress();
   var readSet = {};
   Object.keys(progress).forEach(function(slug) {
@@ -694,21 +338,20 @@
     }
   });
 
-  // 过滤出未读的章节
   var unreadChapters = [];
   books.forEach(function(b) {
     for (var c = 1; c <= b.ch; c++) {
       if (!readSet[b.slug + '_' + c]) {
-        unreadChapters.push({ slug: b.slug, title: b.title, chapter: c });
+        unreadChapters.push({ slug: b.slug, title: b.title, chapter: c, schoolName: b.schoolName });
       }
     }
   });
 
-  // 如果全部读完，随机选一章
+  // 全部读完则随机重温
   if (unreadChapters.length === 0) {
     books.forEach(function(b) {
       for (var c = 1; c <= b.ch; c++) {
-        unreadChapters.push({ slug: b.slug, title: b.title, chapter: c });
+        unreadChapters.push({ slug: b.slug, title: b.title, chapter: c, schoolName: b.schoolName });
       }
     });
   }
@@ -721,52 +364,34 @@
   h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
   h = (h ^ (h >>> 16)) >>> 0;
   var pick = unreadChapters[h % unreadChapters.length];
+
+  var reasons = [
+    '今天适合从 ' + pick.schoolName + ' 流派入手',
+    '这一章能帮你建立关键认知框架',
+    '补充你的知识薄弱环节',
+    '大师智慧的精华浓缩'
+  ];
+  var reason = reasons[h % reasons.length];
   var label = readSet[pick.slug + '_' + pick.chapter] ? '（全部读过，随机重温）' : '';
+
   document.getElementById('daily-read-text').innerHTML =
-    '今天推荐你读：<strong>《' + pick.title + '》</strong>第' + pick.chapter + '章' + label;
+    '今天推荐你读：<strong>《' + pick.title + '》</strong>第' + pick.chapter + '章' + label +
+    '<span class="daily-reason">' + reason + '</span>';
   document.getElementById('daily-read-link').setAttribute('href', 'books/' + pick.slug + '/#ch' + pick.chapter);
 })();
 </script>
-
-<!-- 修行总览 -->
-<section class="practice-summary" aria-label="修行总览">
-  <div class="summary-title">📊 修行总览</div>
-  <div class="streak-row" id="streakRow"></div>
-  <div class="summary-stats" id="summaryStats"></div>
-  <div class="xp-bar-head">
-    <span id="xpBarLabel">经验值</span>
-    <span id="xpBarNums"></span>
-  </div>
-  <div class="xp-bar"><div class="xp-fill" id="xpFill" style="width:0%"></div></div>
-</section>
-
-<!-- 底部链接 -->
-<div class="bottom-links">
-  <a class="go-bookshelf" href="bookshelf.html">📚 查看完整书架 →</a>
-  <a class="go-top" href="#top">⛰️ 投资修行 · 回到顶部</a>
-</div>
-
-<!-- 底部 -->
-<div class="shelf-footer">
-  <p>📚 AI精读笔记 · 用投资大师的方法论，建立你的投资体系</p>
-  <p style="margin-top:8px;font-size:12px;">精读笔记为原创解读内容，基于公开书籍进行评论和介绍，不替代原书阅读。</p>
-</div>
-
-</div>
 
 <!-- ===== 五域修行核心逻辑 ===== -->
 <script>
 (function() {
   'use strict';
 
-  // ===== 静态数据（来自共享 data.js） =====
   var BOOK_META = AppData.BOOK_META;
   var DOMAINS = AppData.DOMAINS;
   var LEVELS = AppData.LEVELS;
   var LV_COLOR = AppData.LV_COLOR;
   var LV_EMOJI = AppData.LV_EMOJI;
 
-  // ===== 数据读取 =====
   function safeJSON(str, fallback) {
     try { return JSON.parse(str) || fallback; } catch (e) { return fallback; }
   }
@@ -778,16 +403,14 @@
     };
   }
 
-  var DATA = null; // renderAll 时填充
+  var DATA = null;
 
-  // ===== 进度计算 =====
   function computeBookProgress(slug) {
     var meta = BOOK_META[slug];
     var total = meta ? meta.chapters : 0;
     var p = DATA.progress[slug];
     var read = 0;
     if (p && p.chaptersRead && p.chaptersRead.length) {
-      // 去重防脏数据
       var seen = {};
       p.chaptersRead.forEach(function(c) { seen[c] = true; });
       read = Math.min(Object.keys(seen).length, total);
@@ -814,17 +437,9 @@
     };
   }
 
-  // ===== XP 与等级 =====
-  // 公式：每读一章 1 XP；每条收藏原则 2 XP；每读完一本书额外 5 XP；每开始一座山额外 2 XP
-  function computeXP() {
-    return AppData.computeXP();
-  }
+  function computeXP() { return AppData.computeXP(); }
+  function computeLevel(xp) { return AppData.computeLevel(xp); }
 
-  function computeLevel(xp) {
-    return AppData.computeLevel(xp);
-  }
-
-  // ===== DOM 工具 =====
   function el(tag, cls, text) {
     var node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -832,20 +447,19 @@
     return node;
   }
 
-  // ===== 渲染：单张域卡片 =====
+  // ===== 渲染域卡片 =====
   function renderDomainCard(domain) {
     var card = el('section', 'domain-card');
     card.style.setProperty('--domain-color', domain.color);
     card.setAttribute('aria-label', domain.name);
 
-    // 标题行
     var head = el('header', 'domain-head');
     var titleWrap = el('div', 'domain-title-wrap');
     var h2 = el('h2', 'domain-title');
     var emojiSpan = el('span', 'domain-emoji', domain.emoji);
     h2.appendChild(emojiSpan);
-    h2.appendChild(document.createTextNode(' ' + domain.name + ' '));
-    h2.appendChild(el('span', 'domain-q', '· ' + domain.question));
+    h2.appendChild(document.createTextNode(' ' + domain.name));
+    h2.appendChild(el('span', 'domain-q', ' · ' + domain.question));
     titleWrap.appendChild(h2);
 
     var masterRow = el('div', 'domain-master');
@@ -857,12 +471,26 @@
     // 域进度徽章
     var dp = computeDomainProgress(domain.key);
     var badge = el('div', 'domain-progress-badge');
-    badge.appendChild(document.createTextNode(dp.started ? ('⛰️ ' + dp.pct + '%') : '未启程'));
+    badge.appendChild(document.createTextNode(dp.started ? ('' + dp.pct + '%') : '未启程'));
     badge.appendChild(el('span', 'sub', '已读 ' + dp.read + '/' + dp.total + ' 章'));
     head.appendChild(badge);
     card.appendChild(head);
 
-    // 书籍列（按难度 L1→L4）
+    // 域描述
+    if (domain.description) {
+      var descEl = el('div', 'domain-desc', domain.description);
+      card.appendChild(descEl);
+    }
+
+    // 展开按钮
+    var expandBtn = el('button', 'domain-expand-btn');
+    expandBtn.innerHTML = '简介 <span class="expand-arrow">▾</span>';
+    expandBtn.addEventListener('click', function() {
+      card.classList.toggle('expanded');
+    });
+    card.appendChild(expandBtn);
+
+    // 书籍列
     var list = el('div', 'domain-books');
     var sorted = domain.books.slice().sort(function(a, b) { return a.lv - b.lv; });
     sorted.forEach(function(b) {
@@ -891,7 +519,7 @@
         bp.read === 0 ? '未开始' : (bp.read + '/' + bp.total + '章'));
       row.appendChild(count);
 
-      var go = el('a', 'book-go', bp.read === 0 ? '开始读→' : '继续读→');
+      var go = el('a', 'book-go', bp.read === 0 ? '开始读' : '继续读');
       go.href = 'books/' + b.slug + '/';
       row.appendChild(go);
 
@@ -901,7 +529,7 @@
 
     // 跨山连接
     var links = el('div', 'domain-links');
-    var labelEl = el('div', 'links-label', '🔗 跨山连接 · 来自其他山的相关章节');
+    var labelEl = el('div', 'links-label', '跨山连接 · 来自其他山的相关章节');
     links.appendChild(labelEl);
 
     var crossWrap = el('div', 'cross-rows-wrap');
@@ -909,8 +537,8 @@
       var meta = BOOK_META[c.slug];
       var row = el('div', 'cross-row');
       row.appendChild(el('span', 'cross-book', meta.title));
-      row.appendChild(document.createTextNode('· ' + c.label + ' '));
-      var a = el('a', null, '去读 →');
+      row.appendChild(document.createTextNode(' · ' + c.label + ' '));
+      var a = el('a', null, '去读 ');
       a.href = 'books/' + c.slug + '/#ch' + c.ch;
       row.appendChild(a);
       crossWrap.appendChild(row);
@@ -918,7 +546,7 @@
     links.appendChild(crossWrap);
     card.appendChild(links);
 
-    // 移动端：跨山连接折叠交互
+    // 移动端折叠
     if (window.innerWidth <= 768) {
       crossWrap.classList.add('collapsed');
       labelEl.classList.remove('open');
@@ -932,13 +560,10 @@
     return card;
   }
 
-  // ===== 渲染：Hero 等级徽章 + 迷你山 =====
+  // ===== Hero 渲染 =====
   function renderHero(stats, levelInfo) {
     var badge = document.getElementById('heroLevelBadge');
-    badge.innerHTML = '';
-    badge.appendChild(document.createTextNode(
-      levelInfo.emoji + ' Lv.' + levelInfo.level + ' ' + levelInfo.name + ' · ' + stats.xp + ' XP'
-    ));
+    badge.textContent = levelInfo.emoji + ' Lv.' + levelInfo.level + ' ' + levelInfo.name + ' · ' + stats.xp + ' XP';
 
     var wrap = document.getElementById('miniMountains');
     wrap.innerHTML = '';
@@ -950,39 +575,35 @@
       wrap.appendChild(tag);
     });
 
-    // 更新金字塔位置标记
     updatePyramidMarker(stats);
   }
 
-  // ===== 渲染：金字塔位置标记 =====
   function updatePyramidMarker(stats) {
     var marker = document.getElementById('pyramidMarker');
+    var line = document.getElementById('pyramidMarkerLine');
     if (!marker) return;
-    // 金字塔 y 范围：顶部 20 → 底部 280，XP 越高越往上
     var maxXP = LEVELS[LEVELS.length - 1].xpNeeded;
-    var xpPct = Math.min(stats.xp / Math.max(maxXP, 1), 1);
-    // 根据 startedDomains 决定在哪个域，域内按 XP 百分比微调
     var domainIdx = Math.min(stats.startedDomains, 4);
-    // 每层约 50px，域内 XP 进度微调 ±20px
-    var baseY = 260 - domainIdx * 50;
-    var fineY = (1 - xpPct) * 30; // XP 越高越往上
+    var baseY = 280 - domainIdx * 56;
+    var xpPct = Math.min(stats.xp / Math.max(maxXP, 1), 1);
+    var fineY = (1 - xpPct) * 24;
     var y = baseY - fineY;
-    y = Math.max(28, Math.min(272, y)); // 限制在金字塔内
+    y = Math.max(40, Math.min(290, y));
     marker.setAttribute('transform', 'translate(420,' + y + ')');
-    var line = marker.parentNode.querySelector('line');
     if (line) {
       line.setAttribute('y1', y + 4);
       line.setAttribute('y2', y + 4);
     }
   }
 
-  // ===== 渲染：能力雷达图 =====
+  // ===== 雷达图渲染 =====
   function renderRadar(stats) {
     var chartEl = document.getElementById('radarChart');
     var statsEl = document.getElementById('abilityStats');
+    var seedEl = document.getElementById('abilitySeed');
+    var activeEl = document.getElementById('abilityActive');
     if (!chartEl || !statsEl) return;
 
-    // 计算五维能力值（从阅读数据推导）
     var dims = [];
     var dimNames = ['心性', '估值', '商业', '周期', '不确定性'];
     var dimColors = ['#7b4fbf', '#2c6faa', '#2d7d46', '#c75b39', '#b8860b'];
@@ -992,61 +613,68 @@
       dims.push(Math.min(dp.pct, 100));
     });
 
-    // 如果所有维度都是 0，显示默认值（新用户）
     var allZero = dims.every(function(d) { return d === 0; });
-    if (allZero) dims = [15, 10, 5, 5, 0];
 
-    var cx = 160, cy = 160, r = 130;
-    var n = 5;
-    var angleStep = Math.PI * 2 / n;
-    var startAngle = -Math.PI / 2; // 从顶部开始
-
-    function polarToCart(angle, radius) {
-      return {
-        x: cx + radius * Math.cos(angle),
-        y: cy + radius * Math.sin(angle)
-      };
+    // 种子态：无阅读数据
+    if (allZero) {
+      if (activeEl) activeEl.hidden = true;
+      if (seedEl) seedEl.hidden = false;
+      return;
     }
 
-    // 构建 SVG
+    // 有数据：显示雷达图
+    if (activeEl) activeEl.hidden = false;
+    if (seedEl) seedEl.hidden = true;
+
+    var cx = 200, cy = 200, r = 150;
+    var n = 5;
+    var angleStep = Math.PI * 2 / n;
+    var startAngle = -Math.PI / 2;
+
+    function polarToCart(angle, radius) {
+      return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+    }
+
     var svgParts = [];
-    svgParts.push('<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">');
+    svgParts.push('<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">');
+
+    // 渐变填充多边形
+    svgParts.push('<defs><linearGradient id="radarFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#c75b39" stop-opacity="0.22"/><stop offset="100%" stop-color="#2c6faa" stop-opacity="0.18"/></linearGradient></defs>');
 
     // 网格圆环
     [0.25, 0.5, 0.75, 1].forEach(function(scale) {
-      svgParts.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * scale) + '" fill="none" stroke="#e8e5df" stroke-width="0.5"/>');
+      svgParts.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (r * scale) + '" fill="none" stroke="#d4d0c5" stroke-width="0.8" stroke-dasharray="4,4"/>');
     });
 
     // 轴线
     for (var i = 0; i < n; i++) {
       var a = startAngle + i * angleStep;
       var p = polarToCart(a, r);
-      svgParts.push('<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '" stroke="#e8e5df" stroke-width="0.5"/>');
+      svgParts.push('<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x + '" y2="' + p.y + '" stroke="#d4d0c5" stroke-width="0.8"/>');
     }
 
     // 数据多边形
     var dataPoints = [];
     for (var i = 0; i < n; i++) {
       var a = startAngle + i * angleStep;
-      var val = dims[i] / 100;
+      var val = Math.max(dims[i], 3) / 100;
       var p = polarToCart(a, r * val);
       dataPoints.push(p.x + ',' + p.y);
     }
-    svgParts.push('<polygon points="' + dataPoints.join(' ') + '" fill="rgba(199,91,57,0.12)" stroke="#c75b39" stroke-width="1.5" stroke-linejoin="round"/>');
+    svgParts.push('<polygon points="' + dataPoints.join(' ') + '" fill="url(#radarFill)" stroke="#c75b39" stroke-width="2.2" stroke-linejoin="round"/>');
 
     // 数据点 + 数值标签
     for (var i = 0; i < n; i++) {
       var a = startAngle + i * angleStep;
-      var val = dims[i] / 100;
+      var val = Math.max(dims[i], 3) / 100;
       var p = polarToCart(a, r * val);
-      svgParts.push('<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="#c75b39" stroke="#fff" stroke-width="2"/>');
-      // 数值标签
-      var lp = polarToCart(a, r * val + 16);
-      svgParts.push('<text x="' + lp.x + '" y="' + lp.y + '" text-anchor="middle" fill="#6b6b6b" font-size="10" font-weight="600" font-family="system-ui,sans-serif">' + dims[i] + '</text>');
+      svgParts.push('<circle cx="' + p.x + '" cy="' + p.y + '" r="5" fill="' + dimColors[i] + '" stroke="#fff" stroke-width="2"/>');
+      var lp = polarToCart(a, r * val + 20);
+      svgParts.push('<text x="' + lp.x + '" y="' + lp.y + '" text-anchor="middle" fill="#555" font-size="11" font-weight="700" font-family="system-ui,sans-serif">' + dims[i] + '</text>');
     }
 
     // 轴标签
-    var labelOffset = r + 22;
+    var labelOffset = r + 16;
     var labels = [
       { name: '心性', sub: '修炼内功' },
       { name: '估值', sub: '量化价值' },
@@ -1054,24 +682,26 @@
       { name: '周期', sub: '读懂时间' },
       { name: '不确定性', sub: '接受无常' }
     ];
-    var textAnchors = ['middle', 'start', 'start', 'end', 'end'];
+    var textAnchors = ['middle', 'end', 'end', 'start', 'start'];
     for (var i = 0; i < n; i++) {
       var a = startAngle + i * angleStep;
       var p = polarToCart(a, labelOffset);
-      svgParts.push('<text x="' + p.x + '" y="' + p.y + '" text-anchor="' + textAnchors[i] + '" fill="#2c2c2c" font-size="12" font-weight="700" font-family="system-ui,sans-serif">' + labels[i].name + '</text>');
-      var subP = polarToCart(a, labelOffset + 14);
-      svgParts.push('<text x="' + subP.x + '" y="' + subP.y + '" text-anchor="' + textAnchors[i] + '" fill="#999" font-size="10" font-family="system-ui,sans-serif">' + labels[i].sub + '</text>');
+      svgParts.push('<text x="' + p.x + '" y="' + p.y + '" text-anchor="' + textAnchors[i] + '" fill="#2c2c2c" font-size="13" font-weight="700" font-family="system-ui,sans-serif">' + labels[i].name + '</text>');
+      var subP = polarToCart(a, labelOffset + 16);
+      svgParts.push('<text x="' + subP.x + '" y="' + subP.y + '" text-anchor="' + textAnchors[i] + '" fill="#888" font-size="11" font-family="system-ui,sans-serif">' + labels[i].sub + '</text>');
     }
 
     // 中心等级徽章
-    svgParts.push('<circle cx="' + cx + '" cy="' + cy + '" r="22" fill="#fff" stroke="#e8e5df" stroke-width="0.8"/>');
-    svgParts.push('<text x="' + cx + '" y="' + (cy - 3) + '" text-anchor="middle" fill="#2c2c2c" font-size="11" font-weight="700" font-family="system-ui,sans-serif">Lv.' + (LEVELS.findIndex(function(l) { return l.xpNeeded <= stats.xp; }) + 1) + '</text>');
-    svgParts.push('<text x="' + cx + '" y="' + (cy + 11) + '" text-anchor="middle" fill="#999" font-size="9" font-family="system-ui,sans-serif">' + stats.xp + ' XP</text>');
+    svgParts.push('<circle cx="' + cx + '" cy="' + cy + '" r="26" fill="#fff" stroke="#d4d0c5" stroke-width="1"/>');
+    var lvlIdx = LEVELS.findIndex(function(l) { return l.xpNeeded <= stats.xp; });
+    if (lvlIdx < 0) lvlIdx = 0;
+    svgParts.push('<text x="' + cx + '" y="' + (cy - 3) + '" text-anchor="middle" fill="#2c2c2c" font-size="13" font-weight="700" font-family="system-ui,sans-serif">Lv.' + (lvlIdx + 1) + '</text>');
+    svgParts.push('<text x="' + cx + '" y="' + (cy + 14) + '" text-anchor="middle" fill="#888" font-size="11" font-family="system-ui,sans-serif">' + stats.xp + ' XP</text>');
 
     svgParts.push('</svg>');
     chartEl.innerHTML = svgParts.join('');
 
-    // 右侧统计卡片
+    // 右侧统计
     var strongest = 0, weakest = 0;
     for (var i = 1; i < n; i++) {
       if (dims[i] > dims[strongest]) strongest = i;
@@ -1094,11 +724,11 @@
       '</div>' +
       '<div class="ability-stat-card">' +
         '<div class="stat-label">建议下一步</div>' +
-        '<div class="stat-value" style="color:#2c6faa">资产评估 <span style="color:#999;font-size:12px">↗</span></div>' +
+        '<div class="stat-value" style="color:' + dimColors[weakest] + '">' + dimNames[weakest] + ' <span style="color:#999;font-size:12px">优先</span></div>' +
       '</div>';
   }
 
-  // ===== 渲染：修行总览 =====
+  // ===== 修行总览 =====
   function renderSummary(stats, levelInfo) {
     var box = document.getElementById('summaryStats');
     box.innerHTML = '';
@@ -1108,16 +738,15 @@
       c.innerHTML = html;
       box.appendChild(c);
     }
-    chip('⛰️ 已爬 <strong>' + stats.startedDomains + '/5</strong> 座山');
-    chip('📖 已读 <strong>' + stats.chaptersTotal + '</strong> 章');
-    chip('🏅 修行等级：<strong>' + levelInfo.level + '级 · ' + levelInfo.name + '</strong>');
-    chip('💡 收藏原则：<strong>' + stats.principles + '</strong> 条');
+    chip('已爬 <strong>' + stats.startedDomains + '/5</strong> 座山');
+    chip('已读 <strong>' + stats.chaptersTotal + '</strong> 章');
+    chip('修行等级：<strong>' + levelInfo.level + '级 · ' + levelInfo.name + '</strong>');
+    chip('收藏原则：<strong>' + stats.principles + '</strong> 条');
     var nextText = levelInfo.next
-      ? '⚡ 经验值：<strong>' + stats.xp + ' / ' + levelInfo.next.xpNeeded + '</strong>（升至 ' + levelInfo.next.name + '）'
-      : '⚡ 经验值：<strong>' + stats.xp + '</strong>（已达最高级）';
+      ? '经验值：<strong>' + stats.xp + ' / ' + levelInfo.next.xpNeeded + '</strong>（升至 ' + levelInfo.next.name + '）'
+      : '经验值：<strong>' + stats.xp + '</strong>（已达最高级）';
     chip(nextText);
 
-    // XP 进度条
     var pct;
     var label = document.getElementById('xpBarLabel');
     var nums = document.getElementById('xpBarNums');
@@ -1126,7 +755,7 @@
       pct = span > 0 ? Math.round((stats.xp - levelInfo.xpNeeded) / span * 100) : 100;
       pct = Math.max(0, Math.min(100, pct));
       label.textContent = levelInfo.emoji + ' Lv.' + levelInfo.level + ' ' + levelInfo.name +
-        ' → ' + levelInfo.next.emoji + ' Lv.' + levelInfo.next.level + ' ' + levelInfo.next.name;
+        '  ' + levelInfo.next.emoji + ' Lv.' + levelInfo.next.level + ' ' + levelInfo.next.name;
       nums.textContent = stats.xp + ' / ' + levelInfo.next.xpNeeded + ' XP';
     } else {
       pct = 100;
@@ -1135,11 +764,9 @@
     }
     document.getElementById('xpFill').style.width = pct + '%';
 
-    // Streak 渲染
     renderStreak();
   }
 
-  // ===== Streak 渲染 =====
   function renderStreak() {
     var row = document.getElementById('streakRow');
     if (!row) return;
@@ -1149,22 +776,19 @@
     var dates = streak.dates || [];
 
     row.innerHTML = '';
-
-    // Streak 徽章
     if (current > 0) {
       var badge = document.createElement('span');
       badge.className = 'streak-badge lit';
-      badge.innerHTML = '<span class="streak-fire">🔥</span> 连续学习 <strong>' + current + '</strong> 天' +
+      badge.innerHTML = '<span class="streak-fire"></span> 连续学习 <strong>' + current + '</strong> 天' +
         (longest > current ? ' · 最长 ' + longest + ' 天' : '');
       row.appendChild(badge);
     } else {
       var hint = document.createElement('span');
       hint.style.cssText = 'font-size:13px;color:var(--text-secondary);';
-      hint.textContent = '读完第一章开启连续学习记录 🔥';
+      hint.textContent = '读完第一章开启连续学习记录 ';
       row.appendChild(hint);
     }
 
-    // 近7天日历
     var weekDiv = document.createElement('div');
     weekDiv.className = 'streak-week';
     var dayNames = ['一', '二', '三', '四', '五', '六', '日'];
@@ -1179,7 +803,7 @@
       var dayEl = document.createElement('span');
       dayEl.className = 'streak-day' + (isDone ? ' done' : '') + (isToday ? ' today' : '');
       dayEl.textContent = dayNames[d.getDay() === 0 ? 6 : d.getDay() - 1];
-      dayEl.title = dateStr + (isDone ? ' ✓ 已学习' : '');
+      dayEl.title = dateStr + (isDone ? '  已学习' : '');
       weekDiv.appendChild(dayEl);
     }
     row.appendChild(weekDiv);
@@ -1203,14 +827,13 @@
     renderSummary(stats, levelInfo);
   }
 
-  // ===== 新用户引导（轻量横幅） =====
+  // ===== 新用户引导 =====
   function initOnboarding() {
     var KEY = 'onboarding_done_v2';
     try {
       if (localStorage.getItem(KEY) === 'true') return;
     } catch(e) { return; }
 
-    // 有阅读记录则跳过
     var progress = AppData.getProgress();
     var hasProgress = Object.keys(progress).some(function(k) {
       return progress[k] && progress[k].chaptersRead && progress[k].chaptersRead.length > 0;
@@ -1224,12 +847,10 @@
     if (!banner) return;
     banner.hidden = false;
 
-    // 点击"开始测试"→ 滚动到 book-quiz
     document.getElementById('obBannerBtn').addEventListener('click', function() {
       var quiz = document.querySelector('.book-quiz');
       if (quiz) {
         quiz.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        // 自动点击 book-quiz 的开始按钮
         setTimeout(function() {
           var startBtn = document.getElementById('quiz-start');
           if (startBtn && !startBtn.hidden) startBtn.click();
@@ -1237,12 +858,10 @@
       }
     });
 
-    // 监听 book-quiz 的结果展示，将结果同步到引导横幅
     observeQuizResult(KEY, banner);
   }
 
   function observeQuizResult(KEY, banner) {
-    // 用 MutationObserver 监听 book-quiz 的结果出现
     var quizCard = document.querySelector('.book-quiz .quiz-card');
     if (!quizCard) return;
 
@@ -1253,14 +872,13 @@
       if (resultTitle && resultDesc && resultLink) {
         observer.disconnect();
 
-        // 隐藏引导横幅，显示结果横幅
         banner.hidden = true;
         var resultBanner = document.getElementById('onboardingResult');
         if (resultBanner) {
           var titleText = (resultTitle.textContent || '').trim();
           var descText = (resultDesc.textContent || '').trim();
           resultBanner.hidden = false;
-          document.getElementById('obResultEmoji').textContent = '📖';
+          document.getElementById('obResultEmoji').textContent = '';
           document.getElementById('obResultText').innerHTML =
             '<strong>你的投资大师之书：' + (titleText || '为你推荐一本精读书') + '</strong><br>' +
             '<span style="font-size:13px;color:var(--text-secondary);">' + (descText || '点击下方按钮开始精读之旅') + '</span>';
@@ -1270,7 +888,6 @@
     });
     observer.observe(quizCard, { childList: true, subtree: true });
 
-    // 关闭结果横幅
     var dismissBtn = document.getElementById('obDismiss');
     if (dismissBtn) {
       dismissBtn.addEventListener('click', function() {
@@ -1280,7 +897,6 @@
       });
     }
 
-    // 点击"开始精读"也标记完成
     var resultLink = document.getElementById('obResultLink');
     if (resultLink) {
       resultLink.addEventListener('click', function() {
@@ -1334,7 +950,7 @@
     content.classList.add('fading');
     setTimeout(function() {
       text.textContent = q.text;
-      source.innerHTML = '<a href="books/' + q.slug + '/" style="color:#8a7a6a;text-decoration:none;">' + q.source + ' →</a>';
+      source.innerHTML = '<a href="books/' + q.slug + '/" style="color:#8a7a6a;text-decoration:none;">' + q.source + ' </a>';
       content.classList.remove('fading');
       var dots = document.querySelectorAll('.quote-dot');
       dots.forEach(function(dot, i) { dot.classList.toggle('active', i === index); });
@@ -1362,5 +978,44 @@
   });
 })();
 </script>
+
+<!-- ===== 屏间导航控制 ===== -->
+<script>
+(function() {
+  var screens = document.querySelectorAll('.practice-screen');
+  var navDots = document.querySelectorAll('.screen-nav-dot');
+  var nav = document.getElementById('screenNav');
+  if (!screens.length || !navDots.length) return;
+
+  // 点击导航点
+  navDots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(dot.getAttribute('data-screen'));
+      if (screens[idx]) {
+        screens[idx].scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // 滚动时高亮当前屏
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(screens, entry.target);
+        navDots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+        // 在暗色/亮色屏切换指示器颜色
+        if (idx === 0) {
+          nav.classList.remove('invert');
+        } else {
+          nav.classList.add('invert');
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+
+  screens.forEach(function(s) { observer.observe(s); });
+})();
+</script>
+
 </body>
 </html>
