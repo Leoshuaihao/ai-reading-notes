@@ -36,7 +36,7 @@ var AppData = (function() {
     'antifragile':          { title: '反脆弱',             chapters: 24, school: 'uncertainty', schoolName: '不确定' },
     'principles':          { title: '原则',               chapters: 38, school: 'mind',        schoolName: '心理' },
     'random-walk':          { title: '漫步华尔街',         chapters: 22, school: 'uncertainty', schoolName: '不确定' },
-    'richdad':             { title: '富爸爸穷爸爸',       chapters: 13, school: 'business',     schoolName: '商业' }
+    'richdad':             { title: '富爸爸穷爸爸',       chapters: 13, school: 'value',     schoolName: '商业' }
   };
 
   /** 五域修行体系 */

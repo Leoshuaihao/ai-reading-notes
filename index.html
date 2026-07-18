@@ -1452,6 +1452,18 @@
 })();
 </script>
 
+<div class="poster-modal" id="posterModal" hidden>
+  <div class="poster-backdrop" id="posterBackdrop"></div>
+  <div class="poster-dialog">
+    <button class="poster-close" id="posterClose">&times;</button>
+    <canvas id="posterCanvas" width="750" height="1000"></canvas>
+    <div class="poster-actions">
+      <a class="poster-download" id="posterDownload" download="ai-reading-achievement.png">  保存图片</a>
+      <button class="poster-copy-btn" id="posterCopy">  复制到剪贴板</button>
+    </div>
+  </div>
+</div>
+
 <!-- ===== 成就海报 ===== -->
 <script>
 (function() {
@@ -1602,7 +1614,8 @@
     ctx.fillText(line, x, cy);
   }
 
-  // 按钮事件
+  // 按钮事件（等DOM就绪）
+  document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('posterBtn').addEventListener('click', function() {
     drawPoster();
     modal.hidden = false;
@@ -1626,6 +1639,7 @@
       }
     });
   });
+  }); // DOMContentLoaded
 })();
 </script>
 
@@ -1738,8 +1752,8 @@
     if (type === 'q') {
       div.innerHTML = '<div class="aic-msg-q">  你问' + (title ? ' · ' + title : '') + '</div><div>' + text.replace(/</g,'&lt;') + '</div>';
     } else {
-      div.innerHTML = '<div class="aic-msg-a">' + text.replace(/
-/g,'<br>') + '</div>';
+      div.innerHTML = '<div class="aic-msg-a">' + text.split('
+').join('<br>') + '</div>';
     }
     if (msgs.querySelector('.aic-empty')) msgs.querySelector('.aic-empty').remove();
     msgs.appendChild(div);
@@ -1791,16 +1805,5 @@
   <a href="bookshelf.html"><span class="mti"></span>书架</a>
   <a href="my.html"><span class="mti"></span>我的</a>
 </nav>
-<div class="poster-modal" id="posterModal" hidden>
-  <div class="poster-backdrop" id="posterBackdrop"></div>
-  <div class="poster-dialog">
-    <button class="poster-close" id="posterClose">&times;</button>
-    <canvas id="posterCanvas" width="750" height="1000"></canvas>
-    <div class="poster-actions">
-      <a class="poster-download" id="posterDownload" download="ai-reading-achievement.png">  保存图片</a>
-      <button class="poster-copy-btn" id="posterCopy">  复制到剪贴板</button>
-    </div>
-  </div>
-</div>
 </body>
 </html>
