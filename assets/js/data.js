@@ -34,8 +34,9 @@ var AppData = (function() {
     'fooled-by-randomness': { title: '随机漫步的傻瓜',     chapters: 14, school: 'uncertainty', schoolName: '不确定' },
     'black-swan':           { title: '黑天鹅',             chapters: 19, school: 'uncertainty', schoolName: '不确定' },
     'antifragile':          { title: '反脆弱',             chapters: 24, school: 'uncertainty', schoolName: '不确定' },
-    'principles':          { title: '原则',               chapters: 16, school: 'mind',        schoolName: '心理' },
-    'random-walk':          { title: '漫步华尔街',         chapters: 15, school: 'uncertainty', schoolName: '不确定' }
+    'principles':          { title: '原则',               chapters: 38, school: 'mind',        schoolName: '心理' },
+    'random-walk':          { title: '漫步华尔街',         chapters: 22, school: 'uncertainty', schoolName: '不确定' },
+    'richdad':             { title: '富爸爸穷爸爸',       chapters: 13, school: 'business',     schoolName: '商业' }
   };
 
   /** 五域修行体系 */
@@ -107,7 +108,8 @@ var AppData = (function() {
         { slug: 'black-swan', lv: 3 },
         { slug: 'fooled-by-randomness', lv: 3 },
         { slug: 'antifragile', lv: 4 },
-        { slug: 'random-walk', lv: 3 }
+        { slug: 'random-walk', lv: 3 },
+        { slug: 'richdad', lv: 1 }
       ],
       cross: [
         { slug: 'market-cycle', ch: 8, label: '第8章「风险态度周期」' },
