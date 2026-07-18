@@ -933,20 +933,17 @@
   function updatePyramidMarker(stats) {
     var marker = document.getElementById('pyramidMarker');
     if (!marker) return;
-    // 根据 XP 计算在金字塔中的位置（底部=心性，顶部=不确定性）
+    // 金字塔 y 范围：顶部 20 → 底部 280，XP 越高越往上
     var maxXP = LEVELS[LEVELS.length - 1].xpNeeded;
-    var pct = Math.min(stats.xp / maxXP, 1);
-    // 金字塔 y 范围：顶部 20 → 底部 280，但我们要反过来（XP 越高越往上）
-    var y = 270 - pct * 240;
-    // 根据当前层级决定在哪个域
-    var domainIdx = 0;
-    if (stats.startedDomains >= 5) domainIdx = 4;
-    else if (stats.startedDomains >= 3) domainIdx = 3;
-    else if (stats.startedDomains >= 2) domainIdx = 2;
-    else if (stats.startedDomains >= 1) domainIdx = 1;
-    y = 260 - domainIdx * 50;
+    var xpPct = Math.min(stats.xp / Math.max(maxXP, 1), 1);
+    // 根据 startedDomains 决定在哪个域，域内按 XP 百分比微调
+    var domainIdx = Math.min(stats.startedDomains, 4);
+    // 每层约 50px，域内 XP 进度微调 ±20px
+    var baseY = 260 - domainIdx * 50;
+    var fineY = (1 - xpPct) * 30; // XP 越高越往上
+    var y = baseY - fineY;
+    y = Math.max(28, Math.min(272, y)); // 限制在金字塔内
     marker.setAttribute('transform', 'translate(420,' + y + ')');
-    // 更新引线
     var line = marker.parentNode.querySelector('line');
     if (line) {
       line.setAttribute('y1', y + 4);

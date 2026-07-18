@@ -239,27 +239,11 @@
   </div>
 </section>
 
-<!-- ==================== 经验条 ==================== -->
-<section class="xp-section" id="xpSection">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-    <div class="my-section-title" style="margin-bottom:0;">⚡ 修行经验</div>
-    <span class="xp-label" id="xpLabel">等级 1 · 见习学徒</span>
-  </div>
-  <div class="xp-bar-wrap">
-    <span style="font-size:13px;color:var(--text-secondary)">Lv.<span id="xpLevel">1</span></span>
-    <div class="xp-bar-track"><div class="xp-bar-fill" id="xpFill"></div></div>
-    <span style="font-size:13px;color:var(--text-secondary)">Lv.<span id="xpLevelNext">2</span></span>
-  </div>
-  <div class="xp-next" id="xpNext">再来 X 点经验，你就升级到「初级行者」</div>
-</section>
-
-<!-- ==================== 统计数据 ==================== -->
+<!-- ==================== 统计数据（精简版，与 index 互补） ==================== -->
 <div class="stats-bar" id="statsBar">
-  <div class="stat-item"><div class="stat-num" id="statLevel">1</div><div class="stat-label">修行等级</div></div>
   <div class="stat-item"><div class="stat-num" id="statBooks">0</div><div class="stat-label">本在读书</div></div>
   <div class="stat-item"><div class="stat-num" id="statChapters">0</div><div class="stat-label">章已读</div></div>
   <div class="stat-item"><div class="stat-num" id="statPrinciples">0</div><div class="stat-label">条收藏原则</div></div>
-  <div class="stat-item"><div class="stat-num" id="statTotalXp">0</div><div class="stat-label">总经验值</div></div>
   <div class="stat-item"><div class="stat-num" id="statStreak" style="color:var(--gold)">0</div><div class="stat-label">🔥 连续学习（天）</div></div>
 </div>
 
@@ -371,7 +355,6 @@ function renderAll() {
 
   updateLevelBadge(stats);
   updateMountain(stats, progress);
-  updateXPBar(stats);
   updateStatsBar(stats);
   updateSkillTree(stats, progress);
   updateAchievements(stats);
@@ -432,28 +415,11 @@ function updateMountain(stats, progress) {
 }
 
 // ===== 经验条 =====
-function updateXPBar(stats) {
-  var cur = stats.level;
-  var nx = cur.next || LEVELS[LEVELS.length - 1]; // next level if exists
-  var cxp = stats.xp - cur.xpNeeded;
-  var mxp = (nx.xpNeeded - cur.xpNeeded) || 1;
-  document.getElementById('xpFill').style.width = Math.min(cxp/mxp*100, 100) + '%';
-  document.getElementById('xpLevel').textContent = cur.level;
-  document.getElementById('xpLevelNext').textContent = nx.level;
-  document.getElementById('xpLabel').textContent = '等级 ' + cur.level + ' · ' + cur.name;
-  const remain = Math.max(0, nx.xpNeeded - stats.xp);
-  document.getElementById('xpNext').textContent = remain > 0
-    ? `再来 ${remain} 点经验，你就升级到「${nx.name}」`
-    : '已达到最高等级！';
-}
-
 // ===== 统计条 =====
 function updateStatsBar(stats) {
-  document.getElementById('statLevel').textContent = stats.level.level;
   document.getElementById('statBooks').textContent = stats.booksStarted;
   document.getElementById('statChapters').textContent = stats.totalChapters;
   document.getElementById('statPrinciples').textContent = stats.totalPrinciples;
-  document.getElementById('statTotalXp').textContent = stats.xp;
   document.getElementById('levelBadge').textContent = stats.level.emoji + ' ' + stats.level.name;
 
   // Streak
