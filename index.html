@@ -278,6 +278,42 @@
   <!-- 回访提醒 -->
   <section class="review-reminder" id="reviewReminder" hidden></section>
 
+  <!-- 阅读笔记 -->
+  <section class="note-section" aria-label="阅读笔记" id="noteSection">
+    <div class="summary-title" style="margin-bottom:16px;">阅读笔记</div>
+
+    <!-- 快速记录 -->
+    <div class="note-form-wrap" id="noteFormWrap">
+      <div class="note-form">
+        <div class="nf-row">
+          <select class="nf-select" id="nfBook">
+            <option value="">选择书籍</option>
+          </select>
+          <select class="nf-select nf-select-sm" id="nfChapter" style="width:80px;">
+            <option value="">章</option>
+          </select>
+          <label class="nf-check">
+            <input type="checkbox" id="nfQuote" value="1"> 标注为金句
+          </label>
+        </div>
+        <div class="nf-row">
+          <textarea class="nf-textarea" id="nfContent" placeholder="记录你的想法、心得或收藏的金句…" rows="2" maxlength="500"></textarea>
+        </div>
+        <div class="nf-row nf-row-end">
+          <span class="nf-hint" id="nfHint"></span>
+          <button class="nf-btn" id="nfSubmit">保存笔记</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 笔记列表 -->
+    <div class="note-list" id="noteList">
+      <div class="note-empty" id="noteEmpty">
+        <div class="note-empty-text">还没有记过笔记。读完一本书后，来记录你的思考和金句吧。</div>
+      </div>
+    </div>
+  </section>
+
   <!-- 底部链接 -->
   <div class="bottom-links">
     <a class="go-bookshelf" href="bookshelf.html">查看完整书架 </a>
@@ -1276,6 +1312,125 @@
   });
 })();
 </script>
+<!-- ===== 阅读笔记 ===== -->
+<script>
+(function() {
+  var KEY_NOTES = 'reading_notes';
+  var emptyHTML = null;
+
+  function loadNotes() {
+    try { return JSON.parse(localStorage.getItem(KEY_NOTES)) || []; }
+    catch(e) { return []; }
+  }
+  function saveNotes(notes) {
+    try { localStorage.setItem(KEY_NOTES, JSON.stringify(notes)); } catch(e) {}
+  }
+
+  // 初始化书籍下拉
+  function initBookSelect() {
+    var sel = document.getElementById('nfBook');
+    if (!sel || sel.options.length > 1) return; // 已初始化
+    // getAllBooks 返回的对象不含 slug，需要通过 BOOK_META 获取
+    var meta = AppData.BOOK_META;
+    var slugs = Object.keys(meta).sort(function(a,b) {
+      return (meta[a].title||'').localeCompare(meta[b].title||'','zh');
+    });
+    slugs.forEach(function(slug) {
+      var o = document.createElement('option');
+      o.value = slug;
+      o.textContent = meta[slug].title || slug;
+      sel.appendChild(o);
+    });
+  }
+
+  // 书籍选择后填充章节
+  document.getElementById('nfBook').addEventListener('change', function() {
+    var slug = this.value;
+    var chSel = document.getElementById('nfChapter');
+    chSel.innerHTML = '<option value="">章</option>';
+    if (!slug) return;
+    var meta = AppData.BOOK_META[slug];
+    if (!meta || !meta.chapters) return;
+    for (var i = 1; i <= meta.chapters; i++) {
+      var o = document.createElement('option');
+      o.value = i; o.textContent = '第' + i + '章'; chSel.appendChild(o);
+    }
+  });
+
+  function renderNotes() {
+    var notes = loadNotes();
+    var list = document.getElementById('noteList');
+    if (!emptyHTML) emptyHTML = document.getElementById('noteEmpty').outerHTML;
+    if (notes.length === 0) { list.innerHTML = emptyHTML; return; }
+    list.innerHTML = '';
+
+    notes.slice().reverse().forEach(function(note, idx) {
+      var realIdx = notes.length - 1 - idx;
+      var meta = AppData.BOOK_META[note.slug];
+      var title = meta ? meta.title : note.slug;
+      var chStr = note.chapter ? '第' + note.chapter + '章' : '';
+      var dateStr = note.date || '';
+      var isQuote = note.isQuote;
+
+      var div = document.createElement('div');
+      div.className = 'note-entry';
+      div.innerHTML =
+        (isQuote ? '<span class="ne-quote-badge">金句</span>' : '') +
+        '<div class="ne-body">' +
+          '<div class="ne-meta"><span>' + title + '</span>' + (chStr ? '<span>' + chStr + '</span>' : '') + '<span>' + dateStr + '</span></div>' +
+          '<div class="ne-text">' + (note.content || '').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>' +
+        '</div>' +
+        '<button class="ne-delete" data-idx="' + realIdx + '" title="删除">&times;</button>';
+      list.appendChild(div);
+    });
+
+    Array.prototype.forEach.call(list.querySelectorAll('.ne-delete'), function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(btn.getAttribute('data-idx'));
+        var notes = loadNotes();
+        if (idx >= 0 && idx < notes.length) {
+          notes.splice(idx, 1);
+          saveNotes(notes);
+          renderNotes();
+        }
+      });
+    });
+  }
+
+  document.getElementById('nfSubmit').addEventListener('click', function() {
+    var slug = document.getElementById('nfBook').value;
+    var ch = document.getElementById('nfChapter').value;
+    var content = (document.getElementById('nfContent').value || '').trim();
+    var isQuote = document.getElementById('nfQuote').checked;
+    var hint = document.getElementById('nfHint');
+
+    if (!slug) { hint.textContent = '请选择书籍'; return; }
+    if (!content) { hint.textContent = '请输入笔记内容'; return; }
+
+    var notes = loadNotes();
+    notes.push({
+      date: new Date().toISOString().slice(0, 10),
+      slug: slug,
+      chapter: ch ? parseInt(ch) : null,
+      content: content,
+      isQuote: isQuote
+    });
+    saveNotes(notes);
+    renderNotes();
+
+    document.getElementById('nfContent').value = '';
+    document.getElementById('nfQuote').checked = false;
+    hint.textContent = '已保存！';
+    setTimeout(function() { hint.textContent = ''; }, 2000);
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initBookSelect();
+    renderNotes();
+  });
+})();
+</script>
+
 <!-- ===== 屏间导航控制 ===== -->
 <script>
 (function() {

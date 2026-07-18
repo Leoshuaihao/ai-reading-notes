@@ -495,6 +495,73 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
 .dm-btn:hover { border-color: var(--accent); color: var(--accent); background: #fef9f3; }
 .dm-export { background: #3d2e1e; color: #fff; border-color: #3d2e1e; }
 .dm-export:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+/* ===== 阅读笔记 ===== */
+.note-section {
+  max-width: 880px; margin: 24px auto 0; padding: 0 24px;
+  background: #fff; border: 1px solid #e8e3d5; border-radius: 14px;
+  padding: 28px 32px;
+}
+.note-section .summary-title { text-align: center; }
+
+.note-form-wrap { margin-bottom: 20px; }
+.note-form { display: flex; flex-direction: column; gap: 10px; }
+.note-form .nf-row { display: flex; gap: 10px; align-items: center; }
+.nf-select, .nf-textarea {
+  font-family: system-ui, sans-serif; font-size: 14px;
+  border: 1px solid #dcd5c4; border-radius: 8px;
+  padding: 10px 12px; color: #3d2e1e; background: #fefdfb;
+  transition: border-color 0.2s;
+}
+.nf-select:focus, .nf-textarea:focus {
+  border-color: var(--accent); outline: none; box-shadow: 0 0 0 2px rgba(245,147,109,0.12);
+}
+.nf-select-sm { width: 80px; flex-shrink: 0; }
+.nf-textarea { flex: 1; resize: vertical; min-height: 56px; }
+.nf-check {
+  font-size: 13px; color: #b8860b; display: flex; align-items: center; gap: 4px;
+  cursor: pointer; white-space: nowrap;
+}
+.nf-check input[type=checkbox] { accent-color: var(--accent); }
+.nf-row-end { justify-content: flex-end; }
+.nf-btn {
+  background: var(--accent); color: #fff; border: none; border-radius: 8px;
+  padding: 10px 22px; font-size: 14px; font-weight: 700; cursor: pointer;
+  transition: background 0.2s;
+}
+.nf-btn:hover { background: #b04f30; }
+.nf-hint { font-size: 13px; color: #999; }
+
+/* 笔记列表 */
+.note-list { margin-top: 16px; }
+.note-entry {
+  border: 1px solid #e8e3d5; border-radius: 10px; padding: 14px 16px;
+  margin-bottom: 10px; background: #fefdfb; display: flex; gap: 12px;
+  align-items: flex-start; transition: border-color 0.2s;
+}
+.note-entry:hover { border-color: var(--accent); }
+.note-entry .ne-quote-badge {
+  flex-shrink: 0; font-size: 11px; padding: 2px 8px; border-radius: 4px;
+  background: #fef3e1; color: #b8860b; font-weight: 700;
+}
+.ne-body { flex: 1; min-width: 0; }
+.ne-meta { font-size: 12px; color: #999; margin-bottom: 4px; display: flex; gap: 8px; }
+.ne-text { font-size: 14px; line-height: 1.6; color: #3d2e1e; word-break: break-word; }
+.ne-delete {
+  flex-shrink: 0; background: none; border: none; font-size: 18px; color: #ccc;
+  cursor: pointer; line-height: 1; padding: 2px 4px;
+}
+.ne-delete:hover { color: var(--accent); }
+.note-empty { text-align: center; padding: 24px; color: #bbb; }
+.note-empty-text { font-size: 14px; line-height: 1.6; }
+
+/* 笔记 移动端 */
+@media (max-width: 768px) {
+  .note-section { padding: 20px 16px; }
+  .note-form .nf-row { flex-wrap: wrap; }
+  .note-entry { flex-wrap: wrap; }
+  .nf-select-sm { width: 60px; }
+}
+
 
 
 
