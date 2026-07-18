@@ -35,9 +35,14 @@
     card.appendChild(hint);
     card.appendChild(btn);
 
+    // 从 URL 提取书 slug（用于隔离 localStorage）
+    var slug = 'book';
+    var pathMatch = window.location.pathname.match(/books\/([^/]+)/);
+    if (pathMatch) slug = pathMatch[1];
+
     // 恢复持久化的展开状态
     var chapterId = card.id || '';
-    var storageKey = 'book_expanded_' + chapterId;
+    var storageKey = 'book_expanded_' + slug + '_' + chapterId;
     try {
       if (localStorage.getItem(storageKey) === 'true') {
         expandSection(wrapper, btn, hint, storageKey);
@@ -340,56 +345,56 @@
   // 进度条除零保护
   if (totalChapters === 0) totalChapters = 1;
 
-  // ==================== 前情提要 ====================
+  // ==================== 前情提要（预收集优化） ====================
   var recapInserted = {};
+  var allTakeaways = null; // 懒初始化
+
+  function ensureTakeaways() {
+    if (allTakeaways) return;
+    allTakeaways = [];
+    document.querySelectorAll('.chapter-card[id]').forEach(function(card) {
+      if (card.id.indexOf('ch') !== 0) return;
+      var titleEl = card.querySelector('.ch-title');
+      var title = titleEl ? titleEl.textContent.trim() : card.id;
+      var items = [];
+      card.querySelectorAll('.takeaway-list li').forEach(function(li) {
+        items.push(li.textContent.trim());
+      });
+      allTakeaways.push({ id: card.id, title: title, items: items });
+    });
+  }
 
   function showRecap(currentCard, currentId) {
-    // 只对章节卡片（#chN）生效，且每个章节只插入一次
     if (recapInserted[currentId]) return;
+    ensureTakeaways();
 
-    // 收集当前章节之前所有章节的 takeaway
-    var allCards = document.querySelectorAll('.chapter-card');
+    // 收集当前章节之前的 takeaway（最多取最近 5 章）
     var takeaways = [];
-    var foundCurrent = false;
-
-    allCards.forEach(function(card) {
-      if (card.id === currentId) {
-        foundCurrent = true;
-        return; // 不包含当前章节本身
-      }
-      if (foundCurrent) return; // 跳过当前之后的章节
-
-      // 只收集有 id 的章节卡片
-      if (!card.id || card.id.indexOf('ch') !== 0) return;
-
-      var titleEl = card.querySelector('.ch-title');
-      var title = titleEl ? titleEl.textContent.trim() : (card.id);
-      var items = card.querySelectorAll('.takeaway-list li');
-      items.forEach(function(li) {
-        takeaways.push({ chapter: title, text: li.textContent.trim() });
+    for (var i = 0; i < allTakeaways.length; i++) {
+      if (allTakeaways[i].id === currentId) break;
+      allTakeaways[i].items.forEach(function(text) {
+        takeaways.push({ chapter: allTakeaways[i].title, text: text });
       });
-    });
-
+    }
+    // 只显示最近 5 章的 takeaway
+    if (takeaways.length > 5) {
+      takeaways = takeaways.slice(-5);
+    }
     if (takeaways.length === 0) return;
 
     recapInserted[currentId] = true;
 
-    // 创建前情提要卡片
     var recap = document.createElement('div');
     recap.className = 'recap-card';
     recap.setAttribute('aria-label', '前情提要');
-
-    var html = '<div class="recap-header">📌 前情提要 — 已读章节的核心结论</div>';
-    html += '<ul class="recap-list">';
+    var html = '<div class="recap-header">📌 前情提要 — 最近章节的核心结论</div><ul class="recap-list">';
     takeaways.forEach(function(t) {
       var shortText = t.text.length > 80 ? t.text.slice(0, 80) + '…' : t.text;
       html += '<li><span class="recap-chapter">' + t.chapter + '</span> ' + shortText + '</li>';
     });
     html += '</ul>';
-
     recap.innerHTML = html;
 
-    // 插入到章节卡片的 ch-header 之后
     var header = currentCard.querySelector('.ch-header');
     if (header) {
       header.parentNode.insertBefore(recap, header.nextSibling);
@@ -643,7 +648,7 @@
 
   function findIndex(arr, text) {
     for (var i = 0; i < arr.length; i++) {
-      if (arr[i] && arr[i].text === text && arr[i].bookSlug === slug) return i;
+      if (arr[i] && arr[i].text === text) return i;
     }
     return -1;
   }

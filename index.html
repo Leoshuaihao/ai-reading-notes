@@ -1134,6 +1134,11 @@
       badge.innerHTML = '<span class="streak-fire">🔥</span> 连续学习 <strong>' + current + '</strong> 天' +
         (longest > current ? ' · 最长 ' + longest + ' 天' : '');
       row.appendChild(badge);
+    } else {
+      var hint = document.createElement('span');
+      hint.style.cssText = 'font-size:13px;color:var(--text-secondary);';
+      hint.textContent = '读完第一章开启连续学习记录 🔥';
+      row.appendChild(hint);
     }
 
     // 近7天日历
