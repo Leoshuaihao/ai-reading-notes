@@ -600,4 +600,10 @@
 
     li.appendChild(btn);
   });
+
+  // ==================== 自动打卡 ====================
+  // 页面加载即打卡（用户在阅读）
+  if (typeof AppData !== 'undefined' && AppData.markToday) {
+    AppData.markToday();
+  }
 })();

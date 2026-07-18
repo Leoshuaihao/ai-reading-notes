@@ -259,7 +259,11 @@
   <div class="stat-item"><div class="stat-num" id="statChapters">0</div><div class="stat-label">章已读</div></div>
   <div class="stat-item"><div class="stat-num" id="statPrinciples">0</div><div class="stat-label">条收藏原则</div></div>
   <div class="stat-item"><div class="stat-num" id="statTotalXp">0</div><div class="stat-label">总经验值</div></div>
+  <div class="stat-item"><div class="stat-num" id="statStreak" style="color:var(--gold)">0</div><div class="stat-label">🔥 连续学习（天）</div></div>
 </div>
+
+<!-- Streak 周历 -->
+<div class="streak-week-row" id="streakWeekRow" style="display:flex;justify-content:center;gap:6px;margin-bottom:32px;flex-wrap:wrap;"></div>
 
 <!-- ==================== 五维能力树 ==================== -->
 <section id="skillTreeSection">
@@ -453,7 +457,40 @@ function updateStatsBar(stats) {
   document.getElementById('statChapters').textContent = stats.totalChapters;
   document.getElementById('statPrinciples').textContent = stats.totalPrinciples;
   document.getElementById('statTotalXp').textContent = stats.xp;
-  document.getElementById('levelBadge').textContent = `${stats.level.emoji} ${stats.level.name}`;
+  document.getElementById('levelBadge').textContent = stats.level.emoji + ' ' + stats.level.name;
+
+  // Streak
+  if (typeof AppData !== 'undefined') {
+    var streak = AppData.getStreak();
+    document.getElementById('statStreak').textContent = streak.current || 0;
+
+    // 近7天周历
+    var row = document.getElementById('streakWeekRow');
+    if (row) {
+      var dates = streak.dates || [];
+      var dayNames = ['一', '二', '三', '四', '五', '六', '日'];
+      var today = new Date();
+      row.innerHTML = '';
+      for (var i = 6; i >= 0; i--) {
+        var d = new Date(today);
+        d.setDate(d.getDate() - i);
+        var dateStr = d.toISOString().slice(0, 10);
+        var isDone = dates.indexOf(dateStr) !== -1;
+        var isToday = i === 0;
+
+        var dayEl = document.createElement('span');
+        dayEl.style.cssText =
+          'width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;' +
+          'font-size:12px;font-weight:600;' +
+          (isDone ? 'background:#c75b39;color:#fff;' :
+           isToday ? 'border:2px solid #c75b39;color:#c75b39;background:#fdf0e8;' :
+           'background:#f4f1ea;color:#b0b0b0;');
+        dayEl.textContent = dayNames[d.getDay() === 0 ? 6 : d.getDay() - 1];
+        dayEl.title = dateStr + (isDone ? ' ✓' : '');
+        row.appendChild(dayEl);
+      }
+    }
+  }
 }
 
 // ===== 能力树 =====

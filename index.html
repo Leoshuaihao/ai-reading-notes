@@ -205,6 +205,34 @@
     transition: width 0.6s ease;
   }
 
+  /* 打卡 Streak */
+  .streak-row {
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+    margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .streak-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #fdf7f0; border: 1px solid #eadcc8; border-radius: 16px;
+    padding: 8px 18px; font-size: 14px; font-weight: 600; color: #5c4a2a;
+  }
+  .streak-badge .streak-fire { font-size: 20px; }
+  .streak-badge.lit { background: #fef3e0; border-color: #e0a840; color: #b8860b; }
+  .streak-week {
+    display: flex; gap: 5px;
+  }
+  .streak-day {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: var(--tag-bg); font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-secondary);
+  }
+  .streak-day.done { background: var(--accent); color: #fff; }
+  .streak-day.today { border: 2px solid var(--accent); color: var(--accent); background: var(--accent-light); }
+  @media (max-width: 768px) {
+    .streak-row { gap: 10px; }
+    .streak-day { width: 24px; height: 24px; font-size: 10px; }
+  }
+
   /* ===== 底部链接 ===== */
   .bottom-links {
     display: flex; justify-content: center; gap: 18px; flex-wrap: wrap;
@@ -741,6 +769,7 @@
 <!-- 修行总览 -->
 <section class="practice-summary" aria-label="修行总览">
   <div class="summary-title">📊 修行总览</div>
+  <div class="streak-row" id="streakRow"></div>
   <div class="summary-stats" id="summaryStats"></div>
   <div class="xp-bar-head">
     <span id="xpBarLabel">经验值</span>
@@ -1165,6 +1194,50 @@
       nums.textContent = stats.xp + ' XP';
     }
     document.getElementById('xpFill').style.width = pct + '%';
+
+    // Streak 渲染
+    renderStreak();
+  }
+
+  // ===== Streak 渲染 =====
+  function renderStreak() {
+    var row = document.getElementById('streakRow');
+    if (!row) return;
+    var streak = AppData.getStreak();
+    var current = streak.current || 0;
+    var longest = streak.longest || 0;
+    var dates = streak.dates || [];
+
+    row.innerHTML = '';
+
+    // Streak 徽章
+    if (current > 0) {
+      var badge = document.createElement('span');
+      badge.className = 'streak-badge lit';
+      badge.innerHTML = '<span class="streak-fire">🔥</span> 连续学习 <strong>' + current + '</strong> 天' +
+        (longest > current ? ' · 最长 ' + longest + ' 天' : '');
+      row.appendChild(badge);
+    }
+
+    // 近7天日历
+    var weekDiv = document.createElement('div');
+    weekDiv.className = 'streak-week';
+    var dayNames = ['一', '二', '三', '四', '五', '六', '日'];
+    var today = new Date();
+    for (var i = 6; i >= 0; i--) {
+      var d = new Date(today);
+      d.setDate(d.getDate() - i);
+      var dateStr = d.toISOString().slice(0, 10);
+      var isDone = dates.indexOf(dateStr) !== -1;
+      var isToday = i === 0;
+
+      var dayEl = document.createElement('span');
+      dayEl.className = 'streak-day' + (isDone ? ' done' : '') + (isToday ? ' today' : '');
+      dayEl.textContent = dayNames[d.getDay() === 0 ? 6 : d.getDay() - 1];
+      dayEl.title = dateStr + (isDone ? ' ✓ 已学习' : '');
+      weekDiv.appendChild(dayEl);
+    }
+    row.appendChild(weekDiv);
   }
 
   // ===== 总渲染 =====
