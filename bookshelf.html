@@ -513,16 +513,35 @@
   'use strict';
 
   // 建立书籍卡片 → slug 映射（按卡片出现顺序）
+  // 按五域分组排序：商业认知→资产估值→周期→心性→不确定性，域内按难度
   var slugs = [
-    'fisher', 'howard-marks', 'buffett', 'market-cycle', 'buffett-letters',
-    'alchemy-finance', 'poor-charlie', 'intelligent-investor', 'peter-lynch',
-    'security-analysis', 'beating-street', 'stock-operator', 'economic-moat',
+    // 商业认知（Lv.1→Lv.2）
+    'peter-lynch', 'beating-street', 'fisher', 'economic-moat',
+    // 资产估值（Lv.1→Lv.3）
+    'buffett', 'intelligent-investor', 'security-analysis', 'buffett-letters',
+    // 周期与市场（Lv.2→Lv.3）
+    'howard-marks', 'market-cycle', 'alchemy-finance',
+    // 心性与哲学（Lv.1→Lv.2）
+    'stock-operator', 'poor-charlie',
+    // 不确定性与风险（Lv.3→Lv.4）
     'fooled-by-randomness', 'black-swan', 'antifragile'
   ];
 
   var cards = document.querySelectorAll('.book-card');
   var totalRead = 0;
   var totalChapters = 0;
+
+  // 按 slugs 顺序重排 DOM 卡片
+  var grid = document.querySelector('.book-grid');
+  var cardMap = {};
+  cards.forEach(function(card, i) { cardMap[slugs[i]] = card; });
+  // 清空并按新顺序重新插入
+  while (grid.firstChild) { grid.removeChild(grid.firstChild); }
+  slugs.forEach(function(slug) {
+    if (cardMap[slug]) grid.appendChild(cardMap[slug]);
+  });
+  // 重新获取排序后的卡片引用
+  cards = document.querySelectorAll('.book-card');
 
   cards.forEach(function(card, i) {
     var slug = slugs[i];

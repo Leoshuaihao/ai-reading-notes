@@ -682,8 +682,36 @@
     var m = AppData.BOOK_META[slug];
     books.push({ slug: slug, title: m.title, ch: m.chapters });
   });
-  var total = 0;
-  books.forEach(function(b) { total += b.ch; });
+
+  // 获取已读章节，用于过滤
+  var progress = AppData.getProgress();
+  var readSet = {};
+  Object.keys(progress).forEach(function(slug) {
+    var p = progress[slug];
+    if (p && p.chaptersRead) {
+      p.chaptersRead.forEach(function(ch) { readSet[slug + '_' + ch] = true; });
+    }
+  });
+
+  // 过滤出未读的章节
+  var unreadChapters = [];
+  books.forEach(function(b) {
+    for (var c = 1; c <= b.ch; c++) {
+      if (!readSet[b.slug + '_' + c]) {
+        unreadChapters.push({ slug: b.slug, title: b.title, chapter: c });
+      }
+    }
+  });
+
+  // 如果全部读完，随机选一章
+  if (unreadChapters.length === 0) {
+    books.forEach(function(b) {
+      for (var c = 1; c <= b.ch; c++) {
+        unreadChapters.push({ slug: b.slug, title: b.title, chapter: c });
+      }
+    });
+  }
+
   var d = new Date();
   var dateStr = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
   var h = 0;
@@ -691,15 +719,11 @@
   h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
   h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
   h = (h ^ (h >>> 16)) >>> 0;
-  var idx = h % total;
-  var book = books[0], chapter = 1;
-  for (var j = 0; j < books.length; j++) {
-    if (idx < books[j].ch) { book = books[j]; chapter = idx + 1; break; }
-    idx -= books[j].ch;
-  }
+  var pick = unreadChapters[h % unreadChapters.length];
+  var label = readSet[pick.slug + '_' + pick.chapter] ? '（全部读过，随机重温）' : '';
   document.getElementById('daily-read-text').innerHTML =
-    '今天推荐你读：<strong>《' + book.title + '》</strong>第' + chapter + '章';
-  document.getElementById('daily-read-link').setAttribute('href', 'books/' + book.slug + '/#ch' + chapter);
+    '今天推荐你读：<strong>《' + pick.title + '》</strong>第' + pick.chapter + '章' + label;
+  document.getElementById('daily-read-link').setAttribute('href', 'books/' + pick.slug + '/#ch' + pick.chapter);
 })();
 </script>
 
@@ -1275,26 +1299,26 @@
 <script>
 (function() {
   var quotes = [
-    '"在别人沮丧地卖出时买入，在别人兴奋地买入时卖出——这需要最大的勇气，但提供最大的利润。" ——出处：《投资最重要的事》，霍华德·马克斯',
-    '"安全边际不是一种策略，它是一种性格。" ——出处：《聪明的投资者》，本杰明·格雷厄姆',
-    '"风会吹灭蜡烛，却能助燃烈火。" ——出处：《反脆弱》，纳西姆·塔勒布',
-    '"你不需要预测黑天鹅何时来——只需确保来临时你站在受益侧。" ——出处：《黑天鹅》，纳西姆·塔勒布',
-    '"市场先生是你的仆人，不是你的向导。" ——出处：《聪明的投资者》，本杰明·格雷厄姆',
-    '"投资中唯一可控的事：校准你在周期中的位置。" ——出处：《周期》，霍华德·马克斯',
-    '"华尔街没有新鲜事，因为投机像群山一样古老。" ——出处：《股票大作手回忆录》，杰西·利弗莫尔',
-    '"如果你不知道一家公司是如何赚钱的，就不要买它的股票。" ——出处：《彼得·林奇的成功投资》，彼得·林奇',
-    '"你不需要在每个投球时都挥棒。等待属于你的那个球。" ——出处：《投资最重要的事》，霍华德·马克斯',
-    '"护城河不是用来防守的，是用来让竞争者绝望的。" ——出处：《巴菲特的护城河》，帕特·多尔西',
-    '"杀死我的东西不会让我更强——但会让别人更强。" ——出处：《反脆弱》，纳西姆·塔勒布',
-    '"历史不会爬行，它只会跳跃。" ——出处：《黑天鹅》，纳西姆·塔勒布',
-    '"用15%的费雪找到增长、用85%的格雷厄姆守住底线——这就是巴菲特的完整配方。" ——出处：《怎样选择成长股》，菲利普·费雪',
-    '"市场永远不会错——但意见常常会错。" ——出处：《股票大作手回忆录》，杰西·利弗莫尔',
-    '"买股票就是买公司，而不是买一张会涨的纸。" ——出处：《巴菲特致股东的信》，沃伦·巴菲特',
-    '"股票投资不是赌博——如果你用正确的方法做。" ——出处：《彼得·林奇的成功投资》，彼得·林奇',
-    '"内在价值是分析师的起点，不是终点。" ——出处：《证券分析》，本杰明·格雷厄姆',
-    '"价格是你付出的，价值是你得到的。" ——出处：《巴菲特之道》，罗伯特·哈格斯特朗',
-    '"投资最重要的事不是买什么，而是什么时候买、付多少钱。" ——出处：《投资最重要的事》，霍华德·马克斯',
-    '"反脆弱系统的美妙之处：你对波动越不敏感，波动越拿你没办法。" ——出处：《反脆弱》，纳西姆·塔勒布'
+    { text: '"在别人沮丧地卖出时买入，在别人兴奋地买入时卖出——这需要最大的勇气，但提供最大的利润。"', source: '《投资最重要的事》· 霍华德·马克斯', slug: 'howard-marks' },
+    { text: '"安全边际不是一种策略，它是一种性格。"', source: '《聪明的投资者》· 本杰明·格雷厄姆', slug: 'intelligent-investor' },
+    { text: '"风会吹灭蜡烛，却能助燃烈火。"', source: '《反脆弱》· 纳西姆·塔勒布', slug: 'antifragile' },
+    { text: '"你不需要预测黑天鹅何时来——只需确保来临时你站在受益侧。"', source: '《黑天鹅》· 纳西姆·塔勒布', slug: 'black-swan' },
+    { text: '"市场先生是你的仆人，不是你的向导。"', source: '《聪明的投资者》· 本杰明·格雷厄姆', slug: 'intelligent-investor' },
+    { text: '"投资中唯一可控的事：校准你在周期中的位置。"', source: '《周期》· 霍华德·马克斯', slug: 'market-cycle' },
+    { text: '"华尔街没有新鲜事，因为投机像群山一样古老。"', source: '《股票大作手回忆录》· 杰西·利弗莫尔', slug: 'stock-operator' },
+    { text: '"如果你不知道一家公司是如何赚钱的，就不要买它的股票。"', source: '《彼得·林奇的成功投资》· 彼得·林奇', slug: 'peter-lynch' },
+    { text: '"你不需要在每个投球时都挥棒。等待属于你的那个球。"', source: '《投资最重要的事》· 霍华德·马克斯', slug: 'howard-marks' },
+    { text: '"护城河不是用来防守的，是用来让竞争者绝望的。"', source: '《巴菲特的护城河》· 帕特·多尔西', slug: 'economic-moat' },
+    { text: '"杀死我的东西不会让我更强——但会让别人更强。"', source: '《反脆弱》· 纳西姆·塔勒布', slug: 'antifragile' },
+    { text: '"历史不会爬行，它只会跳跃。"', source: '《黑天鹅》· 纳西姆·塔勒布', slug: 'black-swan' },
+    { text: '"用15%的费雪找到增长、用85%的格雷厄姆守住底线——这就是巴菲特的完整配方。"', source: '《怎样选择成长股》· 菲利普·费雪', slug: 'fisher' },
+    { text: '"市场永远不会错——但意见常常会错。"', source: '《股票大作手回忆录》· 杰西·利弗莫尔', slug: 'stock-operator' },
+    { text: '"买股票就是买公司，而不是买一张会涨的纸。"', source: '《巴菲特致股东的信》· 沃伦·巴菲特', slug: 'buffett-letters' },
+    { text: '"股票投资不是赌博——如果你用正确的方法做。"', source: '《彼得·林奇的成功投资》· 彼得·林奇', slug: 'peter-lynch' },
+    { text: '"内在价值是分析师的起点，不是终点。"', source: '《证券分析》· 本杰明·格雷厄姆', slug: 'security-analysis' },
+    { text: '"价格是你付出的，价值是你得到的。"', source: '《巴菲特之道》· 罗伯特·哈格斯特朗', slug: 'buffett' },
+    { text: '"投资最重要的事不是买什么，而是什么时候买、付多少钱。"', source: '《投资最重要的事》· 霍华德·马克斯', slug: 'howard-marks' },
+    { text: '"反脆弱系统的美妙之处：你对波动越不敏感，波动越拿你没办法。"', source: '《反脆弱》· 纳西姆·塔勒布', slug: 'antifragile' }
   ];
   var current = 0;
   var timer = null;
@@ -1302,9 +1326,12 @@
   function show(index) {
     var content = document.getElementById('quote-content');
     var text = document.getElementById('quote-text');
+    var source = document.getElementById('quote-source');
+    var q = quotes[index];
     content.classList.add('fading');
     setTimeout(function() {
-      text.textContent = quotes[index];
+      text.textContent = q.text;
+      source.innerHTML = '<a href="books/' + q.slug + '/" style="color:#8a7a6a;text-decoration:none;">' + q.source + ' →</a>';
       content.classList.remove('fading');
       var dots = document.querySelectorAll('.quote-dot');
       dots.forEach(function(dot, i) { dot.classList.toggle('active', i === index); });

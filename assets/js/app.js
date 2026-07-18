@@ -696,6 +696,11 @@
       btn.setAttribute('aria-pressed', String(nowSaved));
       btn.setAttribute('title', nowSaved ? '取消收藏' : '收藏到我的投资体系');
       btn.setAttribute('aria-label', nowSaved ? '取消收藏该原则' : '收藏该原则到我的投资体系');
+
+      // 收藏成功 toast
+      if (nowSaved) {
+        showToast('已收藏！<a href="../../my.html" style="color:#fff;text-decoration:underline;">查看我的投资体系 →</a>');
+      }
     });
 
     li.appendChild(btn);
@@ -724,4 +729,21 @@
       tryMarkStreak();
     }
   });
+
+  // ==================== Toast 提示 ====================
+  function showToast(html) {
+    var toast = document.createElement('div');
+    toast.style.cssText =
+      'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:9999;' +
+      'background:#3d2e1e;color:#fff;padding:12px 24px;border-radius:24px;' +
+      'font-size:14px;box-shadow:0 4px 20px rgba(0,0,0,0.2);' +
+      'opacity:0;transition:opacity 0.3s;pointer-events:auto;white-space:nowrap;';
+    toast.innerHTML = html;
+    document.body.appendChild(toast);
+    requestAnimationFrame(function() { toast.style.opacity = '1'; });
+    setTimeout(function() {
+      toast.style.opacity = '0';
+      setTimeout(function() { toast.remove(); }, 300);
+    }, 3000);
+  }
 })();
