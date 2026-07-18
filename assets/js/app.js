@@ -332,9 +332,13 @@
     });
   }, { rootMargin: '-60px 0px -60% 0px' });
 
-  document.querySelectorAll('[id]').forEach(function(el) {
+  // 只观察章节卡片和导言，不观察所有带 id 的元素
+  document.querySelectorAll('.chapter-card[id], #intro').forEach(function(el) {
     observer.observe(el);
   });
+
+  // 进度条除零保护
+  if (totalChapters === 0) totalChapters = 1;
 
   // ==================== 前情提要 ====================
   var recapInserted = {};
@@ -692,9 +696,27 @@
     li.appendChild(btn);
   });
 
-  // ==================== 自动打卡 ====================
-  // 页面加载即打卡（用户在阅读）
-  if (typeof AppData !== 'undefined' && AppData.markToday) {
-    AppData.markToday();
+  // ==================== 自动打卡（有交互后才触发） ====================
+  var streakMarked = false;
+  function tryMarkStreak() {
+    if (streakMarked) return;
+    if (typeof AppData !== 'undefined' && AppData.markToday) {
+      AppData.markToday();
+      streakMarked = true;
+    }
   }
+  // 用户滚动超过 300px 或展开任意章节时打卡
+  var streakScrollHandler = function() {
+    if (window.scrollY > 300) {
+      tryMarkStreak();
+      window.removeEventListener('scroll', streakScrollHandler);
+    }
+  };
+  window.addEventListener('scroll', streakScrollHandler, { passive: true });
+  // 展开章节也触发打卡
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.toggle-btn')) {
+      tryMarkStreak();
+    }
+  });
 })();

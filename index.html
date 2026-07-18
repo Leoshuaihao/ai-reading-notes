@@ -791,30 +791,11 @@
   // ===== XP 与等级 =====
   // 公式：每读一章 1 XP；每条收藏原则 2 XP；每读完一本书额外 5 XP；每开始一座山额外 2 XP
   function computeXP() {
-    var xp = 0;
-    var chaptersTotal = 0, completedBooks = 0, startedDomains = 0;
-    Object.keys(BOOK_META).forEach(function(slug) {
-      var bp = computeBookProgress(slug);
-      chaptersTotal += bp.read;
-      if (bp.total > 0 && bp.read >= bp.total) completedBooks++;
-    });
-    DOMAINS.forEach(function(d) {
-      if (computeDomainProgress(d.key).started) startedDomains++;
-    });
-    xp = chaptersTotal * 1 + DATA.principles.length * 2 + completedBooks * 5 + startedDomains * 2;
-    return {
-      xp: xp, chaptersTotal: chaptersTotal, completedBooks: completedBooks,
-      startedDomains: startedDomains, principles: DATA.principles.length
-    };
+    return AppData.computeXP();
   }
 
   function computeLevel(xp) {
-    var cur = LEVELS[0];
-    for (var i = LEVELS.length - 1; i >= 0; i--) {
-      if (xp >= LEVELS[i].xpNeeded) { cur = LEVELS[i]; break; }
-    }
-    var next = cur.level < 9 ? LEVELS[cur.level] : null; // LEVELS[cur.level] 即下一级（数组下标 = level）
-    return { level: cur.level, name: cur.name, emoji: cur.emoji, xpNeeded: cur.xpNeeded, next: next };
+    return AppData.computeLevel(xp);
   }
 
   // ===== DOM 工具 =====

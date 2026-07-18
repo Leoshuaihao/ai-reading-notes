@@ -325,16 +325,7 @@ const ACHIEVEMENTS = [
   {id:'level_5', name:'智者之名', desc:'达到见习智者(Lv.5)', icon:'🔮', check: d=>d.level>=5},
 ];
 
-// ===== 经验值 & 数据（使用共享数据层） =====
-function calcXP(chaptersRead, principlesCollected, completedBooks, booksStarted) {
-  // 与 AppData.computeXP 公式一致：每章1XP + 每条原则2XP + 每完成书5XP + 每开始书1XP
-  return chaptersRead * 1 + principlesCollected * 2 + completedBooks * 5 + booksStarted * 1;
-}
-
-function getLevel(xp) {
-  return AppData.computeLevel(xp);
-}
-
+// ===== 数据读取（使用共享数据层） =====
 function loadData() {
   return {
     progress: AppData.getProgress(),
@@ -347,23 +338,28 @@ function safeJSON(str, fallback) {
 }
 
 function computeStats(data) {
-  const {progress, principles} = data;
-  let totalChapters = 0, completedBooks = 0, booksStarted = 0;
-  let schools = new Set();
+  var xpStats = AppData.computeXP();
+  var level = AppData.computeLevel(xpStats.xp);
 
-  BOOKS.forEach(b => {
-    const p = progress[b.slug];
+  // 补充流派统计（data.js 不包含此维度）
+  var schools = new Set();
+  BOOKS.forEach(function(b) {
+    var p = data.progress[b.slug];
     if (p && p.chaptersRead && p.chaptersRead.length > 0) {
-      booksStarted++;
-      totalChapters += p.chaptersRead.length;
-      if (p.chaptersRead.length >= b.chapters) completedBooks++;
-      if (p.chaptersRead.length > 0) schools.add(b.school);
+      schools.add(b.school);
     }
   });
 
-  const xp = calcXP(totalChapters, principles.length, completedBooks, booksStarted);
-  const level = getLevel(xp);
-  return {totalChapters, completedBooks, booksStarted, schools, schoolsRead: schools.size, totalPrinciples: principles.length, xp, level};
+  return {
+    totalChapters: xpStats.chaptersTotal,
+    completedBooks: xpStats.completedBooks,
+    booksStarted: xpStats.startedDomains > 0 ? Object.keys(data.progress).filter(function(k) { return data.progress[k] && data.progress[k].chaptersRead && data.progress[k].chaptersRead.length > 0; }).length : 0,
+    schools: schools,
+    schoolsRead: schools.size,
+    totalPrinciples: xpStats.principles,
+    xp: xpStats.xp,
+    level: level
+  };
 }
 
 // ===== 渲染 =====
