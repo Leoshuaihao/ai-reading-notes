@@ -87,6 +87,20 @@
   /* 底部 */
   .shelf-footer { text-align: center; padding: 40px 0; color: var(--text-secondary); font-size: 14px; }
 
+  /* 阅读进度条（JS 动态注入） */
+  .card-progress { margin-top: 10px; margin-bottom: 14px; }
+  .card-progress .progress-label {
+    font-size: 11px; color: var(--text-secondary); margin-bottom: 4px;
+    display: flex; justify-content: space-between;
+  }
+  .card-progress .progress-track {
+    height: 6px; border-radius: 3px; background: var(--tag-bg); overflow: hidden;
+  }
+  .card-progress .progress-fill {
+    height: 100%; border-radius: 3px; background: var(--accent); transition: width 0.5s;
+  }
+  .card-progress .progress-fill.done { background: var(--green); }
+
   @media (max-width: 768px) {
     .shelf-hero { padding: 36px 20px; }
     .shelf-hero h1 { font-size: 24px; }
@@ -491,6 +505,85 @@
 </div>
 
 </div>
+
+<script src="assets/js/data.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // 建立书籍卡片 → slug 映射（按卡片出现顺序）
+  var slugs = [
+    'fisher', 'howard-marks', 'buffett', 'market-cycle', 'buffett-letters',
+    'alchemy-finance', 'poor-charlie', 'intelligent-investor', 'peter-lynch',
+    'security-analysis', 'beating-street', 'stock-operator', 'economic-moat',
+    'fooled-by-randomness', 'black-swan', 'antifragile'
+  ];
+
+  var cards = document.querySelectorAll('.book-card');
+  var totalRead = 0;
+  var totalChapters = 0;
+
+  cards.forEach(function(card, i) {
+    var slug = slugs[i];
+    if (!slug) return;
+
+    var bp = AppData.getBookProgress(slug);
+    totalRead += bp.read;
+    totalChapters += bp.total;
+
+    if (bp.total === 0) return; // 无章节数据则跳过
+
+    var isDone = bp.read >= bp.total;
+
+    // 创建进度条
+    var progressDiv = document.createElement('div');
+    progressDiv.className = 'card-progress';
+    progressDiv.innerHTML =
+      '<div class="progress-label">' +
+        '<span>' + (isDone ? '✅ 已读完' : '📖 阅读进度') + '</span>' +
+        '<span>' + bp.read + '/' + bp.total + ' 章</span>' +
+      '</div>' +
+      '<div class="progress-track">' +
+        '<div class="progress-fill' + (isDone ? ' done' : '') + '" style="width:' + bp.pct + '%"></div>' +
+      '</div>';
+
+    // 插入到按钮之前
+    var btn = card.querySelector('.card-btn');
+    if (btn) {
+      btn.parentNode.insertBefore(progressDiv, btn);
+    }
+  });
+
+  // 动态更新统计数字
+  var statsLine = document.querySelector('.stats-line');
+  if (statsLine && totalChapters > 0) {
+    statsLine.textContent = '从费雪到塔勒布，用投资大师的眼睛看公司';
+  }
+  var subtitle = document.querySelector('.subtitle');
+  if (subtitle) {
+    var bookCount = slugs.length;
+    subtitle.textContent = bookCount + ' 本投资经典 · ' + totalChapters + ' 个精读章节';
+  }
+
+  // 如果用户有阅读记录，在 Hero 下显示总进度
+  if (totalRead > 0) {
+    var hero = document.querySelector('.shelf-hero');
+    var overallPct = Math.round(totalRead / totalChapters * 100);
+    var overallDiv = document.createElement('div');
+    overallDiv.style.cssText = 'position:relative;margin-top:14px;';
+    overallDiv.innerHTML =
+      '<div style="display:flex;align-items:center;gap:12px;justify-content:center;">' +
+        '<span style="font-size:13px;color:#7a8fa0;">总阅读进度</span>' +
+        '<div style="width:200px;height:6px;border-radius:3px;background:rgba(255,255,255,0.12);overflow:hidden;">' +
+          '<div style="height:100%;border-radius:3px;background:#c75b39;transition:width 0.5s;width:' + overallPct + '%"></div>' +
+        '</div>' +
+        '<span style="font-size:13px;color:#f5d78e;font-weight:700;">' + overallPct + '%</span>' +
+        '<span style="font-size:12px;color:#7a8fa0;">(' + totalRead + '/' + totalChapters + '章)</span>' +
+      '</div>';
+    hero.appendChild(overallDiv);
+  }
+})();
+</script>
 
 </body>
 </html>
