@@ -1,7 +1,9 @@
-# 新书添加标准化流程
+# 新书添加标准化流程（V2 架构）
 
 > 适用场景：将一本海外投资书籍的 epub 转化为中文 AI 精读笔记页面并上线。
 > 核心原则：**中文用户无需懂英文即可完整阅读**。
+> 
+> ⚠️ V2 重要变化：新书不只是加 HTML 文件，还必须同步更新修行首页（index.html）的 BOOK_META + DOMAINS 配置和书架页（bookshelf.html）的卡片。
 
 ---
 
@@ -223,52 +225,66 @@ grep -nP '[A-Za-z]{4,}' books/new-book/index.html | \
 
 ---
 
-## 阶段五：书架首页更新
+## 阶段五：修行首页数据更新
 
-编辑 `/workspace/workbuddy/海外书籍AI精读平台/index.html`：
+编辑 `index.html` 中的内联 JS 数据配置（两个位置）：
 
-### 5.1 更新统计数据
+### 5.1 更新 BOOK_META（在"今日精读"脚本附近）
 
-```html
-<div class="stats">
-  <div class="stat-item">
-    <div class="stat-num">N</div>  <!-- 更新书本数 -->
-    <div class="stat-label">本精读笔记</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">M</div>  <!-- 更新原则总数 -->
-    <div class="stat-label">条投资原则</div>
-  </div>
-</div>
+```javascript
+var BOOK_META = {
+  // ... 已有条目 ...
+  'new-book-slug': { title: '中文书名', chapters: 15 }
+};
 ```
 
-### 5.2 添加书籍卡片（模板）
+### 5.2 更新 DOMAINS（在"五域修行核心逻辑"脚本中）
+
+确定新书属于哪个域，添加对应条目：
+
+```javascript
+{
+  key: 'business', // 或 valuation/cycle/mind/uncertainty
+  books: [
+    // ... 已有条目 ...
+    { slug: 'new-book-slug', lv: 2 }  // Lv.1-Lv.4 难度
+  ]
+}
+```
+
+如果需要跨山连接，在对应域的 `cross` 数组中添加引用。
+
+### 5.3 更新 bookshelf.html
+
+添加书籍卡片：
 
 ```html
 <div class="book-card">
-  <div class="card-cover" style="background: linear-gradient(135deg, #色1, #色2);">
+  <div class="card-cover new-book">
     <span class="status-badge available">已上线</span>
     <div class="cover-text">中文书名</div>
   </div>
   <div class="card-body">
     <h3>中文书名</h3>
     <div class="author">中文作者名 · 年份</div>
-    <div class="desc">
-      一段中文简介（100-150字），包含核心贡献和独特价值
-    </div>
+    <div class="desc">一段中文简介（100-150字），包含核心贡献和独特价值</div>
     <div class="tags">
       <span class="tag">标签1</span>
       <span class="tag">标签2</span>
       <span class="tag">X章精读</span>
     </div>
-    <a class="card-btn primary" href="books/book-slug/">进入精读 →</a>
+    <a class="card-btn primary" href="books/new-book-slug/">进入精读 →</a>
   </div>
 </div>
 ```
 
-### 5.3 Footer 更新
+注意：`card-cover` 的 CSS 类需要在 `<style>` 中添加对应渐变背景。
 
-在每本书的 footer 中添加新书的交叉引用链接。
+### 5.4 更新 bookshelf.html 统计数据
+
+```html
+<span class="stats-line">📚 已上线 N 本经典 · M 个精读章节</span>
+```
 
 ---
 
@@ -276,7 +292,7 @@ grep -nP '[A-Za-z]{4,}' books/new-book/index.html | \
 
 ```bash
 cd /workspace/workbuddy/海外书籍AI精读平台
-git add books/new-book/ index.html
+git add books/new-book/ index.html bookshelf.html
 git commit -m "feat: 添加《书名》精读笔记（X章）"
 git push origin main
 ```
@@ -289,17 +305,28 @@ git push origin main
 
 部署前逐项确认：
 
+### 新书页面
 - [ ] 书名/作者/出版社全部中文化
 - [ ] 所有章节标题统一为"第N章 · 标题"格式
-- [ ] 首页卡片描述无英文（缩写除外）
 - [ ] meta 标签和 og 标签中文化
 - [ ] Schema.org 结构化数据中文化
 - [ ] 章节预览（关键概念/核心问题/一句话）已生成
 - [ ] 导航栏格式正确（概览→路线图→导言→章节）
 - [ ] 阅读路线图、进度条已添加
 - [ ] 回到顶部按钮 + JS 引用已添加
-- [ ] 交叉链接 footer 已更新
-- [ ] 书架首页统计数字已更新
+- [ ] 思考题自测卡片已添加
+- [ ] 跨书对话卡片已添加（如适用）
 - [ ] en-detail 原文已折叠
-- [ ] 本地截图验证通过（桌面 1440px + 移动 375px）
+
+### V2 数据同步
+- [ ] index.html 中 BOOK_META 已添加新书
+- [ ] index.html 中 DOMAINS 已添加新书到对应域
+- [ ] bookshelf.html 中已添加书籍卡片
+- [ ] bookshelf.html 中统计数字已更新
+- [ ] 新书封面 CSS 渐变类已添加到 bookshelf.html 的 `<style>` 中
+
+### 质量检查
+- [ ] 本地截图验证通过（桌面 1440px + 平板 768px + 移动 375px）
+- [ ] 中文化检查通过（见 DOC_I18N.md 检查脚本）
 - [ ] git push 成功
+- [ ] 线上页面可访问且显示正常
