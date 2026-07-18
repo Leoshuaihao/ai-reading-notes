@@ -1378,6 +1378,7 @@
       div.className = 'note-entry';
       div.innerHTML =
         (isQuote ? '<span class="ne-quote-badge">金句</span>' : '') +
+        '<button class="ne-share" data-idx="' + realIdx + '" title="分享"> 分享</button>' +
         '<div class="ne-body">' +
           '<div class="ne-meta"><span>' + title + '</span>' + (chStr ? '<span>' + chStr + '</span>' : '') + '<span>' + dateStr + '</span></div>' +
           '<div class="ne-text">' + (note.content || '').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</div>' +
