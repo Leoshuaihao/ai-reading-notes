@@ -7,8 +7,8 @@
 
   // ==================== 配置 ====================
   // 从 Supabase Dashboard > Settings > API 获取
-  var SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';  // TODO: 替换
-  var SUPABASE_KEY = 'YOUR_ANON_KEY';                      // TODO: 替换
+  var SUPABASE_URL = 'https://zvacgujeywaytpkixdtw.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_FPRCtR8-8kzKjANW86sq1Q_iw5J8rCk';
 
   // 如果未配置，禁用云功能
   var ENABLED = SUPABASE_URL.indexOf('YOUR_PROJECT') === -1;
