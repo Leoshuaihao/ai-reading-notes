@@ -199,35 +199,69 @@
     });
   }
 
-  // 构建苏格拉底式 System Prompt
-  function buildPrompt(chapterInfo) {
-    return '你是投资导师，扮演Philip A. Fisher（《Common Stocks and Uncommon Profits》作者）。\n\n' +
-      '与中文读者讨论书中的思考题。原则：\n' +
-      '1. 苏格拉底式提问引导读者说出想法，不直接给答案\n' +
-      '2. 引用书中原文深化讨论\n' +
-      '3. 通俗中文，偶尔保留关键英文术语\n' +
-      '4. 语气温和有挑战性，像一位严厉但关心你的导师\n' +
-      '5. 每次回复150字以内，聚焦一个点\n\n' +
-      '当前章节：' + (chapterInfo.chapterTitle || '未知') + '\n' +
-      '如果用户问与投资完全无关或涉及敏感话题，请礼貌表示只能讨论本书相关投资话题。';
-  }
+  // ==================== 模拟响应（本地 file:// 开发 / 未部署 Worker 时使用） ====================
+  // 按书 slug 生成对应作者人设的模拟回复
+  var SIMULATE_RESPONSES = {
+    'fisher': [
+      '让我用Fisher的框架来分析...Fisher会说，关键不在于<strong>市场怎么样</strong>，而在于<strong>你持有的公司怎么样</strong>。要不要试着用15条原则来检验一下？',
+      'Fisher可能会追问你：<strong>你的判断基于什么信息？</strong>读了财报？还是像他说的那样——跟客户、供应商、竞争对手聊过了？'
+    ],
+    'howard-marks': [
+      'Marks会提醒你：<strong>市场在恐惧与贪婪之间永恒摇摆</strong>。你描述的这个判断，是在钟摆的哪一端做出的？',
+      '投资最重要的事是什么？Marks会说——<strong>第二层思维</strong>。你的想法和大众一样吗？如果一样，那可能就是错的。'
+    ],
+    'buffett': [
+      '巴菲特会问你：<strong>这是好生意吗？你能理解它吗？价格有吸引力吗？</strong>三个问题，一个都不能少。',
+      '巴菲特常说：<strong>别人贪婪时我恐惧，别人恐惧时我贪婪。</strong>你现在的判断，是在跟随大众还是逆向而行？'
+    ],
+    'poor-charlie': [
+      '芒格会说：<strong>反过来想，总是反过来想。</strong>如果你想知道如何成功，先研究如何失败。',
+      '芒格的多元思维模型提醒我们：<strong>不要只用一个学科的工具</strong>。心理学、经济学、物理学——它们都能照亮同一个问题。'
+    ],
+    'intelligent-investor': [
+      '格雷厄姆会说：<strong>安全边际是投资的核心</strong>。你为这家公司支付的价格，留出了足够的安全边际吗？',
+      '格雷厄姆的"市场先生"寓言提醒我们：<strong>市场是来服务你的，不是来指导你的</strong>。你是在被市场牵着走吗？'
+    ],
+    'peter-lynch': [
+      '林奇会说：<strong>投资你了解的东西</strong>。你能在日常生活中观察到这家公司的产品或服务吗？',
+      '林奇会追问：<strong>这家公司的故事讲完了吗？</strong>好公司的故事会持续多年，别因为涨了一点就卖掉。'
+    ],
+    'black-swan': [
+      '塔勒布会提醒你：<strong>真正改变历史的事件是不可预测的</strong>。你的投资组合能承受黑天鹅吗？',
+      '塔勒布会说：<strong>我们总是在事后为随机事件编造解释</strong>。你确定自己的判断不是后视镜偏误吗？'
+    ],
+    'antifragile': [
+      '塔勒布会说：<strong>脆弱的反义词不是坚韧，而是反脆弱</strong>。你的投资组合能从波动中受益吗？',
+      '塔勒布会追问：<strong>如果最坏的情况发生了，你会怎样？</strong>如果答案是"毁灭"，那你的仓位就太大了。'
+    ],
+    'principles': [
+      '达利欧会说：<strong>痛苦+反思=进步</strong>。你描述的这个经历，你从中提炼出了什么原则？',
+      '达利欧会追问：<strong>你的决策是基于原则还是情绪？</strong>如果是原则，它经得起反复检验吗？'
+    ],
+    'random-walk': [
+      '马尔基尔会提醒你：<strong>短期股价走势是随机漫步</strong>。你确定自己能预测市场吗？还是只是运气好？',
+      '马尔基尔会说：<strong>长期来看，低成本指数基金能跑赢大多数主动管理</strong>。你的投资为什么能例外？'
+    ],
+    'richdad': [
+      '清崎会问你：<strong>这是资产还是负债？</strong>资产把钱放进口袋，负债把钱拿走。你描述的东西是哪一种？',
+      '清崎会说：<strong>富人为钱工作，还是让钱为自己工作？</strong>你现在的选择是哪一种？'
+    ]
+  };
 
-  // ==================== 模拟响应（本地 file:// 开发） ====================
+  // 通用模拟回复（未在映射中的书）
+  var GENERIC_RESPONSES = [
+    '这是一个很好的角度。<strong>先说说你的直觉</strong>——不用管对错，你是怎么想到这个问题的？',
+    '有意思的观点。<strong>你的判断基于什么信息？</strong>是实际调研，还是听来的观点？',
+    '让我换个角度问你：<strong>如果最坏的情况发生，你能承受吗？</strong>这往往是投资决策的真正考验。'
+  ];
+
   function simulateResponse(msg, body, typing, sendBtn) {
     setTimeout(function() {
       if (typing) typing.style.display = 'none';
 
-      var responses = [
-        '这是一个很好的角度！让我用Fisher的框架来帮你分析一下...<br><br>Fisher会说，关键不在于<strong>市场怎么样</strong>，而在于<strong>你持有的公司怎么样</strong>。如果你持有的是一家真正卓越的公司，市场波动只是噪音。<br><br>要不要试着用下一章的15条原则来检验一下你想到的那家公司？',
-
-        '有意思的观点。Fisher可能会追问你：<strong>你的这个判断是基于什么信息做出的？</strong>是读了财报？听了别人的推荐？还是像他说的那样——跟公司的客户、供应商、竞争对手聊过了？<br><br>深度调研和道听途说，是两种完全不同的认知。',
-
-        '你提出了一个Fisher本人也经常思考的问题。让我引用他在书中的原话...<br><br>其实Fisher的方法论最核心的一点就是：<strong>不要试图预测市场，而是去理解企业。</strong>市场不可预测，但企业的竞争力是可以调研的。<br><br>你觉得在你的投资经验中，哪一次判断是基于"理解企业"而不是"预测市场"？',
-
-        '这是个好问题。让我换个角度——如果Fisher今天还活着，他可能会说：<strong>用Scuttlebutt Method去调研，而不是坐在屏幕前看K线图。</strong><br><br>比如说，你可以试试去你想投资的那家公司的门店转转、跟它的用户聊聊、在脉脉上看看前员工的评价。这些信息比任何技术指标都更有价值。'
-      ];
-
-      var response = responses[Math.floor(Math.random() * responses.length)];
+      var slug = getBookSlug();
+      var pool = SIMULATE_RESPONSES[slug] || GENERIC_RESPONSES;
+      var response = pool[Math.floor(Math.random() * pool.length)];
       appendMessage(body, 'ai', response);
       body.scrollTop = body.scrollHeight;
       if (sendBtn) sendBtn.disabled = false;
