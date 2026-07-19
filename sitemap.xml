@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 主页面 -->
+  <url>
+    <loc>https://ai-reading.workbuddy.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ai-reading.workbuddy.com/bookshelf.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ai-reading.workbuddy.com/concepts.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ai-reading.workbuddy.com/diagnose.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ai-reading.workbuddy.com/my.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- 阅读引导页 -->
+  <url>
+    <loc>https://ai-reading.workbuddy.com/reading-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- 19 本书籍 -->
+  <url><loc>https://ai-reading.workbuddy.com/books/fisher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/howard-marks/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/buffett/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/market-cycle/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/buffett-letters/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/alchemy-finance/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/poor-charlie/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/intelligent-investor/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/peter-lynch/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/security-analysis/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/beating-street/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/stock-operator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/economic-moat/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/fooled-by-randomness/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/black-swan/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/antifragile/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/principles/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/random-walk/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-reading.workbuddy.com/books/richdad/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+</urlset>
