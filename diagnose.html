@@ -197,9 +197,15 @@
 
 <script>
 // ==================== 诊断引擎 ====================
-var API_BASE = window.location.protocol === 'file:' 
-  ? 'http://localhost:8080' 
-  : '';
+// 后端 API 地址（部署后填入，如 'https://xxx.railway.app'）
+// 为空时降级为 fetch 预计算 JSON → 再降级为内置硬编码
+var DIAGNOSE_API = window.DIAGNOSE_API || '';
+// 本地开发自动指向 localhost:3000
+if (window.location.protocol === 'file:' || window.location.hostname === 'localhost') {
+  DIAGNOSE_API = 'http://localhost:3000';
+}
+// 预计算报告缓存（从 JSON fetch 后缓存）
+var _cachedReports = null;
 
 function quickSearch(code) {
   document.getElementById('stockInput').value = code;
@@ -221,9 +227,9 @@ function startDiagnose() {
   reportEl.classList.remove('active');
   btn.disabled = true;
 
-  // 本地开发模式：直接调 Python 引擎
-  if (API_BASE) {
-    fetch(API_BASE + '/api/diagnose', {
+  // 优先调后端 API（支持任意股票）
+  if (DIAGNOSE_API) {
+    fetch(DIAGNOSE_API + '/api/diagnose', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ stock_code: input })
@@ -244,14 +250,60 @@ function startDiagnose() {
       showError('诊断服务暂时不可用，请稍后再试');
     });
   } else {
-    // 线上模式：用 WebAssembly 或预计算数据
-    // MVP 阶段：线上用预计算数据
-    setTimeout(function() {
+    // 降级：fetch 预计算 JSON（GitHub Pages 可用）→ 再降级内置硬编码
+    fetchPrecomputedReport(input).then(function(data) {
       loadingEl.classList.remove('active');
       btn.disabled = false;
-      renderReport(getPrecomputedReport(input));
-    }, 800);
+      if (data.error) {
+        showError(data.message);
+      } else {
+        renderReport(data);
+      }
+    }).catch(function() {
+      loadingEl.classList.remove('active');
+      btn.disabled = false;
+      showError('诊断数据加载失败，请稍后再试');
+    });
   }
+}
+
+// fetch 预计算报告（从 JSON 文件，降级方案）
+function fetchPrecomputedReport(input) {
+  return new Promise(function(resolve, reject) {
+    // 已有缓存数据
+    if (_cachedReports && typeof _cachedReports === 'object') {
+      if (_cachedReports[input]) {
+        resolve(_cachedReports[input]);
+      } else {
+        resolve({ error: 'not_found', message: '暂不支持该股票。MVP阶段支持：茅台、宁德时代、腾讯、五粮液、海康威视、恒瑞医药、万科A' });
+      }
+      return;
+    }
+    // 首次加载
+    if (_cachedReports === null) {
+      _cachedReports = false; // 标记正在加载
+      fetch('engine/precomputed_reports.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          _cachedReports = data;
+          if (data[input]) {
+            resolve(data[input]);
+          } else {
+            resolve({ error: 'not_found', message: '暂不支持该股票。MVP阶段支持：茅台、宁德时代、腾讯、五粮液、海康威视、恒瑞医药、万科A' });
+          }
+        })
+        .catch(function() {
+          // JSON fetch 失败，用内置硬编码（2只）
+          _cachedReports = null; // 重置允许重试
+          var r = getPrecomputedReport(input);
+          resolve(r); // resolve（含 error 项）
+        });
+    } else {
+      // 加载中或失败，用硬编码
+      var r = getPrecomputedReport(input);
+      resolve(r);
+    }
+  });
 }
 
 function getPrecomputedReport(input) {

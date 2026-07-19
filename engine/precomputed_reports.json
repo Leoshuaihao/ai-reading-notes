@@ -1,0 +1,1024 @@
+{
+  "600519": {
+    "stock": {
+      "code": "600519",
+      "name": "贵州茅台",
+      "industry": "白酒"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 97,
+    "max_score": 120,
+    "score_pct": 81,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "市场份额63.0%，品牌力顶级，护城河类型：品牌+文化壁垒。Fisher会认为这几乎不可撼动。",
+        "data_note": "市场份额: 63.0% | 品牌力: 顶级 | 护城河: 品牌+文化壁垒",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近3年无增发（总股本变化0%），自由现金流650亿。Fisher最欣赏这种'自给自足'的公司。",
+        "data_note": "总股本变化: 0%/年 | 自由现金流: 650亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近10年无违规记录，大股东无质押，关联交易正常。Fisher会说：这正是'毋庸置疑的正直品格'。",
+        "data_note": "违规: 0次 | 大股东质押: 0% | 分红率: 51.9% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "每1%研发投入带来约42.7%增长，效率显著高于行业。",
+        "data_note": "研发费用率: 0.3% | 营收增速: 12.8% | 效率比: 42.7",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。",
+        "data_note": "信息披露违规: 0次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "营收3年CAGR 12.8%，高于行业-3.2%。 注意：行业整体在萎缩（-3.2%），公司增长靠抢占份额。",
+        "data_note": "营收3年CAGR: 12.8% | 行业增速: -3.2% | 市场份额: 63.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "人均创收320万元，高于行业280万。",
+        "data_note": "人均创收: 320万（行业280万）| 销售费用率: 2.8%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "毛利率92.1%高于行业72.0%，趋势稳定。",
+        "data_note": "毛利率: 92.1%（行业72.0%）| 趋势: 稳定",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "利润率稳定，但没有明显的改善趋势。",
+        "data_note": "毛利率趋势: 稳定 | 费用率趋势: 稳定",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "投入增速(6%)低于利润增速(13.5%)。可能是在吃老本。",
+        "data_note": "研发增速: 8.0% | 资本开支增速: 5.0% | 利润增速: 13.5%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "研发费用率0.3%远低于行业1.2%。几乎没有为未来做准备。",
+        "data_note": "研发费用率: 0.3%（行业1.2%）| 研发增速: 8.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：稳定。人均薪酬：高于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：无异常信号。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  },
+  "000858": {
+    "stock": {
+      "code": "000858",
+      "name": "五粮液",
+      "industry": "白酒"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 88,
+    "max_score": 120,
+    "score_pct": 73,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近3年无增发（总股本变化0%），自由现金流280亿。Fisher最欣赏这种'自给自足'的公司。",
+        "data_note": "总股本变化: 0%/年 | 自由现金流: 280亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近10年无违规记录，大股东无质押，关联交易正常。Fisher会说：这正是'毋庸置疑的正直品格'。",
+        "data_note": "违规: 0次 | 大股东质押: 0% | 分红率: 55.0% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "每1%研发投入带来约17.0%增长，效率显著高于行业。",
+        "data_note": "研发费用率: 0.5% | 营收增速: 8.5% | 效率比: 17.0",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。",
+        "data_note": "信息披露违规: 0次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "毛利率78.0%高于行业72.0%，趋势稳定。",
+        "data_note": "毛利率: 78.0%（行业72.0%）| 趋势: 稳定",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "营收3年CAGR 8.5%，高于行业-3.2%。 注意：行业整体在萎缩（-3.2%），公司增长靠抢占份额。",
+        "data_note": "营收3年CAGR: 8.5% | 行业增速: -3.2% | 市场份额: 15.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "利润率稳定，但没有明显的改善趋势。",
+        "data_note": "毛利率趋势: 稳定 | 费用率趋势: 稳定",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "人均创收260万元，在行业均值附近。",
+        "data_note": "人均创收: 260万（行业280万）| 销售费用率: 8.0%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "市场份额15.0%，竞争壁垒品牌。优势存在但不够强。",
+        "data_note": "市场份额: 15.0% | 品牌力: 强 | 护城河: 品牌",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "投入增速(4%)低于利润增速(9.0%)。可能是在吃老本。",
+        "data_note": "研发增速: 6.0% | 资本开支增速: 3.0% | 利润增速: 9.0%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "研发费用率0.5%远低于行业1.2%。几乎没有为未来做准备。",
+        "data_note": "研发费用率: 0.5%（行业1.2%）| 研发增速: 6.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：稳定。人均薪酬：等于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：无异常信号。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  },
+  "300750": {
+    "stock": {
+      "code": "300750",
+      "name": "宁德时代",
+      "industry": "新能源"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 90,
+    "max_score": 120,
+    "score_pct": 75,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "营收3年CAGR 25.0%，远超行业18.0%。",
+        "data_note": "营收3年CAGR: 25.0% | 行业增速: 18.0% | 市场份额: 37.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近10年无违规记录，大股东无质押，关联交易正常。Fisher会说：这正是'毋庸置疑的正直品格'。",
+        "data_note": "违规: 0次 | 大股东质押: 5.0% | 分红率: 20.0% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "每1%研发投入带来约4.5%增长，效率显著高于行业。",
+        "data_note": "研发费用率: 5.5% | 营收增速: 25.0% | 效率比: 4.5",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。",
+        "data_note": "信息披露违规: 0次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "人均创收180万元，高于行业150万。",
+        "data_note": "人均创收: 180万（行业150万）| 销售费用率: 3.5%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "市场份额37.0%，品牌力强。有明显的竞争优势。",
+        "data_note": "市场份额: 37.0% | 品牌力: 强 | 护城河: 技术+规模",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "投入增速(28%)与利润增速(28.0%)基本匹配。",
+        "data_note": "研发增速: 35.0% | 资本开支增速: 20.0% | 利润增速: 28.0%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "总股本稀释2.0%/年，在可接受范围。自由现金流350亿。",
+        "data_note": "总股本变化: 2.0%/年 | 自由现金流: 350亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "研发费用率5.5%低于行业6.0%。Fisher可能会问：增长耗尽后怎么办？",
+        "data_note": "研发费用率: 5.5%（行业6.0%）| 研发增速: 35.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": 4,
+        "comment": "毛利率22.5%在行业25.0%附近，趋势下降。 利润率持续下降是Fisher最警惕的信号之一。",
+        "data_note": "毛利率: 22.5%（行业25.0%）| 趋势: 下降",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "毛利率在下降。Fisher会高度警惕：这是竞争加剧还是成本失控？",
+        "data_note": "毛利率趋势: 下降 | 费用率趋势: 下降",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：扩张。人均薪酬：高于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：无异常信号。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  },
+  "00700": {
+    "stock": {
+      "code": "00700",
+      "name": "腾讯控股",
+      "industry": "互联网"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 91,
+    "max_score": 120,
+    "score_pct": 76,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "毛利率稳定且费用率在下降——这是最健康的利润率维护方式。Fisher称之为'效率驱动型'。",
+        "data_note": "毛利率趋势: 稳定 | 费用率趋势: 下降",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "市场份额55.0%，品牌力顶级，护城河类型：网络效应。Fisher会认为这几乎不可撼动。",
+        "data_note": "市场份额: 55.0% | 品牌力: 顶级 | 护城河: 网络效应",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近3年无增发（总股本变化-2.0%），自由现金流1500亿。Fisher最欣赏这种'自给自足'的公司。",
+        "data_note": "总股本变化: -2.0%/年 | 自由现金流: 1500亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "营收3年CAGR 10.0%，高于行业8.5%。",
+        "data_note": "营收3年CAGR: 10.0% | 行业增速: 8.5% | 市场份额: 55.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "管理层诚信总体良好。注意：1次违规记录",
+        "data_note": "违规: 1次 | 大股东质押: 0% | 分红率: 25.0% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "研发效率高于行业平均水平。",
+        "data_note": "研发费用率: 10.5% | 营收增速: 10.0% | 效率比: 1.0",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "投入增速(15%)与利润增速(15.0%)基本匹配。",
+        "data_note": "研发增速: 18.0% | 资本开支增速: 12.0% | 利润增速: 15.0%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 6,
+        "comment": "1次信息披露违规。Fisher会追问：为什么在坏事发生时不坦诚沟通？",
+        "data_note": "信息披露违规: 1次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "研发费用率10.5%低于行业12.0%。Fisher可能会问：增长耗尽后怎么办？",
+        "data_note": "研发费用率: 10.5%（行业12.0%）| 研发增速: 18.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "人均创收150万元，在行业均值附近。",
+        "data_note": "人均创收: 150万（行业180万）| 销售费用率: 8.0%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "毛利率52.0%在行业55.0%附近，趋势稳定。",
+        "data_note": "毛利率: 52.0%（行业55.0%）| 趋势: 稳定",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：稳定。人均薪酬：高于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：无异常信号。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  },
+  "002415": {
+    "stock": {
+      "code": "002415",
+      "name": "海康威视",
+      "industry": "消费电子"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 95,
+    "max_score": 120,
+    "score_pct": 79,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "研发费用率10.0%（行业5.0%），且研发增速(15.0%)超过利润增速(8.0%)。Fisher会欣赏这种对未来的投入。",
+        "data_note": "研发费用率: 10.0%（行业5.0%）| 研发增速: 15.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "毛利率45.0%（行业30.0%），趋势稳定。",
+        "data_note": "毛利率: 45.0%（行业30.0%）| 趋势: 稳定",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "研发+资本开支增速(12%)超过利润增速(8.0%)。Fisher会说：这家公司在投资未来，不是榨干现在。",
+        "data_note": "研发增速: 15.0% | 资本开支增速: 8.0% | 利润增速: 8.0%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近10年无违规记录，大股东无质押，关联交易正常。Fisher会说：这正是'毋庸置疑的正直品格'。",
+        "data_note": "违规: 0次 | 大股东质押: 0% | 分红率: 50.0% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。",
+        "data_note": "信息披露违规: 0次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "市场份额25.0%，品牌力强。有明显的竞争优势。",
+        "data_note": "市场份额: 25.0% | 品牌力: 强 | 护城河: 技术+渠道",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "利润率稳定，但没有明显的改善趋势。",
+        "data_note": "毛利率趋势: 稳定 | 费用率趋势: 稳定",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "总股本稀释0.5%/年，在可接受范围。自由现金流120亿。",
+        "data_note": "总股本变化: 0.5%/年 | 自由现金流: 120亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 6,
+        "comment": "营收3年CAGR 6.0%，行业5.0%。增长温和。",
+        "data_note": "营收3年CAGR: 6.0% | 行业增速: 5.0% | 市场份额: 25.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "研发效率在行业均值附近。",
+        "data_note": "研发费用率: 10.0% | 营收增速: 6.0% | 效率比: 0.6",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "人均创收140万元，低于行业200万。销售效率需要提升。",
+        "data_note": "人均创收: 140万（行业200万）| 销售费用率: 12.0%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：稳定。人均薪酬：高于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：无异常信号。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  },
+  "000002": {
+    "stock": {
+      "code": "000002",
+      "name": "万科A",
+      "industry": "房地产"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 70,
+    "max_score": 120,
+    "score_pct": 58,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "研发+资本开支增速(-25%)超过利润增速(-50.0%)。Fisher会说：这家公司在投资未来，不是榨干现在。",
+        "data_note": "研发增速: -20.0% | 资本开支增速: -30.0% | 利润增速: -50.0%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。",
+        "data_note": "信息披露违规: 0次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "人均创收600万元，高于行业500万。",
+        "data_note": "人均创收: 600万（行业500万）| 销售费用率: 4.0%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "总股本稀释0%/年，在可接受范围。自由现金流-200亿。",
+        "data_note": "总股本变化: 0%/年 | 自由现金流: -200亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 6,
+        "comment": "管理层存在一些值得警惕的信号：大股东质押30.0%（偏高）；分红率偏低。Fisher会说：如果原则15不及格，其他14条再优秀也没用。",
+        "data_note": "违规: 0次 | 大股东质押: 30.0% | 分红率: 0% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "研发费用率0.2%低于行业0.3%。Fisher可能会问：增长耗尽后怎么办？",
+        "data_note": "研发费用率: 0.2%（行业0.3%）| 研发增速: -20.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": 4,
+        "comment": "毛利率18.0%在行业25.0%附近，趋势下降。 利润率持续下降是Fisher最警惕的信号之一。",
+        "data_note": "毛利率: 18.0%（行业25.0%）| 趋势: 下降",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "研发投入的产出效率低于行业。Fisher会追问：钱花对了吗？",
+        "data_note": "研发费用率: 0.2% | 营收增速: -8.0% | 效率比: -40.0",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "毛利率在下降。Fisher会高度警惕：这是竞争加剧还是成本失控？",
+        "data_note": "毛利率趋势: 下降 | 费用率趋势: 上升",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "市场份额仅4.0%，无明显竞争壁垒。Fisher会说：为什么是这家公司而不是它的竞争对手？",
+        "data_note": "市场份额: 4.0% | 品牌力: 中等 | 护城河: 无明确壁垒",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": 2,
+        "comment": "营收3年CAGR -8.0%，行业-5.0%。Fisher会高度警惕。 注意：行业整体在萎缩（-5.0%），公司增长靠抢占份额。",
+        "data_note": "营收3年CAGR: -8.0% | 行业增速: -5.0% | 市场份额: 4.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：下降。人均薪酬：等于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：高管离职率偏高；CEO兼任董事长，权力过度集中。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。CEO兼任董事长让Fisher不安——他相信权力制衡。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  },
+  "600276": {
+    "stock": {
+      "code": "600276",
+      "name": "恒瑞医药",
+      "industry": "医药"
+    },
+    "master": {
+      "name": "Philip A. Fisher",
+      "book": "Common Stocks and Uncommon Profits",
+      "book_zh": "怎样选择成长股"
+    },
+    "total_score": 85,
+    "max_score": 120,
+    "score_pct": 71,
+    "principles": [
+      {
+        "score": 10,
+        "comment": "研发费用率20.0%（行业8.0%），且研发增速(22.0%)超过利润增速(6.0%)。Fisher会欣赏这种对未来的投入。",
+        "data_note": "研发费用率: 20.0%（行业8.0%）| 研发增速: 22.0%",
+        "principle_number": 2,
+        "principle_name": "管理层决心",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "连续多年标准无保留审计意见，无财务重述。会计控制值得信赖。",
+        "data_note": "审计意见: 标准无保留意见 | 近5年财务重述: 0次",
+        "principle_number": 10,
+        "principle_name": "成本分析",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "研发+资本开支增速(16%)超过利润增速(6.0%)。Fisher会说：这家公司在投资未来，不是榨干现在。",
+        "data_note": "研发增速: 22.0% | 资本开支增速: 10.0% | 利润增速: 6.0%",
+        "principle_number": 12,
+        "principle_name": "利润导向",
+        "quantifiable": true
+      },
+      {
+        "score": 10,
+        "comment": "近10年无违规记录，大股东无质押，关联交易正常。Fisher会说：这正是'毋庸置疑的正直品格'。",
+        "data_note": "违规: 0次 | 大股东质押: 0% | 分红率: 20.0% | 关联交易: 正常范围",
+        "principle_number": 15,
+        "principle_name": "管理层诚信",
+        "quantifiable": true
+      },
+      {
+        "score": 9,
+        "comment": "无信息披露违规记录。Fisher会认为这是基本要求，但能做到的公司并不多。",
+        "data_note": "信息披露违规: 0次",
+        "principle_number": 14,
+        "principle_name": "沟通透明度",
+        "quantifiable": true
+      },
+      {
+        "score": 8,
+        "comment": "毛利率84.0%高于行业65.0%，趋势稳定。",
+        "data_note": "毛利率: 84.0%（行业65.0%）| 趋势: 稳定",
+        "principle_number": 5,
+        "principle_name": "利润率",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "利润率稳定，但没有明显的改善趋势。",
+        "data_note": "毛利率趋势: 稳定 | 费用率趋势: 稳定",
+        "principle_number": 6,
+        "principle_name": "利润率维护",
+        "quantifiable": true
+      },
+      {
+        "score": 7,
+        "comment": "总股本稀释1.0%/年，在可接受范围。自由现金流30亿。",
+        "data_note": "总股本变化: 1.0%/年 | 自由现金流: 30亿",
+        "principle_number": 13,
+        "principle_name": "融资需求",
+        "quantifiable": true
+      },
+      {
+        "score": 5,
+        "comment": "营收3年CAGR 5.0%，行业10.0%。增长温和。",
+        "data_note": "营收3年CAGR: 5.0% | 行业增速: 10.0% | 市场份额: 5.0%",
+        "principle_number": 1,
+        "principle_name": "市场潜力",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "研发投入的产出效率低于行业。Fisher会追问：钱花对了吗？",
+        "data_note": "研发费用率: 20.0% | 营收增速: 5.0% | 效率比: 0.2",
+        "principle_number": 3,
+        "principle_name": "研发效率",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "人均创收80万元，低于行业120万。销售效率需要提升。",
+        "data_note": "人均创收: 80万（行业120万）| 销售费用率: 35.0%",
+        "principle_number": 4,
+        "principle_name": "销售组织",
+        "quantifiable": true
+      },
+      {
+        "score": 3,
+        "comment": "市场份额仅5.0%，无明显竞争壁垒。Fisher会说：为什么是这家公司而不是它的竞争对手？",
+        "data_note": "市场份额: 5.0% | 品牌力: 强 | 护城河: 研发管线",
+        "principle_number": 11,
+        "principle_name": "竞争优势",
+        "quantifiable": true
+      },
+      {
+        "score": null,
+        "comment": "员工数量趋势：扩张。人均薪酬：高于行业。",
+        "data_note": "Fisher会说：去跟这家公司的前员工聊聊。问问他们为什么离开，愿不愿意推荐朋友来工作。",
+        "requires_research": true,
+        "research_guide": "在脉脉/看准网搜索公司评价；跟行业内的朋友打听员工满意度。",
+        "principle_number": 7,
+        "principle_name": "劳动关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "高管团队状况：无异常信号。",
+        "data_note": "Fisher会说：观察高管之间的互动。频繁更换CFO是危险信号。",
+        "requires_research": true,
+        "research_guide": "查阅高管简历，看是否有长期共事经历；关注财报中'关键管理人员薪酬'部分的披露。",
+        "principle_number": 8,
+        "principle_name": "高管关系",
+        "quantifiable": false
+      },
+      {
+        "score": null,
+        "comment": "CEO不兼任董事长。Fisher会关注：CEO有没有培养接班人？",
+        "data_note": "Fisher会说：如果CEO离职这家公司就瘫痪，那它不值得投资。看看中层有没有决策权。",
+        "requires_research": true,
+        "research_guide": "看公司官网'管理团队'页面；搜索'XX公司 接班人'相关新闻。",
+        "principle_number": 9,
+        "principle_name": "管理层深度",
+        "quantifiable": false
+      }
+    ],
+    "data_date": "2026-07-16",
+    "data_source": "2025年报 / 2026Q1季报 / 行业研报",
+    "analysis_time": "2026-07-16"
+  }
+}
