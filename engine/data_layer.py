@@ -8,9 +8,7 @@ import urllib.error
 import ssl
 from datetime import datetime
 
-ssl_ctx = ssl.create_default_context()
-ssl_ctx.check_hostname = False
-ssl_ctx.verify_mode = ssl.CERT_NONE
+ssl_ctx = ssl.create_default_context()  # SSL 验证已启用（默认安全，不跳过证书检查）
 
 # ==================== 行业基准数据 ====================
 INDUSTRY_BENCHMARKS = {

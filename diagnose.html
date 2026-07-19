@@ -139,7 +139,7 @@
 <!-- Hero -->
 <section class="diagnose-hero">
   <h1>🔍 Fisher 视角 · 股票诊断 <span style="font-size:12px;background:#fdf0e8;color:#c75b39;padding:2px 10px;border-radius:10px;vertical-align:middle;margin-left:8px;">Beta</span></h1>
-  <p class="subtitle">用 Philip Fisher 的 15 条原则，诊断你关注的 A 股公司 · 当前支持 2 只预计算股票（茅台、万科A）</p>
+  <p class="subtitle">用 Philip Fisher 的 15 条原则，诊断你关注的 A 股公司 · 当前支持 7 只预计算股票（贵州茅台、五粮液、宁德时代、腾讯控股、海康威视、万科A、恒瑞医药）</p>
   <div class="search-box">
     <input id="stockInput" autocomplete="off" autocapitalize="off" enterkeyhint="go" placeholder="输入股票名称或代码，如 贵州茅台 / 600519" type="text"/>
     <button id="diagnoseBtn" onclick="startDiagnose()">开始诊断</button>
@@ -431,5 +431,10 @@ document.getElementById('stockInput').addEventListener('keydown', function(e) {
 });
 </script>
 
+<nav class="mobile-tab-bar" aria-label="底部导航">
+  <a href="index.html"><span class="mti"></span>修行</a>
+  <a href="bookshelf.html"><span class="mti"></span>书架</a>
+  <a href="my.html"><span class="mti"></span>我的</a>
+</nav>
 </body>
 </html>

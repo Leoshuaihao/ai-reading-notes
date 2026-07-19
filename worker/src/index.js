@@ -28,20 +28,30 @@ function checkRateLimit(ip) {
 }
 
 // ==================== CORS ====================
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Max-Age': '86400',
-};
+const ALLOWED_ORIGINS = [
+  'https://ai-reading.workbuddy.com',
+  'http://localhost:3000',
+  'http://localhost:5500',
+];
 
-function handleOptions() {
-  return new Response(null, { status: 204, headers: CORS_HEADERS });
+function getCorsHeaders(request) {
+  const origin = request.headers.get('Origin') || '';
+  const allowOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowOrigin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Max-Age': '86400',
+  };
 }
 
-function withCors(response) {
+function handleOptions(request) {
+  return new Response(null, { status: 204, headers: getCorsHeaders(request) });
+}
+
+function withCors(response, request) {
   const headers = new Headers(response.headers);
-  for (const [k, v] of Object.entries(CORS_HEADERS)) {
+  for (const [k, v] of Object.entries(getCorsHeaders(request))) {
     headers.set(k, v);
   }
   return new Response(response.body, {
@@ -158,7 +168,7 @@ export default {
 
     // CORS 预检
     if (request.method === 'OPTIONS') {
-      return handleOptions();
+      return handleOptions(request);
     }
 
     // 健康检查
@@ -169,10 +179,10 @@ export default {
     // API 聊天端点
     if (url.pathname === '/api/chat' && request.method === 'POST') {
       const response = await handleChatRequest(request, env);
-      return withCors(response);
+      return withCors(response, request);
     }
 
     // 404
-    return jsonResponse({ error: 'not_found' }, 404);
+    return withCors(jsonResponse({ error: 'not_found' }, 404), request);
   },
 };

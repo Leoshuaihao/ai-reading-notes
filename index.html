@@ -1168,6 +1168,13 @@
   var KEY_JOURNAL = 'investment_journal';
   var emptyHTML = null; // 缓存空状态HTML，避免innerHTML清空后丢失
 
+  // XSS 防护：对所有用户输入做 HTML 转义
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = s || '';
+    return d.innerHTML;
+  }
+
   function loadJournals() {
     try {
       return JSON.parse(localStorage.getItem(KEY_JOURNAL)) || [];
@@ -1197,11 +1204,11 @@
       var div = document.createElement('div');
       div.className = 'journal-entry';
       div.innerHTML =
-        '<span class="je-date">' + entry.date + '</span>' +
-        '<span class="je-symbol">' + (entry.symbol || '未指定') + '</span>' +
-        '<span class="je-tag ' + entry.action + '">' + (actionMap[entry.action] || entry.action) + '</span>' +
-        '<span class="je-tag emotion">' + (emotionMap[entry.emotion] || entry.emotion) + '</span>' +
-        '<span class="je-reason" title="' + (entry.reason || '').replace(/"/g, '&quot;') + '">' + (entry.reason || '') + '</span>' +
+        '<span class="je-date">' + esc(entry.date) + '</span>' +
+        '<span class="je-symbol">' + (entry.symbol ? esc(entry.symbol) : '未指定') + '</span>' +
+        '<span class="je-tag ' + esc(entry.action) + '">' + esc(actionMap[entry.action] || entry.action) + '</span>' +
+        '<span class="je-tag emotion">' + esc(emotionMap[entry.emotion] || entry.emotion) + '</span>' +
+        '<span class="je-reason" title="' + esc(entry.reason || '').replace(/"/g, '&quot;') + '">' + esc(entry.reason || '') + '</span>' +
         '<button class="je-delete" data-idx="' + realIdx + '" title="删除">&times;</button>';
       list.appendChild(div);
     });

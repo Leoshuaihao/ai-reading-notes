@@ -75,14 +75,15 @@ app.post('/api/chat', express.json(), async (req, res) => {
 
     if (!response.ok) {
       const err = await response.text();
-      return res.status(response.status).json({ error: err });
+      console.error('DeepSeek API error:', response.status, err.substring(0, 200));
+      return res.status(502).json({ error: 'AI 服务暂时不可用，请稍后再试' });
     }
 
     const data = await response.json();
     res.json(data);
   } catch (error) {
     console.error('Chat API Error:', error.message);
-    res.status(500).json({ error: '服务器错误', message: error.message });
+    res.status(500).json({ error: '服务器内部错误' });
   }
 });
 
