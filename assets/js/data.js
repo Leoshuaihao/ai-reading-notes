@@ -134,6 +134,121 @@ var AppData = (function() {
     { id: 'concentration', name: '集中与分散', domain: 'mind', color: '#7b4fbf', brief: '下重注还是广撒网——世纪分歧', master: '费雪', books: ['fisher','intelligent-investor','poor-charlie','peter-lynch'] }
   ];
 
+  /** MVP知识点（训练场数据） */
+  var KNOWLEDGE_POINTS = [
+    {
+      id: 'owner-earnings',
+      name: '股东盈余',
+      domain: 'valuation',
+      book: 'buffett',
+      chapter: 3,
+      chapterRef: 'Ch3 财务原则8',
+      formula: '股东盈余 = 净利润 + 折旧摊销 - 维持竞争地位所必需的资本支出',
+      formulaDisplay: '净利润 + 折旧摊销 - 维持性资本支出',
+      description: '巴菲特认为真正的"经济利润"不是会计利润，而是扣除维持竞争优势必须投入的资本后的剩余。这是评估企业自由现金流的核心概念。',
+      emoji: '💰',
+      guidedCase: 'maotai',
+      practiceCase: 'wuliangye',
+      realWorldCompanies: ['gree', 'haitian', 'yili'],
+      // 练习层期望答案
+      practiceExpected: { step1: 320, step2: 285, final: 285 },
+      // 实战层期望答案（按公司）
+      realWorldExpected: {
+        gree:    { earnings: 220, ratio: 89.8 },
+        haitian: { earnings: 52,  ratio: 92.9 },
+        yili:    { earnings: 78,  ratio: 75.0 }
+      }
+    },
+    {
+      id: 'dcf-model',
+      name: 'DCF折现模型',
+      domain: 'valuation',
+      book: 'buffett',
+      chapter: 3,
+      chapterRef: 'Ch3 市场原则11',
+      formula: '内在价值 = sum(未来各年自由现金流 / (1 + 折现率)^t)',
+      formulaDisplay: 'CF₁/(1+r)¹ + CF₂/(1+r)² + ... + CFₙ/(1+r)ⁿ',
+      description: '将企业未来每年产生的自由现金流，按合适的折现率折算回今天的价值。巴菲特用这个方法判断企业是否值得投资——价格低于内在价值时才有安全边际。',
+      emoji: '📉',
+      guidedCase: 'maotai',
+      practiceCase: 'yili',
+      realWorldCompanies: ['gree', 'wuliangye', 'haitian'],
+      practiceExpected: { // 伊利5年折现值之和
+        pvSum: 388
+      },
+      realWorldExpected: {
+        gree:     { pvSum: 1020 },
+        wuliangye:{ pvSum: 1450 },
+        haitian:  { pvSum: 260 }
+      }
+    },
+    {
+      id: 'roe-decomposition',
+      name: 'ROE分解',
+      domain: 'valuation',
+      book: 'buffett',
+      chapter: 3,
+      chapterRef: 'Ch3 财务原则7',
+      formula: 'ROE = 净利润率 x 资产周转率 x 权益乘数',
+      formulaDisplay: '净利润率 x 资产周转率 x 权益乘数',
+      description: '杜邦分析法将ROE拆成三个因子，帮助理解公司高回报的真正来源：是利润率高（产品好）、周转快（效率高），还是杠杆大（借钱多）？巴菲特偏好利润率和周转率驱动的高ROE。',
+      emoji: '🔬',
+      guidedCase: 'maotai',
+      practiceCase: 'gree',
+      realWorldCompanies: ['wuliangye', 'yili', 'haitian'],
+      practiceExpected: { netMargin: 13.0, turnover: 0.613, leverage: 3.263, roe: 26.0 },
+      realWorldExpected: {
+        wuliangye: { netMargin: 36.3, turnover: 0.867, leverage: 1.524, roe: 47.9 },
+        yili:      { netMargin: 8.2,  turnover: 1.539, leverage: 1.952, roe: 24.8 },
+        haitian:   { netMargin: 22.9, turnover: 0.645, leverage: 1.357, roe: 20.0 }
+      }
+    }
+  ];
+
+  /** 内置公司案例数据（简化财报，供训练场使用） */
+  var COMPANY_CASES = {
+    maotai: {
+      name: '贵州茅台', industry: '白酒', year: 2023,
+      data: {
+        revenue: 1505, netProfit: 747, depreciation: 28, maintenanceCapex: 45,
+        totalAssets: 2540, equity: 1720, liabilities: 820,
+        freeCashFlow: 730, growthRate5y: 0.12, discountRate: 0.10
+      }
+    },
+    wuliangye: {
+      name: '五粮液', industry: '白酒', year: 2023,
+      data: {
+        revenue: 832, netProfit: 302, depreciation: 18, maintenanceCapex: 35,
+        totalAssets: 960, equity: 630, liabilities: 330,
+        freeCashFlow: 285, growthRate5y: 0.10, discountRate: 0.10
+      }
+    },
+    yili: {
+      name: '伊利股份', industry: '乳制品', year: 2023,
+      data: {
+        revenue: 1262, netProfit: 104, depreciation: 22, maintenanceCapex: 48,
+        totalAssets: 820, equity: 420, liabilities: 400,
+        freeCashFlow: 78, growthRate5y: 0.06, discountRate: 0.10
+      }
+    },
+    gree: {
+      name: '格力电器', industry: '家电', year: 2023,
+      data: {
+        revenue: 1890, netProfit: 245, depreciation: 35, maintenanceCapex: 60,
+        totalAssets: 3100, equity: 950, liabilities: 2150,
+        freeCashFlow: 220, growthRate5y: 0.04, discountRate: 0.10
+      }
+    },
+    haitian: {
+      name: '海天味业', industry: '调味品', year: 2023,
+      data: {
+        revenue: 245, netProfit: 56, depreciation: 8, maintenanceCapex: 12,
+        totalAssets: 380, equity: 280, liabilities: 100,
+        freeCashFlow: 52, growthRate5y: 0.08, discountRate: 0.10
+      }
+    }
+  };
+
   /** 概念对比金句（用于首页金句墙改造） */
   var CONCEPT_QUOTES = [
     {
@@ -189,6 +304,7 @@ var AppData = (function() {
   var KEY_PROGRESS = 'reading_progress';
   var KEY_PRINCIPLES = 'my_principles';
   var KEY_STREAK = 'reading_streak';
+  var KEY_ABILITY = 'ability_profile';
 
   // ==================== 工具函数 ====================
   function safeJSON(str, fallback) {
@@ -282,6 +398,18 @@ var AppData = (function() {
     });
     var principles = getPrinciples().length;
     xp = chaptersTotal * 1 + principles * 2 + completedBooks * 5 + startedDomains * 2;
+
+    // 训练场积分：每完成一个训练层级 +3 XP
+    var profile = getAbilityProfile();
+    var completedLevels = 0;
+    Object.keys(profile.knowledge_points).forEach(function(kpId) {
+      var kp = profile.knowledge_points[kpId];
+      ['concept', 'guided', 'practice', 'real_world'].forEach(function(lv) {
+        if (kp.levels && kp.levels[lv] && kp.levels[lv].completed) completedLevels++;
+      });
+    });
+    xp += completedLevels * 3;
+
     return { xp: xp, chaptersTotal: chaptersTotal, completedBooks: completedBooks, startedDomains: startedDomains, principles: principles };
   }
 
@@ -397,6 +525,101 @@ var AppData = (function() {
     return Math.round(Math.min(readBooks / totalBooks, 1) * 100);
   }
 
+  // ==================== 能力画像 ====================
+
+  /** 获取能力画像数据 */
+  function getAbilityProfile() {
+    return safeJSON(localStorage.getItem(KEY_ABILITY), {
+      version: 1,
+      updated_at: null,
+      knowledge_points: {}
+    });
+  }
+
+  /** 保存能力画像数据 */
+  function saveAbilityProfile(profile) {
+    profile.updated_at = new Date().toISOString();
+    safeSet(KEY_ABILITY, profile);
+  }
+
+  /** 获取知识点列表（过滤到特定域） */
+  function getKnowledgePoints(domainKey) {
+    if (!domainKey) return KNOWLEDGE_POINTS.slice();
+    return KNOWLEDGE_POINTS.filter(function(kp) { return kp.domain === domainKey; });
+  }
+
+  /** 获取公司案例数据 */
+  function getCompanyCases() { return COMPANY_CASES; }
+
+  /** 获取某知识点的训练进度 */
+  function getKpProgress(kpId) {
+    var profile = getAbilityProfile();
+    var kp = profile.knowledge_points[kpId];
+    if (!kp) {
+      return { completedLevels: 0, masteryPct: 0, levels: { concept: false, guided: false, practice: false, real_world: false } };
+    }
+    var completed = 0;
+    ['concept', 'guided', 'practice', 'real_world'].forEach(function(lv) {
+      if (kp.levels && kp.levels[lv] && kp.levels[lv].completed) completed++;
+    });
+    return {
+      completedLevels: completed,
+      masteryPct: completed * 25,
+      levels: {
+        concept: kp.levels && kp.levels.concept && kp.levels.concept.completed,
+        guided: kp.levels && kp.levels.guided && kp.levels.guided.completed,
+        practice: kp.levels && kp.levels.practice && kp.levels.practice.completed,
+        real_world: kp.levels && kp.levels.real_world && kp.levels.real_world.completed
+      }
+    };
+  }
+
+  /** 标记某个知识点的某层训练完成 */
+  function markLevelCompleted(kpId, levelName, extraData) {
+    var profile = getAbilityProfile();
+    if (!profile.knowledge_points[kpId]) {
+      var kpDef = null;
+      for (var i = 0; i < KNOWLEDGE_POINTS.length; i++) {
+        if (KNOWLEDGE_POINTS[i].id === kpId) { kpDef = KNOWLEDGE_POINTS[i]; break; }
+      }
+      if (!kpDef) return false;
+      profile.knowledge_points[kpId] = {
+        domain: kpDef.domain,
+        book: kpDef.book,
+        chapter: kpDef.chapter,
+        name: kpDef.name,
+        levels: { concept: {}, guided: {}, practice: {}, real_world: {} },
+        mastery_pct: 0
+      };
+    }
+    var kp = profile.knowledge_points[kpId];
+    if (!kp.levels) kp.levels = { concept: {}, guided: {}, practice: {}, real_world: {} };
+    kp.levels[levelName] = { completed: true, completed_at: new Date().toISOString() };
+    if (extraData) Object.assign(kp.levels[levelName], extraData);
+
+    // 更新 mastery_pct
+    var completed = 0;
+    ['concept', 'guided', 'practice', 'real_world'].forEach(function(lv) {
+      if (kp.levels[lv] && kp.levels[lv].completed) completed++;
+    });
+    kp.mastery_pct = completed * 25;
+
+    saveAbilityProfile(profile);
+    return true;
+  }
+
+  /** 计算某域的训练掌握度（有知识点的域用训练数据，否则返回 null 走兜底） */
+  function computeDomainMastery(domainKey) {
+    var kpList = KNOWLEDGE_POINTS.filter(function(kp) { return kp.domain === domainKey; });
+    if (kpList.length === 0) return null;
+    var totalMastery = 0;
+    kpList.forEach(function(kp) {
+      var progress = getKpProgress(kp.id);
+      totalMastery += progress.masteryPct;
+    });
+    return Math.round(totalMastery / kpList.length);
+  }
+
   // ==================== 公开 API ====================
   return {
     // 数据查询
@@ -438,6 +661,17 @@ var AppData = (function() {
 
     // 概念掌握度
     getConceptMastery: getConceptMastery,
+
+    // 能力画像 & 训练场
+    KNOWLEDGE_POINTS: KNOWLEDGE_POINTS,
+    COMPANY_CASES: COMPANY_CASES,
+    getAbilityProfile: getAbilityProfile,
+    saveAbilityProfile: saveAbilityProfile,
+    getKnowledgePoints: getKnowledgePoints,
+    getCompanyCases: getCompanyCases,
+    getKpProgress: getKpProgress,
+    markLevelCompleted: markLevelCompleted,
+    computeDomainMastery: computeDomainMastery,
 
     // 工具
     safeJSON: safeJSON

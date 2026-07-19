@@ -205,7 +205,10 @@
     <div class="seed-desc">
       阅读大师的作品，你的五维能力将像植物的根须一样，沿着商业、估值、周期、心性与不确定性五个方向自然生长。
     </div>
-    <a class="seed-btn" href="#quiz-intro" onclick="document.getElementById('quiz-start').click();return false">先测测你的投资风格 </a>
+    <div class="seed-actions" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class="seed-btn" href="my.html#ability-profile">查看完整画像</a>
+      <a class="seed-btn seed-btn-secondary" href="#quiz-intro" onclick="document.getElementById('quiz-start').click();return false">先测测你的投资风格</a>
+    </div>
   </div>
 </div>
 
@@ -774,8 +777,13 @@
     var dimColors = ['#7b4fbf', '#2c6faa', '#2d7d46', '#c75b39', '#b8860b'];
     var domainKeys = ['mind', 'valuation', 'business', 'cycle', 'uncertainty'];
     domainKeys.forEach(function(key) {
-      var dp = computeDomainProgress(key);
-      dims.push(Math.min(dp.pct, 100));
+      var mastery = computeDomainMastery(key);
+      if (mastery !== null) {
+        dims.push(Math.min(mastery, 100));
+      } else {
+        var dp = computeDomainProgress(key);
+        dims.push(Math.min(dp.pct, 100));
+      }
     });
 
     var allZero = dims.every(function(d) { return d === 0; });

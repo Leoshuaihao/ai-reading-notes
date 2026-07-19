@@ -7,6 +7,7 @@
 <title>投资修行 — AI精读笔记</title>
 <meta name="description" content="你的投资修行之路：等级、成就、阅读进度、投资体系。像爬山一样看见自己的成长。"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/practice.css"/>
 <style>
 /* ===== 页面骨架 ===== */
 .my-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -153,6 +154,55 @@
   .achieve-grid { grid-template-columns: repeat(2, 1fr); }
   .mountain-section { padding: 16px 14px; }
 }
+
+/* ===== 知识点列表（my.html 专用） ===== */
+.my-kp-domain-title {
+  font-size: 16px; font-weight: 700; color: var(--text);
+  margin: 24px 0 12px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+}
+.knowledge-point-list { margin-bottom: 40px; }
+.kp-item {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 20px;
+  margin-bottom: 12px; transition: all 0.2s;
+}
+.kp-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+.kp-header {
+  display: flex; align-items: center; gap: 10px;
+}
+.kp-emoji { font-size: 20px; }
+.kp-name { font-size: 16px; font-weight: 700; flex: 1; }
+.kp-mastery-badge {
+  font-size: 13px; font-weight: 700;
+  padding: 4px 14px; border-radius: 14px;
+  background: var(--accent-light); color: var(--accent);
+}
+.kp-mastery-badge.mastered { background: #f0f7f0; color: var(--green); }
+.kp-start-btn {
+  background: var(--accent); color: #fff;
+  border: none; border-radius: 16px;
+  padding: 6px 18px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: background 0.2s;
+}
+.kp-start-btn:hover { background: #b04f30; }
+.kp-start-btn.continue { background: var(--blue); }
+.kp-levels-row {
+  display: flex; gap: 8px; margin-top: 8px;
+}
+.kp-level {
+  font-size: 12px; padding: 3px 10px; border-radius: 8px;
+  background: var(--tag-bg); color: var(--text-secondary);
+}
+.kp-level.completed {
+  background: #f0f7f0; color: var(--green); font-weight: 600;
+}
+.kp-source {
+  font-size: 12px; color: var(--text-secondary); margin-top: 4px;
+}
+@media (max-width: 768px) {
+  .kp-header { flex-wrap: wrap; }
+}
 </style>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8ebcd28da20148c4af3da9d3b5f76a0c"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
@@ -252,12 +302,36 @@
 <!-- Streak 周历 -->
 <div class="streak-week-row" id="streakWeekRow" style="display:flex;justify-content:center;gap:6px;margin-bottom:32px;flex-wrap:wrap;"></div>
 
-<!-- ==================== 五维能力树 ==================== -->
+<!-- ==================== 能力画像 ==================== -->
+<section id="abilityProfileSection">
+  <h3 class="my-section-title">🧭 能力画像</h3>
+  <p class="my-section-desc" id="abilityProfileDesc">基于训练掌握度的五维投资能力评估</p>
+
+  <!-- 雷达图区域 -->
+  <div class="ability-main-wrap" id="myAbilityActive" hidden>
+    <div class="ability-radar-svg" id="myRadarChart"></div>
+    <div class="ability-stats" id="myAbilityStats"></div>
+  </div>
+
+  <!-- 种子态 -->
+  <div class="ability-main-wrap ability-seed-state" id="myAbilitySeed">
+    <div class="seed-icon">🌱</div>
+    <div class="seed-title">开始训练，解锁你的能力画像</div>
+    <div class="seed-desc">通过知识点训练场的4层递进学习，你的五维能力将逐步量化呈现。</div>
+  </div>
+
+  <!-- 估值域知识点列表 -->
+  <div class="my-kp-domain-title">📊 估值域 — 投资技能训练</div>
+  <div class="knowledge-point-list" id="knowledgePointList"></div>
+</section>
+
+<!-- ==================== 五维能力树（保留作为辅助概览） ====================
 <section id="skillTreeSection">
   <h3 class="my-section-title">🌳 五维能力树</h3>
   <p class="my-section-desc">每读完一本书，对应分支就点亮一颗技能叶。五棵大树全亮时，你就是完整的投资人。</p>
   <div class="skill-tree" id="skillTree"></div>
-</section>
+</section-->
+
 
 <!-- ==================== 成就徽章 ==================== -->
 <section class="achieve-section" id="achieveSection">
@@ -289,6 +363,7 @@
 </div>
 
 <script src="assets/js/data.js"></script>
+<script src="assets/js/training.js"></script>
 <script>
 // ===== 使用共享数据层 =====
 var BOOKS = Object.keys(AppData.BOOK_META).map(function(slug) {
@@ -358,7 +433,7 @@ function renderAll() {
   updateLevelBadge(stats);
   updateMountain(stats, progress);
   updateStatsBar(stats);
-  updateSkillTree(stats, progress);
+  updateAbilityProfile();
   updateAchievements(stats);
   updateProgressGrid(progress);
   updatePrinciples(principles);
@@ -458,43 +533,138 @@ function updateStatsBar(stats) {
   }
 }
 
-// ===== 能力树 =====
-function updateSkillTree(stats, progress) {
-  // 从 data.js DOMAINS 动态生成能力树，与 index.html 五域卡片保持一致
-  var domainToSkill = {
-    'business':     { name: '商业认知', icon: '🧭', desc: '识别好生意' },
-    'valuation':    { name: '资产估值', icon: '⚖️', desc: '量化公司价值' },
-    'cycle':        { name: '周期认知', icon: '🔄', desc: '校准市场位置' },
-    'mind':         { name: '心性修炼', icon: '🧘', desc: '战胜人性弱点' },
-    'uncertainty':  { name: '不确定驾驭', icon: '🌪️', desc: '与随机性共舞' }
-  };
+// ===== 能力画像 =====
+function updateAbilityProfile() {
+  var seedEl = document.getElementById('myAbilitySeed');
+  var activeEl = document.getElementById('myAbilityActive');
+  var kpListEl = document.getElementById('knowledgePointList');
 
-  var tree = document.getElementById('skillTree');
+  // 渲染雷达图
+  renderMyRadar();
+
+  // 渲染知识点列表
+  var kpList = AppData.getKnowledgePoints('valuation');
   var html = '';
-  AppData.DOMAINS.forEach(function(d) {
-    var skill = domainToSkill[d.key] || { name: d.name, icon: d.emoji, desc: d.question };
-    var domainBooks = d.books.map(function(b) { return AppData.getBook(b.slug); }).filter(Boolean);
-    var readCount = domainBooks.filter(function(b) {
-      var p = progress[b.slug || '']; return p && p.chaptersRead && p.chaptersRead.length > 0;
-    }).length;
+  kpList.forEach(function(kp) {
+    var progress = AppData.getKpProgress(kp.id);
+    var pct = progress.masteryPct;
+    var levels = [
+      { key: 'concept', label: '概念', completed: progress.levels.concept },
+      { key: 'guided', label: '引导', completed: progress.levels.guided },
+      { key: 'practice', label: '练习', completed: progress.levels.practice },
+      { key: 'real_world', label: '实战', completed: progress.levels.real_world }
+    ];
+    var btnLabel = pct > 0 ? '继续训练' : '开始训练';
+    var btnClass = pct > 0 ? 'kp-start-btn continue' : 'kp-start-btn';
+    var badgeClass = pct >= 100 ? 'kp-mastery-badge mastered' : 'kp-mastery-badge';
 
-    html += '<div class="skill-branch">' +
-      '<div class="branch-header">' +
-        '<div class="branch-icon" style="background:' + d.color + '">' + skill.icon + '</div>' +
-        '<div>' +
-          '<div class="branch-name">' + skill.name + '</div>' +
-          '<div class="branch-score">' + readCount + '/' + domainBooks.length + ' 本书已读 · ' + skill.desc + '</div>' +
-        '</div>' +
+    html += '<div class="kp-item" data-kp-id="' + kp.id + '">' +
+      '<div class="kp-header">' +
+        '<span class="kp-emoji">' + kp.emoji + '</span>' +
+        '<span class="kp-name">' + kp.name + '</span>' +
+        '<span class="' + badgeClass + '">' + pct + '%</span>' +
+        '<button class="' + btnClass + '" onclick="openTrainingModal(\'' + kp.id + '\')">' + btnLabel + '</button>' +
       '</div>' +
-      '<div class="leaf-list">';
-    domainBooks.forEach(function(b) {
-      var p = progress[b.slug || ''];
-      var read = p && p.chaptersRead && p.chaptersRead.length > 0;
-      html += '<span class="leaf' + (read ? ' unlocked' : '') + '">' + (read ? '⭐' : '🌿') + ' ' + b.title + '</span>';
-    });
-    html += '</div></div>';
+      '<div class="kp-levels-row">' +
+        levels.map(function(lv) {
+          return '<span class="kp-level' + (lv.completed ? ' completed' : '') + '">' +
+            lv.label + (lv.completed ? ' ✓' : '') + '</span>';
+        }).join('') +
+      '</div>' +
+      '<div class="kp-source">来源：《' + (AppData.getBook(kp.book) && AppData.getBook(kp.book).title || '') +
+        '》' + kp.chapterRef + '</div>' +
+    '</div>';
   });
-  tree.innerHTML = html;
+  kpListEl.innerHTML = html;
+
+  // 控制种子态 vs 活跃态
+  var anyTraining = kpList.some(function(kp) { return AppData.getKpProgress(kp.id).masteryPct > 0; });
+  if (anyTraining) {
+    if (seedEl) seedEl.hidden = true;
+    if (activeEl) activeEl.hidden = false;
+    document.getElementById('abilityProfileDesc').textContent = '训练场掌握度驱动的五维投资能力评估——点击知识点进入训练';
+  } else {
+    if (seedEl) seedEl.hidden = false;
+    if (activeEl) activeEl.hidden = true;
+  }
+}
+
+/** my.html 专用雷达图渲染（复用 index.html 逻辑，独立 DOM ID） */
+function renderMyRadar() {
+  var chartEl = document.getElementById('myRadarChart');
+  var statsEl = document.getElementById('myAbilityStats');
+  if (!chartEl || !statsEl) return;
+
+  var dims = [];
+  var dimNames = ['心性', '估值', '商业', '周期', '不确定性'];
+  var dimColors = ['#7b4fbf', '#2c6faa', '#2d7d46', '#c75b39', '#b8860b'];
+  var dimEmojis = ['🧘', '⚖️', '🧭', '🔄', '🌪️'];
+  var domainKeys = ['mind', 'valuation', 'business', 'cycle', 'uncertainty'];
+
+  domainKeys.forEach(function(key) {
+    var mastery = AppData.computeDomainMastery(key);
+    if (mastery !== null) {
+      dims.push(Math.min(mastery, 100));
+    } else {
+      var dp = AppData.getDomainProgress(key);
+      dims.push(Math.min(dp.pct, 100));
+    }
+  });
+
+  var allZero = dims.every(function(d) { return d === 0; });
+  if (allZero) return;
+
+  // 绘制雷达图（复用核心逻辑）
+  var cx = 200, cy = 200, r = 150, n = 5;
+  var points = dims.map(function(d, i) {
+    var angle = Math.PI * 2 / n * i - Math.PI / 2;
+    var rr = r * d / 100;
+    return { x: cx + rr * Math.cos(angle), y: cy + rr * Math.sin(angle) };
+  });
+
+  var svg = '<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">';
+  // 网格
+  for (var lv = 1; lv <= 4; lv++) {
+    var lvlR = r * lv / 4;
+    var gridPoints = [];
+    for (var i = 0; i < n; i++) {
+      var angle = Math.PI * 2 / n * i - Math.PI / 2;
+      gridPoints.push((cx + lvlR * Math.cos(angle)) + ',' + (cy + lvlR * Math.sin(angle)));
+    }
+    svg += '<polygon points="' + gridPoints.join(' ') +
+      '" fill="none" stroke="var(--border)" stroke-width="1" opacity="0.5"/>';
+  }
+  // 轴线
+  for (var i = 0; i < n; i++) {
+    var angle = Math.PI * 2 / n * i - Math.PI / 2;
+    svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + (cx + r * Math.cos(angle)) +
+      '" y2="' + (cy + r * Math.sin(angle)) + '" stroke="var(--border)" stroke-width="1" opacity="0.3"/>';
+  }
+  // 数据围
+  var dataPoints = points.map(function(p) { return p.x + ',' + p.y; }).join(' ');
+  svg += '<polygon points="' + dataPoints + '" fill="rgba(44,111,170,0.15)" stroke="#2c6faa" stroke-width="2"/>';
+  // 数据点
+  points.forEach(function(p) {
+    svg += '<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="#2c6faa"/>';
+  });
+  // 维度标签
+  for (var i = 0; i < n; i++) {
+    var angle = Math.PI * 2 / n * i - Math.PI / 2;
+    var lx = cx + (r + 24) * Math.cos(angle);
+    var ly = cy + (r + 24) * Math.sin(angle);
+    svg += '<text x="' + lx + '" y="' + ly + '" text-anchor="middle" dominant-baseline="middle" font-size="13" font-weight="700" fill="' + dimColors[i] + '">' + dimNames[i] + '</text>';
+  }
+  svg += '</svg>';
+  chartEl.innerHTML = svg;
+
+  // 右侧统计
+  var totalAvg = Math.round(dims.reduce(function(a,b){return a+b;},0) / n);
+  var maxDimIdx = dims.reduce(function(best, v, i, arr) { return v > arr[best] ? i : best; }, 0);
+  var minDimIdx = dims.reduce(function(best, v, i, arr) { return v < arr[best] ? i : best; }, 0);
+  statsEl.innerHTML = '<div class="as-title">综合评分 <span class="as-val">' + totalAvg + '</span></div>' +
+    '<div class="as-subs"><span>最强域：' + dimEmojis[maxDimIdx] + ' ' + dimNames[maxDimIdx] + ' (' + dims[maxDimIdx] + ')</span></div>' +
+    '<div class="as-subs"><span>待强化：' + dimEmojis[minDimIdx] + ' ' + dimNames[minDimIdx] + ' (' + dims[minDimIdx] + ')</span></div>' +
+    '<div class="as-note">估值域数据来自训练场掌握度，其他域基于阅读进度</div>';
 }
 
 // ===== 成就 =====
