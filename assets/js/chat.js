@@ -315,16 +315,32 @@
   }
 
   function checkDailyLimit(w) {
+    // 付费会员无限制
+    if (isPremium()) return true;
+
     try {
       var today = new Date().toISOString().split('T')[0];
       var key = 'chat_daily_' + today;
       var count = parseInt(localStorage.getItem(key) || '0', 10);
       if (count >= DAILY_LIMIT) {
-        showError(w, '📊 今日对话次数已用完（' + DAILY_LIMIT + '轮/天），明天再来吧！');
+        showError(w, '<div style="text-align:center;padding:8px 0;">'
+          + '<p style="font-size:16px;margin-bottom:8px;">📊 今日对话次数已用完（' + DAILY_LIMIT + '轮/天）</p>'
+          + '<p style="font-size:13px;color:var(--text-secondary);">升级会员享<strong>无限对话</strong> + 云同步</p>'
+          + '<button onclick="openAuth(\'signup\')" style="margin-top:8px;padding:8px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-size:13px;cursor:pointer;">✨ 升级会员 ¥9.9/月</button>'
+          + '</div>');
         return false;
       }
     } catch(e) { /* localStorage不可用时跳过限制 */ }
     return true;
+  }
+
+  function isPremium() {
+    if (!window.__SUPABASE_ENABLED__) return false;
+    var user = window.SupabaseAuth && window.SupabaseAuth.getUser();
+    if (!user) return false;
+    // 检查用户 membership_level（从 localStorage 缓存读取）
+    var membership = localStorage.getItem('membership_level');
+    return membership === 'premium';
   }
 
   function incrementDailyCount() {
