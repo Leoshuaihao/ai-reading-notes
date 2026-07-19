@@ -5,8 +5,6 @@
 (function() {
   'use strict';
 
-  if (!window.__SUPABASE_ENABLED__) return;
-
   // ==================== DOM 创建 ====================
   var modalHTML = [
     '<div id="auth-modal" class="auth-modal" aria-hidden="true">',
