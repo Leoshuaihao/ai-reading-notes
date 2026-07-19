@@ -7,7 +7,7 @@
 
   // ==================== 配置 ====================
   // 生产环境：通过 Cloudflare Workers 代理调用 DeepSeek API
-  var WORKER_URL = 'https://ai-reading-api-proxy.1120559539.workers.dev';
+  var WORKER_URL = 'https://ai-reading-api-proxy.neo-lab.workers.dev';
   var API_ENDPOINT = WORKER_URL + '/api/chat';
   // API_KEY 由 Worker 代理管理，前端不持有密钥
   var API_KEY = '';
