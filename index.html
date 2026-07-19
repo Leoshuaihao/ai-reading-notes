@@ -1674,8 +1674,92 @@
 <!-- ===== AI 阅读问答 ===== -->
 <script>
 (function() {
-  var DS_KEY = 'sk-1b3b9a4abf1246faa75b2d84c425b1d5';
-  var DS_URL = 'https://api.deepseek.com/chat/completions';
+  // ==================== 配置（与 chat.js 保持一致） ====================
+  // 生产环境：通过 Cloudflare Workers 代理调用 DeepSeek API
+  // API Key 由 Worker 管理，前端不持有任何密钥
+  var WORKER_URL = 'https://ai-reading-api-proxy.1120559539.workers.dev';
+  var USE_REAL_API = true;  // Worker 已部署，启用真实 AI
+  var MODEL = 'deepseek-chat';
+  var REQUEST_TIMEOUT = 15000;
+
+  // ==================== 书籍 → 作者人设映射（与 chat.js BOOK_PROMPTS 对齐） ====================
+  var BOOK_PROMPTS = {
+    'fisher':              { author: 'Philip A. Fisher',   book: '怎样选择成长股' },
+    'howard-marks':        { author: 'Howard Marks',       book: '投资最重要的事' },
+    'buffett':             { author: 'Warren Buffett',      book: '巴菲特之道' },
+    'market-cycle':        { author: 'Howard Marks',       book: '周期' },
+    'buffett-letters':     { author: 'Warren Buffett',      book: '巴菲特致股东的信' },
+    'alchemy-finance':     { author: 'George Soros',       book: '金融炼金术' },
+    'poor-charlie':        { author: 'Charlie Munger',     book: '穷查理宝典' },
+    'intelligent-investor': { author: 'Benjamin Graham',    book: '聪明的投资者' },
+    'security-analysis':   { author: 'Benjamin Graham',     book: '证券分析' },
+    'peter-lynch':         { author: 'Peter Lynch',        book: '彼得·林奇的成功投资' },
+    'beating-street':      { author: 'Peter Lynch',        book: '战胜华尔街' },
+    'one-up-wall-street':   { author: 'Peter Lynch',       book: '彼得·林奇的成功投资' },
+    'black-swan':          { author: 'Nassim Taleb',       book: '黑天鹅' },
+    'antifragile':         { author: 'Nassim Taleb',       book: '反脆弱' },
+    'fooled-by-randomness': { author: 'Nassim Taleb',      book: '随机漫步的傻瓜' },
+    'random-walk':          { author: 'Burton Malkiel',    book: '漫步华尔街' },
+    'richdad':             { author: 'Robert Kiyosaki',    book: '富爸爸穷爸爸' },
+    'principles':          { author: 'Ray Dalio',          book: '原则' },
+    'stock-operator':       { author: 'Jesse Livermore',    book: '股票作手回忆录' },
+    'economic-moat':       { author: 'Warren Buffett',     book: '巴菲特之道' }
+  };
+
+  // ==================== 模拟回复（按书 slug 走对应作者人设） ====================
+  var SIMULATE_RESPONSES = {
+    'fisher': [
+      'Fisher 会说：<strong>关键不在于市场怎么样，而在于你持有的公司怎么样。</strong>要不要试着用 15 条原则来检验一下？',
+      'Fisher 可能会追问你：<strong>你的判断基于什么信息？</strong>读了财报？还是像他说的那样——跟客户、供应商、竞争对手聊过了？'
+    ],
+    'howard-marks': [
+      'Marks 会提醒你：<strong>市场在恐惧与贪婪之间永恒摇摆。</strong>你描述的这个判断，是在钟摆的哪一端做出的？',
+      '投资最重要的事是什么？Marks 会说——<strong>第二层思维。</strong>你的想法和大众一样吗？如果一样，那可能就是错的。'
+    ],
+    'buffett': [
+      '巴菲特会问你：<strong>这是好生意吗？你能理解它吗？价格有吸引力吗？</strong>三个问题，一个都不能少。',
+      '巴菲特常说：<strong>别人贪婪时我恐惧，别人恐惧时我贪婪。</strong>你现在的判断，是在跟随大众还是逆向而行？'
+    ],
+    'poor-charlie': [
+      '芒格会说：<strong>反过来想，总是反过来想。</strong>如果你想知道如何成功，先研究如何失败。',
+      '芒格的多元思维模型提醒我们：<strong>不要只用一个学科的工具。</strong>心理学、经济学、物理学——它们都能照亮同一个问题。'
+    ],
+    'intelligent-investor': [
+      '格雷厄姆会说：<strong>安全边际是投资的核心。</strong>你为这家公司支付的价格，留出了足够的安全边际吗？',
+      '格雷厄姆的"市场先生"寓言提醒我们：<strong>市场是来服务你的，不是来指导你的。</strong>你是在被市场牵着走吗？'
+    ],
+    'peter-lynch': [
+      '林奇会说：<strong>投资你了解的东西。</strong>你能在日常生活中观察到这家公司的产品或服务吗？',
+      '林奇会追问：<strong>这家公司的故事讲完了吗？</strong>好公司的故事会持续多年，别因为涨了一点就卖掉。'
+    ],
+    'black-swan': [
+      '塔勒布会提醒你：<strong>真正改变历史的事件是不可预测的。</strong>你的投资组合能承受黑天鹅吗？',
+      '塔勒布会说：<strong>我们总是在事后为随机事件编造解释。</strong>你确定自己的判断不是后视镜偏误吗？'
+    ],
+    'antifragile': [
+      '塔勒布会说：<strong>脆弱的反义词不是坚韧，而是反脆弱。</strong>你的投资组合能从波动中受益吗？',
+      '塔勒布会追问：<strong>如果最坏的情况发生了，你会怎样？</strong>如果答案是"毁灭"，那你的仓位就太大了。'
+    ],
+    'principles': [
+      '达利欧会说：<strong>痛苦 + 反思 = 进步。</strong>你描述的这个经历，你从中提炼出了什么原则？',
+      '达利欧会追问：<strong>你的决策是基于原则还是情绪？</strong>如果是原则，它经得起反复检验吗？'
+    ],
+    'random-walk': [
+      '马尔基尔会提醒你：<strong>短期股价走势是随机漫步。</strong>你确定自己能预测市场吗？还是只是运气好？',
+      '马尔基尔会说：<strong>长期来看，低成本指数基金能跑赢大多数主动管理。</strong>你的投资为什么能例外？'
+    ],
+    'richdad': [
+      '清崎会问你：<strong>这是资产还是负债？</strong>资产把钱放进口袋，负债把钱拿走。你描述的东西是哪一种？',
+      '清崎会说：<strong>富人为钱工作，还是让钱为自己工作？</strong>你现在的选择是哪一种？'
+    ]
+  };
+
+  // 通用模拟回复（未在映射中的书）
+  var GENERIC_RESPONSES = [
+    '这是一个很好的角度。<strong>先说说你的直觉</strong>——不用管对错，你是怎么想到这个问题的？',
+    '有意思的观点。<strong>你的判断基于什么信息？</strong>是实际调研，还是听来的观点？',
+    '让我换个角度问你：<strong>如果最坏的情况发生，你能承受吗？</strong>这往往是投资决策的真正考验。'
+  ];
 
   var bookSel = document.getElementById('aicBook');
   var domainSel = document.getElementById('aicDomain');
@@ -1748,30 +1832,56 @@
 
     var t0 = Date.now();
 
-    fetch(DS_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + DS_KEY },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [
-          { role: 'system', content: '你是《' + title + '》的 AI 精读助手。基于这本书的内容和投资理念，用中文回答用户问题。回答要简洁、有深度，引用书中的具体概念和章节。如果问题超出本书范围，可以结合投资常识补充，但要说明哪些是你的补充。' },
-          { role: 'user', content: question }
-        ],
-        temperature: 0.7, max_tokens: 1024
-      })
-    }).then(function(r) { return r.json(); })
-    .then(function(data) {
-      loadingDiv.remove();
-      var answer = data.choices && data.choices[0] ? data.choices[0].message.content : '(AI 未返回答案)';
-      addMsg('a', '《' + title + '》', answer);
-      var elapsed = ((Date.now() - t0) / 1000).toFixed(1);
-      status.textContent = '响应耗时 ' + elapsed + 's · AI 精读问答';
-    })
-    .catch(function(err) {
-      loadingDiv.remove();
-      addMsg('a', '', '(请求失败: ' + err.message + ')');
-      status.textContent = '网络错误';
-    });
+    if (USE_REAL_API && WORKER_URL) {
+      // 生产环境：通过 Worker 代理调用 DeepSeek API（前端不持有密钥）
+      var ctrl = new AbortController();
+      var timer = setTimeout(function() { ctrl.abort(); }, REQUEST_TIMEOUT);
+
+      fetch(WORKER_URL + '/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: ctrl.signal,
+        body: JSON.stringify({
+          model: MODEL,
+          messages: [
+            { role: 'system', content: '你是《' + title + '》的 AI 精读助手。基于这本书的内容和投资理念，用中文回答用户问题。回答要简洁、有深度，引用书中的具体概念和章节。如果问题超出本书范围，可以结合投资常识补充，但要说明哪些是你的补充。' },
+            { role: 'user', content: question }
+          ],
+          temperature: 0.7, max_tokens: 1024
+        })
+      }).then(function(r) {
+        clearTimeout(timer);
+        if (!r.ok) throw new Error('Worker 返回 ' + r.status);
+        return r.json();
+      }).then(function(data) {
+        loadingDiv.remove();
+        var answer = data.choices && data.choices[0] ? data.choices[0].message.content : '(AI 未返回答案)';
+        addMsg('a', '《' + title + '》', answer);
+        var elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+        status.textContent = '响应耗时 ' + elapsed + 's · AI 精读问答';
+      }).catch(function(err) {
+        clearTimeout(timer);
+        loadingDiv.remove();
+        // Worker 不可用时降级为模拟回复
+        var fallback = getSimulateResponse(slug);
+        addMsg('a', '《' + title + '》', fallback);
+        status.textContent = '已降级为模拟回复（Worker 不可用）';
+      });
+    } else {
+      // 模拟模式：按书 slug 走对应作者人设（与 chat.js 一致）
+      setTimeout(function() {
+        loadingDiv.remove();
+        var answer = getSimulateResponse(slug);
+        addMsg('a', '《' + title + '》', answer);
+        var elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+        status.textContent = '模拟回复 · ' + elapsed + 's（部署 Worker 后启用真实 AI）';
+      }, 800 + Math.random() * 600);
+    }
+  }
+
+  function getSimulateResponse(slug) {
+    var pool = SIMULATE_RESPONSES[slug] || GENERIC_RESPONSES;
+    return pool[Math.floor(Math.random() * pool.length)];
   }
 
   function addMsg(type, title, text) {

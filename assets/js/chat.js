@@ -7,14 +7,12 @@
 
   // ==================== 配置 ====================
   // 生产环境：通过 Cloudflare Workers 代理调用 DeepSeek API
-  // Worker 部署后，将 WORKER_URL 替换为实际的 Worker 地址
-  var WORKER_URL = '';  // TODO: 填入 Cloudflare Workers 代理地址
-  var API_ENDPOINT = WORKER_URL || 'https://api.deepseek.com/v1/chat/completions';
+  var WORKER_URL = 'https://ai-reading-api-proxy.1120559539.workers.dev';
+  var API_ENDPOINT = WORKER_URL + '/api/chat';
   // API_KEY 由 Worker 代理管理，前端不持有密钥
-  // 本地 / 无 Worker 环境降级为模拟模式
   var API_KEY = '';
   var MODEL = 'deepseek-chat';
-  var USE_REAL_API = false;    // Worker 未部署时使用模拟模式
+  var USE_REAL_API = true;    // Worker 已部署，启用真实 AI
   var DAILY_LIMIT = 20;            // 免费用户每日轮数
   var RATE_LIMIT_WINDOW = 10000;   // 10秒窗口
   var RATE_LIMIT_MAX = 5;          // 窗口内最多5条
@@ -148,8 +146,7 @@
     fetch(API_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + API_KEY
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         model: MODEL,

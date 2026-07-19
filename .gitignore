@@ -32,3 +32,6 @@ ux_test_report.json
 *.bak
 # 测试文件
 *.tmp
+
+# Wrangler 本地缓存（含账号信息）
+worker/.wrangler/

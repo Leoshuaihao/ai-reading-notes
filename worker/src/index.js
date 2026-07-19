@@ -13,19 +13,6 @@ const REQUEST_TIMEOUT = 15000; // 15秒超时
 // ==================== 速率限制（内存存储） ====================
 const rateLimitMap = new Map();
 
-function cleanRateLimitMap() {
-  const now = Date.now();
-  for (const [key, timestamps] of rateLimitMap) {
-    const valid = timestamps.filter(t => now - t < 60000);
-    if (valid.length === 0) {
-      rateLimitMap.delete(key);
-    } else {
-      rateLimitMap.set(key, valid);
-    }
-  }
-}
-setInterval(cleanRateLimitMap, 300000);
-
 function checkRateLimit(ip) {
   const now = Date.now();
   const timestamps = rateLimitMap.get(ip) || [];
