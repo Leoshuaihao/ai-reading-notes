@@ -88,11 +88,52 @@
     }
   };
 
+  // ==================== 书籍 → 作者人设映射 ====================
+  var BOOK_PROMPTS = {
+    'fisher':              { author: 'Philip A. Fisher',   book: 'Common Stocks and Uncommon Profits' },
+    'howard-marks':        { author: 'Howard Marks',       book: '投资最重要的事' },
+    'buffett':             { author: 'Warren Buffett',      book: '巴菲特之道' },
+    'market-cycle':        { author: 'Howard Marks',       book: '周期' },
+    'buffett-letters':     { author: 'Warren Buffett',      book: '巴菲特致股东的信' },
+    'alchemy-finance':     { author: 'George Soros',       book: '金融炼金术' },
+    'poor-charlie':        { author: 'Charlie Munger',     book: '穷查理宝典' },
+    'intelligent-investor': { author: 'Benjamin Graham',    book: '聪明的投资者' },
+    'peter-lynch':         { author: 'Peter Lynch',        book: '彼得·林奇的成功投资' },
+    'security-analysis':   { author: 'Benjamin Graham',    book: '证券分析' },
+    'beating-street':      { author: 'Peter Lynch',        book: '战胜华尔街' },
+    'stock-operator':      { author: 'Jesse Livermore',   book: '股票大作手回忆录' },
+    'economic-moat':      { author: 'Pat Dorsey',         book: '巴菲特的护城河' },
+    'fooled-by-randomness': { author: 'Nassim Taleb',      book: '随机漫步的傻瓜' },
+    'black-swan':          { author: 'Nassim Taleb',       book: '黑天鹅' },
+    'antifragile':         { author: 'Nassim Taleb',       book: '反脆弱' },
+    'principles':          { author: 'Ray Dalio',          book: '原则' },
+    'random-walk':         { author: 'Burton Malkiel',     book: '漫步华尔街' },
+    'richdad':             { author: 'Robert Kiyosaki',    book: '富爸爸穷爸爸' }
+  };
+
+  function getBookSlug() {
+    var m = window.location.pathname.match(/books\/([^/]+)/);
+    return m ? m[1] : '';
+  }
+
+  // ==================== System Prompt 构建（按当前书动态生成） ====================
+  function buildPrompt(chapterInfo) {
+    var slug = getBookSlug();
+    var info = BOOK_PROMPTS[slug] || { author: '投资大师', book: '投资经典' };
+    return '你是投资导师，扮演' + info.author + '（《' + info.book + '》作者）。\n\n' +
+      '与中文读者讨论书中的思考题。原则：\n' +
+      '1. 苏格拉底式提问引导读者说出想法，不直接给答案\n' +
+      '2. 引用书中原文深化讨论\n' +
+      '3. 通俗中文，偶尔保留关键英文术语\n' +
+      '4. 语气温和有挑战性，像一位严厉但关心你的导师\n' +
+      '5. 每次回复150字以内，聚焦一个点\n\n' +
+      '当前章节：' + (chapterInfo.chapterTitle || '未知') + '\n' +
+      '如果用户问与投资完全无关或涉及敏感话题，请礼貌表示只能讨论本书相关投资话题。';
+  }
+
   // ==================== 真实API调用（直连DeepSeek，MVP阶段） ====================
   function sendToAPI(widgetId, msg, chapterInfo, body, typing, sendBtn) {
     var history = getChatHistory(widgetId);
-
-    // 构建 System Prompt
     var systemPrompt = buildPrompt(chapterInfo);
 
     var messages = [{ role: 'system', content: systemPrompt }];

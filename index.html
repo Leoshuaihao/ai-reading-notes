@@ -1780,8 +1780,7 @@
     if (type === 'q') {
       div.innerHTML = '<div class="aic-msg-q">  你问' + (title ? ' · ' + title : '') + '</div><div>' + text.replace(/</g,'&lt;') + '</div>';
     } else {
-      div.innerHTML = '<div class="aic-msg-a">' + text.split('
-').join('<br>') + '</div>';
+      div.innerHTML = '<div class="aic-msg-a">' + text.split('\n').join('<br>') + '</div>';
     }
     if (msgs.querySelector('.aic-empty')) msgs.querySelector('.aic-empty').remove();
     msgs.appendChild(div);
