@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>黑天鹅 — AI精读笔记</title>
 <meta name="description" content="AI驱动的《黑天鹅》深度精读笔记。逐章解读纳西姆·尼古拉斯·塔勒布的不确定性哲学：黑天鹅事件三要素、平均斯坦与极端斯坦、火鸡问题、叙事谬误、沉默证据、游戏谬误、杠铃策略，并结合A股黑天鹅案例深度剖析。"/>
@@ -353,7 +354,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回顾你自己的投资经历（或人生重大转折）：影响最大的三件事，有几件是你事先计划或预测到的？如果答案接近零，你的资产配置和人生规划为什么还建立在"预测未来"之上？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q1">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q1')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 导言要点总结</h3>
@@ -417,7 +434,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找出你持仓时间最长的一只股票，把它的总收益拆解到每个交易日：涨幅最大的10个交易日贡献了总收益的百分之几？如果你"恰好"错过这10天，结果如何？这个练习会颠覆你对"长期持有靠的是每天慢慢涨"的想象。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q2">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q2')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -471,7 +504,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你的投资组合目前对"正面黑天鹅"有敞口吗？如果明天出现一个谁都没预料到的重大技术突破或政策红利，你的持仓里有没有任何头寸能吃到它？还是说你的组合只对"负面意外"敏感？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q3">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q3')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q3', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -531,7 +580,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>把你的收入来源和资产逐项归类：工资属于平均斯坦还是极端斯坦？房产呢？股票呢？如果你的收入100%来自平均斯坦（按工时计酬），你要不要给自己配置一点极端斯坦的正面敞口（股权、作品、可复制的产品）？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q4">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q4')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q4', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -596,7 +661,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>检查你现在最有信心的一笔投资：你的信心有多少来自"它过去一直表现很好"？试着写下三种能让它"感恩节化"的情景——如果你一个都写不出来，说明你可能已经是火鸡了。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q5">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q5')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q5', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -648,7 +729,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>选择你当前最坚定的一个投资观点（比如"某行业长期向好"），然后做一次"恶魔代言人"练习：用15分钟专门搜集反方证据，至少找出三条。感受一下这个过程有多别扭——这种别扭感的强度，正是你确认偏误的深度。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q6">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q6')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q6', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -707,7 +804,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>今晚收盘后，先自己看一遍指数和板块涨跌的原始数据，写下你的解读；再去读三篇媒体的收盘解读。对比：媒体的"原因"里有几条是可以事前用来预测的？有几条只是事后装订？坚持做一周，你对财经资讯的"营养密度"会有全新认识。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q7">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q7')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q7', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -753,7 +866,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回顾你过去五年中收益最大的一笔投资：它的回报是在多少时间里集中产生的？在回报到来之前，你经历了多长的"零反馈"期？你在那个期间动摇过吗？如果未来再出现同样的情况，你的"坚持标准"是什么？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q8">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q8')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q8', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -812,7 +941,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你最近读过的一本"成功学"书籍或看过的一篇"方法论"文章，有没有讨论过使用同样方法却失败的人有多少？如果没有，你怎么区分这篇内容到底是"可证伪的方法假设"还是"赢家的自传故事"？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q9">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q9')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q9', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -864,7 +1009,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>列出你的投资系统目前"认为安全"的三个环节（比如某个平台、某类策略、某种对冲方式），针对每个环节问一个问题：什么事件会导致这个环节失效，而且这个事件<strong>不在我现有的监控范围之内</strong>？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q10">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q10')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q10', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -918,7 +1079,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>写下你对未来三个月A股上证指数的预测，附上一个你"95%确定"的置信区间（比如"2500到4000之间"）。三个月后回来看：实际落在区间内了吗？如果你不敢写，恭喜——你已经比大多数券商首席诚实了。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q11">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q11')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q11', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -965,7 +1142,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你的研究流程是否要求你"在开始调研前明确研究结论"？如果是这样，你怎么区分"寻找答案"和"寻找发现"这两种完全不同的活动？给后者留了多少空间？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q12">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q12')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q12', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1010,7 +1203,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回忆你上次听从的"专家建议"（投资、职业、健康任何领域）：这个专家有没有告诉你"我对这个判断的信心有多高"？有没有告诉你在什么情况下他可能是错的？如果没有，你是否事后检查过"没告诉你的部分"有多重要？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q13">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q13')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q13', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1069,7 +1278,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>计算你当前投资组合的"杠铃度"：保守资产（近乎零风险）占比？激进资产（可能全亏但上限数倍）占比？"中不溜"资产（有波动、无极端收益上限、无保底）占比？如果你的中不溜超过60%，读完本章你有什么要调整的？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q14">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q14')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q14', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1121,7 +1346,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>观察你持仓中的"龙头股"：它的龙头地位有多少来自产品本身，多少来自"因为它是龙头所以资金买它"的优先连接？如果是后者主导，当资金流向逆转时它跌得会比行业平均更狠还是更轻？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q15">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q15')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q15', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1180,7 +1421,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找出你能接触到的任何一份基金产品说明书或风险揭示书，看看它的"风险指标"部分用了哪些统计量（波动率？最大回撤？VaR？）。这些指标中有几个依赖"收益分布温和"的假设？如果明天出现一次超出历史样本的极端行情，这份文件对你的"风险提示"还剩多少含金量？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q16">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q16')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q16', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1232,7 +1489,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>把你所投资市场的"历史最极端事件"列出来（最大单日跌幅、最长连跌、最大年度亏损），然后问：我的仓位设计能否在"这些纪录被打破50%"的情景下存活？如果不能，你依赖的其实是"历史就是极限"这个分形世界里不成立的假设。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q17">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q17')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q17', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1286,7 +1559,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你在投资中使用的最"精确"的数字是什么（目标价？止损位？预期收益率？）——追溯这个数字的产生链条：它建立在哪些前提上？哪个前提一旦失效，这个精确的数字就变成了危险的幻觉？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q18">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q18')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q18', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1332,7 +1621,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>诚实地回答：你上一次认真质疑自己最大仓位的投资逻辑是什么时候？你对它的怀疑强度，和你对一只只占仓位1%的股票的怀疑强度，哪个更高？如果答案是后者，你就是本章说的"骗子的不确定性"的实践者。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q19">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q19')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q19', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1388,7 +1693,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>写下你自己的"游戏规则"：你的投资在为什么服务（提前退休？子女教育？纯粹的智力乐趣？）？以此为标准，你真正需要的年化收益率是多少？这个数字和你实际在承担的风险匹配吗——还是说你在替"排行榜"和"别人的眼光"承担多余的风险？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-black-swan-q20">
+        <div class="chat-header" onclick="toggleChat('chat-black-swan-q20')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">塔勒布会说：你为不可预测的事件做好准备了吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-black-swan-q20', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>

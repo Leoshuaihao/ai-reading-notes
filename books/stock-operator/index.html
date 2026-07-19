@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>股票大作手回忆录 — AI精读笔记</title>
 <meta name="description" content="AI驱动的《股票大作手回忆录》深度精读笔记。逐章解读杰西·利弗莫尔的传奇投机生涯，从对赌行少年到华尔街大空头，涵盖行情记录阅读、市场心理、止损纪律、逆向操作等永恒智慧。"/>
@@ -336,7 +337,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你当前的投资决策中，有多大比例是看了K线图就做出的，有多大比例是基于公司的财务报表和商业逻辑？利弗莫尔说"我只关注数字"——你的数字和他的数字，是同一类数字吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q1">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q1')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -394,7 +411,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你的投资策略如果被公开了，还能持续赚钱吗？如果能，为什么？如果不能，你依赖的究竟是真正的竞争优势，还是信息不对称带来的暂时性红利？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q2">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q2')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -502,7 +535,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你有没有这样的经历：明明知道应该止损/止盈/不追高，但现场却做不到？如果有，你是用什么方法来解决这个"知行分离"的问题的？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q3">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q3')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q3', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -553,7 +602,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你买股票时，是在"趋势已经明朗"时买入，还是在"价格看起来便宜"时买入？如果是后者，你如何确定你看对了方向而不是在接飞刀？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q4">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q4')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q4', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -604,7 +669,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你在交易中是否有过"第六感"告诉你要平仓，但你选择无视了？结果如何？给自己建立一个"直觉日志"——记录每次直觉的内容和结果，六个月后你可能会发现有趣的规律。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q5">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q5')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q5', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -660,7 +741,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>如果你是利弗莫尔，在1907年大恐慌的底部会继续做空还是会反手做多？他的选择是后者——但不是因为预测底部，而是因为"感觉到了恐慌的极限"。你认同这种基于"感觉"的决策方式吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q6">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q6')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q6', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -711,7 +808,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你最后一次因为别人的推荐而买入/卖出一只股票是什么时候？结果如何？从那次经历中你学到了什么关于"独立判断"的教训？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q7">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q7')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q7', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -762,7 +875,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你平均每天看行情多少次？如果把这个频率降到一天一次、一周一次——你对自己持仓的判断会发生什么变化？试试看，记录你的感受。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q8">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q8')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q8', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -819,7 +948,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>在你的交易中，有没有遇到过"假突破"——价格突破了关键位置你冲进去了，然后立即被反向打脸？你后来是如何改进你的突破确认标准的？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q9">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q9')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q9', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -870,7 +1015,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>如果你在投资中赚了一大笔钱（比如翻了一倍），你的交易行为会发生什么变化？你会更激进还是更保守？你觉得哪种反应更危险？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q10">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q10')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q10', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -926,7 +1087,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你平时会关注"主力资金流向"或"北向资金"数据吗？你怎么判断这些数据是真实的信号还是故意制造出来的假象？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q11">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q11')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q11', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -984,7 +1161,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你上一次因为"听别人说"而做出买卖决策是什么时候？如果当时你没有听那个人的意见，只是看K线图和成交量，你会做出同样的决策吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q12">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q12')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q12', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1035,7 +1228,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你之前有没有在熊市反弹中追进去，结果被二次套住的经历？那次你判断"底部已到"的依据是什么？回头看，那个依据可靠吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q13">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q13')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q13', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1093,7 +1302,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你有没有"向下摊平"过的经历？当时你的逻辑是什么（比如"跌多了总要涨"）？最终结果如何？如果你现在可以重来，你会怎么做？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q14">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q14')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q14', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1144,7 +1369,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你是否曾被"免费推荐"勾引过？当时你心底有没有一丝怀疑？如果当时有一个按钮可以让你"不再接收此类消息"，你会按吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q15">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q15')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q15', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1195,7 +1436,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你最多能连续保持空仓（不买任何股票）多长时间，而不感到焦虑？如果你发现自己很难空仓，你觉得根本原因是什么？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q16">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q16')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q16', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1246,7 +1503,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你是否有过"亏了第一笔后想'翻本'，结果越亏越多"的经历？如果当时你强制自己停下来三天，后来回头看，那些亏损是不是大多数可以避免？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q17">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q17')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q17', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1304,7 +1577,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>如果你在2024年看到一只股票突然拉升你应该怎么判断？它可能是真正的利好驱动的上涨，也可能是庄家在拉高出货。你用什么方法来区分两者？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q18">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q18')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q18', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1361,7 +1650,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回想你经历过的最近一次市场狂热期——那时候你有没有感到"不对劲"但又被赚钱的欲望推着继续买入？如果未来再出现同样的场景，你会怎么做？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q19">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q19')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q19', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1412,7 +1717,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>如果你的投资记录被公开发布，所有人都知道你在买什么、卖什么，你的投资策略还能有效吗？为什么？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q20">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q20')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q20', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1462,7 +1783,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>在2024年初A股持续下跌、市场情绪极度悲观的时候，你是在减仓还是加仓？你觉得自己当时是在"逆向思维"还是在"逆势接飞刀"？你怎么区分这两者？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q21">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q21')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q21', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1513,7 +1850,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>你上一次说"这市场疯了"是什么时候？回头看，当时的判断是你对了还是市场对了？如果市场对了，你不认错的代价是多少？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q22">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q22')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q22', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
@@ -1570,7 +1923,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回顾你个人的投资经历，有没有发现过某个"同样的错误"你犯了不止一次？那是什么错误？为什么在明知的情况下你还是会犯？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-stock-operator-q23">
+        <div class="chat-header" onclick="toggleChat('chat-stock-operator-q23')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">利弗莫尔的经验——市场告诉了你什么？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-stock-operator-q23', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>

@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>穷查理宝典 — AI精读笔记</title>
 <meta name="description" content="AI驱动的《穷查理宝典：查理·芒格智慧箴言录（全新增订本）》深度精读笔记。逐章解读查理·芒格的多元思维模型、人类误判心理学、普世智慧与投资哲学，涵盖25条心理倾向和格栅思维框架。"/>
@@ -300,7 +301,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>芒格经历了离婚、丧子、失明——每一项都足以击倒普通人。但他将这些挫折转化为"避免自怜"的信念。回顾你自己的投资经历：你是否曾在亏损后陷入自怜或自我否定？如果是，芒格的"不抱怨、不自怜"哲学对你有何启发？</p></div>
+    <div class="exercise-box"><p>芒格经历了离婚、丧子、失明——每一项都足以击倒普通人。但他将这些挫折转化为"避免自怜"的信念。回顾你自己的投资经历：你是否曾在亏损后陷入自怜或自我否定？如果是，芒格的"不抱怨、不自怜"哲学对你有何启发？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q1">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q1')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -364,7 +381,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>列出你当前投资分析中使用的"思维模型"。你可能已经在用"安全边际"（金融学）、"复利"（数学）、"护城河"（商业战略）。但你用了"激励机制分析"、"社会认同倾向"、"规模优势"或"机会成本"吗？尝试增加一个你不熟悉的学科的模型，用它重新分析你最近一次投资决策。</p></div>
+    <div class="exercise-box"><p>列出你当前投资分析中使用的"思维模型"。你可能已经在用"安全边际"（金融学）、"复利"（数学）、"护城河"（商业战略）。但你用了"激励机制分析"、"社会认同倾向"、"规模优势"或"机会成本"吗？尝试增加一个你不熟悉的学科的模型，用它重新分析你最近一次投资决策。</p>
+      <div class="chat-widget" id="chat-poor-charlie-q2">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q2')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -422,7 +455,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--puple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>芒格说"绝大多数人听不进别人的批评"。回顾你最近一次投资失误：当有人对你的决策提出质疑时，你的第一反应是为自己辩护，还是认真考虑对方的观点？"避免不一致性倾向"在你的决策中起了多大作用？</p></div>
+    <div class="exercise-box"><p>芒格说"绝大多数人听不进别人的批评"。回顾你最近一次投资失误：当有人对你的决策提出质疑时，你的第一反应是为自己辩护，还是认真考虑对方的观点？"避免不一致性倾向"在你的决策中起了多大作用？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q3">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q3')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q3', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -469,7 +518,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>为你的投资生活写一份"如何保证亏损"的清单。比如：频繁交易、追涨杀跌、从不做功课、只听小道消息、集中押注单一股票……你发现自己正在做其中的哪几条？</p></div>
+    <div class="exercise-box"><p>为你的投资生活写一份"如何保证亏损"的清单。比如：频繁交易、追涨杀跌、从不做功课、只听小道消息、集中押注单一股票……你发现自己正在做其中的哪几条？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q4">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q4')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q4', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -533,7 +598,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>如果你的能力圈只能用三个行业来定义，你会选哪三个？为什么？用芒格的标准——"我真正确保自己理解的东西"——来诚实评估你当前的持仓：它们中有多少落在了你的能力圈之外？</p></div>
+    <div class="exercise-box"><p>如果你的能力圈只能用三个行业来定义，你会选哪三个？为什么？用芒格的标准——"我真正确保自己理解的东西"——来诚实评估你当前的持仓：它们中有多少落在了你的能力圈之外？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q5">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q5')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q5', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -582,7 +663,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>用芒格的"双轨分析"回顾你最近一次投资决策。第一轨：理性的利弊权衡是什么？第二轨：有哪些心理倾向可能影响了你的判断（比如：社会认同、损失厌恶、过度乐观、确认偏误）？你当时意识到了这些影响吗？</p></div>
+    <div class="exercise-box"><p>用芒格的"双轨分析"回顾你最近一次投资决策。第一轨：理性的利弊权衡是什么？第二轨：有哪些心理倾向可能影响了你的判断（比如：社会认同、损失厌恶、过度乐观、确认偏误）？你当时意识到了这些影响吗？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q6">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q6')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q6', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -629,7 +726,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>选择一家你熟悉的公司，用芒格的五步法重新分析它的护城河：1）什么是最简单的事实？2）数字说了什么？3）什么能杀死这家公司？（逆向）4）有哪些心理因素在支撑它的需求？5）哪些因素同时发挥作用让它难以被复制？</p></div>
+    <div class="exercise-box"><p>选择一家你熟悉的公司，用芒格的五步法重新分析它的护城河：1）什么是最简单的事实？2）数字说了什么？3）什么能杀死这家公司？（逆向）4）有哪些心理因素在支撑它的需求？5）哪些因素同时发挥作用让它难以被复制？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q7">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q7')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q7', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -682,7 +795,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>你的"工具箱"里现在有几个学科的模型？金融/投资类（PE估值、DCF、安全边际）、商业类（护城河、竞争优势）、其他学科呢？列出未来三个月你计划学习的一个全新学科的2-3个核心模型（比如进化论中的"红皇后效应"、心理学中的"锚定效应"）。</p></div>
+    <div class="exercise-box"><p>你的"工具箱"里现在有几个学科的模型？金融/投资类（PE估值、DCF、安全边际）、商业类（护城河、竞争优势）、其他学科呢？列出未来三个月你计划学习的一个全新学科的2-3个核心模型（比如进化论中的"红皇后效应"、心理学中的"锚定效应"）。</p>
+      <div class="chat-widget" id="chat-poor-charlie-q8">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q8')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q8', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -742,7 +871,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>假设你是你自己的"投资委员会"。你的"考核周期"是多长？你是否在每月甚至每周检查收益率，并因此频繁调整持仓？芒格的建议是：把考核周期延长到至少三年。你有什么机制来确保自己不被短期波动干扰？</p></div>
+    <div class="exercise-box"><p>假设你是你自己的"投资委员会"。你的"考核周期"是多长？你是否在每月甚至每周检查收益率，并因此频繁调整持仓？芒格的建议是：把考核周期延长到至少三年。你有什么机制来确保自己不被短期波动干扰？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q9">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q9')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q9', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -805,7 +950,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>芒格列举了"激励机制引起的偏见"——专业人士会为自己的利益而提出有偏的建议。在你面对的投资建议来源中（券商研报、基金推荐、财经媒体），哪些存在这种偏见？你如何"打折"接收这些信息？</p></div>
+    <div class="exercise-box"><p>芒格列举了"激励机制引起的偏见"——专业人士会为自己的利益而提出有偏的建议。在你面对的投资建议来源中（券商研报、基金推荐、财经媒体），哪些存在这种偏见？你如何"打折"接收这些信息？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q10">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q10')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q10', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -899,7 +1060,23 @@
       <p><strong>思考题1：</strong>选取芒格25条倾向中的5条，用它们分析你最近一次投资亏损。每条倾向在你的决策中分别起了什么作用？</p>
       <p style="margin-top:12px;"><strong>思考题2：</strong>芒格说激励机制是"超级威力"。审视你的工作环境：有哪些激励在驱动你的行为？这些激励是"合理的"还是"扭曲的"？</p>
       <p style="margin-top:12px;"><strong>思考题3：</strong>lollapalooza效应——尝试找一个你生活中亲眼观察到的案例，其中多种心理倾向同时作用，导致了极端的结果（可能是好结果，也可能是坏结果）。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-poor-charlie-q11">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q11')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q11', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>
@@ -956,7 +1133,23 @@
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
-    <div class="exercise-box"><p>芒格说："我这辈子遇到的聪明人没有不每天阅读的。"统计你过去一周的阅读时间——包括书籍、深度文章、研报（不包括社交媒体和新闻标题）。如果每天不足1小时，考虑一下：你正在用什么样的"信息饮食"来喂养你的大脑？</p></div>
+    <div class="exercise-box"><p>芒格说："我这辈子遇到的聪明人没有不每天阅读的。"统计你过去一周的阅读时间——包括书籍、深度文章、研报（不包括社交媒体和新闻标题）。如果每天不足1小时，考虑一下：你正在用什么样的"信息饮食"来喂养你的大脑？</p>
+      <div class="chat-widget" id="chat-poor-charlie-q12">
+        <div class="chat-header" onclick="toggleChat('chat-poor-charlie-q12')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">芒格的多元思维模型——你从哪些角度思考这个问题？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-poor-charlie-q12', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</h3>

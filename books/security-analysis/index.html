@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>证券分析 — AI精读笔记</title>
 <meta name="description" content="AI驱动的《证券分析：原书第6版》深度精读笔记。逐章解读本杰明·格雷厄姆与戴维·多德的53章不朽经典，涵盖内在价值、安全边际、固定价值投资、普通股分析、资产负债表分析等核心体系，含11位华尔街大师导读精华。"/>
@@ -426,7 +427,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>选一家你熟悉的A股上市公司，查阅其最新年报，尝试估算其内在价值的大致范围。然后对比当前股价——你发现了什么？如果有安全边际，它来自哪里？如果没有，为什么市场愿意支付溢价？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q1">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q1')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -489,7 +506,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回顾你最近的一笔交易：你买入的依据是什么？如果删掉"我认为会涨"这个理由，你还能列举出哪些基于事实和分析的理由？如果有，它是否提供了足够的安全边际？如果没有，你是在投资还是在投机？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q2">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q2')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -558,7 +591,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>查阅一只中国企业信用债的募集说明书。它的票面利率是多少？评级是多少？利息保障倍数是多少？如果经济增速放缓2个百分点，它的偿付能力会发生什么变化？用格雷厄姆的四大原则逐条检验它是否算得上一项"投资"。</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q3">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q3')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q3', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -617,7 +666,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>中国市场上存在可转换优先股吗？如果一家公司同时发行了普通股和优先股（比如部分银行），优先股股东在什么情况下会比普通股股东处于更有利的位置？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q4">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q4')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q4', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -677,7 +742,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找一只A股可转债，分别计算它的"纯债价值"（假设不可转换时的债券价值）和"转股价值"（如果立即转换为股票的价值）。两者之差就是市场为转换期权支付的价格。这个价格合理吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q5">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q5')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q5', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -738,7 +819,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>按照格雷厄姆的"普通股投资"标准（稳定盈利+可靠股息+低于内在价值），筛选A股市值前100的公司，有多少符合条件？为什么符合的数量可能比你预期的少？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q6">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q6')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q6', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -798,7 +895,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>查一家中国公司的股息政策：它过去5年的股息支付率是多少？留存利润的ROE是多少？按照格雷厄姆的标准，这家公司应该增加还是减少股息？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q7">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q7')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q7', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -874,7 +987,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>取一家A股公司最近三年的年报。计算每年的"非经常性损益 / 净利润"比率。如果这个比率在最近一年突然显著变大，调查一下是什么原因——是一个真实的一次性事件，还是某种利润管理？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q8">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q8')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q8', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -933,7 +1062,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>选一家A股制造业公司，对比它过去5年的"折旧费用"和"购建固定资产支付的现金"（资本支出）。如果资本支出持续大于折旧，这意味着什么？如果持续小于折旧，又意味着什么？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q9">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q9')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q9', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -990,7 +1135,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找一家你熟悉的A股公司的年报。计算它过去5年的平均EPS，然后回答：如果只给你这个平均EPS，你愿意以多少倍PE买入？然后逐条应用格雷厄姆的七大限制，重新评估这个"合理PE"——它会发生什么变化？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q10">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q10')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q10', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1052,7 +1213,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>选两只同行业的A股公司，一只是高杠杆的，一只是低杠杆的。比较它们的PE。高杠杆公司的PE是否更低？如果是，这个折扣是否足够覆盖它的额外风险？如果不是，市场可能犯了什么错误？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q11">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q11')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q11', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1122,7 +1299,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找一只PB小于1的A股股票。计算它的每股NCAV。如果市价低于NCAV，市场在担心什么？这些担心是否合理？如果市价高于NCAV但低于每股净资产，差额来自哪里？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q12">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q12')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q12', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1182,7 +1375,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找一家PB长期低于1的A股国有上市公司。查阅它的治理结构——大股东是谁？管理层激励与股价是否挂钩？你认为什么事件（催化剂）可能改变当前的"价值不实现"状态？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q13">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q13')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q13', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1236,7 +1445,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>找一家A股科技公司（它们通常是股权激励的"重度用户"），计算它的股权激励占总股本的比例。如果所有期权都被行使，对现有的EPS和每股净资产会产生多大的稀释效应？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q14">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q14')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q14', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1299,7 +1524,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>选一个A股细分行业（比如空调行业）。列出行业内的3-5家公司，比较它们的ROE、毛利率、负债率和PE。哪家公司的估值与基本面最不匹配？你认为这是一个投资机会还是一个需要避开的陷阱？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q15">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q15')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q15', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1378,7 +1619,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>回顾你今天早上看到的任何一条"市场预测"类信息（券商策略报告、财经媒体标题、微信推送）。用格雷厄姆的三个标准（因果关系、自我实现/毁灭、预测者偏见）来质疑它——这条预测经得起推敲吗？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q16">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q16')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q16', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1448,7 +1705,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>A股相对于港股长期存在AH溢价。这种溢价在格雷厄姆的框架下应该如何看待？它是合理的（反映了不同的流动性、税收和资本管制），还是不合理的（同股应同权同价）？如果溢价过高，是否存在套利机会？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q17">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q17')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q17', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 一句话总结</div>
@@ -1520,7 +1793,23 @@
     <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🧠 思考题</div>
     <div class="exercise-box">
       <p>用一句话总结《证券分析》教会你的最重要的一件事。如果你要为这本书写一句50字以内的推荐语，你会写什么？为什么？</p>
-    </div>
+    
+      <div class="chat-widget" id="chat-security-analysis-q18">
+        <div class="chat-header" onclick="toggleChat('chat-security-analysis-q18')" tabindex="0" role="button" aria-expanded="false">
+          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        </div>
+        <div class="chat-body">
+          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">格雷厄姆的证券分析——你真正理解了这家公司的价值吗？</div></div>
+        </div>
+        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+        <div class="chat-error"></div>
+        <div class="chat-input-area">
+          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+          <button onclick="sendChat('chat-security-analysis-q18', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        </div>
+      </div>
+
+</div>
   </div>
   <div class="block">
     <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 全书核心要义</div>
