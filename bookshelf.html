@@ -54,6 +54,7 @@
   }
   .status-badge.available { background: var(--green); color: #fff; }
   .status-badge.upcoming { background: rgba(255,255,255,0.25); color: #fff; }
+  .status-badge.new { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(199,91,57,0.45); }
   .book-card .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
   .book-card .card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
   .book-card .card-body .author { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
@@ -656,43 +657,39 @@
     </div>
   </div>
 
-</div>
-
-
-
   <!-- 原则 — 新上线 -->
-  <div class="book-card">
+  <div class="book-card" data-school="mind">
     <div class="card-cover principles">
-      <span class="status-badge available">新上线</span>
+      <span class="status-badge new">新上线</span>
       <div class="cover-text">原则</div>
     </div>
     <div class="card-body">
       <h3>原则</h3>
       <div class="author">瑞·达利欧 · 2017</div>
       <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span> 8.5</span><span>  16条</span><span>  16章</span>
+        <span>⭐ 8.5</span><span>💬 16条</span><span>📖 38章</span>
       </div>
       <div class="desc">
         桥水基金创始人将40年经验提炼为原则体系：极度透明、创意择优、可信度加权。从生活到工作到投资，用算法思维替代情绪决策。是对投资心态和决策框架影响最深远的非投资书籍。
       </div>
       <div class="tags">
-        <span class="tag">决策原则</span><span class="tag">创意择优</span><span class="tag">可信度加权</span><span class="tag">16章精读</span>
+        <span class="tag">决策原则</span><span class="tag">创意择优</span><span class="tag">可信度加权</span><span class="tag">38章精读</span>
       </div>
       <a class="card-btn primary" href="books/principles/">进入精读 →</a>
     </div>
   </div>
 
   <!-- 漫步华尔街 — 新上线 -->
-  <div class="book-card">
+  <div class="book-card" data-school="uncertainty">
     <div class="card-cover random-walk">
-      <span class="status-badge available">新上线</span>
+      <span class="status-badge new">新上线</span>
       <div class="cover-text">A Random Walk<br/>Down<br/>Wall Street</div>
     </div>
     <div class="card-body">
       <h3>漫步华尔街</h3>
       <div class="author">伯顿·G·马尔基尔 · 1973</div>
       <div class="card-meta" style="display:flex;gap:12px;font-size:12px;color:var(--text-secondary);margin:6px 0 10px;">
-        <span> 8.2</span><span>  10条</span><span>  15章</span>
+        <span>⭐ 8.2</span><span>💬 10条</span><span>📖 15章</span>
       </div>
       <div class="desc">
         马尔基尔用"随机游走"论证了市场不可预测性——短期价格走势是随机漫步。技术分析是占星术，基本面分析跑不赢指数。终极答案：低成本分散化的指数投资。与塔勒布黑天鹅理论形成互补。
@@ -704,11 +701,10 @@
     </div>
   </div>
 
-
   <!-- 富爸爸穷爸爸 — 新上线 -->
-  <div class="book-card">
+  <div class="book-card" data-school="value">
     <div class="card-cover richdad">
-      <span class="status-badge available">新上线</span>
+      <span class="status-badge new">新上线</span>
       <div class="cover-text">Rich Dad<br/>Poor Dad</div>
     </div>
     <div class="card-body">
@@ -726,6 +722,8 @@
       <a class="card-btn primary" href="books/richdad/">进入精读 →</a>
     </div>
   </div>
+
+</div>
 
 <!-- 我的书单 -->
 <div class="reading-lists" id="readingLists">
@@ -769,9 +767,11 @@
     // 周期与市场（Lv.2→Lv.3）
     'howard-marks', 'market-cycle', 'alchemy-finance',
     // 心性与哲学（Lv.1→Lv.2）
-    'stock-operator', 'poor-charlie',
+    'stock-operator', 'poor-charlie', 'principles',
     // 不确定性与风险（Lv.3→Lv.4）
-    'fooled-by-randomness', 'black-swan', 'antifragile'
+    'fooled-by-randomness', 'black-swan', 'antifragile',
+    // 财商入门（新上线）
+    'random-walk', 'richdad'
   ];
 
   var cards = document.querySelectorAll('.book-card');
@@ -872,7 +872,10 @@
     '巴菲特的护城河': 'value',
     '随机漫步的傻瓜': 'uncertainty',
     '黑天鹅': 'uncertainty',
-    '反脆弱': 'uncertainty'
+    '反脆弱': 'uncertainty',
+    '原则': 'mind',
+    '漫步华尔街': 'uncertainty',
+    '富爸爸穷爸爸': 'value'
   };
 
   // 为每张卡片打上 data-school
@@ -937,7 +940,7 @@
       if (!raw) return 0;
       var p = JSON.parse(raw)[slug];
       if (!p || !p.chaptersRead) return 0;
-      var allBooks = {"alchemy-finance":12,"antifragile":24,"beating-street":13,"black-swan":19,"buffett":8,"buffett-letters":12,"economic-moat":14,"fisher":8,"fooled-by-randomness":14,"howard-marks":21,"intelligent-investor":20,"market-cycle":18,"peter-lynch":20,"poor-charlie":12,"security-analysis":18,"stock-operator":24};
+      var allBooks = {"alchemy-finance":12,"antifragile":24,"beating-street":13,"black-swan":19,"buffett":8,"buffett-letters":12,"economic-moat":14,"fisher":8,"fooled-by-randomness":14,"howard-marks":21,"intelligent-investor":20,"market-cycle":18,"peter-lynch":20,"poor-charlie":12,"security-analysis":18,"stock-operator":24,"principles":38,"random-walk":15,"richdad":13};
       var total = allBooks[slug] || 0;
       if (!total) return 0;
       var seen = {};
