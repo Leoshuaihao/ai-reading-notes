@@ -207,17 +207,24 @@
     btn.textContent = '注册中...';
 
     window.SupabaseAuth.signUp(email, password).then(function(_ref) {
-      var error = _ref.error;
+      var data = _ref.data, error = _ref.error;
       if (error) {
         showError('signup-error', error.message || '注册失败');
         btn.disabled = false;
         btn.textContent = '注册';
         return;
       }
-      // 显示成功提示
-      document.getElementById('login-form').classList.remove('active');
-      document.getElementById('signup-form').classList.remove('active');
-      document.getElementById('auth-success').classList.add('active');
+      // 邮箱确认关闭时直接登录，否则显示验证提示
+      if (data.session) {
+        closeAuth();
+        window.SupabaseAuth.fullSync().then(function() {
+          location.reload();
+        });
+      } else {
+        document.getElementById('login-form').classList.remove('active');
+        document.getElementById('signup-form').classList.remove('active');
+        document.getElementById('auth-success').classList.add('active');
+      }
     });
 
     return false;

@@ -200,4 +200,7 @@
     fullSync: fullSync,
     getClient: getClient,
   };
+
+  // 启动 auth 监听
+  initAuth();
 })();
