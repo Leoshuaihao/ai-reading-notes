@@ -24,7 +24,7 @@ agent_created: true
 ## 项目上下文
 
 - 项目根目录：`/Users/lee/WorkSpace/WorkBuddy/ai-reading-notes`
-- 标准文档：`ADD_BOOK_STANDARD.md`（V3.5）
+- 标准文档：`ADD_BOOK_STANDARD.md`（V4）
 - 生成脚本：`gen_books_v2.py`
 - 章节缓存：`/tmp/book_chapters/`（epub 提取后的 JSON）
 - 进度保存：`/tmp/book_progress/`
@@ -51,16 +51,16 @@ agent_created: true
 
 ### 阶段一：素材准备与验证【强制，不可跳过】
 
-**门控项（6 项）：**
+**门控项（7 项）：**
 - [ ] 1.1 用户提供 epub 文件或下载链接
 - [ ] 1.2 `file` 命令验证 epub 真实类型（必须是 Zip archive）
 - [ ] 1.3 解压并提取全部章节到 `/tmp/book_chapters/{slug}.json`
 - [ ] 1.4 逐章打印字数统计，标记 < 500 字的异常章节
 - [ ] 1.5 校验 epub TOC 章节数 = 提取章节数
-- [ ] 1.7 向用户确认：书名/作者/版本/章节数/标签/豆瓣评分/文件格式
-- [ ] 1.8 在章节缓存 JSON 中记录审计元数据（confirmed_slug、confirmed_title、confirmed_at、file_validated）
+- [ ] 1.6 向用户确认：书名/作者/版本/章节数/标签/豆瓣评分/文件格式
+- [ ] 1.7 在章节缓存 JSON 中记录审计元数据（confirmed_slug、confirmed_title、confirmed_at、file_validated）
 
-**门控通过条件：** 全部 6 项完成，用户确认无误。
+**门控通过条件：** 全部 7 项完成，用户确认无误。
 
 **如果已有缓存章节文件（/tmp/book_chapters/ 下已有）：**
 - 仍需做 1.2、1.4、1.5（基于缓存文件做字数验证和一致性检查）

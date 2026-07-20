@@ -1,23 +1,12 @@
 #!/usr/bin/env python3
-"""按 ADD_BOOK_STANDARD.md V3.5 标准生成完整精读页面
-V3.3 改进（2026-07-20 终审修复）：
-1. chapter-preview 最少1项推荐3项（关键概念+核心问题+一句话）
-2. 金句强制 en-detail 英文原文折叠 + 后处理校验空值警告
-3. 术语词典强制 en 字段非空 + 缺失时跳过该术语而非输出空标签
-4. 术语表加 th 表头行
-5. 封面渐变幻 CSS 变量 --cover-grad 控制
-6. roadmap 仅首个卡片 mark current
-7. section#intro 语义修正（包裹层独立，导言单独 article）
-8. block-label dot 颜色统一用 CSS 变量
-9. author-bio 支持 Q版卡通头像 + bio-highlight 标签
-10. 每章输入 >=4000 字
-11. 并行API调用（3并发）+ 增量保存进度
-V3.4 改进：
-12. 暗色模式全量覆盖（CSS 变量控制所有组件颜色）
-13. en-detail 可发现性提升（CSS 中 13px + ▸/▾ 图标）
-14. .section-title 合并去重
-V3.5 改进：
-15. chat-widget 策略：每章底部至少一个，嵌入思考题框，ai_first_reply 必须章节专属
+"""按 ADD_BOOK_STANDARD.md V4 标准生成完整精读页面
+
+核心行为：
+- 从 /tmp/book_chapters/ 读取 epub 提取的章节 JSON
+- 通过 DeepSeek API 将每章原文转化为中文精读卡片（temperature=0.3，3并发，增量保存）
+- 按标准构建 HTML：13 项页面结构 + 每章 9 block（P0/P1/P2 优先级体系）
+- 自动处理：🗺️ 阅读路线图、chapter-preview、金句 en-detail 折叠、chat-widget 嵌入、术语表过滤空 en、中文化
+- 输出到 books/{slug}/index.html
 """
 import json, os, time, requests, re
 from concurrent.futures import ThreadPoolExecutor, as_completed
