@@ -41,7 +41,7 @@
 
 ### 1.5 线上地址
 
-- **首页**: https://ai-reading.workbuddy.com
+- **首页**: https://leoshuaihao.github.io/ai-reading-notes
 - **仓库**: https://github.com/Leoshuaihao/ai-reading-notes
 - **部署**: GitHub Pages（main 分支根目录）
 

@@ -155,7 +155,7 @@ python3 test_screenshots.py
 
 - **仓库**: https://github.com/Leoshuaihao/ai-reading-notes
 - **Pages 设置**: Source = Deploy from a branch, Branch = main, Folder = / (root)
-- **自定义域名**: ai-reading.workbuddy.com（DNS CNAME 指向 Leoshuaihao.github.io）
+- **自定义域名**: leoshuaihao.github.io/ai-reading-notes（DNS CNAME 指向 Leoshuaihao.github.io）
 
 ### 4.2 标准部署步骤
 
@@ -183,14 +183,14 @@ git push origin main
 
 ```bash
 # 检查线上页面可访问
-curl -s -o /dev/null -w "%{http_code}" https://ai-reading.workbuddy.com/
+curl -s -o /dev/null -w "%{http_code}" https://leoshuaihao.github.io/ai-reading-notes/
 
 # 检查新书页面
-curl -s -o /dev/null -w "%{http_code}" https://ai-reading.workbuddy.com/books/new-book/
+curl -s -o /dev/null -w "%{http_code}" https://leoshuaihao.github.io/ai-reading-notes/books/new-book/
 
 # 检查关键资源
-curl -s -o /dev/null -w "%{http_code}" https://ai-reading.workbuddy.com/assets/css/style.css
-curl -s -o /dev/null -w "%{http_code}" https://ai-reading.workbuddy.com/assets/js/app.js
+curl -s -o /dev/null -w "%{http_code}" https://leoshuaihao.github.io/ai-reading-notes/assets/css/style.css
+curl -s -o /dev/null -w "%{http_code}" https://leoshuaihao.github.io/ai-reading-notes/assets/js/app.js
 ```
 
 ### 4.4 紧急回滚

@@ -29,7 +29,7 @@ function checkRateLimit(ip) {
 
 // ==================== CORS ====================
 const ALLOWED_ORIGINS = [
-  'https://ai-reading.workbuddy.com',
+  'https://leoshuaihao.github.io/ai-reading-notes',
   'http://localhost:3000',
   'http://localhost:5500',
 ];

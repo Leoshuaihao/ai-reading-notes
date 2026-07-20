@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-reading.workbuddy.com/sitemap.xml
+Sitemap: https://leoshuaihao.github.io/ai-reading-notes/sitemap.xml

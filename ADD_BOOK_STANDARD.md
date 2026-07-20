@@ -638,7 +638,7 @@ git push  # ⚠️ V3 强制：必须 push，不能只 commit
 sleep 60
 
 # 验证线上页面可访问
-curl -s -o /dev/null -w "%{http_code}" https://ai-reading.workbuddy.com/books/new-book/
+curl -s -o /dev/null -w "%{http_code}" https://leoshuaihao.github.io/ai-reading-notes/books/new-book/
 # 期望 200
 
 # 如果不是 200，检查 GitHub Actions 部署状态
