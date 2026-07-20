@@ -544,7 +544,6 @@ def build_book_page(book_slug, config, chapters_data):
 </div>
 <button class="back-to-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">⬆</button>
 <script src="../../assets/js/data_v2.js"></script>
-<script src="../../assets/js/data.js"></script>
 <script src="../../assets/js/app.js"></script>
 <script src="../../assets/js/local-auth.js"></script>
 <script src="../../assets/js/supabase-auth.js"></script>

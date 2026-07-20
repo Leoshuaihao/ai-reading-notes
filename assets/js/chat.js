@@ -88,15 +88,10 @@
 
   // ==================== 书籍 → 作者人设映射（动态从 AppDataV2 读取，旧硬编码已废弃） ====================
   function getBookInfo(slug) {
-    // 优先使用 V2 新引擎
-    if (typeof AppDataV2 !== 'undefined' && AppDataV2.BOOK_REGISTRY) {
-      var book = AppDataV2.BOOK_REGISTRY[slug];
+    // 优先使用新引擎（AppData 即 AppDataV2）
+    if (typeof AppData !== 'undefined' && AppData.BOOK_REGISTRY) {
+      var book = AppData.BOOK_REGISTRY[slug];
       if (book) return { author: book.basic.author.name, book: book.basic.title };
-    }
-    // 降级到旧 data.js 的 BOOK_META（过渡期兼容）
-    if (typeof AppData !== 'undefined' && AppData.BOOK_META) {
-      var meta = AppData.BOOK_META[slug];
-      if (meta) return { author: meta.title, book: meta.title };
     }
     return { author: '投资大师', book: '投资经典' };
   }

@@ -1742,3 +1742,6 @@ var AppDataV2 = (function() {
     safeJSON: safeJSON
   };
 })();
+
+// 全局别名：让所有使用 AppData 的旧代码直接使用新引擎
+var AppData = AppDataV2;
