@@ -51,7 +51,7 @@ BOOKS = {
     },
     "richdad": {
         "title": "富爸爸穷爸爸", "author": "罗伯特·清崎", "author_en": "Robert T. Kiyosaki",
-        "year": "1997", "domain_cn": "商业认知", "domain_key": "value",
+        "year": "1997", "domain_cn": "商业认知", "domain_key": "business",
         "chapter_file": "richdad.json",
         "cover_gradient": "linear-gradient(135deg, #4a2a1a 0%, #2a1a0a 50%, #1a0a00 100%)",
         "cover_text": "Rich Dad\nPoor Dad",
