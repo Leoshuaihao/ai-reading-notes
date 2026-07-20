@@ -270,7 +270,9 @@
   var progressFill = document.querySelector('.progress-bar .fill');
   var progressText = document.querySelector('.progress-text');
   var allChapters = Array.from(document.querySelectorAll('[id]')).filter(function(el) {
-    return el.id.startsWith('ch') || el.id === 'intro';
+    var id = el.id;
+    // 只匹配章节区块(ch1-chN)和导言(intro)，排除 chat-widget 和 ch-title 导航元素
+    return id === 'intro' || (/^ch\d+$/.test(id) && el.classList.contains('chapter-card'));
   });
   var totalChapters = allChapters.length;
 
