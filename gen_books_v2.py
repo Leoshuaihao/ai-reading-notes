@@ -101,21 +101,44 @@ BOOKS = {
 }
 
 SYSTEM_PROMPT = """你是专业投资书籍精读编辑，精通中英文投资理论。请基于提供的原文内容，生成标准的章节精读卡片。
-要求：
-1. 内容必须基于原文，不得编造
-2. 分析要深入具体，不要空泛套话
-3. 所有输出必须是中文（英文术语保留原文+中文翻译）
-4. 输出必须是严格的JSON格式，不要有任何额外文字"""
+
+严格要求：
+1. 内容必须基于原文，引用原文中的具体案例、数据、人物——不得编造
+2. key_concept 必须 >= 200字，包含具体观点、逻辑推理和原文案例
+3. culture_context/counter_view/china_link 若非空则至少 2-3 句（60-100字），要说清楚为什么相关
+4. exercises 中的思考题必须联系实际投资决策，不能是泛泛的"你有什么想法"
+5. quote_en 必须从原文中精确摘录，不得自己编造
+6. 所有输出必须是中文（英文术语保留原文+中文翻译）
+7. 输出必须是严格的JSON格式，不要有任何额外文字
+8. ai_first_reply 是当用户第一次打开这道思考题时AI的初始引导语（20-40字），必须体现本书作者的风格和本章主题，每章必须不同"""
 
 
-def gen_chapter(book_title, chapter_title, content, ch_num):
+def smart_truncate(content, max_chars=10000):
+    """按段落边界截断内容，避免在句子中间切断"""
+    if len(content) <= max_chars:
+        return content
+    # 找到最后一个完整段落
+    cutoff = content.rfind('\n\n', 0, max_chars)
+    if cutoff < max_chars // 2:
+        # 没有足够长的段落边界，退回到句号截断
+        cutoff = content.rfind('。', 0, max_chars)
+        if cutoff > max_chars // 2:
+            return content[:cutoff + 1]
+        return content[:max_chars]
+    return content[:cutoff]
+
+def gen_chapter(book_title, chapter_title, content, ch_num, prev_context=None):
     """生成单个章节的JSON数据"""
-    # 截取4000字内容（足够AI理解章节核心）
-    content_snippet = content[:4000]
+    # 段落边界截断，最多喂 12000 字
+    content_snippet = smart_truncate(content, 12000)
+
+    context_block = ""
+    if prev_context:
+        context_block = f"\n前一章要点（用于保持上下文连贯）：\n核心概念：{prev_context.get('concept','无')}\n一句话：{prev_context.get('oneline','无')}\n"
 
     prompt = f"""为《{book_title}》第{ch_num}章「{chapter_title}」生成精读卡片。
-
-原文内容（前4000字）：
+{context_block}
+原文内容（{len(content_snippet)}字）：
 {content_snippet}
 
 请输出这个JSON（只输出JSON，不要任何其他文字，不要```标记）：
@@ -123,48 +146,58 @@ def gen_chapter(book_title, chapter_title, content, ch_num):
   "subtitle": "副标题（8-15字，概括本章核心）",
   "positioning": "章节定位：本章在全书中的位置和核心回答的问题（40-80字，具体说明本章讲什么）",
   "key_concept": "核心概念深度解读（200-350字，必须基于原文，要有具体观点和逻辑，不要空泛）",
-  "culture_context": "文化背景补充（涉及美国金融制度/历史背景/社会语境时填写，无则留空字符串）",
-  "counter_view": "反方观点（本章概念有争议时填写反对者观点，无争议则留空字符串）",
-  "china_link": "中国市场关联（如何应用于A股或中国投资实践，具体说明，无则留空字符串）",
+  "culture_context": "文化背景补充（涉及美国金融制度/历史背景/社会语境时填写，无则留空字符串。有则至少2-3句60-100字）",
+  "counter_view": "反方观点（本章概念有争议时填写反对者观点，无争议则留空字符串。有则至少2-3句60-100字）",
+  "china_link": "中国市场关联（如何应用于A股或中国投资实践，具体说明，无则留空字符串。有则至少2-3句60-100字）",
   "preview_concept": "关键概念名（2-6字）",
   "preview_question": "核心问题（1句话，15-30字）",
   "preview_oneline": "一句话总结（20-40字，要有信息量）",
   "terms": [{{"en": "英文术语", "zh": "中文翻译", "note": "解读（10-20字）"}}],
   "takeaways": ["要点1（15-30字，具体）", "要点2", "要点3"],
-  "exercises": [{{"q": "思考题（20-40字，引导读者联系实际）", "hint": "提示（15-25字）"}}],
+  "exercises": [{{"q": "思考题（20-40字，引导读者联系实际投资决策）", "hint": "提示（15-25字）", "ai_first_reply": "AI初始回复（20-40字，体现本书作者风格和本章主题，每章不同）"}}],
   "quote_en": "英文原文金句（如果原文是中文则填中文原文，50-150字，选取最有洞察力的段落）",
   "quote_zh": "中文翻译（如果是中文原文则与quote_en相同）",
   "quote_why": "解读（20-40字，说明这句金句为什么重要）"
 }}"""
 
-    try:
-        resp = requests.post(DEEPSEEK_URL,
-            headers={"Content-Type": "application/json", "Authorization": f"Bearer {DEEPSEEK_KEY}"},
-            json={
-                "model": "deepseek-chat",
-                "messages": [
-                    {"role": "system", "content": SYSTEM_PROMPT},
-                    {"role": "user", "content": prompt}
-                ],
-                "temperature": 0.7, "max_tokens": 4000
-            }, timeout=120)
-        if resp.status_code == 200:
-            text = resp.json()["choices"][0]["message"]["content"]
-            text = text.strip()
-            # 清理可能的markdown标记
-            if text.startswith("```"):
-                text = re.sub(r'^```\w*\n?', '', text)
-                text = re.sub(r'\n?```$', '', text)
-            return json.loads(text)
-        else:
-            print(f"  API错误: {resp.status_code} - {resp.text[:100]}")
+    for attempt in range(2):
+        try:
+            resp = requests.post(DEEPSEEK_URL,
+                headers={"Content-Type": "application/json", "Authorization": f"Bearer {DEEPSEEK_KEY}"},
+                json={
+                    "model": "deepseek-chat",
+                    "messages": [
+                        {"role": "system", "content": SYSTEM_PROMPT},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "temperature": 0.7, "max_tokens": 4000
+                }, timeout=120)
+            if resp.status_code == 200:
+                text = resp.json()["choices"][0]["message"]["content"]
+                text = text.strip()
+                if text.startswith("```"):
+                    text = re.sub(r'^```\w*\n?', '', text)
+                    text = re.sub(r'\n?```$', '', text)
+                result = json.loads(text)
+                # 校验 key_concept 长度
+                kc = result.get("key_concept", "")
+                if len(kc) < 150:
+                    print(f"  ⚠️ key_concept偏短({len(kc)}字)，第2次尝试..." if attempt == 0 else f"  ⚠️ key_concept仍偏短({len(kc)}字)，接受")
+                    if attempt == 0:
+                        continue
+                return result
+            else:
+                print(f"  API错误: {resp.status_code} - {resp.text[:100]}")
+                return None
+        except json.JSONDecodeError as e:
+            print(f"  JSON解析失败(尝试{attempt+1}/2): {e}")
+            if attempt == 0:
+                continue
             return None
-    except json.JSONDecodeError as e:
-        print(f"  JSON解析失败: {e}")
-        return None
-    except Exception as e:
-        print(f"  生成失败: {e}")
-        return None
+        except Exception as e:
+            print(f"  生成失败: {e}")
+            return None
+    return None
 
 
 def build_chapter_html(ch, num, book_title):
@@ -259,12 +292,27 @@ def build_chapter_html(ch, num, book_title):
     exercises = ch.get("exercises", [])
     if exercises:
         ex_html = ""
-        for ex in exercises:
-            ex_html += f'<p class="q">{ex["q"]}</p>\n<p class="hint">💡 提示：{ex.get("hint", "")}</p>\n'
-        blocks.append(f'''    <div class="block">
-      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box">{ex_html}</div>
-    </div>''')
+        for i, ex in enumerate(exercises):
+            ai_reply = ex.get("ai_first_reply", ex.get("hint", "思考一下..."))
+            ex_html += f'''    <div class="exercise-box">
+        <p class="q">{ex["q"]}</p>
+        <p class="hint">💡 提示：{ex.get("hint", "")}</p>
+        <div class="chat-widget" id="chat-{book_title[:2]}-ch{num}-q{i+1}">
+          <div class="chat-header" onclick="toggleChat(\'chat-{book_title[:2]}-ch{num}-q{i+1}\')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">{ai_reply}</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat(\'chat-{book_title[:2]}-ch{num}-q{i+1}\', this.parentElement.querySelector(\'input\'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+'''
 
     subtitle = ch.get("subtitle", "")
     ch_title = f"第{num}章 · {subtitle}" if subtitle else f"第{num}章"
@@ -471,22 +519,30 @@ def process_book(slug, config):
 
     # 生成缺失的章节
     tasks = []
+    prev_context = None  # 前一章的核心信息
     for i, ch in enumerate(raw_chapters):
         if chapters_data[i] is not None:
-            continue  # 跳过已生成
+            # 已生成：更新上下文供下一章使用
+            if chapters_data[i]:
+                prev_context = {
+                    "concept": chapters_data[i].get("preview_concept", ""),
+                    "oneline": chapters_data[i].get("preview_oneline", "")
+                }
+            continue
         title = ch.get("title", f"第{i+1}章")
         content = ch.get("content", "")
         if len(content) < 50:
             print(f"  [{i+1}] 内容太短，跳过")
             continue
-        tasks.append((i, title, content, i+1))
+        tasks.append((i, title, content, i+1, prev_context))
+        prev_context = None  # 重置（只用前一章有数据的上下文）
 
     print(f"  需生成: {len(tasks)} 章")
 
     # 并行生成（3并发）
     def gen_task(args):
-        idx, title, content, num = args
-        data = gen_chapter(config["title"], title, content, num)
+        idx, title, content, num, ctx = args
+        data = gen_chapter(config["title"], title, content, num, ctx)
         return idx, data
 
     with ThreadPoolExecutor(max_workers=3) as executor:

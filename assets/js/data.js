@@ -31,9 +31,9 @@ var AppData = (function() {
     'beating-street':       { title: '战胜华尔街',         chapters: 15, school: 'growth',      schoolName: '成长' },
     'stock-operator':       { title: '股票大作手回忆录',   chapters: 25, school: 'mind',        schoolName: '心理' },
     'economic-moat':        { title: '巴菲特的护城河',     chapters: 15, school: 'value',       schoolName: '价值' },
-    'fooled-by-randomness': { title: '随机漫步的傻瓜',     chapters: 15, school: 'uncertainty', schoolName: '不确定' },
-    'black-swan':           { title: '黑天鹅',             chapters: 20, school: 'uncertainty', schoolName: '不确定' },
-    'antifragile':          { title: '反脆弱',             chapters: 25, school: 'uncertainty', schoolName: '不确定' },
+    'fooled-by-randomness': { title: '随机漫步的傻瓜',     chapters: 14, school: 'uncertainty', schoolName: '不确定' },
+    'black-swan':           { title: '黑天鹅',             chapters: 19, school: 'uncertainty', schoolName: '不确定' },
+    'antifragile':          { title: '反脆弱',             chapters: 24, school: 'uncertainty', schoolName: '不确定' },
     'principles':          { title: '原则',               chapters: 38, school: 'mind',        schoolName: '心理' },
     'random-walk':          { title: '漫步华尔街',         chapters: 15, school: 'uncertainty', schoolName: '不确定' },
     'richdad':             { title: '富爸爸穷爸爸',       chapters: 13, school: 'business',     schoolName: '商业' }
