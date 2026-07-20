@@ -940,16 +940,8 @@
 (function() {
   function getBookProgress(slug) {
     try {
-      var raw = localStorage.getItem('reading_progress');
-      if (!raw) return 0;
-      var p = JSON.parse(raw)[slug];
-      if (!p || !p.chaptersRead) return 0;
-      var allBooks = {"alchemy-finance":12,"antifragile":24,"beating-street":13,"black-swan":19,"buffett":8,"buffett-letters":12,"economic-moat":14,"fisher":8,"fooled-by-randomness":14,"howard-marks":21,"intelligent-investor":20,"market-cycle":18,"peter-lynch":20,"poor-charlie":12,"security-analysis":18,"stock-operator":24,"principles":38,"random-walk":15,"richdad":13};
-      var total = allBooks[slug] || 0;
-      if (!total) return 0;
-      var seen = {};
-      p.chaptersRead.forEach(function(c) { seen[c] = true; });
-      return Math.min(Math.round(Object.keys(seen).length / total * 100), 100);
+      var bp = AppData.getBookProgress(slug);
+      return bp ? bp.pct : 0;
     } catch(e) { return 0; }
   }
 
@@ -975,9 +967,8 @@
     var slug = m[1];
     var pct = getBookProgress(slug);
 
-    // Stats
-    var allBooks = {"alchemy-finance":12,"antifragile":24,"beating-street":13,"black-swan":19,"buffett":8,"buffett-letters":12,"economic-moat":14,"fisher":8,"fooled-by-randomness":14,"howard-marks":21,"intelligent-investor":20,"market-cycle":18,"peter-lynch":20,"poor-charlie":12,"security-analysis":18,"stock-operator":24};
-    var total = allBooks[slug] || 0;
+    // Stats: 使用 data.js BOOK_META 章节数
+    var total = AppData.getBook(slug) ? AppData.getBook(slug).chapters : 0;
     var read = Math.round(pct / 100 * total);
     totalRead += read;
     totalChapters += total;
