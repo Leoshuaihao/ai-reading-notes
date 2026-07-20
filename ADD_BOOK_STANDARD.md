@@ -140,7 +140,7 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 10. 章节卡片 <article class="chapter-card" id="chN"> ... </article>
 11. Footer
 12. 回到顶部按钮 <button class="back-to-top">
-13. 引用 JS <script src="../../assets/js/data.js"> + <script src="../../assets/js/app.js"> + <script src="../../assets/js/chat.js">
+13. 引用 JS <script data.js> + <script app.js> + <script local-auth.js> + <script supabase-auth.js> + <script chat.js>
 ```
 
 ### 2.2 阅读路线图规范（V3 强制，禁止偏离）
@@ -183,7 +183,7 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 
 **核心原则**：P0（定位/概念/要点）每章必须有；P1（金句/文化背景/中国市场/思考题）尽量有；P2（反方/术语）严格按跳过条件判断，不适用就跳过，禁止灌水。
 
-**chat-widget 规则（V3.4 新增）**：每章底部必须有至少一个 chat-widget（嵌入在思考题 Block 9 的 `.exercise-box` 内），让读者读完每章都能立刻与 AI 讨论。chat.js 必须引入，AI 初始引导语（`ai_first_reply`）必须体现本章主题。
+**chat-widget 规则（V3.5 新增）**：每章底部必须有至少一个 chat-widget（嵌入在思考题 Block 9 的 `.exercise-box` 内），让读者读完每章都能立刻与 AI 讨论。chat.js 必须引入，AI 初始引导语（`ai_first_reply`）必须体现本章主题。
 
 ```html
 <article class="chapter-card" id="chN" aria-labelledby="chN-title">
