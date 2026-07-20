@@ -405,7 +405,7 @@ def build_chapter_html(ch, num, book_title, is_first=False):
 {ex_html}    </div>''')
 
     subtitle = ch.get("subtitle", "")
-    ch_title = f"第{num}章 · {subtitle}" if subtitle else f"第{num}章"
+    ch_title = subtitle if subtitle else f"第{num}章"
     # 首章 id="intro"（导航 #intro 锚点），其余章节 id="ch{num}"
     article_id = 'id="intro"' if is_first else f'id="ch{num}"'
 
