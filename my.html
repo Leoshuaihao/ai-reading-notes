@@ -577,16 +577,12 @@ function updateAbilityProfile() {
   });
   kpListEl.innerHTML = html;
 
-  // 控制种子态 vs 活跃态
-  var anyTraining = kpList.some(function(kp) { return AppData.getKpProgress(kp.id).masteryPct > 0; });
-  if (anyTraining) {
-    if (seedEl) seedEl.hidden = true;
-    if (activeEl) activeEl.hidden = false;
-    document.getElementById('abilityProfileDesc').textContent = '训练场掌握度驱动的五维投资能力评估——点击知识点进入训练';
-  } else {
-    if (seedEl) seedEl.hidden = false;
-    if (activeEl) activeEl.hidden = true;
-  }
+  // 始终显示雷达图，种子态改为内嵌提示
+  if (seedEl) seedEl.hidden = true;
+  if (activeEl) activeEl.hidden = false;
+  document.getElementById('abilityProfileDesc').textContent = anyTraining
+    ? '训练场掌握度驱动的五维投资能力评估——点击知识点进入训练'
+    : '雷达图基于阅读进度和训练掌握度——开始阅读或训练来激活你的能力值';
 }
 
 /** my.html 专用雷达图渲染（复用 index.html 逻辑，独立 DOM ID） */
@@ -612,13 +608,12 @@ function renderMyRadar() {
   });
 
   var allZero = dims.every(function(d) { return d === 0; });
-  if (allZero) return;
 
-  // 绘制雷达图（复用核心逻辑）
+  // 始终绘制雷达图（空数据也显示网格骨架）
   var cx = 200, cy = 200, r = 150, n = 5;
   var points = dims.map(function(d, i) {
     var angle = Math.PI * 2 / n * i - Math.PI / 2;
-    var rr = r * d / 100;
+    var rr = r * Math.max(d, 0) / 100;
     return { x: cx + rr * Math.cos(angle), y: cy + rr * Math.sin(angle) };
   });
 

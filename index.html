@@ -788,17 +788,15 @@
 
     var allZero = dims.every(function(d) { return d === 0; });
 
-    // 种子态：无阅读数据
+    // 种子态：无数据时显示引导，但仍渲染雷达图（空网格）
     if (allZero) {
       if (activeEl) activeEl.hidden = true;
       if (seedEl) seedEl.hidden = false;
-      return;
+    } else {
+      if (activeEl) activeEl.hidden = false;
+      if (seedEl) seedEl.hidden = true;
     }
-
-    // 有数据：显示雷达图
-    if (activeEl) activeEl.hidden = false;
-    if (seedEl) seedEl.hidden = true;
-    var pb = document.getElementById("posterBtn"); if (pb) pb.style.display = "block";
+    var pb = document.getElementById("posterBtn"); if (pb) pb.style.display = allZero ? "none" : "block";
 
     var cx = 200, cy = 200, r = 150;
     var n = 5;
