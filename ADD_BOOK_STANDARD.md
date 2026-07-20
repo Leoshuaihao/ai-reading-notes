@@ -136,10 +136,9 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 8. 阅读路线图 <section> → .roadmap + .part-card（V3 强制，禁止 chapter-nav）
 9. 阅读进度条 <div class="progress-section">
 10. 章节卡片 <article class="chapter-card" id="chN"> ... </article>
-11. CTA Banner <section class="cta-banner">
-12. Footer
-13. 回到顶部按钮 <button class="back-to-top">
-14. 引用 JS <script src="../../assets/js/data.js"> + <script src="../../assets/js/app.js">
+11. Footer
+12. 回到顶部按钮 <button class="back-to-top">
+13. 引用 JS <script src="../../assets/js/data.js"> + <script src="../../assets/js/app.js"> + <script src="../../assets/js/chat.js">
 ```
 
 ### 2.2 阅读路线图规范（V3 强制，禁止偏离）
@@ -187,11 +186,9 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
     <div>
       <h2 class="ch-title" id="chN-title">第N章 · 章节标题</h2>
     </div>
-    <!-- 预览信息（3项必填） -->
+    <!-- 预览信息（1项必填：仅关键概念） -->
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">概念名</span></div>
-      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">一句话核心问题</span></div>
-      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">一句话总结</span></div>
     </div>
   </div>
 
@@ -302,7 +299,12 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 
 ```html
 <section class="author-bio" aria-labelledby="author-name">
-  <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #色1, #色2);">作者缩写</div>
+  <!-- 头像：优先用作者Q版卡通图，不存在时回落缩写+渐变 -->
+  <div class="avatar" aria-hidden="true">
+    <img src="../../assets/images/authors/author-slug.png" alt="作者名卡通头像"
+         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #色1, #色2)';this.parentElement.textContent='AB';"
+         style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+  </div>
   <div class="bio-content">
     <h2 id="author-name">作者中文名（生卒年）</h2>
     <p>生平第一段：出生、教育、主要成就</p>
@@ -320,7 +322,7 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 **要求**：
 - 生平至少 2 段，每段 80-150 字
 - 必须含 bio-highlight 标签（3-5个）
-- 头像用作者姓名缩写（2个大写字母）+ 渐变背景
+- 头像优先用 Q版大头卡通图（`/assets/images/authors/{author-slug}.png`），不存在时回落为作者姓名缩写（2个大写字母）+ 渐变背景
 
 ---
 
@@ -357,6 +359,8 @@ BOOKS = {
             # ... 共4个
         ],
         "author_bio": "200-400字作者生平，含具体成就",
+        "author_tags": ["标签1", "标签2", "标签3"],  # V3 新增：bio-highlight 标签
+        "author_avatar": "",  # V3 新增：Q版卡通头像路径（如 "philip-fisher.png"），空字符串用缩写+渐变回落
 
         # 阅读路线图配置（V3 新增，必填）
         "roadmap_modules": [
@@ -607,7 +611,7 @@ const { chromium } = require('playwright');
 - [ ] **roadmap 区域是模块卡片（.part-card），不是链接列表（.nav-links）**
 - [ ] 第1章 chapter-preview 3项预览信息完整
 - [ ] 第1章至少有 Block 1/3/8（定位/概念/要点）
-- [ ] 金句的 en-detail 折叠正常
+- [ ] 金句的 en-detail 原文折叠正常（有原文时必选）
 
 ### 7.3 与其他书对比验证
 
@@ -673,7 +677,7 @@ done
 - [ ] 每个章节卡片 9 个 block 按固定顺序
 - [ ] why-section 是 2×2 网格、4个书专属理由
 - [ ] author-bio 有头像 + 2段以上生平 + bio-highlight 标签
-- [ ] chapter-preview 3项预览信息完整
+- [ ] chapter-preview 预览信息完整（1项：关键概念）
 
 ### 阶段三：生成脚本（如使用）
 - [ ] BOOKS 字典配置完整（含 roadmap_modules 和 roadmap_intro）
@@ -781,3 +785,4 @@ done
 | V1 | 2026-07 初 | 初始标准，基础流程 |
 | V2 | 2026-07 中 | 增加 BOOK_META/DOMAINS 数据同步、why-section 2×2 网格 |
 | V3 | 2026-07-19 | 精细化：素材验证（格式/字数/一致性）、内容生成（4000字/书专属）、视觉强制（roadmap 非 chapter-nav）、脚本规范、部署加严（必须push+线上验证）、常见陷阱8条 |
+| V3.1 | 2026-07-20 | UI标准化同步：CTA Banner 移除、chapter-preview 3→1项（仅关键概念）、金句强制 en-detail 原文折叠、页面引入 chat.js、author-bio 支持 Q版卡通头像 + bio-highlight 标签、BOOKS 配置新增 author_tags/author_avatar |

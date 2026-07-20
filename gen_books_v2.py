@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""按 ADD_BOOK_STANDARD.md 标准生成三本书的完整精读页面（V2）
-改进：
-1. 处理所有章节（非前15章）
-2. 发送更多内容给AI（4000字而非2500字）
-3. 更好的prompt生成更深度的分析
-4. 并行API调用（3并发）加速
-5. 增量保存进度
-6. 完整标准页面结构（book-hero, why-section, author-bio, roadmap, progress-section等）
+"""按 ADD_BOOK_STANDARD.md V3 标准生成完整精读页面
+V3 改进（2026-07-20 同步标准文档）：
+1. chapter-preview 3→1项（仅关键概念）
+2. 金句必须含 en-detail 英文原文折叠
+3. CTA Banner 已移除
+4. 页面引入 chat.js
+5. author-bio 支持 Q版卡通头像 + bio-highlight 标签
+6. 每章输入 ≥4000 字 / prompt 要求 quote_en 英文原句
+7. 并行API调用（3并发）+ 增量保存进度
 """
 import json, os, time, requests, re
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -40,6 +41,7 @@ BOOKS = {
             ("⚡", "创意择优：超越民主与独裁的第三条路", "达利欧提出「创意择优」=极度求真+极度透明+ believability-weighted decision making。这种决策机制既非民主投票也非独裁，而是让最可信的人拥有更大权重，是组织管理的创新。"),
         ],
         "author_bio": "瑞·达利欧（Ray Dalio），1949年生于纽约皇后区。1975年在自己两居室的公寓里创办了桥水基金（Bridgewater Associates）。经过40多年发展，桥水成为全球最大的对冲基金，管理资产超过1500亿美元。达利欧被誉为「对冲基金之王」，其全天候投资策略和风险平价理论深刻影响了现代投资组合管理。2017年出版《原则》，畅销全球。2022年出版《原则：应对变化中的世界秩序》。他长期致力于中美文化交流，是中国金融市场的早期参与者。",
+        "author_tags": ["对冲基金之王", "桥水基金创始人", "原则体系开创者", "中美文化桥梁"],
         "roadmap_intro": "全书38个精读单元分为5个模块，对应达利欧构建的「我的历程—生活原则—工作原则」三层结构。建议按顺序阅读前13章建立对原则体系的整体认知，工作原则部分可按「文化—机器—决策」三条主线交叉精读。",
         "roadmap_modules": [
             {"num": "模块1", "title": "我的历程", "pages": "Ch1-9 · 达利欧的人生故事、桥水的诞生与原则体系的由来"},
@@ -65,6 +67,7 @@ BOOKS = {
             ("🇨🇳", "对中国「房奴」现象的超前预言", "1997年写的书，却精准预言了中国2000年后的房地产狂热和「房奴」现象。清崎对中产阶级「高收入≠富有」的分析，对今天的中国读者尤其有警示意义。"),
         ],
         "author_bio": "罗伯特·清崎（Robert T. Kiyosaki），1947年生于夏威夷一个日裔美国人家庭。父亲是夏威夷教育部长（穷爸爸），好友迈克的父亲是企业家（富爸爸）。清崎越战期间在海军陆战队服役，后加入施乐公司学习销售。1977年创办尼龙钱包公司，开始商业生涯。1994年实现财务自由。1997年出版《富爸爸穷爸爸》，开创「富爸爸」系列，全球销量超过4000万册。他的财商教育理念影响深远，但也因观点激进（如鼓励使用杠杆、贬低正规教育）而饱受争议。",
+        "author_tags": ["财商教育之父", "富爸爸系列作者", "畅销书作家", "财务自由倡导者"],
         "roadmap_intro": "全书13个精读单元分为4个模块，从财务启蒙到财富基石，再到投资与行动。建议按顺序阅读前7章建立完整的财务认知框架，第10-13章可作为行动指南反复回看。",
         "roadmap_modules": [
             {"num": "模块1", "title": "财务启蒙", "pages": "Ch1-4 · 两个父亲、老鼠赛跑、金钱观碰撞、富人不为钱工作"},
@@ -89,6 +92,7 @@ BOOKS = {
             ("🇨🇳", "对A股散户化市场的深刻启示", "中国A股市场散户占比高、情绪化交易明显、市场效率较低。马尔基尔的理论既揭示了为什么大多数主动基金跑不赢指数，也指出了市场非有效处可能存在的超额收益机会，对中国投资者特别有启发。"),
         ],
         "author_bio": "伯顿·马尔基尔（Burton G. Malkiel），1932年生于波士顿。普林斯顿大学经济学教授，曾任该校经济系主任。耶鲁大学管理学院院长。美国总统经济顾问委员会委员。美国金融学会前会长。马尔基尔是有效市场假说的坚定拥护者，1973年出版《漫步华尔街》，成为指数投资运动的奠基之作。他长期担任先锋集团（Vanguard）董事，推动指数基金发展。学术研究涵盖市场效率、行为金融、技术分析有效性等领域。第11版新增了聪明β、行为金融学等前沿内容。",
+        "author_tags": ["普林斯顿经济学教授", "指数投资理论奠基人", "有效市场假说权威"],
         "roadmap_intro": "全书15个精读单元分为5个模块，从随机漫步的核心理论与投机史出发，逐步深入到分析方法、风险理论、行为金融，最后落到普通投资者的实战手册。建议按顺序阅读，第8-9章和第12-15章是普通投资者最实用的部分。",
         "roadmap_modules": [
             {"num": "模块1", "title": "随机漫步与投机史", "pages": "Ch1-4 · 核心理论、从郁金香到南海泡沫、机构投机、互联网与房地产泡沫"},
@@ -160,6 +164,7 @@ def gen_chapter(book_title, chapter_title, content, ch_num, prev_context=None):
     {{"q": "思考题（联系实际投资决策，内容简单可留空数组）", "hint": "提示", "ai_first_reply": "AI初始回复"}}
   ],
   "quote": "从原文中精确摘录一句最有洞察力的中文原文（50-150字）",
+  "quote_en": "英文原文（从epub原文中找到对应的英文原句，找不到则留空字符串）",
   "quote_why": "解读（20-40字，说明这句为什么重要）"
 }}"""
 
@@ -202,14 +207,10 @@ def build_chapter_html(ch, num, book_title):
     if ch is None:
         return ""
 
-    # Preview
+    # Preview（1项：仅关键概念，V3 决议）
     preview_concept = ch.get("preview_concept", "")
-    preview_question = ch.get("preview_question", "")
-    preview_oneline = ch.get("preview_oneline", "")
     preview = f'''    <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">{preview_concept}</span></div>
-      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">{preview_question}</span></div>
-      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">{preview_oneline}</span></div>
     </div>'''
 
     blocks = []
@@ -220,11 +221,15 @@ def build_chapter_html(ch, num, book_title):
       <div class="block-content"><p>{ch.get("positioning", "")}</p></div>
     </div>''')
 
-    # 金句
+    # 金句（V3 强制：必须有 en-detail 折叠原文）
     quote_text = ch.get("quote", "")
+    quote_en = ch.get("quote_en", "")
     quote_why = ch.get("quote_why", "")
     if quote_text:
-        blocks.append(f'''    <div class="gold-quote">
+        en_detail = ""
+        if quote_en:
+            en_detail = f'\n      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">{quote_en}</div></details>'
+        blocks.append(f'''    <div class="gold-quote">{en_detail}
       <div class="zh">「{quote_text}」</div>
       <div class="why">💬 {quote_why}</div>
     </div>''')
@@ -340,6 +345,19 @@ def build_book_page(book_slug, config, chapters_data):
     why_items = config["why_items"]
     author_bio = config["author_bio"]
     author_initials = config.get("author_initials", config["author"][:2])
+    author_tags = config.get("author_tags", [])  # bio-highlight 标签
+    author_avatar = config.get("author_avatar", "")  # Q版卡通头像路径（相对于books/slug/）
+
+    # 作者头像：优先Q版卡通图，回落缩写+渐变
+    if author_avatar:
+        avatar_html = f'<div class="avatar" aria-hidden="true"><img src="{author_avatar}" alt="{author}卡通头像" onerror="this.style.display=\'none\';this.parentElement.style.background=\'{cover_gradient}\';this.parentElement.textContent=\'{author_initials}\';" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>'
+    else:
+        avatar_html = f'<div class="avatar" aria-hidden="true" style="background: {cover_gradient};">{author_initials}</div>'
+
+    # bio-highlight 标签
+    tags_html = ""
+    if author_tags:
+        tags_html = "\n        " + "\n        ".join(f'<span class="bio-highlight">{t}</span>' for t in author_tags)
 
     # 过滤有效章节
     valid_chapters = [(i+1, ch) for i, ch in enumerate(chapters_data) if ch is not None]
@@ -439,10 +457,10 @@ def build_book_page(book_slug, config, chapters_data):
 <section aria-labelledby="author-title">
   <h2 class="section-title" id="author-title"><span class="emoji">👤</span> 作者简介</h2>
   <div class="author-bio">
-    <div class="avatar" aria-hidden="true" style="background: {cover_gradient};">{author_initials}</div>
+    {avatar_html}
     <div class="bio-content">
       <h3>{author}</h3>
-      <p>{author_bio}</p>
+      <p>{author_bio}</p>{tags_html}
     </div>
   </div>
 </section>
@@ -467,12 +485,6 @@ def build_book_page(book_slug, config, chapters_data):
 {chapter_html}
 </section>
 
-<!-- CTA -->
-<section class="cta-banner">
-  <h3>读完本书，你的投资认知升级了吗？</h3>
-  <p>前往<a href="../../index.html">修行首页</a>记录你的读书笔记和实践原则，将知识转化为行动。</p>
-</section>
-
 <footer>
   <p>📚 AI精读笔记 · 《{title}》{total}章精读</p>
   <p><a href="../../bookshelf.html" style="color:var(--accent);">← 返回完整书架</a></p>
@@ -482,6 +494,7 @@ def build_book_page(book_slug, config, chapters_data):
 <button class="back-to-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})">⬆</button>
 <script src="../../assets/js/data.js"></script>
 <script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/chat.js"></script>
 </body>
 </html>'''
 
