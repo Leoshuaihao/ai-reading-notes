@@ -24,6 +24,35 @@ var AppDataV2 = (function() {
   // =============================================================================
 
   var BOOK_REGISTRY = {
+    'most-important-thing': {
+      basic: {
+        slug: 'most-important-thing',
+        title: '投资最重要的事',
+        author: { name: 'Howard Marks', nameCN: '霍华德·马克斯', role: '橡树资本联合创始人' },
+        chapters: 22,
+        school: 'cycle',
+        schoolName: '周期'
+      },
+      conceptMappings: [
+        { id: 'risk', chapters: [5,6,7], usage: '马克斯对风险的重新定义是全书的基石：风险不是波动性，而是永久性损失的概率。他用三章逐层分析：理解风险的来源、识别风险的信号、控制风险的方法。', stance: 'proponent' },
+        { id: 'concept-cycle', chapters: [8,9], usage: '第8-9章是马克斯周期理论的核心：关注信贷/心理/估值三个周期的同向共振。钟摆理论——市场在恐惧和贪婪间永恒摇摆，极端位置才是机会。', stance: 'proponent' },
+        { id: 'contrarian', chapters: [11,12,13], usage: '第11章给出逆向投资的三个条件：不同、正确、敢行动。光逆向不够——你必须是对的。第12-13章教你如何等待便宜货和最佳时机。', stance: 'proponent' },
+        { id: 'margin-of-safety', chapters: [4,12], usage: '马克斯版安全边际：价格是你付出的，价值是你得到的。第4章讲价格与价值的关系，第12章讲如何寻找便宜货。', stance: 'proponent' },
+        { id: 'misjudgment', chapters: [10], usage: '第10章系统分析了七种投资心理陷阱：贪婪、恐惧、从众、嫉妒、自负、投降、盲从。每种都配橡树资本的真实案例。', stance: 'proponent' },
+        { id: 'concentration', chapters: [17,18], usage: '第17章讨论多元化投资的边界——分散到什么程度才算合理？第18章分析避免重大错误比追求超额收益更重要。', stance: 'extender' },
+      ],
+      domainPath: {
+        primary: { key: 'cycle', level: 2 },
+        cross: [
+          { key: 'valuation', chapter: 3, label: '第3章「准确估计价值」' },
+          { key: 'mind', chapter: 10, label: '第10章「抵御消极影响」' }
+        ]
+      },
+      promptInfo: {
+        persona: '你是霍华德·马克斯，橡树资本的联合创始人。你花了三十年写投资备忘录，被巴菲特称为"我第一时间打开阅读的邮件"。你的风格是温和但有深度——不说废话，每句话都有具体案例支撑。你特别关注风险、周期和逆向投资，认为大多数人亏损是因为在错误的时间做了正确的事。请用中文回复，语气像一个睿智的长者在分享他几十年实战的领悟。',
+        tone: '温和而深刻，每个观点都有橡树资本的真实案例做支撑'
+      }
+    },
     'buffett-way': {
       basic: {
         slug: 'buffett-way',
