@@ -181,7 +181,7 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 
 ### 2.3 每个章节卡片结构（最多 9 个 block，P0 必选 + P1 推荐 + P2 按需）
 
-**核心原则**：P0（定位/概念/要点）每章必须有；P1（金句/文化背景/思考题）尽量有；P2（反方/中国市场/术语）严格按跳过条件判断，不适用就跳过，禁止灌水。
+**核心原则**：P0（定位/概念/要点）每章必须有；P1（金句/文化背景/中国市场/思考题）尽量有；P2（反方/术语）严格按跳过条件判断，不适用就跳过，禁止灌水。
 
 ```html
 <article class="chapter-card" id="chN" aria-labelledby="chN-title">
@@ -232,9 +232,9 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
     <div class="counter-box"><p>反对者观点及理由</p></div>
   </div>
 
-  <!-- Block 6: 中国市场关联（P2 可选） -->
+  <!-- Block 6: 中国市场关联（P1 推荐，默认尽量做） -->
   <div class="block">
-    <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+    <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
     <div class="china-box"><p>如何应用于A股或中国投资实践</p></div>
   </div>
 
@@ -278,8 +278,8 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 | P1 推荐 | Block 2 金句 | 有精彩原文时 | 叙事型章节或无精彩原文可跳过 |
 | P1 推荐 | Block 4 文化背景 | 涉及美国金融制度/历史 | 通用概念可跳过 |
 | P1 推荐 | Block 9 思考题 | 每章至少1题 | — |
+| P1 推荐 | Block 6 中国市场 | 原则可对标A股时 | 完全不可对标（纯美国制度/哲学类）才跳过，默认尽量做 |
 | P2 可选 | Block 5 反方观点 | 概念有争议时 | 共识性内容跳过 |
-| P2 可选 | Block 6 中国市场 | 原则可对标A股时 | 不可对标（纯美国制度/哲学类）跳过 |
 | P2 可选 | Block 7 术语词典 | 本章有≥2个新术语时 | 术语不足2个跳过 |
 
 ### 2.5 why-section 规范（V3 强制）
@@ -793,4 +793,5 @@ done
 | V2 | 2026-07 中 | 增加 BOOK_META/DOMAINS 数据同步、why-section 2×2 网格 |
 | V3 | 2026-07-19 | 精细化：素材验证（格式/字数/一致性）、内容生成（4000字/书专属）、视觉强制（roadmap 非 chapter-nav）、脚本规范、部署加严（必须push+线上验证）、常见陷阱8条 |
 | V3.1 | 2026-07-20 | UI标准化同步：CTA Banner 移除、chapter-preview 3→1项（仅关键概念）、金句强制 en-detail 原文折叠、页面引入 chat.js、author-bio 支持 Q版卡通头像 + bio-highlight 标签、BOOKS 配置新增 author_tags/author_avatar |
-| V3.3 | 2026-07-20 | 去 Fisher 化：chapter-preview 最少1项推荐3项（恢复信息密度）、9-block 加 P2 明确跳过条件（反方/中国市场/术语不足不灌水）、Q版头像降级为"鼓励非必须"（缩写+渐变是标准方案）、金句统一 P1 推荐删除"必选"、block-label 统一 `<div>` |
+| V3.3 | 2026-07-20 | 去 Fisher 化：chapter-preview 最少1项推荐3项；9-block 加 P2 跳过条件；Block 6（中国市场）P2→P1 默认尽量做；Q版头像降级为"鼓励非必须"；金句统一 P1；block-label 统一 `<div>` |
+| V3.4 | 2026-07-20 | 终审修复：暗色模式全量覆盖 + 30处组件颜色变量化 + en-detail 可发现性提升（13px+▸图标）+ .section-title 合并去重 + 平板断点 + color-mix fallback |

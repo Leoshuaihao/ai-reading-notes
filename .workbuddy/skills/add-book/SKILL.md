@@ -74,7 +74,7 @@ agent_created: true
 **门控项（8 项）：**
 - [ ] 页面结构 13 项按固定顺序排列
 - [ ] 🗺️ 阅读路线图 + .part-card（非 📋 + .chapter-nav）
-- [ ] chapter-preview 最少 1 项（关键概念），推荐 3 项（概念+问题+一句话）
+- [ ] chapter-preview 最少 1 项（关键概念），推荐 3 项（+ 核心问题 + 一句话）（概念+问题+一句话）
 - [ ] 金句有 `<details class="en-detail">` 折叠（有原文时添加，叙事型章节可跳过）
 - [ ] block-label 统一用 div（非 h3）
 - [ ] CTA Banner 已移除
