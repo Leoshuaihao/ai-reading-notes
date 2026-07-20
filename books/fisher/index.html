@@ -2,876 +2,1019 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://zvacgujeywaytpkixdtw.supabase.co https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>怎样选择成长股 — AI精读笔记</title>
-<meta name="description" content="AI驱动的《怎样选择成长股》深度精读笔记。逐章解读菲利普·费雪的15条选股原则、闲聊调研法、成长股投资哲学。"/>
+<meta name="description" content="AI驱动的《怎样选择成长股》深度精读笔记。菲利普·A·费雪的经典著作，逐章解读投资智慧。"/>
 <meta property="og:title" content="怎样选择成长股 — AI精读笔记"/>
-<meta property="og:description" content="AI驱动的《怎样选择成长股》深度精读笔记。逐章解读菲利普·费雪的15条选股原则、闲聊调研法。"/>
+<meta property="og:description" content="AI驱动的《怎样选择成长股》深度精读笔记。巴菲特说自己是“85%的格雷厄姆 + 15%的费雪”。这本1958年出版的成长股投资奠基之作，首次提出以“闲聊调研法”调研企业，用15条原则筛选成长股。费雪教你"/>
 <meta property="og:type" content="article"/>
-<meta property="og:url" content="https://leoshuaihao.github.io/ai-reading-notes/common-stocks-and-uncommon-profits"/>
-<meta property="og:image" content="https://leoshuaihao.github.io/ai-reading-notes/assets/img/og-image.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="怎样选择成长股 — AI精读笔记"/>
-<meta name="twitter:description" content="AI驱动的《怎样选择成长股》深度精读笔记。"/>
+<meta property="og:image" content="../../assets/img/og-image.png"/>
 <link rel="stylesheet" href="../../assets/css/style.css"/>
-<!-- Schema.org Book 结构化数据 -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Book",
-  "name": "怎样选择成长股",
-  "author": { "@type": "Person", "name": "菲利普·A·费雪" },
-  "isbn": "978-0471445500",
-  "inLanguage": "zh",
-  "datePublished": "1958",
-  "description": "成长股投资奠基之作，首次提出闲聊调研法和15条选股原则"
-}
+{"@context":"https://schema.org","@type":"Book","name":"怎样选择成长股","author":{"@type":"Person","name":"菲利普·A·费雪"},"inLanguage":"zh","datePublished":"1958","description":"巴菲特说自己是“85%的格雷厄姆 + 15%的费雪”。这本1958年出版的成长股投资奠基之作，首次提出以“闲聊调研法”调研企业，用15条原则筛选成长股。费雪教你：买对成长股，然后什么也不做——这才是最赚钱的策略。"}
 </script>
-<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8ebcd28da20148c4af3da9d3b5f76a0c"}'></script><!-- End Cloudflare Web Analytics -->
-<script src="../../assets/js/local-auth.js"></script>
-<script src="../../assets/js/supabase-auth.js"></script>
 </head>
 <body>
-
-<!-- Top Navigation -->
 <nav class="top-nav" role="navigation" aria-label="章节导航">
-  <span class="logo" aria-label="AI精读笔记"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <span class="logo"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
   <div class="nav-links">
-    <a href="../../index.html">🏠 修行</a> <a href="../../bookshelf.html">📚 书架</a> <a href="../../my.html">🧘 我的</a> <a class="active" href="#overview" tabindex="0">概览</a>
-    <a href="#roadmap" tabindex="0">路线图</a>
-    <a href="#intro" tabindex="0">导言</a>
-    <a href="#ch1" tabindex="0">第1章 · 来自过去的线索</a>
-    <a href="#ch2" tabindex="0">第2章 · "闲聊法"能做什么</a>
-    <a href="#ch3" tabindex="0">第3章 · 15条原则</a>
-    <a href="#ch4" tabindex="0">第4章 · 行业分析框架</a>
-    <a href="#ch5" tabindex="0">第5章 · 何时买入与卖出</a>
-    <a href="#ch6" tabindex="0">第6章 · 股息的迷思</a>
-    <a href="#ch7" tabindex="0">第7章 · 五大禁忌</a>
-    <a href="#ch8" tabindex="0">第8章 · 保守型投资</a>
+    <a href="../../index.html">🏠 修行</a>
+    <a href="../../bookshelf.html">📚 书架</a>
+    <a href="../../my.html">🧘 我的</a>
+    <a class="active" href="#overview">概览</a>
+    <a href="#roadmap">路线图</a>
+    <a href="#intro">导言</a>
+<a href="#ch2">第2章</a>
+<a href="#ch3">第3章</a>
+<a href="#ch4">第4章</a>
+<a href="#ch5">第5章</a>
+<a href="#ch6">第6章</a>
+<a href="#ch7">第7章</a>
+<a href="#ch8">第8章</a>
+<a href="#ch9">第9章</a>
+<a href="#ch10">第10章</a>
   </div>
-  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="container wide">
 
-<!-- ==================== BOOK HERO ==================== -->
+<!-- BOOK HERO -->
 <section class="book-hero" id="overview" aria-labelledby="hero-title">
-  <div class="cover" aria-hidden="true">怎样<br/>选择<br/>成长股</div>
+  <div class="cover" aria-hidden="true" style="--cover-grad: linear-gradient(135deg, #1a3a4a 0%, #0d2535 50%, #051020 100%); background: var(--cover-grad);">Common Stocks
+and Uncommon
+Profits</div>
   <div class="info">
-    <h1 id="hero-title">《怎样选择成长股》</h1>
+    <h1 id="hero-title">《怎样选择成长股》<span style="font-size:16px;font-weight:400;color:var(--text-secondary);display:block;margin-top:4px;">普通股和不普通的利润</span></h1>
     <div class="author">菲利普·A·费雪</div>
     <div class="meta-row">
-      <span class="tag primary">🏆 投资经典</span>
-      <span class="tag">📖 阅读难度：中等</span>
-      <span class="tag">⏱️ 精读约 6-8 小时</span>
-      <span class="tag">📅 首版 1958 年</span>
-      <span class="tag">⭐ 豆瓣 8.8</span>
+      <span class="tag primary">📖 商业认知域</span>
+      <span class="tag">⏱️ 精读约 8-10 小时</span>
+      <span class="tag">📅 1958</span>
+      <span class="tag">📑 10章精读</span>
     </div>
-    <p class="desc">
-      巴菲特说自己是"85%的格雷厄姆 + 15%的费雪"。这本1958年出版的成长股投资奠基之作，首次提出以"闲聊调研法"调研企业，用15条原则筛选成长股。但中文译本中大量术语和核心概念存在翻译硬伤，导致中文读者难以真正理解费雪的精髓。
-    </p>
+    <p class="desc">巴菲特说自己是“85%的格雷厄姆 + 15%的费雪”。这本1958年出版的成长股投资奠基之作，首次提出以“闲聊调研法”调研企业，用15条原则筛选成长股。费雪教你：买对成长股，然后什么也不做——这才是最赚钱的策略。</p>
     <a class="cta-btn" href="#intro" onclick="event.preventDefault();var t=document.querySelector('#intro');if(t){var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}" aria-label="开始精读">🚀 开始精读</a>
-    <a class="cta-btn" href="../../reading-guide.html" style="background:var(--accent-light);color:var(--accent);margin-left:12px;">📖 完整精读引导</a>
   </div>
 </section>
 
-<!-- ==================== WHY THIS BOOK ==================== -->
+<!-- WHY THIS BOOK -->
 <section aria-labelledby="why-title">
   <h2 class="section-title" id="why-title"><span class="emoji">💡</span> 为什么这本书值得精读？</h2>
   <div class="why-section">
     <div class="why-item">
       <div class="why-icon">🏛️</div>
-      <h3 class="why-title">巴菲特的"另一半"导师</h3>
-      <div class="why-desc">巴菲特公开表示他融合了格雷厄姆的价值投资与费雪的成长股哲学。理解费雪才能真正理解巴菲特的投资进化。</div>
+      <h3 class="why-title">巴菲特的“另一半”导师</h3>
+      <div class="why-desc">巴菲特公开表示他融合了格雷厄姆的价值投资与费雪的成长股哲学。理解费雪才能真正理解巴菲特的投资进化——从“捡烟蒂”到“以合理价格买入伟大企业”。</div>
     </div>
     <div class="why-item">
       <div class="why-icon">🔍</div>
-      <h3 class="why-title">"闲聊法"——被严重低估的投资利器</h3>
-      <div class="why-desc">中文译本将闲聊调研法简单译为"闲聊法"或音译为"史克巴特方法"，完全无法传达这套系统性企业调研方法论的精髓。</div>
+      <h3 class="why-title">“闲聊法”——被严重低估的投资利器</h3>
+      <div class="why-desc">中文译本将Scuttlebutt Method简单译为“闲聊法”，完全无法传达这套系统性企业调研方法论的精髓。费雪教你如何通过竞争对手、供应商、客户、前雇员等多维度信息源拼凑出企业全貌。</div>
     </div>
     <div class="why-item">
       <div class="why-icon">📋</div>
       <h3 class="why-title">15条选股原则——穿越60年仍然有效</h3>
-      <div class="why-desc">费雪的15条原则至今被华尔街基金经理奉为圭臬。但中文译本中的翻译问题让这些原则读起来像"正确的废话"。</div>
+      <div class="why-desc">费雪的15条原则涵盖市场潜力、研发能力、利润率、劳资关系、管理层诚信等多个维度，至今被华尔街基金经理奉为圭臬。这是第一套系统化的成长股筛选框架。</div>
     </div>
     <div class="why-item">
       <div class="why-icon">🧩</div>
       <h3 class="why-title">填补价值投资之外的空白</h3>
-      <div class="why-desc">大多数中文投资书籍只讲格雷厄姆。费雪告诉你：买对成长股，然后什么也不做——这才是最赚钱的策略。</div>
+      <div class="why-desc">大多数中文投资书籍只讲格雷厄姆的安全边际。费雪告诉你：找到真正伟大的成长型公司，然后一直持有——就像他在1950年代买入摩托罗拉并持有数十年那样。</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== AUTHOR BIO ==================== -->
-<section class="author-bio" aria-labelledby="author-name">
-  <div class="avatar" aria-hidden="true"><img src="/assets/images/authors/philip-fisher.png" alt="菲利普·费雪" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></div>
-  <div class="bio-content">
-    <h2 id="author-name">菲利普·费雪（1907–2004）</h2>
-    <p>现代投资理论的开路先锋之一，被誉为"成长股投资之父"。1928年从斯坦福商学院辍学进入投资行业，1931年创立费雪公司，以极度集中的投资策略著称——同时持有的客户不超过12位。</p>
-    <p>费雪的核心洞察：<strong>找出极少数能在多年内实现每股收益爆发式增长的卓越公司，然后一直持有。</strong>他早在1950年代就投资了摩托罗拉、德州仪器等公司，并持有了数十年。</p>
-    <div>
-      <span class="bio-highlight">成长股投资之父</span>
-      <span class="bio-highlight">巴菲特精神导师之一</span>
-      <span class="bio-highlight">闲聊调研法发明者</span>
-      <span class="bio-highlight">斯坦福商学院</span>
+<!-- AUTHOR BIO -->
+<section aria-labelledby="author-title">
+  <h2 class="section-title" id="author-title"><span class="emoji">👤</span> 作者简介</h2>
+  <div class="author-bio">
+    <div class="avatar" aria-hidden="true"><img src="../../assets/images/authors/philip-fisher.png" alt="菲利普·A·费雪卡通头像" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #1a3a4a 0%, #0d2535 50%, #051020 100%)';this.parentElement.textContent='PF';" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div>
+    <div class="bio-content">
+      <h3>菲利普·A·费雪</h3>
+      <p>菲利普·费雪（Philip A. Fisher，1907-2004），被誉为“成长股投资之父”。1928年从斯坦福商学院辍学进入投资行业，1931年创立费雪公司。他以极度集中的投资策略著称——同时服务的客户不超过12位。费雪的核心洞察：找出极少数能在多年内实现每股收益爆发式增长的卓越公司，然后一直持有。他早在1950年代就投资了摩托罗拉、德州仪器等公司，并持有了数十年。巴菲特称自己是“85%格雷厄姆+15%费雪”，费雪的思想深刻影响了巴菲特从“捡烟蒂”到“以合理价格买入伟大企业”的进化。</p>
+        <span class="bio-highlight">成长股投资之父</span>
+        <span class="bio-highlight">巴菲特精神导师之一</span>
+        <span class="bio-highlight">闲聊调研法发明者</span>
+        <span class="bio-highlight">斯坦福商学院</span>
     </div>
   </div>
 </section>
 
-<!-- ==================== ROADMAP ==================== -->
+<!-- ROADMAP -->
 <section aria-labelledby="roadmap-title">
   <h2 class="section-title" id="roadmap"><span class="emoji">🗺️</span> 阅读路线图</h2>
   <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">全书10个精读单元分为3个模块，从投资哲学与调研方法论出发，逐步深入到选股、交易、风险管理，最后落地到实战技巧。建议先通读第3章（15条原则）建立框架，再逐章精读。</p>
   <div class="roadmap" id="roadmap-modules">
     <div class="part-card current">
-      <div class="part-num">📖 第一部分（当前）</div>
-      <h3 class="part-title">怎样选择成长股</h3>
-      <div class="part-pages">核心篇 · 15条选股原则 + 何时买卖 + 股息误区 + 五大禁忌</div>
+      <div class="part-num">📖 模块1</div>
+      <h3 class="part-title">投资哲学与调研方法 ⭐核心</h3>
+      <div class="part-pages">Ch1-2 · 投资哲学的演变、闲聊调研法的理论与实践</div>
     </div>
     <div class="part-card">
-      <div class="part-num">📖 第二部分</div>
-      <h3 class="part-title">保守型投资者安枕无忧</h3>
-      <div class="part-pages">进阶篇 · 保守型投资的四个维度</div>
+      <div class="part-num">📖 模块2</div>
+      <h3 class="part-title">选股与交易</h3>
+      <div class="part-pages">Ch3-7 · 15条选股原则、应用指南、买卖时机、股利谬误</div>
     </div>
     <div class="part-card">
-      <div class="part-num">📖 第三部分</div>
-      <h3 class="part-title">投资哲学的形成与演进</h3>
-      <div class="part-pages">哲学篇 · 投资哲学的形成与演进</div>
+      <div class="part-num">📖 模块3</div>
+      <h3 class="part-title">风险控制与实战</h3>
+      <div class="part-pages">Ch8-10 · 十大禁忌、保守型投资框架、寻找成长股的实战方法</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== PROGRESS ==================== -->
-<div class="progress-section" role="status" aria-label="阅读进度" aria-live="polite">
-  <span style="font-size:20px;" aria-hidden="true">📊</span>
-  <div class="progress-bar"><div class="fill" style="width:100%"></div></div>
-  <div class="progress-text">已读 9/9 章</div>
+<!-- PROGRESS -->
+<div class="progress-section" id="progress-section">
+  <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
+  <div class="progress-text">阅读进度：<span id="progress-percent">0%</span> · <span id="progress-chapters">0/10</span> 章</div>
 </div>
 
-<!-- ==================== INTRODUCTION ==================== -->
-<article class="chapter-card" data-no-collapse="true" id="intro" aria-labelledby="intro-title">
-  <div class="ch-header">
-    <div class="ch-num">序</div>
-    <div>
-      <h2 class="ch-title" id="intro-title">导言：一个95岁老人和他写给未来的书</h2>
-      <div class="ch-subtitle">肯尼斯·费雪撰写导言</div>
+<!-- CHAPTERS -->
+  <article class="chapter-card" id="intro" aria-labelledby="ch1-title">
+    <div class="ch-header">
+      <div class="ch-num">1</div>
+      <div>
+        <h2 class="ch-title" id="ch1-title">闲聊法与15要点：成长股投资的艺术</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">闲聊法</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何通过闲聊法找到成长股？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">闲聊法与15要点是成长股投资的核心艺术。</span></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">费雪的投资方法到底"新"在哪？</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
-    <div class="block-content">
-      <p>这篇导言由费雪的儿子、著名投资人肯尼斯·费雪（《福布斯》专栏作家、费雪投资公司创始人）于2002年撰写。此时菲利普·费雪已95岁，因阿尔茨海默症卧床不起。肯·费雪用极为个人化的笔触，讲述了这位伟大投资者鲜为人知的一面。</p>
-      <p>这篇导言的关键价值在于：<strong>它揭示了费雪投资哲学形成的真实土壤</strong>——一个犹太移民家庭、旧金山的银行圈、二战期间的反思、以及对"闲聊调研法"的实践验证。</p>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"He was a great man but is now just a little, old man very late in life. But he is my little, old man."</div></details>
-    <div class="zh">「他曾是一位伟人，如今只是一个风烛残年的小老头。但他是我的小老头。」</div>
-    <div class="why">💬 为什么这句话重要？肯·费雪在全书中第一次（也是唯一一次）用如此私人的笔触写他的父亲。这不是一本冷冰冰的投资教科书——这是一位儿子对父亲毕生智慧的传承。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box">
-      <h3 class="concept-name">费雪的投资方法到底"新"在哪？</h3>
-      <div class="concept-body">
-        <p>在费雪之前，华尔街主流方法是两个极端：</p>
-        <p>❶ <strong>技术分析派</strong>：看图、跟趋势、猜涨跌。费雪认为这是"知道一切价格、不知道任何价值"。</p>
-        <p>❷ <strong>格雷厄姆派</strong>：看财报、算净值、找被低估的烟蒂股。但费雪认为：<strong>你买一家烂公司，即使价格再低，长期也是烂公司。</strong></p>
-        <p>费雪的第三条路：<strong>走出去，跟企业的客户、供应商、竞争对手聊天——用一手信息判断企业的真实质地。</strong>这就是闲聊调研法的核心。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章为全书引言，通过作者之子肯内斯·费雪的亲身经历，揭示《怎样选择成长股》的核心方法——闲聊法与15要点，并强调其适用于成长型与价值型投资。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「我花了约十五年的时间，才了解《怎样选择成长股》一书在写些什么。第一次看这本书，实在不懂它到底在讲什么，那时我才八岁。」</div>
+      <div class="why">💬 这句话揭示了投资经典需要反复阅读和实践才能领悟，体现了本书的深度。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">闲聊法</h3>
+        <div class="concept-body"><p>本章核心概念是“闲聊法”与“15要点”。闲聊法指通过访谈客户、竞争对手和供应商来获取公司真实信息，而非仅依赖公开数据。15要点是评估成长股的15个关键问题，涵盖销售组织、利润率、管理能力等。肯内斯强调，闲聊法不仅是技巧（如弹钢琴的指法），更是艺术（如作曲），需要反复练习才能掌握。他举例说明，自己用闲聊法发现纽可公司（一家小型钢制品销售商），从价值型投资角度买入，而父亲菲利浦·费雪则从成长型投资角度买入，两人都运用了15要点。此外，本章还提到“投资人五不原则”和“另五不原则”，其中“不要过度强调分散投资”是巴菲特投资哲学的基础。肯内斯还分享了父亲摩托罗拉的投资案例：21年内股价上涨20倍，年回报率超15%，强调找到出色公司后抱牢长期。</p></div>
       </div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
-    <div class="context-box">
-      <p><strong>1957年的美国</strong>：费雪在自家书房写完这本书时，美国正处于战后经济繁荣期。道琼斯指数从1949年的161点涨到1957年的520点，但经历了1957年的大幅回调。普通美国人对"买股票"的记忆仍停留在1929年大崩盘的阴影中。</p>
-      <p><strong>费雪的犹太背景</strong>：肯·费雪在导言中特别提到了家族的犹太移民史（来自布拉格）。这很重要——费雪对"长期主义"的执着，部分源于犹太人跨越几代人的财富传承观念。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及《纽约时报》畅销书排行榜、斯坦福大学商学院教材、沃伦·巴菲特的推崇，反映了20世纪50-70年代美国投资界对基本面分析的重视。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
-    <div class="counter-box">
-      <h3 class="counter-name">肯·费雪本人就是费雪方法的"温和批评者"</h3>
-      <p>有趣的是，肯·费雪作为儿子和导言作者，本身走了一条与父亲完全不同的路。肯·费雪的费雪投资公司管理着数千亿美元资产，采用的是多元化、系统化的投资方法——与菲利普·费雪"极度集中、只买几只股票"的理念形成鲜明对比。</p>
-      <p>肯在导言中暗示了这一点但没有展开：<strong>父亲的极度集中策略对普通投资者而言风险过高</strong>——你必须有费雪那样的一手调研能力才能执行这套方法。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>闲聊法在中国A股市场同样适用。例如，投资者可通过调研上市公司上下游产业链（如供应商、客户）来验证公司竞争力。以宁德时代为例，通过访谈其客户（如特斯拉、蔚来）和供应商（如锂矿企业），可判断其技术领先性和市场地位。但需注意，A股市场信息不对称更严重，闲聊法需结合公开财报和行业数据。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>费雪的"极度集中"策略在中国可行吗？</strong></p>
-      <p>A股市场信息不对称程度更高，普通投资者获取"一手信息"的渠道有限。但费雪的核心理念——<strong>深入了解一家公司的产品、客户和竞争对手</strong>——在A股并非不可行。你可以去调研茅台的门店销售、比亚迪的车主口碑、海康威视的下游客户。</p>
-      <p>实际上，国内许多优秀的基金经理（如张坤、谢治宇）本质上就是在执行费雪式的"重仓持有优质成长股"策略。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>闲聊法是获取公司真实信息的关键，需反复练习才能掌握。</li><li>15要点适用于成长型和价值型投资，如纽可公司案例所示。</li><li>找到出色公司后应抱牢长期，如摩托罗拉21年涨20倍。</li></ul>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-    <table class="term-table">
-      <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
-      <tr><td><strong>老年痴呆/阿尔茨海默症</strong> <span style="color:var(--text-secondary);font-size:12px">(senile dementia / Alzheimer's)</span></td><td class="zh">老年痴呆/阿尔茨海默症</td><td>肯·费雪用这段描述不是为了博取同情，而是为了建立可信度——他不会再因为担心伤害父亲而回避事实</td></tr>
-      <tr><td><strong>投资顾问公司</strong> <span style="color:var(--text-secondary);font-size:12px">(investment counseling firm)</span></td><td class="zh">投资顾问公司</td><td>注意费雪公司只有不到12个客户——这是极度精英化的私人投顾模式，与现代资管完全不同</td></tr>
-      <tr><td><strong>知道一切价格，不知任何价值</strong> <span style="color:var(--text-secondary);font-size:12px">(price of everything, value of nothing)</span></td><td class="zh">知道一切价格，不知任何价值</td><td>这是费雪对技术分析派最经典的批评，也是他创立费雪公司的初衷</td></tr>
-    </table>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
-    <ul class="takeaway-list">
-      <li>费雪不是象牙塔里的理论家——他的方法是在1930年代大萧条和1940年代二战中实战验证出来的</li>
-      <li>费雪公司极度精英化（不到12个客户）的模式，反映了他的核心理念：<strong>好的投资机会是稀缺的，不值得稀释</strong></li>
-      <li>肯·费雪作为儿子的视角提供了一个重要警示：费雪的方法极度依赖个人能力，复制难度极高</li>
-    </ul>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-    <div class="exercise-box">
-      <p class="q">1. 费雪说他战后"只服务不到12个客户"，而现代基金公司追求规模。你认为"极度集中"的投资顾问模式在今天还有可能存在吗？为什么？</p>
-      <div class="chat-widget" id="chat-intro-q1">
-        <div class="chat-header" onclick="toggleChat('chat-intro-q1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">在开始之前，我想先听听你的直觉：<strong>你觉得在今天这个"规模为王"的基金行业里，费雪那种"只服务12个客户"的模式还有可能吗？</strong>不用管对错，就凭直觉说。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-intro-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-    <div class="exercise-box">
-      <p class="q">2. 肯·费雪在导言中说他的投资方法与他父亲完全不同。如果你是费雪的儿子，你会坚持父亲的方法还是发展自己的方法？</p>
-      <div class="chat-widget" id="chat-intro-q2">
-        <div class="chat-header" onclick="toggleChat('chat-intro-q2')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这是一个很有意思的问题，触及了投资中<strong>"传承vs独立"</strong>的核心矛盾。你觉得在投资领域，模仿大师和走出自己的路，哪个更重要？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-intro-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 1 ==================== -->
-<article class="chapter-card" id="ch1" aria-labelledby="ch1-title">
-  <div class="ch-header">
-    <div class="ch-num">1</div>
-    <div>
-      <h2 class="ch-title" id="ch1-title">第1章 · 来自过去的线索</h2>
-      <div class="ch-subtitle">两种赚钱方法的百年对决</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">两种赚钱方法——历史性的对决</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
-    <div class="block-content">
-      <p>这是全书最短却最重要的一章。费雪用3页纸回答了一个终极问题：<strong>在股市里，钱到底是怎么赚到的？</strong>他对比了两种方法，并给出了一个让当时华尔街震惊的结论。</p>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Even in those earlier times, finding the really outstanding companies and staying with them through all the fluctuations of a gyrating market proved far more profitable to far more people than did the more colorful practice of trying to buy them cheap and sell them dear."</div></details>
-    <div class="zh">「即使在早期，找到真正卓越的公司并穿越市场波动的所有起伏一直持有，也比那种更花哨的'低买高卖'策略为更多人创造了更多利润。」</div>
-    <div class="why">💬 这是费雪全书的核心论点。他直接挑战了华尔街"交易赚钱"的根本信仰。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box">
-      <h3 class="concept-name">两种赚钱方法——历史性的对决</h3>
-      <div class="concept-body">
-        <p><strong>方法A：赌经济周期</strong></p>
-        <p>19世纪到20世纪初的主流策略。在银行体系不稳定的时代，有关系、有内幕消息的人可以在银行系统紧张之前提前布局。但费雪指出：<strong>随着1913年美联储成立和1930年代证券法的实施，这套方法的优势已经消失。</strong></p>
-        <p><strong>方法B：找到卓越公司并一直持有</strong></p>
-        <p>费雪用大量历史数据证明：即使你买在1929年大崩盘前的最高点，只要你买的是真正卓越的公司，25年后你仍然赚得比任何短线交易者都多。</p>
-        <p><strong>为什么中文读者容易误解？</strong>中文译本通常把"赌经济周期"直接译过来，但费雪的原文含义更微妙——他指的是一种依赖宏观预测和内部信息的特权式交易，而非现代意义上的"宏观对冲"。</p>
-      </div>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
-    <div class="context-box">
-      <p><strong>1913年美联储成立意味着什么？</strong>在此之前，美国没有中央银行。银行挤兑和恐慌性衰退每隔几年就来一次。美联储的成立从根本上改变了游戏规则——系统性风险降低了，但"内幕消息套利"的空间也缩小了。</p>
-      <p><strong>1930年代的证券法</strong>：1933年《证券法》和1934年《证券交易法》要求上市公司披露财务信息。费雪认为这些改革让"信息套利"越来越难，而"研究驱动的长期持有"越来越有价值。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
-    <div class="counter-box">
-      <h3 class="counter-name">量化投资者的反驳：费雪忽视了波动率的成本</h3>
-      <p>费雪说"穿越波动一直持有"，但他没有讨论：一个普通投资者在持有的25年中，要经历多少次50%以上的回撤。行为金融学后来证明，<strong>大多数人在腰斩时根本拿不住</strong>。费雪自己能做到是因为他有超人的信念和一手调研信息——这不是普通投资者具备的。</p>
-      <p>此外，现代量化分析表明，费雪的"长期持有最优"结论高度依赖于他选择的样本时间段（20世纪美国大牛市）。在日本（1990年以来的30年熊市）或A股（2007年以来的震荡市），"一直持有"的结果可能大不相同。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>在A股，"一直持有"真的比"低买高卖"更赚钱吗？</strong></p>
-      <p>这取决于你持有的是什么。如果你在2008年买了茅台并持有到2021年，你的回报超过50倍——费雪是对的。但如果你持有的是中国石油（2007年上市至今跌了80%+），费雪的结论就完全不成立。</p>
-      <p>费雪理论的真正挑战在于：<strong>你如何在2008年就知道茅台是"卓越公司"而中石油不是？</strong>这就需要他的15条选股原则——这就是下一章要讲的内容。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-    <table class="term-table">
-      <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
-      <tr><td><strong>经济周期博弈</strong> <span style="color:var(--text-secondary);font-size:12px">(business cycle betting)</span></td><td class="zh">经济周期博弈</td><td>不是现代宏观对冲，而是19世纪的特权式信息套利——知道银行什么时候会紧缩</td></tr>
-      <tr><td><strong>美联储体系</strong> <span style="color:var(--text-secondary);font-size:12px">(Federal Reserve System, 1913)</span></td><td class="zh">美联储体系</td><td>美联储的成立是美国金融史的转折点，结束了"银行恐慌"时代</td></tr>
-      <tr><td><strong>证券交易立法</strong> <span style="color:var(--text-secondary);font-size:12px">(securities and exchange legislation)</span></td><td class="zh">证券交易立法</td><td>1933和1934年的证券法强制信息披露，彻底改变了投资的游戏规则</td></tr>
-      <tr><td><strong>剧烈波动的市场</strong> <span style="color:var(--text-secondary);font-size:12px">(gyrating market)</span></td><td class="zh">剧烈波动的市场</td><td>费雪用"gyrating"（旋转/剧烈摇摆）而非"volatile"，暗示这种波动是非理性的</td></tr>
-    </table>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
-    <ul class="takeaway-list">
-      <li>股市赚钱只有两种方式：赌周期（低买高卖）或持有卓越公司（长期主义）——历史上后者更赚钱</li>
-      <li>随着信息披露制度的完善，"内幕消息套利"的空间不断缩小，"研究驱动的长期持有"价值不断提升</li>
-      <li>但费雪的结论需要两个前提：①你能找到真正的卓越公司；②你能扛得住波动</li>
-    </ul>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-    <div class="exercise-box">
-      <p class="q">1. 如果你是2007年A股6124点时入市的投资者，费雪的"一直持有"策略会让你赚还是赔？回顾A股历史，哪些公司配得上"一直持有"？</p>
-      <p class="hint">💡 提示：从2007年至今（约18年），A股涨幅超过10倍的公司不超过30家。你能说出其中3家吗？</p>
-      <div class="chat-widget" id="chat-ch1-q1">
-        <div class="chat-header" onclick="toggleChat('chat-ch1-q1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">在回答这个问题之前，我想先听听你的想法——<strong>你觉得费雪的"一直持有"策略在A股行得通吗？</strong>不用考虑对错，就凭你的直觉说。</div></div>
-          <div class="chat-msg user"><div class="avatar">👤</div><div class="bubble">我觉得不行吧...A股波动太大了，2007年买的股票到现在很多都没回本。</div></div>
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">你这个观察很敏锐。确实，如果你2007年买了中国石油，到今天还是亏的。但如果你买了贵州茅台呢？<span class="cite">📖 费雪在书中写道："真正卓越的公司，穿越市场波动的所有起伏一直持有，比为低买高卖而频繁交易为更多人创造了更多利润。"</span><strong>问题不在于"一直持有"这个策略本身，而在于你持有的是什么。</strong>费雪从来不说"随便买一只然后一直持有"——他说的是"找到卓越的公司然后一直持有"。所以关键在于：2007年的时候，你怎么判断茅台是"卓越公司"而中石油不是？</div></div>
-          <div class="chat-msg user"><div class="avatar">👤</div><div class="bubble">这很难吧...2007年茅台和中石油看起来都是好公司。</div></div>
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">对，这就是费雪花了整本书来回答的问题。他说你需要一个系统性的框架——就是下一章要讲的15条原则。<br/><br/>不过我可以给你一个快速检验：用费雪最看重的一条原则——<strong>"管理层是否有毋庸置疑的正直品格？"</strong>2007年的茅台管理层是一群把酿酒当成终身事业的人；2007年的中石油管理层...你懂的。<br/><br/>要不要试试用这个思路重新想一想——你觉得还有哪些A股公司可能配得上"一直持有"？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-ch1-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-    <div class="exercise-box">
-      <p class="q">2. 费雪说方法B（长期持有）比方法A（低买高卖）更赚钱。但如果你既能选对公司又能精准择时呢？这种"完美投资者"为什么不存在？</p>
-      <div class="chat-widget" id="chat-ch1-q2">
-        <div class="chat-header" onclick="toggleChat('chat-ch1-q2')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这个问题触及了投资中一个很重要的认知偏差。我想先问：<strong>你有没有遇到过那种"如果当时我买了/卖了就好了"的时刻？</strong>那种感觉就是"完美择时"的诱惑。</div></div>
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">让我换个角度帮你思考——假设你真的拥有完美择时的能力，那你需要在2007年10月卖出、2008年11月买入、2015年6月卖出、2016年2月买入...你能做到吗？<span class="cite">📖 费雪的原话："在人类关于预测未来商业趋势的知识现状下，基于经济预测来决定买卖时机，在理论上不合理，在实践中行不通。"</span>费雪认为<strong>追求完美择时本身就是一种认知错误</strong>——它假设世界是可预测的，但经济系统是复杂系统，没有人能持续准确预测。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-ch1-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTERS 2-8 + SPECIAL TOPIC ==================== -->
-<!-- 第2章到第8章以及专题对比：内容与 reading-guide.html 完全一致 -->
-<!-- 由于篇幅限制，此处保留完整内容结构，使用与原型相同的 HTML 片段 -->
-<!-- 实际部署时通过 11ty/Markdown 模板生成，确保所有章节完整 -->
-<article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
-  <div class="ch-header">
-    <div class="ch-num">2</div>
-    <div>
-      <h2 class="ch-title" id="ch2-title">第2章 · "闲聊法"能做什么</h2>
-      <div class="ch-subtitle">费雪最伟大的方法论贡献</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">为什么闲聊调研法比财报更可靠？</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
-    <div class="block-content">
-      <p>如果说第1章是"为什么做"，第3章是"做什么"，那第2章就是<strong>"怎么做"</strong>。费雪在这一章正式介绍了他的闲聊调研法——这套方法论让他在1950年代就能发现摩托罗拉、德州仪器这样的超级成长股。</p>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Financial statements can reveal what has happened in the past, but they often fail to capture customer satisfaction, product quality, employee morale, and competitive positioning."</div></details>
-    <div class="zh">「财务报表可以揭示过去发生了什么，但它们往往无法反映客户满意度、产品质量、员工士气和竞争地位。」</div>
-    <div class="why">💬 这是闲聊调研法的哲学基石：财务数据是"后视镜"，商业情报是"前挡风玻璃"。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box">
-      <h3 class="concept-name">为什么闲聊调研法比财报更可靠？</h3>
-      <div class="concept-body">
-        <p><strong>❶ 财报是滞后的。</strong>等财报反映出问题时，股价通常已经跌了大半。但客户和供应商在财报公布之前就知道公司出了问题。</p>
-        <p><strong>❷ 财报是可操纵的。</strong>管理层可以通过会计手段粉饰业绩。但竞争对手和客户没有动机替你说谎。</p>
-        <p><strong>❸ 财报不反映"软实力"。</strong>员工归属感、研发创造力、管理层尊重下属——这些在资产负债表上完全看不到。</p>
-      </div>
-    </div>
-    <div class="concept-box">
-      <h3 class="concept-name">闲聊调研法如何建立"投资信念"</h3>
-      <div class="concept-body">
-        <p>费雪特别强调：<strong>深度调研的目的不仅是找到好公司，更是为了在市场暴跌时你拿得住。</strong>如果你买了一只股票仅仅因为"分析师推荐"或"PE很低"，当股价跌30%时你会恐慌。但如果你亲自走访了这家公司的客户和供应商——<strong>这种信心让你敢于在别人恐慌时加仓。</strong></p>
-      </div>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
-    <div class="context-box">
-      <p><strong>1950年代的"信息荒漠"</strong>：在费雪写这本书的年代，没有互联网、没有社交媒体。获取"非公开但非内幕"的商业信息极度困难。费雪的闲聊调研法在那个时代几乎是一种"信息套利"。</p>
-      <p><strong>今天恰恰相反</strong>：我们处于信息过载时代。挑战不再是"获取信息"，而是<strong>"过滤噪音"</strong>。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
-    <div class="counter-box">
-      <h3 class="counter-name">闲聊调研法在信息时代是否过时了？</h3>
-      <p>有人说：今天所有信息都在网上，闲聊调研法已经没必要了。但费雪会说：<strong>网上能搜到的信息是公开信息，已经被市场定价了。</strong>真正的超额收益仍然来自"非结构化的一手观察"。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股版闲聊调研法实操清单：</strong></p>
-      <p>— 去草根调研：蹲点商场数人流、去仓库看出货、去工厂数卡车<br/>— 用招聘网站反推：一家公司大规模招什么人，就说明它下一步要做什么<br/>— 用二手平台看折价率：闲鱼上某品牌产品的二手折价越低，品牌力越强<br/>— 参加行业展会：糖酒会、CES——竞争对手高管会不经意间说出真话</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
-    <ul class="takeaway-list">
-      <li>闲聊调研法不是"找人聊天"——是从多个独立来源交叉验证企业真实状况的系统性方法</li>
-      <li>财报是滞后的、可操纵的、不反映软实力——三重缺陷决定了你不能只靠财报做决策</li>
-      <li>深度调研最重要的产出不是"找到好公司"，而是"市场暴跌时你拿得住"的信念</li>
-    </ul>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-    <div class="exercise-box">
-      <p class="q">1. 如果你只能用3个信息来源来判断一家A股公司值不值得投资，你会选哪3个？为什么？</p>
-      <div class="chat-widget" id="chat-ch2-q1">
-        <div class="chat-header" onclick="toggleChat('chat-ch2-q1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">好的，选3个信息来源——这个限制很有意思。先说说你目前做投资判断时最依赖的信息来源是什么？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-ch2-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-    <div class="exercise-box">
-      <p class="q">2. 你最近一次"非正式地"了解到一家公司的真实情况是什么时候？当时你在跟谁聊、聊到了什么？</p>
-      <div class="chat-widget" id="chat-ch2-q2">
-        <div class="chat-header" onclick="toggleChat('chat-ch2-q2')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这个问题很贴近闲聊调研法的本质——在无意间的闲聊中获取有价值的信息。先回忆一下，最近有没有过这样的经历？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-ch2-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-
-<!-- 第3章：15条原则 -->
-<article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
-  <div class="ch-header">
-    <div class="ch-num">3</div>
-    <div>
-      <h2 class="ch-title" id="ch3-title">第3章 · 买什么：选择普通股的15条原则</h2>
-      <div class="ch-subtitle">全书最重要的一章</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">费雪15条选股原则</span></div></div>
-</div>
-  <!-- 快速索引 -->
-  <div class="principle-index">
-    <span style="color:var(--text-secondary);font-weight:600;white-space:nowrap;">📋 快速跳转：</span>
-    <a href="#p1" onclick="event.preventDefault();var t=document.querySelector('#p1');if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'});">原则1</a>
-    <a href="#p5" onclick="event.preventDefault();var t=document.querySelector('#p5');if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'});">原则5</a>
-    <a href="#p10" onclick="event.preventDefault();var t=document.querySelector('#p10');if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'});">原则10</a>
-    <a href="#p15" onclick="event.preventDefault();var t=document.querySelector('#p15');if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'});">原则15</a>
-    <a href="#fisher-vs-graham" onclick="event.preventDefault();var t=document.querySelector('#fisher-vs-graham');if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'});" style="color:var(--purple);background:#f9f7fc;">费雪 vs 格雷厄姆</a>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
-    <div class="block-content">
-      <p><strong>这是全书最重要的一章。</strong>费雪用了整个职业生涯提炼出这15条原则。它们不是财务公式——而是一套"企业质量评估框架"。一家公司即使有少数几条不满足，也可能是不错的投资。但<strong>如果大多数不满足，就不是好投资。</strong></p>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"There are fifteen points with which I believe the investor should concern himself. A company could well be an investment bonanza if it failed fully to qualify on a very few of them."</div></details>
-    <div class="zh">「我认为投资者应该关注15个要点。一家公司如果在极少数要点上不完全合格，仍然可能是一笔极好的投资。但如果大多数要点都不合格，它不可能符合我对'值得投资'的定义。」</div>
-    <div class="why">💬 费雪的实用主义：不是教条式清单，而是"加权评分"系统。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读：15条原则全景</div>
-    <div class="concept-box"><h3 class="concept-name" id="p1">原则1：市场潜力 — 公司是否有足够大的市场空间支撑至少数年的销售增长？</h3><div class="concept-body"><p>Fisher用电视机普及的例子说明：当90%的美国家庭都有了电视，增长就戛然而止。<strong>这不是真正的成长股，这是"一次性增长"。</strong>Fisher说的不是"这个行业在增长"，而是"这个行业还有多少年可以持续增长"——至少5-7年以上的可预见增长期。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p2">原则2：管理层决心 — 当现有产品增长潜力耗尽时，管理层是否有决心开发新产品？</h3><div class="concept-body"><p>大多数公司会躺在现有产品的成功上吃老本。<strong>卓越的公司永远在为"现有产品不再增长"的那一天做准备。</strong></p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p3">原则3：研发效率 — 公司的研发投入相对于其规模是否有效？</h3><div class="concept-body"><p><strong>费雪问的是"效率"而非"金额"。</strong>大公司可以在研发上花很多钱却一无所获。需要通过闲聊调研法交叉验证。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p4">原则4：销售组织 — 公司是否有高于平均水平的销售团队？</h3><div class="concept-body"><p><strong>一个平庸的产品配上卓越的销售团队，往往比卓越的产品配上平庸的销售团队卖得更好。</strong>这在1950年代是异端邪说。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p5">原则5：利润率 — 公司是否有有价值的利润率？</h3><div class="concept-body"><p>不只看利润率本身，更看利润率的<strong>趋势</strong>。最危险的不是低利润率，而是"利润率在缓慢下降但你装作没看见"。还特别关注公司如何对待供应商。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p6">原则6：利润率维护 — 公司在做什么来维持或改善利润率？</h3><div class="concept-body"><p>区分"靠涨价维持利润率"和"靠效率提升维持利润率"。前者是脆弱的，后者是可持续的。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p7">原则7：劳动关系 — 公司是否有卓越的劳动关系？</h3><div class="concept-body"><p><strong>员工愿不愿意为这家公司拼命？</strong>如果员工把公司当跳板，长期竞争力会不断流失。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p8">原则8：高管关系 — 公司是否有卓越的高管关系？</h3><div class="concept-body"><p>高管之间是否相互尊重？晋升是否基于能力而非政治？<strong>如果你看到CEO拿天价薪酬而基层员工工资很低，这家公司不值得投资。</strong></p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p9">原则9：管理层深度 — 公司的管理层是否有足够的深度？</h3><div class="concept-body"><p>如果一个CEO离职公司就瘫痪，这不是一个好投资。<strong>CEO有没有培养接班人？中层有没有决策权？</strong></p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p10">原则10：成本分析 — 公司的成本分析和会计控制有多好？</h3><div class="concept-body"><p>如果一家公司不能精确知道每个产品、每个客户的成本，那它就是在"盲飞"。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p11">原则11：竞争优势 — 公司是否有行业特有的竞争优势？</h3><div class="concept-body"><p>相当于今天的"护城河"分析，比巴菲特提出护城河概念早了40年。每个行业都有自己的"命门"。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p12">原则12：利润导向 — 公司是否有短期还是长期的利润观？</h3><div class="concept-body"><p><strong>如果一家公司为了达到季度盈利预期而牺牲长期竞争力，它就不值得投资。</strong>这条在今天的"季度主义"文化中比1958年更有现实意义。</p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p13">原则13：融资需求 — 公司未来增长是否需要大量股权融资从而稀释现有股东？</h3><div class="concept-body"><p>直接打击那些"增长很快但永远在融资"的公司。<strong>如果增长需要不断摊薄你的股权，那增长跟你没关系。</strong></p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p14">原则14：沟通透明度 — 管理层是否在好事时大谈特谈、坏事时缄默不语？</h3><div class="concept-body"><p>最容易被观察到的"管理层人品测试"。如果CEO在业绩好的时候到处接受采访、业绩差的时候就消失——<strong>远离这家公司。</strong></p></div></div>
-    <div class="concept-box"><h3 class="concept-name" id="p15">原则15：管理层诚信 — 公司的管理层是否有毋庸置疑的正直品格？</h3><div class="concept-body"><p>费雪把最重要的一条放在最后。<strong>如果管理层不诚实，无论其他14条多么优秀，都不要投资。</strong>特别关注管理层如何对待小股东。</p></div></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
-    <div class="context-box">
-      <p><strong>1950年代的"管理层崇拜"</strong>：大公司CEO被视为社会精英，很少有人敢于质疑管理层。费雪的15条原则在当时非常激进——<strong>投资者有权利也有义务去审查管理层。</strong></p>
-      <p><strong>费雪与摩托罗拉的故事</strong>：费雪在1950年代投资摩托罗拉并持有数十年。他用这15条原则去检验摩托罗拉创始人保罗·加尔文——特别是原则15（诚信）。加尔文每周五下午亲自在工厂门口和工人握手告别，这个细节让费雪确信他的品格。这个投资为他带来了数百倍的回报。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
-    <div class="counter-box">
-      <h3 class="counter-name">彼得·林奇的反驳：你不需要15条都满足</h3>
-      <p>彼得·林奇认为：<strong>对于普通投资者，过于复杂的选股框架反而会导致"分析瘫痪"。</strong>林奇主张从日常生活中发现投资机会（"买你懂的东西"）。此外，现代行为经济学家指出：15条原则中有大量主观判断，这给了投资者巨大的"确认偏误"空间。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>用费雪的15条检验A股公司</strong></p>
-      <p>以原则15（管理层诚信）为例：A股历史上大股东占用上市公司资金、关联交易掏空上市公司的案例不胜枚举。费雪会说：<strong>如果一家A股公司的实际控制人同时控制多家关联企业、经常发生关联交易，无论它业绩多好，原则15直接否决。</strong></p>
-      <p>以原则5（利润率趋势）为例：宁德时代的毛利率从2016年的44%下降到2024年的约22%——用费雪的框架，这需要高度警惕。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
-    <ul class="takeaway-list">
-      <li>15条原则可以分为三大类：<strong>产品/市场类</strong>（1-3）、<strong>经营效率类</strong>（4-6、10）、<strong>管理与文化类</strong>（7-9、11-15）</li>
-      <li>最重要的三条：原则1（市场潜力）、原则14（沟通透明）、原则15（管理层诚信）</li>
-      <li>这不是一个"打分表"，而是一个"访谈提纲"——你需要用它来指导你的企业调研</li>
-    </ul>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-    <div class="exercise-box">
-      <p class="q">1. 选一家你熟悉的A股/港股公司，用费雪的15条原则逐条检验。哪几条它符合？哪几条它不符合？你会给它投资吗？</p>
-      <p class="hint">💡 建议从你所在行业的公司开始——你最有信息优势。</p>
-      <div class="chat-widget" id="chat-ch3-q1">
-        <div class="chat-header" onclick="toggleChat('chat-ch3-q1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">好的，选一家你熟悉的公司，我们来逐条过一下。先告诉我你想检验哪家公司？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-ch3-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-    <div class="exercise-box">
-      <p class="q">2. 在15条原则中，你认为哪一条在今天的互联网/科技行业最需要被重新定义？为什么？</p>
-      <div class="chat-widget" id="chat-ch3-q2">
-        <div class="chat-header" onclick="toggleChat('chat-ch3-q2')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这个问题很有意思！1958年的原则放到今天的科技行业，哪些会水土不服？先说说你的直觉——你觉得哪条最需要更新？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-ch3-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 费雪诊断引擎入口 -->
-  <div style="background:linear-gradient(135deg,#2c3e50,#1a252f);color:#fff;border-radius:12px;padding:28px 32px;margin-top:24px;text-align:center;">
-    <h3 style="font-size:18px;margin-bottom:8px;color:#fff;">🧪 试试费雪的框架</h3>
-    <p style="color:#a0b4c8;font-size:14px;margin-bottom:20px;">输入一只你关注的 A 股，用费雪的 15 条原则进行一次完整诊断。</p>
-    <div style="display:flex;gap:10px;max-width:440px;margin:0 auto;">
-      <input id="heroStockInput" style="flex:1;padding:12px 16px;border-radius:22px;border:none;font-size:15px;font-family:inherit;outline:none;" placeholder="输入股票名称或代码..." type="text" enterkeyhint="go"/>
-      <button onclick="var v=document.getElementById('heroStockInput').value.trim();if(v)window.location.href='../../diagnose.html?q='+encodeURIComponent(v);" style="background:var(--accent);color:#fff;border:none;padding:12px 24px;border-radius:22px;font-size:15px;font-weight:600;cursor:pointer;white-space:nowrap;">开始诊断 →</button>
-    </div>
-    <p style="color:rgba(255,255,255,0.35);font-size:12px;margin-top:12px;">已有 <span style="color:rgba(255,255,255,0.6);">7</span> 家公司可用费雪框架分析</p>
-  </div>
-</article>
-
-<!-- 第4章-第8章及专题对比内容从原HTML保留 -->
-<!-- 篇幅原因此处使用精简版，完整内容参见 reading-guide.html -->
-<article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
-  <div class="ch-header"><div class="ch-num">4</div><div><h2 class="ch-title" id="ch4-title">第4章 · 买什么：如何将15条原则应用到你的实际需求</h2><div class="ch-subtitle">闲聊法实操指南</div></div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">闲聊调研法深度指南 ⭐</span></div></div>
-</div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>如果第3章是"考纲"，第4章就是"备考指南"。费雪详细解释了<strong>如何用闲聊调研法去获取回答15条原则所需的信息</strong>——这是全书最"可执行"的一章，也是中文译本翻译最差的一章。</p></div></div>
-  <div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"The typical investor has usually gathered a good deal of the half-truths, misconceptions, and just plain bunk that the general public has gradually accumulated about successful investing."</div></details><div class="zh">「典型的投资者通常积累了大量关于成功投资的半真半假的说法、误解和纯属胡扯的东西。」</div><div class="why">💬 费雪用"半真半假的说法、误解和纯属胡扯"精准概括了普通人从媒体和朋友那里学到的错误知识。</div></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box"><h3 class="concept-name">闲聊调研法深度指南 ⭐</h3><div class="concept-body">
-      <p><strong>什么是闲聊调研法？</strong>英文原意是船上的"饮水桶"——水手们在饮水桶旁闲聊的地方。费雪借用这个词来描述他的核心方法：<strong>通过与公司相关的各方人士"闲聊"来获取关于公司真实状况的信息。</strong></p>
-      <p><strong>跟谁聊？</strong>不是跟公司管理层，而是跟：客户、供应商、前员工、竞争对手、行业专家。</p>
-      <p><strong>聊什么？</strong>围绕15条原则设计问题。</p>
-      <p><strong>怎么聊？</strong>一次只问一个问题，让对话自然流动。最好的信息往往在"题外话"中出现。</p>
-    </div></div>
-  </div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div><ul class="takeaway-list">
-    <li>闲聊调研法不是"闲聊"——是一套系统性的企业调研框架</li>
-    <li>不要只跟管理层聊——跟客户、供应商、竞争对手、前员工聊</li>
-    <li>最好的调研问题不是"你觉得这家公司怎么样"——而是"你最怕哪家竞争对手"</li>
-    <li>现代版闲聊调研法：社交媒体、电商评论、行业论坛、二手交易平台</li>
-  </ul></div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box">
-        <p class="q">15条原则如何排优先级？如果只能选3条来检验A股公司，你会选哪3条？用你关注的一家公司来实际检验一下。</p>
-        <p class="hint">💡 提示：考虑针对不同行业（科技 vs 消费）的优先级差异</p>
-        <div class="chat-widget" id="chat-fisher-ch4-q1">
-          <div class="chat-header" onclick="toggleChat('chat-fisher-ch4-q1')" tabindex="0" role="button" aria-expanded="false">
+    <div class="exercise-box">
+        <p class="q">假设你正在研究一家A股科技公司，如何运用闲聊法设计访谈问题？请列出至少3个针对客户、竞争对手和供应商的具体问题。</p>
+        <p class="hint">💡 提示：参考原文中肯内斯对纽可公司的分析，关注销售组织、利润率和管理能力。</p>
+        <div class="chat-widget" id="chat-怎样-ch1-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch1-q1')" tabindex="0" role="button" aria-expanded="false">
             <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
           </div>
           <div class="chat-body">
-            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪会追问你：不要讲理论，讲你真实的投资经历——</div></div>
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">闲聊法的核心是问对问题。你可以从客户满意度、竞争对手的弱点、供应商的依赖度入手。</div></div>
           </div>
           <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
           <div class="chat-error"></div>
           <div class="chat-input-area">
             <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-            <button onclick="sendChat('chat-fisher-ch4-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+            <button onclick="sendChat('chat-怎样-ch1-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
           </div>
         </div>
       </div>
-    </div>
-
-</article>
-
-<article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
-  <div class="ch-header"><div class="ch-num">5</div><div><h2 class="ch-title" id="ch5-title">第5章 · 何时买入：择时的真相</h2><div class="ch-subtitle">经济预测的愚蠢之处</div></div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">费雪的买入时机法则</span></div></div>
-</div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>费雪在这一章回答了一个看似矛盾的问题：如果"找到卓越公司并一直持有"是最好的策略，那买入时机还重要吗？他的答案：<strong>重要，但不是你以为的那种重要。</strong></p></div></div>
-  <div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"The conventional method of timing when to buy stocks is, I believe, just as silly as it appears on the surface to be sensible."</div></details><div class="zh">「传统的择时方法，我相信，表面上看起来很合理，实际上和看起来一样愚蠢。」</div></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box"><h3 class="concept-name">费雪的买入时机法则</h3><div class="concept-body">
-      <p><strong>应该买：</strong>公司启动新工厂/新产品线的建设期；行业短期出现坏消息但公司长期逻辑不变；公司遭遇"一次性的、可以解决的问题"导致股价下跌。</p>
-      <p><strong>不应该买：</strong>因为"整体经济形势很好"而买入；因为"股价在涨"而买入；因为"大家都在买"而买入。</p>
-    </div></div>
-  </div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p><strong>费雪的"坏消息买入法"在A股的经典案例</strong></p><p>2013年，茅台因反腐政策和塑化剂事件双重打击，股价从260元跌到118元（复权）。费雪会问：茅台的产品力变了吗？中国人不喝茅台了吗？管理层出问题了吗？如果答案都是否定的，这就是费雪式的买入时机。后来茅台涨到2600元。</p></div></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div><ul class="takeaway-list">
-    <li>最好的买入时机出现在"公司短期有问题但长期没问题"的时候</li>
-    <li>不要试图预测宏观经济——连经济学家都做不到</li>
-    <li>"买在坏消息"的前提是你对公司基本面的判断是正确的</li>
-  </ul></div>
-    <div class="block">
-      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box">
-        <p class="q">费雪说"预测经济是愚蠢的"，但他又会根据市场环境择时。你是如何处理"不要预测但要择时"这个矛盾的？</p>
-        <p class="hint">💡 提示：对比费雪和格雷厄姆在择时问题上的分歧</p>
-        <div class="chat-widget" id="chat-fisher-ch5-q1">
-          <div class="chat-header" onclick="toggleChat('chat-fisher-ch5-q1')" tabindex="0" role="button" aria-expanded="false">
-            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-          </div>
-          <div class="chat-body">
-            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪会追问你：不要讲理论，讲你真实的投资经历——</div></div>
-          </div>
-          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-          <div class="chat-error"></div>
-          <div class="chat-input-area">
-            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-            <button onclick="sendChat('chat-fisher-ch5-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</article>
-
-<article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
-  <div class="ch-header"><div class="ch-num">6</div><div><h2 class="ch-title" id="ch6-title">第6章 · 何时卖出：只有三个理由</h2><div class="ch-subtitle">以及何时不该卖</div></div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">费雪的三大卖出理由</span></div></div>
-</div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>如果说"什么时候买"是投资中最常被讨论的问题，那"什么时候卖"就是最常被忽视的问题。费雪给出了一个极为简洁的框架：<strong>只有三个理由应该卖出一只股票。</strong></p></div></div>
-  <div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"I believe there are three reasons, and three reasons only, for the sale of any common stock which has been originally selected according to the investment principles already discussed."</div></details><div class="zh">「我相信只有三个理由——只有三个——可以卖出一只按照上述投资原则选出的股票。」</div></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box"><h3 class="concept-name">费雪的三大卖出理由</h3><div class="concept-body">
-      <p><strong>理由一：你当初买错了。</strong>承认错误要快。"自我（ego）是投资者最大的敌人"。</p>
-      <p><strong>理由二：公司基本面恶化了。</strong>注意：股价下跌不等于基本面恶化。</p>
-      <p><strong>理由三：你找到了更好的投资机会。</strong>但这个理由被滥用了。</p>
-      <p><strong>什么不是卖出的理由？</strong>"股价涨太多了"、"大盘要跌了"、"持有太久了"。</p>
-    </div></div>
-  </div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div><ul class="takeaway-list">
-    <li>只有三个卖出理由：买错了、公司变了、找到更好的了</li>
-    <li>股价涨跌不是卖出理由——这是费雪与99%的投资者最大的区别</li>
-    <li>"落袋为安"听起来很合理，但如果你卖掉了最好的公司，你把"利润"兑现了，也把"未来"卖掉了</li>
-  </ul></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-    <div class="exercise-box"><p class="q">1. 回顾你过去的投资/交易经历，你卖出股票最常见的原因是什么？它们属于费雪的三个理由之一吗？</p><div class="chat-widget" id="chat-ch6-q1"><div class="chat-header" onclick="toggleChat('chat-ch6-q1')" tabindex="0" role="button" aria-expanded="false"><span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span></div><div class="chat-body"><div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">好，回顾一下你过去的卖出操作——最近一次卖出是什么原因？</div></div></div><div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div><div class="chat-error"></div><div class="chat-input-area"><input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/><button onclick="sendChat('chat-ch6-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button></div></div></div>
-    <div class="exercise-box"><p class="q">2. 费雪说"股价涨不是卖出的理由"。假设你持有的股票涨了300%，而你的朋友都在劝你"落袋为安"。你怎么用费雪的逻辑回应他们？</p><div class="chat-widget" id="chat-ch6-q2"><div class="chat-header" onclick="toggleChat('chat-ch6-q2')" tabindex="0" role="button" aria-expanded="false"><span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span></div><div class="chat-body"><div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">涨了300%，确实是一个考验。用费雪的逻辑，你先回答一个问题：这家公司的基本面变了吗？</div></div></div><div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div><div class="chat-error"></div><div class="chat-input-area"><input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/><button onclick="sendChat('chat-ch6-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button></div></div></div>
-  </div>
-</article>
-
-<article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
-  <div class="ch-header"><div class="ch-num">7</div><div><h2 class="ch-title" id="ch7-title">第7章 · 关于股息的喧嚣与真相</h2><div class="ch-subtitle">股息喧哗背后的真相</div></div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">留存收益的三种结果</span></div></div>
-</div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>费雪用一整章来讨论股息——因为这是投资者中最混乱的话题。他的核心观点在当时是激进的：<strong>对于成长股投资者，股息不重要，甚至可能有害。</strong></p></div></div>
-  <div class="gold-quote"><details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"A corporation has been paying no dividend or a small one... The inference is that by not paying or raising the dividend the company had been doing nothing for its stockholders. This could possibly be true. However, it certainly was not true just because no dividend action had been taken."</div></details><div class="zh">「一家公司之前不分红。总裁请求董事会开始派发大额股息……言下之意，之前不分红就是什么都没为股东做。这可能对，但完全可能错。」</div></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box"><h3 class="concept-name">留存收益的三种结果</h3><div class="concept-body">
-      <p><strong>❶ 正面影响</strong>：公司用留存利润以高回报率再投资→每股收益增长→股价上涨。</p>
-      <p><strong>❷ 中性/负面影响</strong>：留存利润被低效使用→对股东没有增值。</p>
-      <p><strong>❸ 负面影响</strong>：留存利润只是弥补了本应发生的资产贬值。</p>
-      <p><strong>问题的关键不是"分不分红"，而是"不分红的钱拿去干什么了"。</strong></p>
-    </div></div>
-  </div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div><div class="china-box"><p><strong>A股投资者对分红的执念</strong></p><p>A股投资者普遍喜欢高分红股票。但费雪会提醒：<strong>一家公司高分红可能是因为它找不到好的再投资机会——这恰恰说明它的成长性不足。</strong>伯克希尔·哈撒韦从不分红，因为它能把每一美元以20%以上的回报率再投资。</p></div></div>
-    <div class="block">
-      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box">
-        <p class="q">费雪对股息的看法和大多数投资者相反——他认为好公司应该把利润再投资而不是分红。你同意吗？你持仓中有高分红股吗？</p>
-        <p class="hint">💡 提示：用A股银行股、白酒股的实际分红数据做对比</p>
-        <div class="chat-widget" id="chat-fisher-ch7-q1">
-          <div class="chat-header" onclick="toggleChat('chat-fisher-ch7-q1')" tabindex="0" role="button" aria-expanded="false">
-            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-          </div>
-          <div class="chat-body">
-            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪会追问你：不要讲理论，讲你真实的投资经历——</div></div>
-          </div>
-          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-          <div class="chat-error"></div>
-          <div class="chat-input-area">
-            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-            <button onclick="sendChat('chat-fisher-ch7-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</article>
-
-<article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
-  <div class="ch-header"><div class="ch-num">8</div><div><h2 class="ch-title" id="ch8-title">第8章 · 投资者的五个"不要"</h2><div class="ch-subtitle">投资者的五个"不要"</div></div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">五条禁令</span></div></div>
-</div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div><div class="block-content"><p>如果前几章是"该做什么"，这一章就是"不该做什么"。费雪的五条禁令每一条都直指普通投资者最常犯的错误。</p></div></div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
-    <div class="concept-box"><h3 class="concept-name">五条禁令</h3><div class="concept-body">
-      <p><strong>禁令一：不要买处于推广阶段的公司。</strong>没有2-3年商业运营历史和1年盈利记录的公司，你只能看蓝图猜未来。</p>
-      <p><strong>禁令二：不要因为一只股票在"场外市场"交易就忽视它。</strong>好公司在哪里交易不重要。</p>
-      <p><strong>禁令三：不要因为年报写得漂亮就买。</strong>年报是公关文件，不是分析文件。</p>
-      <p><strong>禁令四：不要因为市盈率高就认为股价已经反映了未来的增长。</strong>真正卓越的公司，其未来增长可能远超当前市盈率所隐含的预期。</p>
-      <p><strong>禁令五：不要纠结于小数点后的价格。</strong>多付几分钱或少付几分钱在长期回报面前微不足道。</p>
-    </div></div>
-  </div>
-  <div class="block"><div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div><ul class="takeaway-list">
-    <li>五条禁令中最反直觉的一条：高市盈率不一定是坏事——卓越公司的增长可能远超PE所隐含的预期</li>
-    <li>"看起来贵"和"真的贵"是两回事——费雪帮你区分</li>
-    <li>不要被漂亮的年报和路演PPT忽悠——用闲聊调研法去验证</li>
-  </ul></div>
-    <div class="block">
-      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box">
-        <p class="q">投资者的五个"不要"中，哪一个你最常犯？回顾最近一年，你违反了几个？</p>
-        <p class="hint">💡 提示：五个不要：不要过度分散、不要追热点、不要听消息、不要因恐高卖出、不要盲从权威</p>
-        <div class="chat-widget" id="chat-fisher-ch8-q1">
-          <div class="chat-header" onclick="toggleChat('chat-fisher-ch8-q1')" tabindex="0" role="button" aria-expanded="false">
-            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-          </div>
-          <div class="chat-body">
-            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪会追问你：不要讲理论，讲你真实的投资经历——</div></div>
-          </div>
-          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-          <div class="chat-error"></div>
-          <div class="chat-input-area">
-            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-            <button onclick="sendChat('chat-fisher-ch8-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</article>
-
-<!-- 专题：费雪 vs 格雷厄姆 -->
-<article class="chapter-card" style="border-left-color: var(--accent);" aria-labelledby="fisher-vs-graham">
-  <div class="ch-header">
-    <div class="ch-num" style="background:var(--purple)">⚡</div>
-    <div><h2 class="ch-title" id="fisher-vs-graham">专题：费雪 vs 格雷厄姆 — 成长股 vs 价值股，一场跨越60年的辩论</h2></div>
-  </div>
-  <div class="block-content">
-    <table style="width:100%;border-collapse:collapse;font-size:14px;">
-      <tr style="background:var(--tag-bg);"><th style="padding:10px 14px;text-align:left;">维度</th><th style="padding:10px 14px;text-align:left;">本杰明·格雷厄姆（价值股）</th><th style="padding:10px 14px;text-align:left;">菲利普·费雪（成长股）</th></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);">核心问题</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">"这只股票便宜吗？"</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">"这家公司有多优秀？"</td></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);">分析重点</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">财务数据、资产价值、安全边际</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">产品竞争力、管理层质量、增长潜力</td></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);">调研方法</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">阅读财报、计算比率</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">闲聊调研法——与客户、供应商、竞争对手交流</td></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);">持股数量</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">分散化（几十到上百只）</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">极度集中（少数几只）</td></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);">卖出时机</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">股价达到内在价值时卖出</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">几乎不卖——除非基本面恶化</td></tr>
-      <tr><td style="padding:10px 14px;border-bottom:1px solid var(--border);">最大风险</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">价值陷阱——便宜的烂公司永远便宜</td><td style="padding:10px 14px;border-bottom:1px solid var(--border);">成长陷阱——为高增长付了过高的价格</td></tr>
-      <tr><td style="padding:10px 14px;">巴菲特怎么说</td><td style="padding:10px 14px;">"我85%是格雷厄姆"</td><td style="padding:10px 14px;">"我15%是费雪"——但正是这15%让巴菲特从"买便宜货"进化为"买好公司"</td></tr>
-    </table>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p class="q">费雪和格雷厄姆如果坐在一起讨论一家公司，谁会更早买入？谁的持有期会更长？你更认同谁的方法？</p>
-      <p class="hint">💡 提示：用一家具体的公司（如贵州茅台）来模拟两位大师的分析过程</p>
-      <div class="chat-widget" id="chat-fisher-fvg-q1">
-        <div class="chat-header" onclick="toggleChat('chat-fisher-fvg-q1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪会追问你：不要讲理论，讲你真实的投资经历——</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-fisher-fvg-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">结合15要点，分析一家你熟悉的A股公司（如贵州茅台）是否符合成长股标准？请至少引用3个要点。</p>
+        <p class="hint">💡 提示：15要点包括销售组织、利润率、管理能力等，可参考原文对摩托罗拉的分析。</p>
+        <div class="chat-widget" id="chat-怎样-ch1-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch1-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">15要点是评估成长股的框架。例如，贵州茅台的销售组织强大，利润率极高，管理团队稳定。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch1-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</article>
+  </article>
+  <article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
+    <div class="ch-header">
+      <div class="ch-num">2</div>
+      <div>
+        <h2 class="ch-title" id="ch2-title">从历史中寻找投资线索</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">历史线索</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">今天还有类似过去的高回报投资机会吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">长期持有优质成长股，比预测周期更赚钱、更安全。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书开篇，通过回顾美国股市历史，对比过去与现在的投资环境，回答“今天是否还有类似过去的高回报投资机会”这一核心问题。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「今天美国各证券交易所挂牌交易的股票，不是只有几家公司，而是很多公司。50 年前，投资10 ,000美元，今天有可能成长为250 , 000美元或此数的几倍之多。换句话说，大部分投资人终其一生，依靠有限的几支股票，长时间的持有，就为自己或子女莫下成为巨富的基础。」</div>
+      <div class="why">💬 这句话用具体数据直观展示了长期持有优质股票的惊人回报，是本章核心论点的有力证据。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">历史线索</h3>
+        <div class="concept-body"><p>本章核心观点是：过去通过预测经济周期“低买高卖”的赚钱方式，在1913年美联储成立和1930年代证券交易法通过后已基本失效。取而代之的是“找到真正杰出的公司，抱牢它们的股票，度过市场波动”的方法，这种方法风险更低、收益更高。作者用50年前投资10,000美元如今可能变成250,000美元的例子说明长期持有优质公司的威力。
 
-<!-- ==================== FOOTER ==================== -->
-<footer style="text-align:center;padding:48px 0;color:var(--text-secondary);font-size:14px;" role="contentinfo">
-  <p>📚 AI精读笔记 · 《怎样选择成长股》第一部分样章</p>
-  <p style="margin-top:8px;">此为产品原型样章，展示精读笔记的内容深度和交互结构。完整产品将包含全部三部分、12个跨书专题和社区讨论功能。</p>
-  <p style="margin-top:16px;font-size:13px;">⏳ 第二部分（保守型投资者安枕无忧）和第三部分（投资哲学的形成与演进）即将上线</p>
-  <p style="margin-top:16px;font-size:13px;">📖 更多精读：<a href="../howard-marks/" style="color:var(--accent);text-decoration:none;">《投资最重要的事》</a> · <a href="../buffett/" style="color:var(--accent);text-decoration:none;">《巴菲特之道》</a> · <a href="../market-cycle/" style="color:var(--accent);text-decoration:none;">《周期》</a> · <a href="../buffett-letters/" style="color:var(--accent);text-decoration:none;">《巴菲特致股东的信》</a> · <a href="../alchemy-finance/" style="color:var(--accent);text-decoration:none;">《金融炼金术》</a> · <a href="../poor-charlie/" style="color:var(--accent);text-decoration:none;">《穷查理宝典》</a> · <a href="../intelligent-investor/" style="color:var(--accent);text-decoration:none;">《聪明的投资者》</a> · <a href="../security-analysis/" style="color:var(--accent);text-decoration:none;">《证券分析》</a> · <a href="../peter-lynch/" style="color:var(--accent);text-decoration:none;">《彼得·林奇的成功投资》</a> · <a href="../beating-street/" style="color:var(--accent);text-decoration:none;">《战胜华尔街》</a> · <a href="../stock-operator/" style="color:var(--accent);text-decoration:none;">《股票大作手回忆录》</a> · <a href="../economic-moat/" style="color:var(--accent);text-decoration:none;">《巴菲特的护城河》</a> · <a href="../fooled-by-randomness/" style="color:var(--accent);text-decoration:none;">《随机漫步的傻瓜》</a> · <a href="../black-swan/" style="color:var(--accent);text-decoration:none;">《黑天鹅》</a> · <a href="../antifragile/" style="color:var(--accent);text-decoration:none;">《反脆弱》</a></p>
+本章还重点分析了三个使今天投资机会优于过去的关键变化：
+1. 企业管理观念的变化：从家族独裁、忽视外部股东，转向持续自我分析、寻求改善、重视研究发展。
+2. 研究发展的崛起：1950年代企业研发支出爆炸式增长（1956年37亿美元，1957年73亿美元），研发成为创造利润的关键工具，但也带来管理挑战——研究成本高、回报周期长（7-11年）、成果不确定。
+3. 政府政策转变：1932年后，美国政府开始主动通过赤字预算、减税等手段干预经济衰退，导致通货膨胀倾向。这使得债券作为长期投资工具的价值被侵蚀（1946-1956年美国货币购买力下降29%，债券实际回报率为负），而优质成长型公司的股票则能抵御通胀。
+
+作者总结出投资线索：应寻找管理阶层有决心且有能力推动成长、善于组织研究工作、同时不放松日常运营的公司；这样的公司不一定是年轻小公司，规模不重要；长期持有是最好策略；今天的机会比过去更多。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章涉及美国金融制度的重要历史背景：1913年联邦储备系统建立结束了银行体系不稳定的时代；1930年代罗斯福总统任内通过证券交易管理法，结束了依靠预测景气周期投机的旧时代。此外，1932年后美国政府政策转向主动干预经济（赤字预算、减税等），以及所得税成为联邦主要收入来源（约占80%），这些制度变化深刻影响了投资环境。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>本章强调的“长期持有优质成长股”理念在A股市场同样适用。典型案例是贵州茅台（600519）：2001年上市至今，股价（复权）上涨超过300倍，年化收益率远超同期通胀和债券。其管理层的持续经营能力、品牌护城河、研发投入（如茅台酒工艺改进）与本章描述的“杰出公司”特征高度吻合。另一个例子是恒瑞医药（600276），作为创新药龙头，长期高研发投入（研发费用率约20%），股价从2000年上市至今涨幅超百倍。这些案例验证了本章观点：找到真正优秀的公司并长期持有，是A股市场有效的投资策略。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>过去靠预测经济周期低买高卖的方法已失效，长期持有优质成长股才是现代投资正道。</li><li>企业管理观念转变、研发崛起、政府政策转向通胀倾向，使今天投资机会优于过去。</li><li>寻找管理阶层有决心推动成长、善于研发、同时做好日常运营的公司，并长期持有。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你目前持有A股某只股票（如贵州茅台或恒瑞医药），过去3年股价下跌了30%，但公司基本面（营收、利润、研发投入）持续向好。根据本章观点，你会选择卖出还是继续持有？为什么？</p>
+        <p class="hint">💡 提示：回顾本章关于长期持有和度过市场波动的论述，思考短期股价波动与公司长期价值的关系。</p>
+        <div class="chat-widget" id="chat-怎样-ch2-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch2-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调长期持有优质公司，不为市场波动所动。请结合你持有的股票基本面，分析是否属于‘杰出公司’范畴。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch2-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你发现一家小型科技公司，过去3年营收年增长40%，但研发费用占营收比例高达30%，且尚未盈利。根据本章对研发的讨论，你会如何评估这家公司的投资价值？</p>
+        <p class="hint">💡 提示：考虑本章提到的研发成本高、回报周期长（7-11年）、成果不确定等风险，以及管理阶层是否善于管理研发。</p>
+        <div class="chat-widget" id="chat-怎样-ch2-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch2-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出研发是双刃剑：可能开启黄金收获，也可能成为财务负担。请分析这家公司的研发管理能力和长期盈利前景。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch2-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
+    <div class="ch-header">
+      <div class="ch-num">3</div>
+      <div>
+        <h2 class="ch-title" id="ch3-title">寻找成长股的15个要点</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">15个要点</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何系统评估一家公司的长期成长潜力？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">通过15个要点系统评估公司，寻找具有长期成长潜力的股票。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《怎样选择成长股》的核心章节，系统阐述了寻找优良普通股的15个关键要点，回答了“买进哪支股票”这一核心问题。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「一家公司如果未来几年的营业额可望急剧成长，则不管它是“幸运且能干”的公司，还是“能干所以幸运”的公司，都可能给投资人带来财运。不过，从通用美国运输公司等例子，可以清楚地看出一件事。不管是何者，投资人都必须时时留意，观察管理阶层目前以及未来是不是一直很能干；若非如此，营业额将无法继续成长。」</div>
+      <div class="why">💬 这句话点明了成长股投资的核心：无论公司起点如何，管理层的持续能力才是长期成长的关键。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">15个要点</h3>
+        <div class="concept-body"><p>本章详细阐述了寻找优良普通股的15个要点，核心在于识别具有长期成长潜力的公司。要点（1）强调产品或服务的市场潜力，指出营业额成长应以数年为单位衡量，并将成长型公司分为“幸运且能干”（如美国铝业）和“能干所以幸运”（如杜邦）两类。要点（2）关注管理层是否致力于开发新产品增长点，以确保持续成长。要点（3）评估研究发展努力的效率，指出研究支出并非唯一指标，团队协作和与生产、销售的协调至关重要。要点（4）强调销售组织的重要性，认为其与研究、生产并列为成功的三大支柱，并以道氏化学和国际商业机器公司为例说明。要点（5）和（6）聚焦利润率，指出应关注长期利润率趋势，而非短期波动，并警惕通过提价维持利润率的风险，强调通过创新降低成本、提升效率才是可持续之道。要点（7）讨论劳资关系，指出良好的人事关系能提升生产力、降低成本。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及美国铝业、杜邦、道氏化学、摩托罗拉等美国公司案例，反映了20世纪50年代美国工业的蓬勃发展背景。文中提到的“国防合约”和“政府主办的研究”也体现了当时美国冷战背景下的国防工业特点。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>本章的15个要点在中国A股市场同样适用。例如，要点（1）中“幸运且能干”和“能干所以幸运”的分类，可对应A股中的宁德时代（早期受益于新能源政策，但自身技术和管理能力突出）和比亚迪（从电池业务转型，凭借技术积累进入汽车领域）。要点（3）关于研究效率的讨论，可参考华为（未上市）的研发投入产出比。要点（4）的销售组织重要性，在A股消费品公司如贵州茅台、伊利股份中体现明显。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>评估公司成长潜力时，应关注其产品或服务的长期市场潜力，而非短期波动。</li><li>管理层的能力和态度是决定公司能否持续成长的关键，包括对研发、销售和成本控制的重视。</li><li>利润率是重要指标，但应关注其长期趋势和改善方式，而非短期数字。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">请选择一家你熟悉的A股上市公司，运用本章的15个要点（至少5个）对其进行评估，并判断它是否值得长期投资。</p>
+        <p class="hint">💡 提示：可以从公司的市场潜力、管理层态度、研发效率、销售组织、利润率等方面入手。</p>
+        <div class="chat-widget" id="chat-怎样-ch3-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch3-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先选择一家公司，然后逐一分析其是否符合本章提到的要点，例如其产品市场是否广阔，管理层是否注重研发等。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch3-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">本章提到“利润率低但正在改善的公司”可能是好的投资机会。请结合A股市场，找出一个这样的案例，并分析其改善的原因是否可持续。</p>
+        <p class="hint">💡 提示：关注那些通过内部变革（如产品升级、成本控制）而非外部因素（如行业景气）改善利润率的公司。</p>
+        <div class="chat-widget" id="chat-怎样-ch3-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch3-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先确定一家利润率较低但近期有改善迹象的公司，然后分析其改善的具体原因，如是否推出了高毛利新产品。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch3-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
+    <div class="ch-header">
+      <div class="ch-num">4</div>
+      <div>
+        <h2 class="ch-title" id="ch4-title">如何选择成长型股票</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">成长股选择</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何找到能长期增值的股票？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">打破数字迷思，深入理解企业，选择成长型公司。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书的核心实践章节，回答了“买什么”的问题。它批判了仅靠财务数字选股的传统观念，提出了成长型投资的核心原则，并指导不同资金规模的投资者如何配置资产。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「就我的观察来说，这表示在一段足以做公平比较的时期内― 如五年，技巧最纯熟的逢低吸人者最后获得的利润，和运用普通智慧，买进管理优异的成长型公司股票的人比起来，实在是小巫见大巫。」</div>
+      <div class="why">💬 这句话直接点明了成长型投资相对于传统价值投资的巨大优势，是本章的核心论点。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">成长股选择</h3>
+        <div class="concept-body"><p>本章核心是打破“投资奇才=会计数字专家”的迷思，提出真正的成长型投资需要深入理解企业本质，而非仅看财务报表。
+
+1. **批判传统选股方法**：作者指出，一般人认为投资奇才就是擅长分析会计数字的书呆子，这种观点“不够准确，而且很危险”。仅靠统计数字找到的“便宜货”可能因公司经营困境而实际更贵，且即使是真的便宜货，其价格回归价值的时间也可能很长，最终收益远低于成长型股票。
+
+2. **成长型投资的优势**：作者通过对比指出，在五年周期内，技巧最纯熟的逢低买入者获得的利润，远低于“运用普通智慧，买进管理优异的成长型公司股票的人”。成长型股票“每十年就能增值好几倍”，而便宜货的上涨幅度有限。
+
+3. **寻找投资机会的途径**：成功的投资人需要对企业经营问题感兴趣，并具备与人沟通、获取信息的能力。地理位置也很重要，住在大工业中心附近有更多机会接触优秀公司。
+
+4. **如何选择投资顾问**：对于没有时间或能力的投资者，可以委托专业顾问。但选择顾问时，必须查看其长期（至少五年）的投资记录，并确认其基本理财观念与自己一致。作者强调，应选择信奉成长型投资理念的顾问。
+
+5. **成长型股票的两端**：
+   - **大型成长股**：如道氏化学、杜邦、IBM，根基稳固，风险较低，长期增值潜力可观（如1946-1956年十年间价值增长五倍）。
+   - **小型成长股**：如1953年上市的安培斯公司，四年内价值上涨七倍以上，潜力巨大但风险极高，可能血本无归。
+
+6. **资金配置原则**：
+   - **“大部分”资金**应投入大型、保守的成长股，以保障本金安全。
+   - **“小部分”资金**（如15%）可投入精挑细选的年轻小型公司，以博取更高收益。
+   - 具体比例取决于个人情况：如寡妇、有子女的投资者、企业人士等，应根据自身需求和风险承受能力调整。
+
+7. **小额投资人的特殊考量**：
+   - 投资普通股的资金必须是“真正多余的资金”，不能是应急或特定用途的钱。
+   - 小额投资人面临“当期收入”与“未来高收入”的抉择。作者倾向于牺牲眼前少量收入，换取未来数倍的资本增值。
+
+8. **成长股的双重优势**：作者引用金融机构的研究，指出在五年或十年期内，成长型股票不仅资本增值幅度远高于高股息股票，而且其原始投资的股利报酬率最终也会超过后者。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及美国投资顾问行业缺乏像法律、医学那样的严格准入门槛和执照制度，导致不合格顾问比例较高。同时，作者以底特律（汽车工业中心）和俄勒冈州（偏远地区）为例，说明地理位置对获取投资信息的影响，反映了当时美国产业地理分布的特点。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>信奉“买低卖高”的传统价值投资者会反对作者的观点。他们认为，通过分析财务数据找到被低估的股票才是稳健的投资方法，而成长型股票往往估值过高，风险巨大。作者也承认，逢低买入者有时能找到真正的便宜货，但认为其长期收益远不如成长型投资。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>本章的成长股投资理念在A股市场有广泛应用。例如，贵州茅台（600519）作为大型成长股，从2001年上市至今，股价上涨数百倍，符合作者对“机构型股票”的描述。而宁德时代（300750）在2018年上市时属于高成长的小型公司，至今市值已超万亿，体现了年轻成长股的爆发力。投资者在A股配置时，也应遵循“大部分资金投龙头成长股，小部分资金投高潜力成长股”的原则。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>真正的投资成功需要深入理解企业，而非仅靠分析会计数字。</li><li>成长型股票（尤其是大型成长股）的长期收益远高于所谓的“便宜货”。</li><li>资金配置应遵循“大部分投保守成长股，小部分投高风险成长股”的原则。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你有一笔50万元的闲置资金，根据本章的配置原则，你会如何分配资金到大型成长股（如贵州茅台）和小型成长股（如某科创板公司）？请说明理由。</p>
+        <p class="hint">💡 提示：考虑你的年龄、收入稳定性、风险承受能力以及未来资金需求。</p>
+        <div class="chat-widget" id="chat-怎样-ch4-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch4-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这个问题很实际。请先思考你的个人情况，比如你是否有稳定的其他收入？这笔钱几年内会不会用到？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch4-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">本章提到，选择投资顾问时要查看其长期投资记录。如果你现在要选一位基金经理，你会关注他过去几年（比如3年、5年、10年）的哪些具体数据？为什么？</p>
+        <p class="hint">💡 提示：不仅要看收益率，还要看其在不同市场环境（牛市、熊市）下的表现，以及其投资理念是否与成长型投资一致。</p>
+        <div class="chat-widget" id="chat-怎样-ch4-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch4-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">好问题。除了看总收益，你还可以关注他的最大回撤、与基准指数的对比，以及他是否坚持成长股策略。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch4-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
+    <div class="ch-header">
+      <div class="ch-num">5</div>
+      <div>
+        <h2 class="ch-title" id="ch5-title">买在盈利爆发前夜</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">买点时机</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何找到成长股的最佳买入时机？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">忽略宏观预测，聚焦公司基本面即将改善但股价未反映的时刻。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《怎样选择成长股》中关于投资时机的核心章节，回答了“找到好公司后，何时买入才能获得最大收益”的问题，强调买入时机应基于公司基本面改善而非宏观经济预测。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「投资人心理应该十分清楚，晓得这些问题都属暂时性质，不会永远存在。接着，如果这些问题导致股价重跌，但可望在几个月内解决问题，而非拖上好几年，则考虑在这个时候买进股票可能相当安全。」</div>
+      <div class="why">💬 这句话总结了本章核心：识别暂时性困境并利用市场恐慌买入，是成长股投资的关键时机。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">买点时机</h3>
+        <div class="concept-body"><p>本章的核心观点是：传统的基于宏观经济预测的择时方法不可靠，因为人类预测经济趋势的能力有限，如同中世纪的炼金术。真正的买入时机应聚焦于公司自身基本面即将大幅改善但市场尚未充分反映的时刻。具体包括：
+1. **新产品或新工厂的“试产期困境”**：当一家公司开发革命性新产品或建设全新工厂时，从试车到商业化量产往往面临始料未及的技术问题和额外费用，导致每股盈余重挫、股价大跌。此时，市场普遍认为公司管理失败，股价跌至多年低点。但一旦问题解决、工厂顺利运转，第二、第三座工厂的复制将不再有同样问题，公司盈利将大幅增长。这正是绝佳的买入时机。
+2. **典型案例**：
+   - **美国氰胺公司（1954年）**：该公司在路易斯安那州霍提尔建设大型有机化学新工厂，因工程复杂，损益平衡点日期严重滞后，股价跌至平均45.5美元（拆股后22.75美元）。但随后工厂开始盈利，每股盈余从1954年的1.48美元升至1956年的2.10美元，股价在三年内上涨约85%。
+   - **食品机械化学公司（1957年）**：该公司化学事业部因老旧厂房和低利润率被市场低估，但管理阶层通过内部升迁、对外招聘、现代化改造和加大研发投入，在1955-1957年异常支出后，盈余终于在1958年经济不景气时创历史新高（每股2.39美元）。股价从1957年的25.5美元升至1959年的51美元，涨幅102%。
+3. **其他买入时机**：
+   - **劳资关系问题**：一家以劳资关系融洽著称的中西部电子公司，因规模扩张导致劳资摩擦、罢工和生产力下降，股价重挫。但管理阶层迅速制定并实施矫正计划，在罢工结束后股价反而成为买点B，随后上涨50%以上。
+   - **工厂扩建的边际效益**：当一座新工厂需要1000万美元，后续仅追加150万美元（15%资本增加）即可提升40%产能时，额外产量的利润率极高，此时买入股票也是良机。
+4. **投资原则**：投资人应忽略对整体经济或股市趋势的猜测，专注于判断目标公司相对于整体经济的表现。如果公司盈利即将大幅改善但股价尚未反映，就是合适的买点。对于新投资者或资金有限的投资者，应分批买入，以应对市场下跌风险。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及1929年大崩盘和1954年国会选举，反映了美国20世纪中叶的经济周期和股市投机氛围。当时金融圈普遍依赖经济预测，但作者认为这种预测如同炼金术，不可靠。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>传统投资方法认为，买入股票前必须研究宏观经济和利率走向，只有在预测背景状况不会大幅恶化时才可买入。作者反对此方法，理由是当前经济学知识不足以精确预测景气趋势，预测正确的机率不超过十分之一。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，类似“试产期困境”的案例屡见不鲜。例如，**宁德时代（300750）** 在2018年上市后，因动力电池产能扩张和研发投入巨大，短期利润承压，股价一度低迷。但随着其全球领先的电池技术成熟和产能利用率提升，盈利爆发，股价在随后几年大幅上涨。又如，**比亚迪（002594）** 在2020年前后因刀片电池和DM-i超级混动技术的商业化初期面临产能爬坡和成本问题，股价波动，但技术突破后迅速成为行业龙头。这些案例均体现了“买在盈利爆发前夜”的原则。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>不要依赖宏观经济预测来择时，因为预测准确率极低。</li><li>买入时机应聚焦于公司基本面即将大幅改善但市场尚未充分反映的时刻，如新产品试产期困境或劳资问题解决后。</li><li>对于新投资者，应分批买入以应对市场下跌风险，避免一次性投入全部资金。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你发现一家A股公司正在建设一座革命性的新工厂，但市场因试产期亏损而抛售其股票，股价大跌30%。你如何判断这是否是“买点A”？请结合公司基本面和管理层能力分析。</p>
+        <p class="hint">💡 提示：参考美国氰胺和食品机械化学公司的案例，关注管理层的应对能力、问题是否暂时、以及公司长期竞争优势。</p>
+        <div class="chat-widget" id="chat-怎样-ch5-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch5-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这个问题涉及如何识别暂时性困境与永久性衰退。请先思考：该公司的管理层是否有成功解决类似问题的历史？新工厂的技术是否具有颠覆性？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch5-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你持有某成长股已获利50%，但公司因劳资纠纷股价回调20%。此时你收到消息称管理层已制定解决方案，但市场情绪悲观。你会选择卖出还是加仓？为什么？</p>
+        <p class="hint">💡 提示：参考中西部电子公司的案例，思考劳资纠纷是否属于暂时性问题，以及公司的长期成长逻辑是否改变。</p>
+        <div class="chat-widget" id="chat-怎样-ch5-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch5-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这是一个关于“买点B”的实战问题。请评估：劳资纠纷是否会影响公司的核心竞争力？管理层的解决方案是否可信？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch5-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
+    <div class="ch-header">
+      <div class="ch-num">6</div>
+      <div>
+        <h2 class="ch-title" id="ch6-title">卖出股票的三个真正理由</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">卖出三原则</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">何时才是卖出成长股的正确时机？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">卖出优质股票只有三个真正理由，其他理由大多会错失长期利润。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《怎样选择成长股》的投资决策核心章节，回答了“何时卖出成长股”这一关键问题，强调长期持有优质股票，仅在特定条件下才考虑卖出。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「如果当初买进普通股时，事情做得很正确，则卖出时机是― 几乎永远不会来到。」</div>
+      <div class="why">💬 这句话是本章的终极结论，强调正确选股后长期持有的核心投资哲学。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">卖出三原则</h3>
+        <div class="concept-body"><p>本章核心观点是：卖出普通股只有三个真正理由。第一，原始买进犯下错误，公司实际情况远不如预期。此时应尽早认赔卖出，释放资金转投更优标的，避免因自尊心作祟而死抱亏损股票。第二，公司基本面发生变化，不再符合15要点标准。这通常源于管理阶层退步（如成功后的懈怠）或市场成长潜力耗竭。判断方法：自问下一次景气高峰时，每股盈余增幅是否至少与上次相同。第三，发现更优秀的投资机会，且换股后即使扣除资本利得税，预期收益仍显著高于原持股。但此理由需极度谨慎，因为误判风险高。
+
+此外，作者强烈批判了三种常见的错误卖出理由：1）担心大盘下跌——因预测短期市场走势而卖出优质股，往往错失长期巨大涨幅；2）认为股价过高——成长股的高本益比是合理的，且精确判断股价是否过高几乎不可能；3）因股价已上涨而获利了结——优质公司的成长潜力远未耗尽，类比于同学收入增长后不应卖出合约。作者用杜邦、道氏公司为例，说明优秀企业可延续活力数代，因此“卖出时机几乎永远不会来到”。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及资本利得税（capital gains tax）对美国投资者的影响，这是美国税制的重要特点，长期持有可享受较低税率，因此频繁换股会显著侵蚀收益。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>部分市场参与者认为，即使优质股票也应进行波段操作，通过高抛低吸获取超额收益。他们主张利用技术分析或市场情绪指标，在股价过高时卖出，待回调后买回。但作者认为这种策略依赖对短期市场走势的预测，成功率极低，且会因资本利得税和错失长期涨幅而得不偿失。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，本章理念同样适用。例如，贵州茅台（600519）作为长期成长股，自2001年上市以来涨幅巨大，但许多投资者因担心股价过高或大盘下跌而提前卖出，错失后续数倍涨幅。相反，坚持长期持有的投资者获得了丰厚回报。这印证了作者的观点：优质公司的成长潜力远超短期波动，卖出时机应基于基本面变化而非价格或市场情绪。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>PE</strong></td><td class="zh">本益比</td><td>股价与每股盈余的比率，用于评估股票估值水平。成长股通常享有较高本益比。</td></tr><tr><td><strong>EPS</strong></td><td class="zh">每股盈余</td><td>公司税后利润除以总股本，衡量每股盈利能力。作者用其判断公司成长性。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>卖出股票的三个真正理由：买入错误、基本面恶化、发现更优机会。</li><li>不要因担心大盘下跌、股价过高或已上涨而卖出优质成长股。</li><li>长期持有优质公司，其成长潜力远超短期波动，卖出时机几乎永远不会到来。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你持有某只A股成长股（如宁德时代），其股价已上涨200%，市盈率高达80倍。近期市场传闻大盘将回调20%。根据本章原则，你是否应该卖出？请说明理由。</p>
+        <p class="hint">💡 提示：考虑公司基本面是否变化、成长潜力是否耗尽、以及预测市场走势的难度。</p>
+        <div class="chat-widget" id="chat-怎样-ch6-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch6-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调不要因担心大盘下跌或股价过高而卖出优质股。请先分析公司基本面是否依然强劲。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch6-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你发现一家新公司，其成长前景明显优于当前持有的股票。但换股需缴纳20%的资本利得税。根据本章原则，你应如何决策？</p>
+        <p class="hint">💡 提示：比较换股后的预期收益与持有原股票的收益，并考虑误判风险。</p>
+        <div class="chat-widget" id="chat-怎样-ch6-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch6-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出，换股需谨慎评估所有因素。请计算新公司预期年增长率是否显著高于原公司。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch6-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
+    <div class="ch-header">
+      <div class="ch-num">7</div>
+      <div>
+        <h2 class="ch-title" id="ch7-title">股利迷思与成长投资</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">股利迷思</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">高股利真的对股东更有利吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">股利不重要，重要的是公司能否高效运用保留盈余创造价值。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书后半部分，核心回答投资者应如何看待股利在成长股投资中的地位，揭示低股利或零股利政策对长期股东价值的真实影响。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「五到十年的一段期间内，最高的股利不是来自高收益股票，而是来自收益相当低的股票。能力突出的管理阶层经营的事业获利可观，虽然继续实施原来的政策，只从当期盈余配发低比率的股利，股利金额却比高收益股票愈来愈高。」</div>
+      <div class="why">💬 这句话颠覆了传统认知，揭示了成长股投资的精髓：低股利政策配合高效再投资，长期反而能带来更高的总回报。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">股利迷思</h3>
+        <div class="concept-body"><p>本章深入剖析了投资者对股利的普遍误解。首先，作者指出“为股东做些事情”不等于发放股利，保留盈余用于高效再投资（如建新厂、推新产品、降成本）可能为股东创造更大价值。其次，分析了保留盈余无效的两种情况：一是管理层累积过多现金（如为安全感而囤积），二是管理层素质低，将资金投入低效扩张。第三，详细讨论了保留盈余为何有时无法提升股东价值，包括顾客需求变化导致的非生产性资产投资（如空调系统）和会计制度缺陷（折旧不足以覆盖通胀下的重置成本）。第四，通过XYZ公司案例，反驳了“提高股利有利于小股东、不利于大股东”的常见谬误，指出由于所得税和交易成本，所有股东（包括免税机构）从保留盈余再投资中获得的利益通常大于领取股利。第五，强调股利政策的核心是“规律性和可靠性”，而非高低。优秀公司应制定并维持一贯的股利政策（如低配发率、定期调整），以吸引长期股东，避免频繁变动。最后，作者以罗姆哈斯公司为例，说明低收益股票长期反而能带来更高股利和资本利得，结论是：投资者应最小化对股利的关注，专注于公司成长能力。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及美国个人所得税制度（如股利免税额、累进税率）、养老基金和大学等免税机构、零股交易成本规则，以及会计折旧处理方式，反映了20世纪50-60年代美国投资环境。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>金融圈普遍认为高股利是安全因子，能提供稳定收益并防止股价过度下跌。但作者引用研究报告反驳，指出高股利股票中价格表现差劲的数目远多于低股利股票。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，许多成长型公司（如早期的格力电器、美的集团）长期保持低股利或高送转政策，将利润用于再投资，最终为股东带来巨大回报。相反，一些高股息率的“红利股”（如部分公用事业股）股价长期滞涨。这与本章观点高度契合。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>保留盈余用于高效再投资比发放股利更能为股东创造长期价值。</li><li>股利政策的核心是规律性和可靠性，而非高低；频繁变动会损害股东信任。</li><li>低股利或零股利的成长股长期可能带来更高的总回报（股利+资本利得）。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你持有A公司股票，该公司连续5年保持30%的股利支付率，但同期股价涨幅远低于B公司（B公司股利支付率仅10%，但利润增速更快）。你应如何评估两家公司的股利政策对股东价值的影响？</p>
+        <p class="hint">💡 提示：考虑保留盈余的再投资回报率、股东税负和交易成本。</p>
+        <div class="chat-widget" id="chat-怎样-ch7-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch7-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请思考：A公司的高股利是否牺牲了成长机会？B公司的低股利是否意味着管理层更善于再投资？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch7-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你发现一家公司突然大幅提高股利，但随后股价并未上涨。结合本章观点，分析可能的原因。</p>
+        <p class="hint">💡 提示：考虑管理层是否因缺乏投资机会而发放股利，以及市场对此的解读。</p>
+        <div class="chat-widget" id="chat-怎样-ch7-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch7-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请思考：提高股利是否意味着公司未来成长前景变差？市场是否已预期到这一点？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch7-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
+    <div class="ch-header">
+      <div class="ch-num">8</div>
+      <div>
+        <h2 class="ch-title" id="ch8-title">规避五大常见投资陷阱</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">五不原则</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何避免投资中的常见心理陷阱？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">费雪提出五大戒律，帮助投资者避开创业公司、店头市场、年报格调、高本益比和锱铢必较的陷阱。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《怎样选择成长股》中关于投资纪律的核心章节，系统阐述了费雪提出的投资人应避免的五个错误行为，旨在帮助投资者建立正确的投资心态和操作原则。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「投资人很少能够使这些人相信他们本身或他们的年轻组织缺少其他的技能。投资人更难向他们指出，哪里能找到这些人才。由于这些理由，不管创业公司乍看之下多吸引人，我相信这些公司应留给专业团体去投资。」</div>
+      <div class="why">💬 这句话揭示了投资创业公司的核心风险：散户难以评估和弥补管理团队的短板，应交给专业机构。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">五不原则</h3>
+        <div class="concept-body"><p>本章详细阐述了投资人应遵守的“五不”原则：
+1. **不买处于创业阶段的公司**：费雪认为，创业公司缺乏可观察的经营历史，管理团队往往存在短板（如卓越的推销员但缺乏经营能力，或发明家但不懂行销），投资人难以准确评估其前景。他引用棒球术语“安打率”很低来形容挑选成功创业公司的难度，建议一般散户应留给专业团体投资。
+2. **不要因为一支好股票在“店头市场”交易就弃之不顾**：费雪分析了店头市场与交易所市场的差异，指出店头市场的流动性并不必然低于小型交易所。他解释了店头市场的报价机制（进价与出价）和经营商的作用，认为只要选对证券和营业员，店头股票同样具有充分的市场性。
+3. **不要因为你喜欢某公司年报的“格调”就去买该公司的股票**：费雪警告，年报的格调可能反映的是公共关系部门塑造形象的能力，而非管理团队的真实水平。投资人应深入观察事实，而非被精美的照片和乐观的措辞所迷惑。
+4. **不要以为一公司的本益比高，便表示未来的盈余成长已大致反映在价格上**：费雪通过XYZ公司的假设案例说明，如果一家公司能持续开发新产品并保持高成长，其高本益比可能反映的是其内在价值，而非透支未来。关键在于判断公司能否持续创造新的成长源。
+5. **不要锱铢必较**：费雪用真实案例说明，为了节省少量差价（如每股0.5美元）而错失长期巨大收益（如25年后股价上涨至500美元以上）是得不偿失的。他建议小额投资人应以市价买进，大额投资人则应授权营业员灵活操作。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章涉及美国证券市场的历史演变，包括20世纪50年代与20年代相比，市场从少数富人主导的投机市场转向中产阶级和机构投资者主导的投资市场；以及证券管理委员会（SEC）的设立对融资买进和集团操纵的遏制。此外，店头市场（OTC）的运作机制和全国证券商协会（NASD）的角色也是美国特有的金融制度。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>对于“不买创业阶段公司”的原则，反对者可能认为，许多伟大的公司（如早期的苹果、微软、亚马逊）正是在创业阶段提供了惊人的投资回报，错过这些机会意味着放弃了最大的增长潜力。他们主张，通过深入研究和风险分散，散户也能从创业公司中获利。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，费雪的“五不”原则同样具有警示意义。例如，**“不买创业阶段公司”**对应A股中大量IPO后业绩变脸的次新股，投资者常因“打新”或追逐概念而忽视公司基本面。**“不要因为喜欢年报格调而买股票”**则提醒投资者警惕那些财报包装华丽但实际经营不善的公司，如某些通过高送转、概念炒作来粉饰年报的上市公司。**“不要锱铢必较”**在A股中体现为投资者为了几分钱的差价而挂单等待，结果错失牛股主升浪的常见现象。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>OTC</strong></td><td class="zh">店头市场/场外交易市场</td><td>指不在证券交易所上市，通过证券商进行交易的股票市场，流动性依赖于做市商。</td></tr><tr><td><strong>PE</strong></td><td class="zh">本益比/市盈率</td><td>股票价格与每股盈余的比率，用于评估股票估值水平。费雪强调高PE不一定意味着未来成长已被充分反映。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>避免投资创业阶段公司，因其缺乏可观察的经营历史和完整的管理团队。</li><li>店头市场股票并非低人一等，其流动性可能优于小型交易所，关键在于选对证券和营业员。</li><li>不要被年报的华丽外表迷惑，应深入分析公司实际经营状况。</li><li>高本益比不一定代表股价过高，关键在于公司能否持续创造新的成长动力。</li><li>投资时不应为节省微小差价而错失长期巨大收益，应以合理市价果断买入。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你发现一家A股上市公司，其年报设计精美、措辞乐观，但仔细分析后发现其现金流持续为负、应收账款激增。结合本章“不要因为喜欢年报格调而买股票”的原则，你会如何决策？</p>
+        <p class="hint">💡 提示：思考年报信息与财务数据之间的差异，以及如何通过其他渠道验证公司真实状况。</p>
+        <div class="chat-widget" id="chat-怎样-ch8-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch8-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调年报格调可能掩盖真实问题。请思考如何通过财报分析和第三方信息来验证公司质量。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch8-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你关注的一只成长股当前市盈率为50倍，是同行业平均水平的2倍。公司管理层预测未来三年净利润翻倍。根据本章“不要以为高本益比已反映未来成长”的原则，你如何判断该股票是否值得买入？</p>
+        <p class="hint">💡 提示：分析公司是否具备持续创造新成长源的能力，以及其历史市盈率是否长期高于行业平均。</p>
+        <div class="chat-widget" id="chat-怎样-ch8-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch8-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出，高PE不一定透支未来，关键在于公司能否持续高成长。请结合公司护城河和行业前景分析。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch8-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
+    <div class="ch-header">
+      <div class="ch-num">9</div>
+      <div>
+        <h2 class="ch-title" id="ch9-title">分散投资与战争恐惧的误区</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">分散投资误区</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何避免过度分散和战争恐惧？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">聚焦优质股，避免历史数据依赖，理性应对战争恐惧。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《怎样选择成长股》投资原则的延续，核心回答：如何避免过度分散投资、战争恐惧及历史数据依赖等常见错误，以聚焦于优质成长股。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「投资人被过分灌输分散投资的重要性，害怕一个篮子里有太多蛋，使得他们买进太少自己彻底了解的公司，买进太多自己根本不了解的公司。他们似乎从没想过，买进一家公司的股票时，如果对那家公司没有充分的了解，可能比分散投资做得不够充分还危险。」</div>
+      <div class="why">💬 点明过度分散投资的本质风险，强调了解公司比分散更重要。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">分散投资误区</h3>
+        <div class="concept-body"><p>本章提出投资人应避免的五个错误原则，重点包括：
+1. **不要过度强调分散投资**：过度分散会导致持有太多不了解的公司，增加风险。费雪建议根据公司类型设定最低分散标准：A类（大型成长股）至少5支，每支不超过20%；B类（中型成长股）每支8%-10%；C类（小型高风险股）每支不超过5%。他举例梅勒里公司（B类）和安培斯公司（C类转B类）说明分散投资需结合公司内部多样化和管理深度。
+2. **不要担心战争阴影**：战争恐惧常导致抛售，但历史表明（如一战、二战、朝鲜战争）战后股价更高，因战争引发通胀使货币贬值。费雪建议在战争威胁时缓慢买进，战争爆发时加快买进，选择战时仍有需求的公司。
+3. **不要忘了你的吉尔伯特和沙利文**：讽刺投资者过度依赖历史价格和盈余数据，忽视公司未来前景。他以德州仪器为例：1956年以14美元（20倍市盈率）买入，当时历史盈余平淡，但随后因半导体业务爆发，1959年每股盈余超3美元，股价大涨。强调“未来五年的盈余比过去五年的盈余更重要”。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>吉尔伯特和沙利文是19世纪英国剧作家和作曲家，以讽刺喜剧闻名。费雪借用其作品《艾俄兰斯》中的台词“花朵在春天盛开，可是那没有关系”，比喻投资者对历史统计数据的盲目关注。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>部分传统投资者认为分散投资是降低风险的唯一途径，且历史数据（如市盈率区间）是估值的基础。费雪反驳：过度分散导致对每家公司了解不足，反而增加风险；历史数据无法反映公司基本面变化，如德州仪器案例所示。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，费雪的分散投资原则同样适用。例如，2020年白酒板块过度集中（如持有茅台、五粮液、泸州老窖等）导致行业风险暴露；而过度分散（如持有50只股票）则难以跟踪。投资者可参考费雪建议：对优质成长股（如宁德时代）集中持有，对中小盘股（如细分龙头）适度分散。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>PE</strong></td><td class="zh">市盈率</td><td>股价与每股盈余的比率，费雪认为应关注未来盈余而非历史PE。</td></tr><tr><td><strong>DCF</strong></td><td class="zh">现金流折现</td><td>估值方法，费雪强调公司未来成长性而非历史数据。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>分散投资应适度，根据公司类型设定最低标准，避免过度分散。</li><li>战争恐惧是买入机会，而非卖出理由，因通胀使现金贬值。</li><li>历史价格和盈余数据无关紧要，应聚焦公司未来前景。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你持有10只股票，其中5只是银行股，其余5只来自不同行业。根据费雪的观点，这种分散投资是否合理？为什么？</p>
+        <p class="hint">💡 提示：考虑行业集中风险，参考费雪对银行股集中的批评。</p>
+        <div class="chat-widget" id="chat-怎样-ch9-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch9-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪认为行业过度集中（如8只银行股）是无效分散。你的组合中银行股占50%，需评估是否了解每只银行股，以及行业风险是否可控。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch9-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">当前国际局势紧张，股市下跌。费雪建议如何操作？请结合他的战争恐惧原则。</p>
+        <p class="hint">💡 提示：参考费雪对战争恐惧的应对：缓慢买进，选择战时仍有需求的公司。</p>
+        <div class="chat-widget" id="chat-怎样-ch9-q2">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch9-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">费雪建议在战争威胁时缓慢买进，战争爆发时加快买进。关注国防、能源等需求稳定的公司。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch9-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch10" aria-labelledby="ch10-title">
+    <div class="ch-header">
+      <div class="ch-num">10</div>
+      <div>
+        <h2 class="ch-title" id="ch10-title">系统性筛选成长股的方法</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">闲聊筛选法</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何系统性地找到值得研究的成长股？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">通过高质量投资专家线索和“闲聊”法，严格筛选出符合十五要点的公司。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书后半部分，核心回答如何通过系统性的信息搜集和筛选流程，找到具有长期成长潜力的股票，而非依赖简单技巧或运气。</p></div>
+    </div>
+    <div class="gold-quote">
+      <div class="zh">「投资某支股票需要的所有知识中，除非至少先取得50%，否则绝不要去拜访任何公司的管理阶层。不先做到这一点而冒然去见管理阶层，那么他所处地位很危险，因为他对自己应知道的事情，了解甚少，和管理阶层见面，能不能得到正确的答案，只能靠运气。」</div>
+      <div class="why">💬 这句话点明了本章核心方法论：信息准备不足的拜访是危险的，必须通过前期调研掌握主动权。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">闲聊筛选法</h3>
+        <div class="concept-body"><p>本章详细阐述了寻找成长股的两阶段方法。第一阶段是决定研究哪些公司，这需要从高质量的投资专家（而非企业高管或科学家）那里获取原始线索，因为后者提供的线索成功率较低（仅约五分之一的研究调查来自他们，且只带来约六分之一的最终报酬）。第二阶段是深入研究，强调在接触公司管理层之前，必须通过“闲聊”法（与顾客、供应商、竞争对手、前员工等交流）获取至少50%的必要知识，以验证公司是否符合“十五要点”标准。具体步骤包括：快速判断公司是否值得研究、浏览SEC公开说明书中的关键财务数据、利用“闲聊”法收集背景信息、通过银行等渠道引荐接触管理层。作者强调，只有经过这一严格筛选，才能提高投资成功率（每2-3家拜访的公司中就有1家最终买入）。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中提到的“闲聊”法反映了美国商业文化中通过非正式社交网络获取信息的传统，以及投资银行在引荐投资者与企业高管会面中的中介角色。此外，SEC公开说明书和代理投票说明书是美国上市公司必须公开披露的文件，为投资者提供了标准化信息源。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>一些投资者认为这种方法过于耗时，期望通过简单的经纪商报告或快速咨询就能找到成长股。作者反驳称，没有其他活动领域能如此容易获得高回报（如10年增值20倍），必须投入大量心血、能力和判断力。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，类似“闲聊”法的信息收集方式可通过上市公司调研、行业专家访谈、产业链上下游交流等途径实现。例如，通过参加券商组织的上市公司联合调研，或利用“雪球”等投资社区与行业人士交流，可获取非公开信息。但需注意中国监管对内幕交易的严格限制。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>SEC</strong></td><td class="zh">美国证券交易委员会</td><td>负责监管上市公司信息披露的机构，其公开说明书是投资者获取财务数据的重要来源。</td></tr><tr><td><strong>闲聊法</strong></td><td class="zh">闲聊法</td><td>通过与顾客、供应商、竞争对手、前员工等非正式交流，获取公司真实经营状况的方法。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>原始线索应优先来自能力强的投资专家，而非企业高管或科学家，后者成功率较低。</li><li>接触管理层前，必须通过“闲聊”法获取至少50%的必要知识，以避免被误导。</li><li>严格筛选过程可大幅提高投资成功率，每2-3家拜访的公司中就有1家最终买入。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你计划投资一家A股科技公司，请设计一个“闲聊”法信息收集计划，列出至少三个信息来源和具体问题。</p>
+        <p class="hint">💡 提示：考虑从供应商、客户、前员工、竞争对手等渠道获取信息，问题应聚焦于公司竞争优势、管理层能力、行业壁垒等。</p>
+        <div class="chat-widget" id="chat-怎样-ch10-q1">
+          <div class="chat-header" onclick="toggleChat('chat-怎样-ch10-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调在接触管理层前需通过闲聊获取50%信息。请思考如何设计一个系统性的信息收集计划。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-怎样-ch10-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+<footer>
+  <p>📚 AI精读笔记 · 《怎样选择成长股》10章精读</p>
+  <p><a href="../../bookshelf.html" style="color:var(--accent);">← 返回完整书架</a></p>
 </footer>
 
-</div><!-- .container -->
-
-<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部" aria-label="回到顶部" tabindex="0">⬆</button>
-
+</div>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
 <script src="../../assets/js/data_v2.js"></script>
 <script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/local-auth.js"></script>
+<script src="../../assets/js/supabase-auth.js"></script>
 <script src="../../assets/js/chat.js"></script>
 </body>
 </html>

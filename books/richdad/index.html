@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://zvacgujeywaytpkixdtw.supabase.co https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>富爸爸穷爸爸 — AI精读笔记</title>
 <meta name="description" content="AI驱动的《富爸爸穷爸爸》深度精读笔记。罗伯特·清崎的经典著作，逐章解读投资智慧。"/>
@@ -12,11 +11,8 @@
 <meta property="og:image" content="../../assets/img/og-image.png"/>
 <link rel="stylesheet" href="../../assets/css/style.css"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Book","name":"富爸爸穷爸爸","author":{"@type":"Person","name":"罗伯特·清崎"},"inLanguage":"zh","datePublished":"1997","description":"罗伯特·清崎通过「富爸爸」和「穷爸爸」两个父亲的对比，揭示了富人和穷人思维方式的根本差异。核心思想是：富人让钱为自己工作，穷人为钱工作。这本书全球销量超过4000万册，是财商教育的入门经典，改变了无数"}
+{"@context":"https://schema.org","@type":"Book","name":"富爸爸穷爸爸","author":{"@type":"Person","name":"罗伯特·清崎"},"inLanguage":"zh","datePublished":"1997","description":"罗伯特·清崎通过「富爸爸」和「穷爸爸」两个父亲的对比，揭示了富人和穷人思维方式的根本差异。核心思想是：富人让钱为自己工作，穷人为钱工作。这本书全球销量超过4000万册，是财商教育的入门经典，改变了无数人的金钱观念。"}
 </script>
-<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8ebcd28da20148c4af3da9d3b5f76a0c"}'></script><!-- End Cloudflare Web Analytics -->
-<script src="../../assets/js/local-auth.js"></script>
-<script src="../../assets/js/supabase-auth.js"></script>
 </head>
 <body>
 <nav class="top-nav" role="navigation" aria-label="章节导航">
@@ -28,19 +24,18 @@
     <a class="active" href="#overview">概览</a>
     <a href="#roadmap">路线图</a>
     <a href="#intro">导言</a>
-<a href="#ch1">第1章 · 两个父亲的财务命运分野</a>
-<a href="#ch2">第2章 · 跳出“老鼠赛跑”的陷阱</a>
-<a href="#ch3">第3章 · 两种金钱观的碰撞</a>
-<a href="#ch4">第4章 · 富人不为钱工作：第一课</a>
-<a href="#ch5">第5章 · 资产与负债：财富的基石</a>
-<a href="#ch6">第6章 · 职业与事业的本质区别</a>
-<a href="#ch7">第7章 · 税收陷阱与公司护身符</a>
-<a href="#ch8">第8章 · 勇气与选择：富人的投资之道</a>
-<a href="#ch9">第9章 · 能力组合：超越专业化的财富密码</a>
-<a href="#ch10">第10章 · 克服财务自由的五大心理障碍</a>
-<a href="#ch11">第11章 · 10步唤醒你的理财天赋</a>
-<a href="#ch12">第12章 · 行动至上：从思考到实践</a>
-<a href="#ch13">第13章 · 财商：7000美元撬动大学教育</a>
+<a href="#ch2">第2章</a>
+<a href="#ch3">第3章</a>
+<a href="#ch4">第4章</a>
+<a href="#ch5">第5章</a>
+<a href="#ch6">第6章</a>
+<a href="#ch7">第7章</a>
+<a href="#ch8">第8章</a>
+<a href="#ch9">第9章</a>
+<a href="#ch10">第10章</a>
+<a href="#ch11">第11章</a>
+<a href="#ch12">第12章</a>
+<a href="#ch13">第13章</a>
   </div>
   <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单"><span></span><span></span><span></span></button>
 </nav>
@@ -49,7 +44,7 @@
 
 <!-- BOOK HERO -->
 <section class="book-hero" id="overview" aria-labelledby="hero-title">
-  <div class="cover" aria-hidden="true" style="background: linear-gradient(135deg, #4a2a1a 0%, #2a1a0a 50%, #1a0a00 100%);">Rich Dad
+  <div class="cover" aria-hidden="true" style="--cover-grad: linear-gradient(135deg, #4a2a1a 0%, #2a1a0a 50%, #1a0a00 100%); background: var(--cover-grad);">Rich Dad
 Poor Dad</div>
   <div class="info">
     <h1 id="hero-title">《富爸爸穷爸爸》<span style="font-size:16px;font-weight:400;color:var(--text-secondary);display:block;margin-top:4px;">全球最佳财商教育系列</span></h1>
@@ -100,11 +95,15 @@ Poor Dad</div>
     <div class="bio-content">
       <h3>罗伯特·清崎</h3>
       <p>罗伯特·清崎（Robert T. Kiyosaki），1947年生于夏威夷一个日裔美国人家庭。父亲是夏威夷教育部长（穷爸爸），好友迈克的父亲是企业家（富爸爸）。清崎越战期间在海军陆战队服役，后加入施乐公司学习销售。1977年创办尼龙钱包公司，开始商业生涯。1994年实现财务自由。1997年出版《富爸爸穷爸爸》，开创「富爸爸」系列，全球销量超过4000万册。他的财商教育理念影响深远，但也因观点激进（如鼓励使用杠杆、贬低正规教育）而饱受争议。</p>
+        <span class="bio-highlight">财商教育之父</span>
+        <span class="bio-highlight">富爸爸系列作者</span>
+        <span class="bio-highlight">畅销书作家</span>
+        <span class="bio-highlight">财务自由倡导者</span>
     </div>
   </div>
 </section>
 
-<!-- ==================== ROADMAP ==================== -->
+<!-- ROADMAP -->
 <section aria-labelledby="roadmap-title">
   <h2 class="section-title" id="roadmap"><span class="emoji">🗺️</span> 阅读路线图</h2>
   <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">全书13个精读单元分为4个模块，从财务启蒙到财富基石，再到投资与行动。建议按顺序阅读前7章建立完整的财务认知框架，第10-13章可作为行动指南反复回看。</p>
@@ -114,17 +113,17 @@ Poor Dad</div>
       <h3 class="part-title">财务启蒙</h3>
       <div class="part-pages">Ch1-4 · 两个父亲、老鼠赛跑、金钱观碰撞、富人不为钱工作</div>
     </div>
-    <div class="part-card current">
+    <div class="part-card">
       <div class="part-num">📖 模块2</div>
       <h3 class="part-title">财富基石 ⭐核心</h3>
       <div class="part-pages">Ch5-7 · 资产vs负债、职业vs事业、税收陷阱与公司护身符</div>
     </div>
-    <div class="part-card current">
+    <div class="part-card">
       <div class="part-num">📖 模块3</div>
       <h3 class="part-title">投资与能力</h3>
       <div class="part-pages">Ch8-9 · 富人的投资之道与超越专业化的能力组合</div>
     </div>
-    <div class="part-card current">
+    <div class="part-card">
       <div class="part-num">📖 模块4</div>
       <h3 class="part-title">行动与心智</h3>
       <div class="part-pages">Ch10-13 · 五大心理障碍、10步唤醒理财天赋、行动至上、财商实战</div>
@@ -134,17 +133,16 @@ Poor Dad</div>
 
 <!-- PROGRESS -->
 <div class="progress-section" id="progress-section">
-  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
   <div class="progress-text">阅读进度：<span id="progress-percent">0%</span> · <span id="progress-chapters">0/13</span> 章</div>
 </div>
 
 <!-- CHAPTERS -->
-<section id="intro">
-  <article class="chapter-card" id="ch1" aria-labelledby="ch1-title">
+  <article class="chapter-card" id="intro" aria-labelledby="ch1-title">
     <div class="ch-header">
       <div class="ch-num">1</div>
       <div>
-        <h2 class="ch-title" id="ch1-title">第1章 · 两个父亲的财务命运分野</h2>
+        <h2 class="ch-title" id="ch1-title">两个父亲的财务命运分野</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">资产vs负债</span></div>
@@ -155,11 +153,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章作为全书开篇，通过对比作者亲历的两位父亲——高学历穷爸爸与低学历富爸爸——的理财观念和人生轨迹，引出核心问题：为什么有些人能致富而另一些人终生困于财务困境？</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The rich don't work for money. They make money work for them.</div></details>
-      <div class="zh">「富人不为钱工作，他们让钱为他们工作。」</div>
-      <div class="why">💬 这句话直击全书核心：区分了打工思维和投资思维，是财富观的根本转变。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -173,16 +166,18 @@ Poor Dad</div>
       <div class="context-box"><p>美国20世纪中期的教育体系强调‘好成绩、好工作、好生活’的线性路径，退休金制度（如401K）和房贷税收优惠鼓励储蓄和买房，但忽视了投资教育。富爸爸的‘资产vs负债’观念挑战了当时主流的‘买房是最好投资’的社会共识。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>批评者认为富爸爸的‘房子是负债’理论过于绝对，忽视房产长期增值和居住价值；且其鼓励高风险投资的做法不适合普通工薪族，缺乏对风险管理的具体指导。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国，类似‘穷爸爸’思维普遍存在：追求稳定国企工作、热衷储蓄和买房。但A股投资中，许多散户将自住房视为‘资产’而忽视其现金流消耗，富爸爸的资产定义有助于识别真正的投资机会（如分红股、REITs）而非投机性房产。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>asset</strong></td><td class="zh">资产</td><td>能把钱放入你口袋的东西</td></tr><tr><td><strong>liability</strong></td><td class="zh">负债</td><td>持续从你口袋掏钱的东西</td></tr><tr><td><strong>financial literacy</strong></td><td class="zh">财务素养</td><td>理解金钱运作的能力</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>asset</strong></td><td class="zh">资产</td><td>能把钱放入你口袋的东西</td></tr><tr><td><strong>liability</strong></td><td class="zh">负债</td><td>持续从你口袋掏钱的东西</td></tr><tr><td><strong>financial literacy</strong></td><td class="zh">财务素养</td><td>理解金钱运作的能力</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -190,32 +185,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">列出你目前拥有的5项‘资产’和5项‘负债’，按富爸爸定义重新分类</p>
-<p class="hint">💡 提示：注意区分自住房、车等日常消耗品</p>
-<p class="q">回忆最近一次说‘我买不起’的场景，尝试用‘我怎样才能买得起’重新思考</p>
-<p class="hint">💡 提示：关注解决方案而非限制</p>
-      <div class="chat-widget" id="chat-richdad-w1">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">列出你目前拥有的5项‘资产’和5项‘负债’，按富爸爸定义重新分类</p>
+        <p class="hint">💡 提示：注意区分自住房、车等日常消耗品</p>
+        <div class="chat-widget" id="chat-富爸-ch1-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch1-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">注意区分自住房、车等日常消耗品</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch1-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">回忆最近一次说‘我买不起’的场景，尝试用‘我怎样才能买得起’重新思考</p>
+        <p class="hint">💡 提示：关注解决方案而非限制</p>
+        <div class="chat-widget" id="chat-富爸-ch1-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch1-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">关注解决方案而非限制</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch1-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
     <div class="ch-header">
       <div class="ch-num">2</div>
       <div>
-        <h2 class="ch-title" id="ch2-title">第2章 · 跳出“老鼠赛跑”的陷阱</h2>
+        <h2 class="ch-title" id="ch2-title">跳出“老鼠赛跑”的陷阱</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">老鼠赛跑</span></div>
@@ -226,11 +238,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是全书序言，通过一位母亲和会计师的视角，揭示传统教育在财商培养上的失败，并引出核心问题：为何努力学习、找好工作却无法致富？</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">他们终生辛苦地工作，他们的下一代又将重复相同的过程，这就叫‘老鼠赛跑’。</div></details>
-      <div class="zh">「他们终生辛苦地工作，他们的下一代又将重复相同的过程，这就叫‘老鼠赛跑’。」</div>
-      <div class="why">💬 点明核心问题：代际传递的财务无知，打破循环需要认知觉醒。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -244,16 +251,18 @@ Poor Dad</div>
       <div class="context-box"><p>美国20世纪90年代经济转型期，企业裁员（downsizing）和外包盛行，传统“终身雇佣”模式瓦解，社会保险和公司退休金不再可靠，促使人们反思教育价值。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>部分读者认为，努力工作、储蓄、投资指数基金仍是普通人稳妥致富的方式，罗伯特对“老鼠赛跑”的批判过于绝对，忽略了职业发展带来的长期收入和安全感。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国，类似“老鼠赛跑”现象普遍：高学历者挤破头考公、进大厂，却面临35岁危机、高房价和消费贷。本章启发投资者应学习现金流管理，通过购买资产（如优质股票、房产）而非负债（如高杠杆炒房）来构建被动收入，跳出工薪循环。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>Rat Race</strong></td><td class="zh">老鼠赛跑</td><td>比喻为工资而工作、陷入财务困境的循环</td></tr><tr><td><strong>Cashflow</strong></td><td class="zh">现金流</td><td>游戏名，模拟真实财务决策</td></tr><tr><td><strong>Assets vs. Liabilities</strong></td><td class="zh">资产与负债</td><td>核心财务概念，决定财富积累</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Rat Race</strong></td><td class="zh">老鼠赛跑</td><td>比喻为工资而工作、陷入财务困境的循环</td></tr><tr><td><strong>Cashflow</strong></td><td class="zh">现金流</td><td>游戏名，模拟真实财务决策</td></tr><tr><td><strong>Assets vs. Liabilities</strong></td><td class="zh">资产与负债</td><td>核心财务概念，决定财富积累</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -261,32 +270,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">审视你的收入来源：是主动收入为主，还是已有被动收入？</p>
-<p class="hint">💡 提示：列出所有收入，区分工资与租金、股息等</p>
-<p class="q">你或家人是否曾因缺乏财务知识而做出错误消费决策？</p>
-<p class="hint">💡 提示：回忆信用卡分期、高息贷款等实例</p>
-      <div class="chat-widget" id="chat-richdad-w2">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w2')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">审视你的收入来源：是主动收入为主，还是已有被动收入？</p>
+        <p class="hint">💡 提示：列出所有收入，区分工资与租金、股息等</p>
+        <div class="chat-widget" id="chat-富爸-ch2-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch2-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">列出所有收入，区分工资与租金、股息等</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch2-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">你或家人是否曾因缺乏财务知识而做出错误消费决策？</p>
+        <p class="hint">💡 提示：回忆信用卡分期、高息贷款等实例</p>
+        <div class="chat-widget" id="chat-富爸-ch2-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch2-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">回忆信用卡分期、高息贷款等实例</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch2-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
     <div class="ch-header">
       <div class="ch-num">3</div>
       <div>
-        <h2 class="ch-title" id="ch3-title">第3章 · 两种金钱观的碰撞</h2>
+        <h2 class="ch-title" id="ch3-title">两种金钱观的碰撞</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">金钱观念</span></div>
@@ -297,11 +323,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是全书开篇，通过对比作者的穷爸爸和富爸爸在金钱观念上的根本差异，引出核心问题：为什么富人越来越富，穷人越来越穷？</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">贫穷和破产的区别是：破产是暂时的，而贫穷是永久的。</div></details>
-      <div class="zh">「贫穷和破产的区别是：破产是暂时的，而贫穷是永久的。」</div>
-      <div class="why">💬 这句话揭示了心态的长期影响，破产只是财务状态，贫穷是思维固化。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -315,12 +336,14 @@ Poor Dad</div>
       <div class="context-box"><p>本章提及美国的社会保障体系（医疗保险、社会保险）、军队退休金制度以及大学终身聘任制，反映了美国中产阶级对职业保障和福利的依赖，这种依赖导致他们缺乏经济自立意识。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国，许多家庭同样缺乏财商教育，父母只强调学业成绩而忽视理财能力。投资者应反思自己是否也陷入“为钱工作”的陷阱，尝试学习资产配置和被动收入，例如通过A股指数基金定投或REITs实现钱生钱。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>financial intelligence</strong></td><td class="zh">财商</td><td>理解金钱运动规律的能力</td></tr><tr><td><strong>asset</strong></td><td class="zh">资产</td><td>能把钱放进你口袋的东西</td></tr><tr><td><strong>liability</strong></td><td class="zh">负债</td><td>从你口袋拿走钱的东西</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>financial intelligence</strong></td><td class="zh">财商</td><td>理解金钱运动规律的能力</td></tr><tr><td><strong>asset</strong></td><td class="zh">资产</td><td>能把钱放进你口袋的东西</td></tr><tr><td><strong>liability</strong></td><td class="zh">负债</td><td>从你口袋拿走钱的东西</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -328,32 +351,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">你平时面对大额开销时，第一反应是“付不起”还是“怎么付”？</p>
-<p class="hint">💡 提示：记录一周内的自动思维</p>
-<p class="q">你的金钱观主要受谁影响？是否适合现在的你？</p>
-<p class="hint">💡 提示：对比父母与自己的理财行为</p>
-      <div class="chat-widget" id="chat-richdad-w3">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w3')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w3', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">你平时面对大额开销时，第一反应是“付不起”还是“怎么付”？</p>
+        <p class="hint">💡 提示：记录一周内的自动思维</p>
+        <div class="chat-widget" id="chat-富爸-ch3-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch3-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">记录一周内的自动思维</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch3-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">你的金钱观主要受谁影响？是否适合现在的你？</p>
+        <p class="hint">💡 提示：对比父母与自己的理财行为</p>
+        <div class="chat-widget" id="chat-富爸-ch3-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch3-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">对比父母与自己的理财行为</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch3-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
     <div class="ch-header">
       <div class="ch-num">4</div>
       <div>
-        <h2 class="ch-title" id="ch4-title">第4章 · 富人不为钱工作：第一课</h2>
+        <h2 class="ch-title" id="ch4-title">富人不为钱工作：第一课</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">不为钱工作</span></div>
@@ -364,11 +404,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是全书第一课，通过作者9岁时与迈克制造铅币失败、向富爸爸求教的经历，回答“为什么富人不为钱工作”的核心问题，奠定全书财务教育基础。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">“如果你放弃了，你就只能是穷人了。最重要的是你们已经尝试了。大多数人只是夸夸其谈，梦想着发财致富，而你们已经付出了行动。”</div></details>
-      <div class="zh">「“如果你放弃了，你就只能是穷人了。最重要的是你们已经尝试了。大多数人只是夸夸其谈，梦想着发财致富，而你们已经付出了行动。”」</div>
-      <div class="why">💬 强调了行动力比空想更重要，失败是学习过程的一部分。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -382,12 +417,14 @@ Poor Dad</div>
       <div class="context-box"><p>1950年代美国社会，公立学校存在阶级分化：富人子女上私立学校，穷孩子上公立中学。作者所在的甘蔗种植园小镇反映了当时美国南部的经济结构，种植园主和专业人士与工人阶层生活水平差异明显。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国，许多投资者仍停留在“为钱工作”的思维，追求高薪或短期投机。本章提醒A股投资者：不要仅关注股价涨跌（像打工挣钱），而应学习分析企业基本面（资产），让优质公司的利润为自己创造长期收益。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>employee mindset</strong></td><td class="zh">雇员心态</td><td>为钱工作，依赖工资收入</td></tr><tr><td><strong>investor mindset</strong></td><td class="zh">投资者心态</td><td>让钱为自己工作，追求资产增值</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>employee mindset</strong></td><td class="zh">雇员心态</td><td>为钱工作，依赖工资收入</td></tr><tr><td><strong>investor mindset</strong></td><td class="zh">投资者心态</td><td>让钱为自己工作，追求资产增值</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -395,32 +432,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">你目前的收入来源是主动收入还是被动收入？如何调整？</p>
-<p class="hint">💡 提示：思考工资以外的资产来源</p>
-<p class="q">尝试找出一种让钱为你工作的方式（如投资、版权等）</p>
-<p class="hint">💡 提示：选择一项可复制的资产</p>
-      <div class="chat-widget" id="chat-richdad-w4">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w4')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w4', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">你目前的收入来源是主动收入还是被动收入？如何调整？</p>
+        <p class="hint">💡 提示：思考工资以外的资产来源</p>
+        <div class="chat-widget" id="chat-富爸-ch4-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch4-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">思考工资以外的资产来源</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch4-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">尝试找出一种让钱为你工作的方式（如投资、版权等）</p>
+        <p class="hint">💡 提示：选择一项可复制的资产</p>
+        <div class="chat-widget" id="chat-富爸-ch4-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch4-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">选择一项可复制的资产</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch4-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
     <div class="ch-header">
       <div class="ch-num">5</div>
       <div>
-        <h2 class="ch-title" id="ch5-title">第5章 · 资产与负债：财富的基石</h2>
+        <h2 class="ch-title" id="ch5-title">资产与负债：财富的基石</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">资产与负债</span></div>
@@ -431,11 +485,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是全书核心章节，回答'为什么财务知识比赚钱更重要'，通过资产与负债的区分，揭示穷人、中产与富人财富分化的根本原因。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">富人获得资产，而穷人和中产阶级获得负债，只不过他们以为那些负债就是资产。</div></details>
-      <div class="zh">「富人获得资产，而穷人和中产阶级获得负债，只不过他们以为那些负债就是资产。」</div>
-      <div class="why">💬 这句金句揭示了财富分化的核心机制，是全书最精炼的洞见。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -449,16 +498,18 @@ Poor Dad</div>
       <div class="context-box"><p>1923年芝加哥海岸酒店会议背景：当时美国正处于'咆哮的二十年代'经济繁荣期，但随后1929年股市大崩溃和大萧条摧毁了这些商业巨头。这反映了美国历史上周期性经济危机对个人财富的毁灭性影响，也说明财务知识在动荡时代中的保护作用。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>一些传统财务专家认为资产定义应更复杂，包括折旧、税务优化等，简单的'资产产生收入'说法过于简化，忽略了房产等非现金流的资产增值潜力。但富爸爸认为对初学者必须简化，先建立正确思维框架。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国A股市场，许多散户购买'热门概念股'或'庄股'，以为是在买资产，实际是在追逐价格波动，本质是投机负债。真正资产是能持续产生现金流的股票（如高分红蓝筹股）或REITs。投资者应学习财报分析，区分企业是'印钞机'还是'碎钞机'。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>Asset</strong></td><td class="zh">资产</td><td>能把钱放进你口袋里的东西</td></tr><tr><td><strong>Liability</strong></td><td class="zh">负债</td><td>能把钱从你口袋里取走的东西</td></tr><tr><td><strong>Income Statement</strong></td><td class="zh">收益表</td><td>衡量收入和支出的财务表格</td></tr><tr><td><strong>Balance Sheet</strong></td><td class="zh">资产负债表</td><td>说明资产与负债情况的表格</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Asset</strong></td><td class="zh">资产</td><td>能把钱放进你口袋里的东西</td></tr><tr><td><strong>Liability</strong></td><td class="zh">负债</td><td>能把钱从你口袋里取走的东西</td></tr><tr><td><strong>Income Statement</strong></td><td class="zh">收益表</td><td>衡量收入和支出的财务表格</td></tr><tr><td><strong>Balance Sheet</strong></td><td class="zh">资产负债表</td><td>说明资产与负债情况的表格</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -466,32 +517,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">列出你过去一年购买的5件物品，判断每件是资产还是负债？</p>
-<p class="hint">💡 提示：思考每件物品是否给你带来收入</p>
-<p class="q">计算你每月现金流：收入减去固定支出后，还剩多少用于投资？</p>
-<p class="hint">💡 提示：用收益表格式记录一周开销</p>
-      <div class="chat-widget" id="chat-richdad-w5">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w5')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w5', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">列出你过去一年购买的5件物品，判断每件是资产还是负债？</p>
+        <p class="hint">💡 提示：思考每件物品是否给你带来收入</p>
+        <div class="chat-widget" id="chat-富爸-ch5-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch5-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">思考每件物品是否给你带来收入</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch5-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">计算你每月现金流：收入减去固定支出后，还剩多少用于投资？</p>
+        <p class="hint">💡 提示：用收益表格式记录一周开销</p>
+        <div class="chat-widget" id="chat-富爸-ch5-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch5-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">用收益表格式记录一周开销</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch5-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
     <div class="ch-header">
       <div class="ch-num">6</div>
       <div>
-        <h2 class="ch-title" id="ch6-title">第6章 · 职业与事业的本质区别</h2>
+        <h2 class="ch-title" id="ch6-title">职业与事业的本质区别</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">资产事业</span></div>
@@ -502,11 +570,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是《富爸爸穷爸爸》第四章，核心回答“为什么关注自己的事业比关注职业更重要”，并阐述如何通过资产而非收入实现财务自由。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Most people work for everyone else but themselves. They work first for the boss, then for the government through taxes, and finally for the bank that holds their mortgage.</div></details>
-      <div class="zh">「大多数人工作其实是为其他人，而非他们自己。首先他们要为公司的老板工作，其次是通过纳税为政府工作，最后是为向他们提供住房按揭贷款的银行工作。」</div>
-      <div class="why">💬 这句话揭示了大多数人财务困境的根源：为他人工作而非积累自身资产。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -520,16 +583,18 @@ Poor Dad</div>
       <div class="context-box"><p>美国教育体系强调职业培训，导致人们只关注工资收入。美国信贷体系允许将个人用品（如高尔夫球杆）列为资产，但实际价值低且需缴税。麦当劳作为全球最大独立房地产商，体现了美国商业中房地产的核心地位。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>一些批评者认为，过度强调资产积累可能忽视风险，如房地产投资可能因市场波动导致损失；同时，并非所有人都适合创业，新公司5年存活率仅10%，建议谨慎。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国，可应用于A股投资：关注资产型股票（如分红稳定的蓝筹股或REITs），而非依赖工资收入。例如，购买能产生现金流的房地产公司股票或债券，避免将资金投入高消费负债（如豪华车）。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>asset</strong></td><td class="zh">资产</td><td>能带来现金流入的东西</td></tr><tr><td><strong>liability</strong></td><td class="zh">负债</td><td>导致现金流出的东西</td></tr><tr><td><strong>income statement</strong></td><td class="zh">收益表</td><td>记录收入和支出的财务表</td></tr><tr><td><strong>balance sheet</strong></td><td class="zh">资产负债表</td><td>列出资产和负债的财务表</td></tr><tr><td><strong>net worth</strong></td><td class="zh">净资产</td><td>资产减负债，但需考虑税负</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>asset</strong></td><td class="zh">资产</td><td>能带来现金流入的东西</td></tr><tr><td><strong>liability</strong></td><td class="zh">负债</td><td>导致现金流出的东西</td></tr><tr><td><strong>income statement</strong></td><td class="zh">收益表</td><td>记录收入和支出的财务表</td></tr><tr><td><strong>balance sheet</strong></td><td class="zh">资产负债表</td><td>列出资产和负债的财务表</td></tr><tr><td><strong>net worth</strong></td><td class="zh">净资产</td><td>资产减负债，但需考虑税负</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -537,32 +602,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">列出你的资产和负债清单，哪些能产生现金流？</p>
-<p class="hint">💡 提示：参考原文中的资产类别</p>
-<p class="q">你最近一次加薪或升职后，如何支配额外收入？</p>
-<p class="hint">💡 提示：是否用于购买资产或负债？</p>
-      <div class="chat-widget" id="chat-richdad-w6">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w6')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w6', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">列出你的资产和负债清单，哪些能产生现金流？</p>
+        <p class="hint">💡 提示：参考原文中的资产类别</p>
+        <div class="chat-widget" id="chat-富爸-ch6-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch6-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">参考原文中的资产类别</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch6-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">你最近一次加薪或升职后，如何支配额外收入？</p>
+        <p class="hint">💡 提示：是否用于购买资产或负债？</p>
+        <div class="chat-widget" id="chat-富爸-ch6-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch6-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">是否用于购买资产或负债？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch6-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
     <div class="ch-header">
       <div class="ch-num">7</div>
       <div>
-        <h2 class="ch-title" id="ch7-title">第7章 · 税收陷阱与公司护身符</h2>
+        <h2 class="ch-title" id="ch7-title">税收陷阱与公司护身符</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">公司避税</span></div>
@@ -573,11 +655,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章位于全书第五章，核心回答：为何税收最终惩罚中产阶级而非富人，以及富人如何利用公司制度合法避税，揭示财务知识的重要性。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">如果你为钱工作，你就把力量给了你的老板；如果让钱为你工作，你就能控制这种力量。</div></details>
-      <div class="zh">「如果你为钱工作，你就把力量给了你的老板；如果让钱为你工作，你就能控制这种力量。」</div>
-      <div class="why">💬 这句话点明财务自由的核心：从被动打工转向主动控制财富，改变税负命运。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -591,16 +668,18 @@ Poor Dad</div>
       <div class="context-box"><p>美国1913年通过宪法第16修正案确立所得税，最初仅针对高收入者。富人随后利用公司法律结构（如有限责任公司）将个人收入转化为企业收入，享受更低税率和更多抵扣，这反映了美国税收政策与资本运作的长期博弈。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>穷爸爸代表政府官员观点，认为政府应通过税收帮助穷人，富人应多缴税；他信奉罗宾汉式的劫富济贫，但现实中这反而加重了中产阶级负担。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>中国个人所得税累进税率最高45%，而小微企业可享受税收优惠。投资者可关注合法利用个体工商户、合伙企业等结构降低税负，并通过房地产投资中的资本增值延迟纳税策略（类似1031条款的置换政策）优化资产配置。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>1031 exchange</strong></td><td class="zh">1031条款</td><td>美国税法允许房地产资本利得延迟纳税</td></tr><tr><td><strong>corporation</strong></td><td class="zh">公司</td><td>法律实体，可保护富人财富并降低税率</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>1031 exchange</strong></td><td class="zh">1031条款</td><td>美国税法允许房地产资本利得延迟纳税</td></tr><tr><td><strong>corporation</strong></td><td class="zh">公司</td><td>法律实体，可保护富人财富并降低税率</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -608,32 +687,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">你目前的收入结构是否让你成为‘乖乖待挤的奶牛’？如何调整？</p>
-<p class="hint">💡 提示：思考收入来源是工资还是资产收益</p>
-<p class="q">你了解中国税法中哪些合法避税工具？</p>
-<p class="hint">💡 提示：搜索小微企业税收优惠或房产置换政策</p>
-      <div class="chat-widget" id="chat-richdad-w7">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w7')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w7', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">你目前的收入结构是否让你成为‘乖乖待挤的奶牛’？如何调整？</p>
+        <p class="hint">💡 提示：思考收入来源是工资还是资产收益</p>
+        <div class="chat-widget" id="chat-富爸-ch7-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch7-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">思考收入来源是工资还是资产收益</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch7-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">你了解中国税法中哪些合法避税工具？</p>
+        <p class="hint">💡 提示：搜索小微企业税收优惠或房产置换政策</p>
+        <div class="chat-widget" id="chat-富爸-ch7-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch7-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">搜索小微企业税收优惠或房产置换政策</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch7-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
     <div class="ch-header">
       <div class="ch-num">8</div>
       <div>
-        <h2 class="ch-title" id="ch8-title">第8章 · 勇气与选择：富人的投资之道</h2>
+        <h2 class="ch-title" id="ch8-title">勇气与选择：富人的投资之道</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">投资勇气</span></div>
@@ -645,11 +741,6 @@ Poor Dad</div>
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是《富爸爸穷爸爸》的核心实践章节，回答“为什么富人更敢于投资”的问题，强调财商不仅需要专业知识，更需要勇气和创造性思维来抓住机会。</p></div>
     </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">在现实生活中，人们往往是依靠勇气而不是智慧去取得领先的位置的。</div></details>
-      <div class="zh">「在现实生活中，人们往往是依靠勇气而不是智慧去取得领先的位置的。」</div>
-      <div class="why">💬 这句话点明勇气在投资中的决定性作用，挑战了“知识至上”的传统观念</div>
-    </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
       <div class="concept-box">
@@ -658,12 +749,14 @@ Poor Dad</div>
       </div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在A股市场，投资者常因恐惧波动而错失机会，如2015年股灾后许多人恐慌抛售，但敢于在低点布局的投资者最终获益。本章鼓励克服自我怀疑，学习分析公司财报（类似收益表与资产负债表），寻找现金流强劲的优质标的，而非盲目跟风。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>cash flow</strong></td><td class="zh">现金流</td><td>资产项产生的月度现金收入</td></tr><tr><td><strong>rat race</strong></td><td class="zh">老鼠赛跑</td><td>为支付账单而疲于奔命的循环</td></tr><tr><td><strong>fast track</strong></td><td class="zh">快车道</td><td>资产现金流超过支出后的财富增长阶段</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>cash flow</strong></td><td class="zh">现金流</td><td>资产项产生的月度现金收入</td></tr><tr><td><strong>rat race</strong></td><td class="zh">老鼠赛跑</td><td>为支付账单而疲于奔命的循环</td></tr><tr><td><strong>fast track</strong></td><td class="zh">快车道</td><td>资产现金流超过支出后的财富增长阶段</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -671,32 +764,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">回顾一次因恐惧而错过的投资机会，分析如何改变心态？</p>
-<p class="hint">💡 提示：想想当时最大的担忧是什么</p>
-<p class="q">列出三项可增加月现金流的小投资，如股息股或副业</p>
-<p class="hint">💡 提示：关注能产生稳定现金流的资产</p>
-      <div class="chat-widget" id="chat-richdad-w8">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w8')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w8', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">回顾一次因恐惧而错过的投资机会，分析如何改变心态？</p>
+        <p class="hint">💡 提示：想想当时最大的担忧是什么</p>
+        <div class="chat-widget" id="chat-富爸-ch8-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch8-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">想想当时最大的担忧是什么</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch8-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">列出三项可增加月现金流的小投资，如股息股或副业</p>
+        <p class="hint">💡 提示：关注能产生稳定现金流的资产</p>
+        <div class="chat-widget" id="chat-富爸-ch8-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch8-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">关注能产生稳定现金流的资产</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch8-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
     <div class="ch-header">
       <div class="ch-num">9</div>
       <div>
-        <h2 class="ch-title" id="ch9-title">第9章 · 能力组合：超越专业化的财富密码</h2>
+        <h2 class="ch-title" id="ch9-title">能力组合：超越专业化的财富密码</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">技能综合</span></div>
@@ -707,11 +817,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章在《富爸爸穷爸爸》中位于第七课，核心回答为何仅靠单一专业技能难以致富，强调综合技能（销售、市场、法律、财商）对财富积累的关键作用。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">对于受过良好教育的爸爸来说，工作的稳定就是一切；而对于富爸爸来说，不断学习才是一切。</div></details>
-      <div class="zh">「对于受过良好教育的爸爸来说，工作的稳定就是一切；而对于富爸爸来说，不断学习才是一切。」</div>
-      <div class="why">💬 这句话点明两种思维差异：稳定vs成长，后者是财富积累的根基。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -725,16 +830,18 @@ Poor Dad</div>
       <div class="context-box"><p>美国社会强调专业化教育，许多专业人士（医生、律师）毕业后收入高但财务困难，因缺乏理财和销售技能。作者批评学校只培养“雇员思维”，而非“企业家思维”。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>传统观点认为专业化是升职加薪的捷径，如医生专攻骨科、会计师专注税务。但富爸爸反驳：社会越来越不奖励学得多的人，单一技能在财务上脆弱，易被裁员或收入瓶颈。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在A股市场，投资者常只关注技术分析或基本面分析（单一技能），但财商要求结合会计（读财报）、投资（资产配置）、市场（情绪判断）和法律（合规知识）。例如，学习销售技巧可帮助散户理解主力操盘逻辑，避免追涨杀跌。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>job</strong></td><td class="zh">工作</td><td>just over broke（比破产强一点）的缩写</td></tr><tr><td><strong>specialization</strong></td><td class="zh">专业化</td><td>单一技能，收入受限</td></tr><tr><td><strong>financial intelligence</strong></td><td class="zh">财商</td><td>会计、投资、市场、法律综合能力</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>job</strong></td><td class="zh">工作</td><td>just over broke（比破产强一点）的缩写</td></tr><tr><td><strong>specialization</strong></td><td class="zh">专业化</td><td>单一技能，收入受限</td></tr><tr><td><strong>financial intelligence</strong></td><td class="zh">财商</td><td>会计、投资、市场、法律综合能力</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -742,32 +849,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">你目前工作中学到的技能是否超过一项？如何拓展？</p>
-<p class="hint">💡 提示：列出你现有技能，再选一个短板如销售或理财</p>
-<p class="q">如果明天失业，你靠什么技能赚钱？</p>
-<p class="hint">💡 提示：思考副业或可迁移能力</p>
-      <div class="chat-widget" id="chat-richdad-w9">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w9')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w9', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">你目前工作中学到的技能是否超过一项？如何拓展？</p>
+        <p class="hint">💡 提示：列出你现有技能，再选一个短板如销售或理财</p>
+        <div class="chat-widget" id="chat-富爸-ch9-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch9-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">列出你现有技能，再选一个短板如销售或理财</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch9-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">如果明天失业，你靠什么技能赚钱？</p>
+        <p class="hint">💡 提示：思考副业或可迁移能力</p>
+        <div class="chat-widget" id="chat-富爸-ch9-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch9-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">思考副业或可迁移能力</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch9-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch10" aria-labelledby="ch10-title">
     <div class="ch-header">
       <div class="ch-num">10</div>
       <div>
-        <h2 class="ch-title" id="ch10-title">第10章 · 克服财务自由的五大心理障碍</h2>
+        <h2 class="ch-title" id="ch10-title">克服财务自由的五大心理障碍</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">恐惧与失败</span></div>
@@ -778,11 +902,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章位于全书后半部分，核心回答为何掌握财务知识的人仍无法积累资产。作者指出五个主要障碍：恐惧、愤世嫉俗、懒惰、不良习惯和自负，并重点剖析恐惧心理。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">胜利意味着不害怕失败。</div></details>
-      <div class="zh">「胜利意味着不害怕失败。」</div>
-      <div class="why">💬 这句话精准概括了本章核心：恐惧失败是最大障碍，克服恐惧才能胜利。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -796,12 +915,14 @@ Poor Dad</div>
       <div class="context-box"><p>文中提到401(k)计划是美国雇主提供的退休储蓄计划，允许员工税前供款并投资于共同基金等，退休时提取需缴税。阿拉莫是1836年得克萨斯独立战争中一场悲壮战役的遗址，得克萨斯人虽败犹荣，后来成为美国精神的象征。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>A股投资者常因恐惧亏损而频繁交易或持有低收益理财产品，错失长期成长机会。建议学习书中“集中精力”原则，在深入研究后选择少数优质股票或基金，并接受短期波动作为学习成本，而非分散投资于多个不熟悉的标的。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>401(k)</strong></td><td class="zh">401(k)退休计划</td><td>美国雇主提供的税收优惠退休储蓄账户</td></tr><tr><td><strong>rat race</strong></td><td class="zh">老鼠赛跑</td><td>为支付账单而不断工作的循环模式</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>401(k)</strong></td><td class="zh">401(k)退休计划</td><td>美国雇主提供的税收优惠退休储蓄账户</td></tr><tr><td><strong>rat race</strong></td><td class="zh">老鼠赛跑</td><td>为支付账单而不断工作的循环模式</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -809,32 +930,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">回顾你最近一次投资亏损的经历，你是如何反应的？是否从中学习了什么？</p>
-<p class="hint">💡 提示：思考亏损是否让你更谨慎或更进取</p>
-<p class="q">你目前的投资组合是追求安全还是追求赢利？如何调整？</p>
-<p class="hint">💡 提示：考虑集中投资于你熟悉的领域</p>
-      <div class="chat-widget" id="chat-richdad-w10">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w10')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w10', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">回顾你最近一次投资亏损的经历，你是如何反应的？是否从中学习了什么？</p>
+        <p class="hint">💡 提示：思考亏损是否让你更谨慎或更进取</p>
+        <div class="chat-widget" id="chat-富爸-ch10-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch10-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">思考亏损是否让你更谨慎或更进取</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch10-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">你目前的投资组合是追求安全还是追求赢利？如何调整？</p>
+        <p class="hint">💡 提示：考虑集中投资于你熟悉的领域</p>
+        <div class="chat-widget" id="chat-富爸-ch10-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch10-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">考虑集中投资于你熟悉的领域</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch10-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch11" aria-labelledby="ch11-title">
     <div class="ch-header">
       <div class="ch-num">11</div>
       <div>
-        <h2 class="ch-title" id="ch11-title">第11章 · 10步唤醒你的理财天赋</h2>
+        <h2 class="ch-title" id="ch11-title">10步唤醒你的理财天赋</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">理财天赋</span></div>
@@ -846,11 +984,6 @@ Poor Dad</div>
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是《富爸爸穷爸爸》的行动指南，核心回答“如何开始致富”的问题，提供10个具体步骤来唤醒读者的理财天赋，强调精神动力、选择和持续学习的重要性。</p></div>
     </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">金矿到处都是，但大部分人没有经过相应的培训，所以发现不了它们。</div></details>
-      <div class="zh">「金矿到处都是，但大部分人没有经过相应的培训，所以发现不了它们。」</div>
-      <div class="why">💬 这句金句点明理财机会无处不在，关键在于通过学习和培训来发现，而非抱怨环境。</div>
-    </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
       <div class="concept-box">
@@ -859,16 +992,18 @@ Poor Dad</div>
       </div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>部分人认为致富需要运气或继承，而非刻意学习；也有观点批评作者轻视传统就业的稳定性，认为其建议过于理想化。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在A股市场，投资者常跟风炒作或听信内幕消息，而非先学习财报分析或公司研究。本章建议可应用于：先参加价值投资培训（如研读巴菲特致股东信），再谨慎投资，避免盲目追涨杀跌。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>financial genius</strong></td><td class="zh">理财天赋</td><td>每个人与生俱来的理财才能，需唤醒</td></tr><tr><td><strong>super-realistic reason</strong></td><td class="zh">超现实的理由</td><td>克服困难的精神动力，如“想要”和“不想要”</td></tr><tr><td><strong>power of choice</strong></td><td class="zh">选择的力量</td><td>每天利用时间、金钱和头脑作出投资决策</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>financial genius</strong></td><td class="zh">理财天赋</td><td>每个人与生俱来的理财才能，需唤醒</td></tr><tr><td><strong>super-realistic reason</strong></td><td class="zh">超现实的理由</td><td>克服困难的精神动力，如“想要”和“不想要”</td></tr><tr><td><strong>power of choice</strong></td><td class="zh">选择的力量</td><td>每天利用时间、金钱和头脑作出投资决策</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -876,32 +1011,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">你内心最强烈的“想要”和“不想要”是什么？如何转化为行动？</p>
-<p class="hint">💡 提示：列出具体目标，如不想加班或想周游世界</p>
-<p class="q">过去一周你如何分配时间？有多少用于学习投资知识？</p>
-<p class="hint">💡 提示：统计每天学习时长，对比消费时间</p>
-      <div class="chat-widget" id="chat-richdad-w11">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w11')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w11', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">你内心最强烈的“想要”和“不想要”是什么？如何转化为行动？</p>
+        <p class="hint">💡 提示：列出具体目标，如不想加班或想周游世界</p>
+        <div class="chat-widget" id="chat-富爸-ch11-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch11-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">列出具体目标，如不想加班或想周游世界</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch11-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">过去一周你如何分配时间？有多少用于学习投资知识？</p>
+        <p class="hint">💡 提示：统计每天学习时长，对比消费时间</p>
+        <div class="chat-widget" id="chat-富爸-ch11-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch11-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">统计每天学习时长，对比消费时间</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch11-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch12" aria-labelledby="ch12-title">
     <div class="ch-header">
       <div class="ch-num">12</div>
       <div>
-        <h2 class="ch-title" id="ch12-title">第12章 · 行动至上：从思考到实践</h2>
+        <h2 class="ch-title" id="ch12-title">行动至上：从思考到实践</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">行动力</span></div>
@@ -912,11 +1064,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是《富爸爸穷爸爸》的实践篇，在阐述财务自由理念后，具体回答“如何开始行动”的问题，提供从思想到行动的转化方法。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">做同一件事情却希望有不同的结果是神志不清的表现。不要做那些无效的事情，找一些有效的事情去做。</div></details>
-      <div class="zh">「做同一件事情却希望有不同的结果是神志不清的表现。不要做那些无效的事情，找一些有效的事情去做。」</div>
-      <div class="why">💬 这句话直击投资者常见误区，强调行动前需反思和调整策略。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -930,16 +1077,18 @@ Poor Dad</div>
       <div class="context-box"><p>美国房地产税收留置权（tax lien）允许投资者通过支付拖欠税款获得高利息收益，是书中16%收益率的来源。破产清偿部（bankruptcy department）是银行处理不良资产的渠道，常提供低于市价的房产。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#b33"></span> ⚔️ 反方观点</div>
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
       <div class="counter-box"><p>邻居认为16%收益率不可能实现，且反对花500美元参加学习班，认为不必要。朋友认为同时报多个低价报价无礼，可能冒犯卖主。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>中国投资者可借鉴行动原则：在A股市场，当大盘下跌时逆向买入优质蓝筹股；在房地产领域，关注法拍房或不良资产处置机会；通过参加投资讲座或读书会获取新思路。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>tax lien</strong></td><td class="zh">税收留置权</td><td>政府因欠税对财产设定的优先权，投资者可购买获取利息</td></tr><tr><td><strong>bankruptcy department</strong></td><td class="zh">破产清偿部</td><td>银行处理不良资产的部门，常低价出售房产</td></tr><tr><td><strong>offer</strong></td><td class="zh">报价</td><td>买方提出的购买价格，可附带免责条款</td></tr><tr><td><strong>pattern</strong></td><td class="zh">模式</td><td>独特的投资方法或策略，从书中学习</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>tax lien</strong></td><td class="zh">税收留置权</td><td>政府因欠税对财产设定的优先权，投资者可购买获取利息</td></tr><tr><td><strong>bankruptcy department</strong></td><td class="zh">破产清偿部</td><td>银行处理不良资产的部门，常低价出售房产</td></tr><tr><td><strong>offer</strong></td><td class="zh">报价</td><td>买方提出的购买价格，可附带免责条款</td></tr><tr><td><strong>pattern</strong></td><td class="zh">模式</td><td>独特的投资方法或策略，从书中学习</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -947,32 +1096,49 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">你是否有长期坚持但效果不佳的投资习惯？如何改变？</p>
-<p class="hint">💡 提示：参考书中“停下无效工作”的建议</p>
-<p class="q">本周内尝试寻找一个你感兴趣的新投资模式，并采取一个小行动</p>
-<p class="hint">💡 提示：如去书店或参加免费讲座</p>
-      <div class="chat-widget" id="chat-richdad-w12">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w12')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w12', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">你是否有长期坚持但效果不佳的投资习惯？如何改变？</p>
+        <p class="hint">💡 提示：参考书中“停下无效工作”的建议</p>
+        <div class="chat-widget" id="chat-富爸-ch12-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch12-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">参考书中“停下无效工作”的建议</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch12-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">本周内尝试寻找一个你感兴趣的新投资模式，并采取一个小行动</p>
+        <p class="hint">💡 提示：如去书店或参加免费讲座</p>
+        <div class="chat-widget" id="chat-富爸-ch12-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch12-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">如去书店或参加免费讲座</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch12-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
   <article class="chapter-card" id="ch13" aria-labelledby="ch13-title">
     <div class="ch-header">
       <div class="ch-num">13</div>
       <div>
-        <h2 class="ch-title" id="ch13-title">第13章 · 财商：7000美元撬动大学教育</h2>
+        <h2 class="ch-title" id="ch13-title">财商：7000美元撬动大学教育</h2>
       </div>
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">财商</span></div>
@@ -983,11 +1149,6 @@ Poor Dad</div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
       <div class="block-content"><p>本章是《富爸爸穷爸爸》的结束语，通过一个具体案例（用7000美元投资房产支付40万美元大学费用）来展示如何运用财商而非辛苦工作解决财务问题，并总结全书核心思想：金钱是一种观念，改变思维就能改变人生。</p></div>
-    </div>
-    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">金钱是一种观念，如果你想要更多的钱，只需改变你的思想。任何一个白手起家的人都是在某种思想的指导下，从小生意做起，然后不断做大。投资也是如此，起初只需投入一点钱，最后增长到很大数额。</div></details>
-      <div class="zh">「金钱是一种观念，如果你想要更多的钱，只需改变你的思想。任何一个白手起家的人都是在某种思想的指导下，从小生意做起，然后不断做大。投资也是如此，起初只需投入一点钱，最后增长到很大数额。」</div>
-      <div class="why">💬 这句话揭示了全书核心：财富源于思维转变，而非单纯努力工作，是本章及全书的点睛之笔。</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
@@ -1001,12 +1162,14 @@ Poor Dad</div>
       <div class="context-box"><p>本章涉及美国“非限制性贷款”（non-qualifying loan），指无需工作、收入、财产担保即可申请的贷款，这在美国房地产市场中常见于房主急于出售时，允许无业或无信用记录者购买房产。此外，“1031条款”是美国国税局规定，允许投资者出售房产后将收益投入同类资产，从而递延资本利得税，这为投资者提供了税务优化工具。这些制度在中国房地产市场中并不存在，中国购房需银行按揭贷款，且房产交易需缴纳增值税、契税等，无类似递延税收机制。</p></div>
     </div>
     <div class="block">
-      <div class="block-label"><span class="dot" style="background:#e0a030"></span> 🇨🇳 中国市场关联</div>
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
       <div class="china-box"><p>在中国，投资者可借鉴本章的“从小笔金额做起”和“利用杠杆”理念，但需注意制度差异。例如，中国房产投资首付比例高（通常30%以上），且无法像美国那样通过非限制性贷款或1031条款避税。但投资者可关注A股市场中的低价股或可转债（如面值100元附近的可转债），以小额资金起步，利用市场波动获取收益。同时，可学习“让钱为你工作”的思维，将股息或租金收入再投资，逐步积累复利。例如，每月定投沪深300指数基金，长期持有并利用分红再投资，也能实现类似效果。</p></div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
-      <table class="term-table"><tr><td><strong>non-qualifying loan</strong></td><td class="zh">非限制性贷款</td><td>无需工作、收入、财产担保的贷款，适合无信用者</td></tr><tr><td><strong>1031 exchange</strong></td><td class="zh">1031条款</td><td>美国税法允许递延资本利得税的投资置换条款</td></tr></table>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>non-qualifying loan</strong></td><td class="zh">非限制性贷款</td><td>无需工作、收入、财产担保的贷款，适合无信用者</td></tr><tr><td><strong>1031 exchange</strong></td><td class="zh">1031条款</td><td>美国税法允许递延资本利得税的投资置换条款</td></tr>      </table>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
@@ -1014,34 +1177,44 @@ Poor Dad</div>
     </div>
     <div class="block">
       <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
-      <div class="exercise-box"><p class="q">如果你有1万元人民币，如何运用财商在5年内翻倍？</p>
-<p class="hint">💡 提示：考虑低风险投资如可转债或指数基金定投</p>
-<p class="q">你身边有哪些‘非限制性贷款’类似的融资机会？</p>
-<p class="hint">💡 提示：如亲友借款或互联网金融平台小额贷款</p>
-      <div class="chat-widget" id="chat-richdad-w13">
-        <div class="chat-header" onclick="toggleChat('chat-richdad-w13')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">清崎会问你：<strong>从富爸爸的视角，你会怎么处理这个问题？</strong>不用管对错，先说出你的第一反应。</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-richdad-w13', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+    <div class="exercise-box">
+        <p class="q">如果你有1万元人民币，如何运用财商在5年内翻倍？</p>
+        <p class="hint">💡 提示：考虑低风险投资如可转债或指数基金定投</p>
+        <div class="chat-widget" id="chat-富爸-ch13-q1">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch13-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">考虑低风险投资如可转债或指数基金定投</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch13-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-</div>
+    <div class="exercise-box">
+        <p class="q">你身边有哪些‘非限制性贷款’类似的融资机会？</p>
+        <p class="hint">💡 提示：如亲友借款或互联网金融平台小额贷款</p>
+        <div class="chat-widget" id="chat-富爸-ch13-q2">
+          <div class="chat-header" onclick="toggleChat('chat-富爸-ch13-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">如亲友借款或互联网金融平台小额贷款</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-富爸-ch13-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
     </div>
   </article>
-</section>
-
-<!-- CTA -->
-<section class="cta-banner">
-  <h3>读完本书，你的投资认知升级了吗？</h3>
-  <p>前往<a href="../../index.html">修行首页</a>记录你的读书笔记和实践原则，将知识转化为行动。</p>
-</section>
 
 <footer>
   <p>📚 AI精读笔记 · 《富爸爸穷爸爸》13章精读</p>
@@ -1052,6 +1225,8 @@ Poor Dad</div>
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
 <script src="../../assets/js/data_v2.js"></script>
 <script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/local-auth.js"></script>
+<script src="../../assets/js/supabase-auth.js"></script>
 <script src="../../assets/js/chat.js"></script>
 </body>
 </html>
