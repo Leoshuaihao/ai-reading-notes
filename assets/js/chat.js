@@ -86,27 +86,20 @@
     }
   };
 
-  // ==================== 书籍 → 作者人设映射 ====================
-  var BOOK_PROMPTS = {
-    'fisher':              { author: 'Philip A. Fisher',   book: 'Common Stocks and Uncommon Profits' },
-
-    'market-cycle':        { author: 'Howard Marks',       book: '周期' },
-    'buffett-letters':     { author: 'Warren Buffett',      book: '巴菲特致股东的信' },
-    'alchemy-finance':     { author: 'George Soros',       book: '金融炼金术' },
-    'poor-charlie':        { author: 'Charlie Munger',     book: '穷查理宝典' },
-    'intelligent-investor': { author: 'Benjamin Graham',    book: '聪明的投资者' },
-    'peter-lynch':         { author: 'Peter Lynch',        book: '彼得·林奇的成功投资' },
-    'security-analysis':   { author: 'Benjamin Graham',    book: '证券分析' },
-    'beating-street':      { author: 'Peter Lynch',        book: '战胜华尔街' },
-    'stock-operator':      { author: 'Jesse Livermore',   book: '股票大作手回忆录' },
-    'economic-moat':      { author: 'Pat Dorsey',         book: '巴菲特的护城河' },
-    'fooled-by-randomness': { author: 'Nassim Taleb',      book: '随机漫步的傻瓜' },
-    'black-swan':          { author: 'Nassim Taleb',       book: '黑天鹅' },
-    'antifragile':         { author: 'Nassim Taleb',       book: '反脆弱' },
-    'principles':          { author: 'Ray Dalio',          book: '原则' },
-    'random-walk':         { author: 'Burton Malkiel',     book: '漫步华尔街' },
-    'richdad':             { author: 'Robert Kiyosaki',    book: '富爸爸穷爸爸' }
-  };
+  // ==================== 书籍 → 作者人设映射（动态从 AppDataV2 读取，旧硬编码已废弃） ====================
+  function getBookInfo(slug) {
+    // 优先使用 V2 新引擎
+    if (typeof AppDataV2 !== 'undefined' && AppDataV2.BOOK_REGISTRY) {
+      var book = AppDataV2.BOOK_REGISTRY[slug];
+      if (book) return { author: book.basic.author.name, book: book.basic.title };
+    }
+    // 降级到旧 data.js 的 BOOK_META（过渡期兼容）
+    if (typeof AppData !== 'undefined' && AppData.BOOK_META) {
+      var meta = AppData.BOOK_META[slug];
+      if (meta) return { author: meta.title, book: meta.title };
+    }
+    return { author: '投资大师', book: '投资经典' };
+  }
 
   function getBookSlug() {
     var m = window.location.pathname.match(/books\/([^/]+)/);
@@ -116,7 +109,7 @@
   // ==================== System Prompt 构建（按当前书动态生成） ====================
   function buildPrompt(chapterInfo) {
     var slug = getBookSlug();
-    var info = BOOK_PROMPTS[slug] || { author: '投资大师', book: '投资经典' };
+    var info = getBookInfo(slug);
     return '你是投资导师，扮演' + info.author + '（《' + info.book + '》作者）。\n\n' +
       '与中文读者讨论书中的思考题。原则：\n' +
       '1. 苏格拉底式提问引导读者说出想法，不直接给答案\n' +

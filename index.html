@@ -391,6 +391,7 @@
 </div>
 </section>
 
+<script src="assets/js/data_v2.js"></script>
 <script src="assets/js/data.js"></script>
 
 <!-- ===== 趣味测试逻辑 ===== -->
@@ -1697,29 +1698,6 @@
   var USE_REAL_API = true;  // Worker 已部署，启用真实 AI
   var MODEL = 'deepseek-chat';
   var REQUEST_TIMEOUT = 15000;
-
-  // ==================== 书籍 → 作者人设映射（与 chat.js BOOK_PROMPTS 对齐） ====================
-  var BOOK_PROMPTS = {
-    'fisher':              { author: 'Philip A. Fisher',   book: '怎样选择成长股' },
-
-    'market-cycle':        { author: 'Howard Marks',       book: '周期' },
-    'buffett-letters':     { author: 'Warren Buffett',      book: '巴菲特致股东的信' },
-    'alchemy-finance':     { author: 'George Soros',       book: '金融炼金术' },
-    'poor-charlie':        { author: 'Charlie Munger',     book: '穷查理宝典' },
-    'intelligent-investor': { author: 'Benjamin Graham',    book: '聪明的投资者' },
-    'security-analysis':   { author: 'Benjamin Graham',     book: '证券分析' },
-    'peter-lynch':         { author: 'Peter Lynch',        book: '彼得·林奇的成功投资' },
-    'beating-street':      { author: 'Peter Lynch',        book: '战胜华尔街' },
-    'one-up-wall-street':   { author: 'Peter Lynch',       book: '彼得·林奇的成功投资' },
-    'black-swan':          { author: 'Nassim Taleb',       book: '黑天鹅' },
-    'antifragile':         { author: 'Nassim Taleb',       book: '反脆弱' },
-    'fooled-by-randomness': { author: 'Nassim Taleb',      book: '随机漫步的傻瓜' },
-    'random-walk':          { author: 'Burton Malkiel',    book: '漫步华尔街' },
-    'richdad':             { author: 'Robert Kiyosaki',    book: '富爸爸穷爸爸' },
-    'principles':          { author: 'Ray Dalio',          book: '原则' },
-    'stock-operator':       { author: 'Jesse Livermore',    book: '股票作手回忆录' },
-    'economic-moat':       { author: 'Pat Dorsey',         book: '巴菲特的护城河' }
-  };
 
   // ==================== 模拟回复（按书 slug 走对应作者人设） ====================
   var SIMULATE_RESPONSES = {
