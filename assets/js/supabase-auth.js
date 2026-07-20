@@ -254,16 +254,20 @@
     var nav = document.querySelector('nav.top-nav, .top-nav, header nav, .header-nav');
     if (!nav) {
       // 尝试在任意导航栏找位置
-      var candidates = document.querySelectorAll('nav');
+      var candidates = document.querySelectorAll('nav, header, .shelf-header, .top-bar');
       for (var i = 0; i < candidates.length; i++) {
         if (candidates[i].classList.contains('top-nav') ||
-            candidates[i].querySelector('a[href="index.html"]')) {
+            candidates[i].querySelector('a[href="index.html"]') ||
+            candidates[i].querySelector('a[href="bookshelf.html"]')) {
           nav = candidates[i];
           break;
         }
       }
     }
-    if (!nav) return;
+    // 终极兜底：append 到第一个可见 header 或 body
+    if (!nav) {
+      nav = document.querySelector('header') || document.querySelector('.my-hero') || document.body;
+    }
 
     // 检查是否已添加
     if (document.getElementById('user-btn-container')) return;
