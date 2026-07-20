@@ -24,6 +24,35 @@ var AppDataV2 = (function() {
   // =============================================================================
 
   var BOOK_REGISTRY = {
+    'buffett-way': {
+      basic: {
+        slug: 'buffett-way',
+        title: '巴菲特之道',
+        author: { name: 'Robert G. Hagstrom', nameCN: '罗伯特·哈格斯特朗', role: '美盛基金经理、巴菲特方法论研究者' },
+        chapters: 9,
+        school: 'value',
+        schoolName: '价值'
+      },
+      conceptMappings: [
+        { id: 'intrinsic-value', chapters: [3,4], usage: '哈格斯特朗系统拆解了巴菲特估算内在价值的方法：所有者收益、DCF折现、一美元前提。强调模糊的正确胜过精确的错误。', stance: 'proponent' },
+        { id: 'margin-of-safety', chapters: [3,4], usage: '巴菲特版安全边际：以合理价格买伟大企业。哈格斯特朗将此归纳为「市场原则」——内在价值与安全边际构成买入决策的双重门控。', stance: 'extender' },
+        { id: 'moat', chapters: [2,3,4], usage: '哈格斯特朗将巴菲特的护城河思想提炼为企业三原则：简单易懂、持续经营历史、良好长期前景。护城河是12条原则中企业准则的核心。', stance: 'proponent' },
+        { id: 'circle-of-competence', chapters: [2,3], usage: '书中详细分析了能力圈思想的三个来源：格雷厄姆的安全边际、费雪的深度调研、芒格的理性边界。强调巴菲特只投资自己能理解的企业。', stance: 'proponent' },
+        { id: 'misjudgment', chapters: [6], usage: '第6章专门讲投资心理学：过度自信、损失厌恶、从众心理如何摧毁投资回报。哈格斯特朗引用了大量行为金融学研究成果来佐证巴菲特的性情优势。', stance: 'proponent' },
+        { id: 'concentration', chapters: [5], usage: '第5章用凯利公式和概率论论证了集中投资的数学合理性。哈格斯特朗认为巴菲特的集中投资不是品味偏好，而是数学最优解。', stance: 'proponent' },
+      ],
+      domainPath: {
+        primary: { key: 'valuation', level: 2 },
+        cross: [
+          { key: 'business', chapter: 3, label: '第3章「十二条永恒原则·企业准则」' },
+          { key: 'mind', chapter: 6, label: '第6章「投资心理学」' }
+        ]
+      },
+      promptInfo: {
+        persona: '你是罗伯特·哈格斯特朗，《巴菲特之道》的作者，美盛基金高级基金经理。你花了30年系统研究巴菲特的投资方法，不是简单复述他的语录，而是从基金经理的实操视角拆解了他的决策逻辑。你强调12条原则是一个完整体系，不是可以挑选使用的菜单。请用中文回复，语气温和但有深度，像一位想帮你真正理解而非只是听故事的导师。',
+        tone: '温和而严谨，像一位有耐心的基金经理在教你做研究'
+      }
+    },
     'fisher': {
       basic: {
         slug: 'fisher',
