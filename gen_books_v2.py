@@ -103,14 +103,16 @@ BOOKS = {
 SYSTEM_PROMPT = """你是专业投资书籍精读编辑，精通中英文投资理论。请基于提供的原文内容，生成标准的章节精读卡片。
 
 严格要求：
-1. 内容必须基于原文，引用原文中的具体案例、数据、人物——不得编造
-2. key_concept 必须 >= 200字，包含具体观点、逻辑推理和原文案例
-3. culture_context/counter_view/china_link 若非空则至少 2-3 句（60-100字），要说清楚为什么相关
-4. exercises 中的思考题必须联系实际投资决策，不能是泛泛的"你有什么想法"
-5. quote_en 必须从原文中精确摘录，不得自己编造
-6. 所有输出必须是中文（英文术语保留原文+中文翻译）
-7. 输出必须是严格的JSON格式，不要有任何额外文字
-8. ai_first_reply 是当用户第一次打开这道思考题时AI的初始引导语（20-40字），必须体现本书作者的风格和本章主题，每章必须不同"""
+1. 内容必须基于原文，引用原文中的具体案例、数据、人物——不得编造原文不存在的事实
+2. 除专业术语缩写（如DCF、PE、ROE、EPS）外，全部使用中文输出
+3. key_concept：覆盖本章所有核心要点，挑重点讲，不设字数限制
+4. culture_context：涉及美国金融制度/历史背景/社会语境时填写，无则留空
+5. counter_view：本章概念有争议时填写反对者观点，无争议则留空
+6. china_link：用你自己的知识补充本章概念在中国A股市场的关联应用。如果该概念确有中国市场案例，写出具体案例；如果没有明显关联，留空即可，不要编造
+7. exercises 必须生成 2 道思考题，每道题必须联系实际投资决策，不能是泛泛的"你有什么想法"
+8. ai_first_reply 是当用户第一次打开这道思考题时AI的初始引导语（20-40字），必须体现本章主题，每道题不同
+9. quote 必须从原文中精确摘录一句最有洞察力的中文原文（50-150字），不得自己编造
+10. 输出必须是严格的JSON格式，不要有任何额外文字"""
 
 
 def smart_truncate(content, max_chars=10000):
@@ -144,20 +146,22 @@ def gen_chapter(book_title, chapter_title, content, ch_num, prev_context=None):
 请输出这个JSON（只输出JSON，不要任何其他文字，不要```标记）：
 {{
   "subtitle": "副标题（8-15字，概括本章核心）",
-  "positioning": "章节定位：本章在全书中的位置和核心回答的问题（40-80字，具体说明本章讲什么）",
-  "key_concept": "核心概念深度解读（200-350字，必须基于原文，要有具体观点和逻辑，不要空泛）",
-  "culture_context": "文化背景补充（涉及美国金融制度/历史背景/社会语境时填写，无则留空字符串。有则至少2-3句60-100字）",
-  "counter_view": "反方观点（本章概念有争议时填写反对者观点，无争议则留空字符串。有则至少2-3句60-100字）",
-  "china_link": "中国市场关联（如何应用于A股或中国投资实践，具体说明，无则留空字符串。有则至少2-3句60-100字）",
+  "positioning": "章节定位：本章在全书中的位置和核心回答的问题（40-80字）",
+  "key_concept": "核心概念深度解读：覆盖本章所有重要概念和观点，要具体、有逻辑、引用原文案例，不设字数上限",
+  "culture_context": "文化背景补充（涉及美国金融制度/历史背景/社会语境时填写，无则留空字符串）",
+  "counter_view": "反方观点（本章概念有争议时填写反对者观点，无则留空字符串）",
+  "china_link": "中国市场关联：用你的知识补充本章概念在A股的关联。有具体案例则写，没有明显关联则留空，不要编造",
   "preview_concept": "关键概念名（2-6字）",
   "preview_question": "核心问题（1句话，15-30字）",
-  "preview_oneline": "一句话总结（20-40字，要有信息量）",
-  "terms": [{{"en": "英文术语", "zh": "中文翻译", "note": "解读（10-20字）"}}],
-  "takeaways": ["要点1（15-30字，具体）", "要点2", "要点3"],
-  "exercises": [{{"q": "思考题（20-40字，引导读者联系实际投资决策）", "hint": "提示（15-25字）", "ai_first_reply": "AI初始回复（20-40字，体现本书作者风格和本章主题，每章不同）"}}],
-  "quote_en": "英文原文金句（如果原文是中文则填中文原文，50-150字，选取最有洞察力的段落）",
-  "quote_zh": "中文翻译（如果是中文原文则与quote_en相同）",
-  "quote_why": "解读（20-40字，说明这句金句为什么重要）"
+  "preview_oneline": "一句话总结（20-40字）",
+  "terms": [{{"en": "专业缩写如DCF/PE（非缩写留空）", "zh": "中文术语名", "note": "解读"}}],
+  "takeaways": ["要点1", "要点2", "要点3"],
+  "exercises": [
+    {{"q": "思考题1（联系实际投资决策）", "hint": "提示", "ai_first_reply": "AI初始回复（体现本章主题）"}},
+    {{"q": "思考题2（联系实际投资决策）", "hint": "提示", "ai_first_reply": "AI初始回复（体现本章主题）"}}
+  ],
+  "quote": "从原文中精确摘录一句最有洞察力的中文原文（50-150字）",
+  "quote_why": "解读（20-40字，说明这句为什么重要）"
 }}"""
 
     for attempt in range(2):
@@ -170,7 +174,7 @@ def gen_chapter(book_title, chapter_title, content, ch_num, prev_context=None):
                         {"role": "system", "content": SYSTEM_PROMPT},
                         {"role": "user", "content": prompt}
                     ],
-                    "temperature": 0.7, "max_tokens": 4000
+                    "temperature": 0.3, "max_tokens": 4000
                 }, timeout=120)
             if resp.status_code == 200:
                 text = resp.json()["choices"][0]["message"]["content"]
@@ -179,10 +183,10 @@ def gen_chapter(book_title, chapter_title, content, ch_num, prev_context=None):
                     text = re.sub(r'^```\w*\n?', '', text)
                     text = re.sub(r'\n?```$', '', text)
                 result = json.loads(text)
-                # 校验 key_concept 长度
-                kc = result.get("key_concept", "")
-                if len(kc) < 150:
-                    print(f"  ⚠️ key_concept偏短({len(kc)}字)，第2次尝试..." if attempt == 0 else f"  ⚠️ key_concept仍偏短({len(kc)}字)，接受")
+                # 校验 exercises 数量
+                exs = result.get("exercises", [])
+                if len(exs) < 2:
+                    print(f"  ⚠️ 只有{len(exs)}道题，第2次尝试..." if attempt == 0 else f"  ⚠️ 仍只有{len(exs)}道题，接受")
                     if attempt == 0:
                         continue
                 return result
@@ -224,13 +228,11 @@ def build_chapter_html(ch, num, book_title):
     </div>''')
 
     # 金句
-    quote_en = ch.get("quote_en", "")
-    quote_zh = ch.get("quote_zh", "")
+    quote_text = ch.get("quote", "")
     quote_why = ch.get("quote_why", "")
-    if quote_en:
+    if quote_text:
         blocks.append(f'''    <div class="gold-quote">
-      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">{quote_en}</div></details>
-      <div class="zh">「{quote_zh}」</div>
+      <div class="zh">「{quote_text}」</div>
       <div class="why">💬 {quote_why}</div>
     </div>''')
 
@@ -313,6 +315,9 @@ def build_chapter_html(ch, num, book_title):
         </div>
       </div>
 '''
+        blocks.append(f'''    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+{ex_html}    </div>''')
 
     subtitle = ch.get("subtitle", "")
     ch_title = f"第{num}章 · {subtitle}" if subtitle else f"第{num}章"
