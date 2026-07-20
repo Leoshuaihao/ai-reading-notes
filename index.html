@@ -1701,8 +1701,7 @@
   // ==================== 书籍 → 作者人设映射（与 chat.js BOOK_PROMPTS 对齐） ====================
   var BOOK_PROMPTS = {
     'fisher':              { author: 'Philip A. Fisher',   book: '怎样选择成长股' },
-    'howard-marks':        { author: 'Howard Marks',       book: '投资最重要的事' },
-    'buffett':             { author: 'Warren Buffett',      book: '巴菲特之道' },
+
     'market-cycle':        { author: 'Howard Marks',       book: '周期' },
     'buffett-letters':     { author: 'Warren Buffett',      book: '巴菲特致股东的信' },
     'alchemy-finance':     { author: 'George Soros',       book: '金融炼金术' },
@@ -1719,7 +1718,7 @@
     'richdad':             { author: 'Robert Kiyosaki',    book: '富爸爸穷爸爸' },
     'principles':          { author: 'Ray Dalio',          book: '原则' },
     'stock-operator':       { author: 'Jesse Livermore',    book: '股票作手回忆录' },
-    'economic-moat':       { author: 'Warren Buffett',     book: '巴菲特之道' }
+    'economic-moat':       { author: 'Pat Dorsey',         book: '巴菲特的护城河' }
   };
 
   // ==================== 模拟回复（按书 slug 走对应作者人设） ====================
@@ -1728,14 +1727,7 @@
       'Fisher 会说：<strong>关键不在于市场怎么样，而在于你持有的公司怎么样。</strong>要不要试着用 15 条原则来检验一下？',
       'Fisher 可能会追问你：<strong>你的判断基于什么信息？</strong>读了财报？还是像他说的那样——跟客户、供应商、竞争对手聊过了？'
     ],
-    'howard-marks': [
-      'Marks 会提醒你：<strong>市场在恐惧与贪婪之间永恒摇摆。</strong>你描述的这个判断，是在钟摆的哪一端做出的？',
-      '投资最重要的事是什么？Marks 会说——<strong>第二层思维。</strong>你的想法和大众一样吗？如果一样，那可能就是错的。'
-    ],
-    'buffett': [
-      '巴菲特会问你：<strong>这是好生意吗？你能理解它吗？价格有吸引力吗？</strong>三个问题，一个都不能少。',
-      '巴菲特常说：<strong>别人贪婪时我恐惧，别人恐惧时我贪婪。</strong>你现在的判断，是在跟随大众还是逆向而行？'
-    ],
+
     'poor-charlie': [
       '芒格会说：<strong>反过来想，总是反过来想。</strong>如果你想知道如何成功，先研究如何失败。',
       '芒格的多元思维模型提醒我们：<strong>不要只用一个学科的工具。</strong>心理学、经济学、物理学——它们都能照亮同一个问题。'

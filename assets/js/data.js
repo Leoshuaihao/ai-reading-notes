@@ -19,8 +19,7 @@ var AppData = (function() {
   /** 书籍元数据库（唯一数据源） */
   var BOOK_META = {
     'fisher':               { title: '怎样选择成长股',     chapters: 10, school: 'growth',      schoolName: '成长' },
-    'howard-marks':         { title: '投资最重要的事',     chapters: 22, school: 'cycle',       schoolName: '周期' },
-    'buffett':              { title: '巴菲特之道',         chapters: 9,  school: 'value',       schoolName: '价值' },
+
     'market-cycle':         { title: '周期',               chapters: 19, school: 'cycle',       schoolName: '周期' },
     'buffett-letters':      { title: '巴菲特致股东的信',   chapters: 13, school: 'value',       schoolName: '价值' },
     'alchemy-finance':      { title: '金融炼金术',         chapters: 13, school: 'cycle',       schoolName: '周期' },
@@ -53,7 +52,7 @@ var AppData = (function() {
       ],
       cross: [
         { slug: 'intelligent-investor', ch: 20, label: '第20章「安全边际」' },
-        { slug: 'howard-marks', ch: 12, label: '第12章「寻找便宜货」' }
+        { slug: 'fisher', ch: 3, label: '第3章「15条原则」' }
       ]
     },
     {
@@ -61,8 +60,7 @@ var AppData = (function() {
       description: '格雷厄姆开创的「安全边际」原则是价值投资的基石。学会用数字说话——内在价值、DCF、PE/PB，把模糊的直觉转化为可量化的判断。',
       master: '本杰明·格雷厄姆', masterInitial: '格', color: '#2c6faa',
       books: [
-        { slug: 'buffett', lv: 1 },
-        { slug: 'intelligent-investor', lv: 2 },
+        { slug: 'intelligent-investor', lv: 1 },
         { slug: 'security-analysis', lv: 3 },
         { slug: 'buffett-letters', lv: 3 }
       ],
@@ -76,8 +74,7 @@ var AppData = (function() {
       description: '霍华德·马克斯的钟摆理论告诉我们：市场在恐惧与贪婪之间永恒摇摆。学会读懂周期信号——信贷、情绪、估值——你就能在极端时刻做出逆向决策。',
       master: '霍华德·马克斯', masterInitial: '马', color: '#c75b39',
       books: [
-        { slug: 'howard-marks', lv: 2 },
-        { slug: 'market-cycle', lv: 3 },
+        { slug: 'market-cycle', lv: 2 },
         { slug: 'alchemy-finance', lv: 3 }
       ],
       cross: [
@@ -96,7 +93,7 @@ var AppData = (function() {
       ],
       cross: [
         { slug: 'intelligent-investor', ch: 8, label: '第8章「市场先生」' },
-        { slug: 'howard-marks', ch: 9, label: '第9章「钟摆意识」' },
+        { slug: 'market-cycle', ch: 8, label: '第8章「钟摆意识」' },
         { slug: 'buffett-letters', ch: 6, label: '第6章「市场先生与波动」' }
       ]
     },
@@ -120,90 +117,22 @@ var AppData = (function() {
 
   /** 核心概念（概念地图数据） */
   var CONCEPTS = [
-    { id: 'intrinsic-value', name: '内在价值', domain: 'valuation', color: '#2c6faa', brief: '企业真正值多少钱——一切估值的起点', master: '格雷厄姆', books: ['security-analysis','intelligent-investor','buffett-letters','buffett','fisher'] },
+    { id: 'intrinsic-value', name: '内在价值', domain: 'valuation', color: '#2c6faa', brief: '企业真正值多少钱——一切估值的起点', master: '格雷厄姆', books: ['security-analysis','intelligent-investor','buffett-letters','fisher'] },
     { id: 'margin-of-safety', name: '安全边际', domain: 'valuation', color: '#2c6faa', brief: '买价与价值间的缓冲垫——为未知留出余地', master: '格雷厄姆', books: ['security-analysis','intelligent-investor','buffett-letters','antifragile'] },
     { id: 'mr-market', name: '市场先生', domain: 'valuation', color: '#2c6faa', brief: '情绪化的报价员——利用他的报价', master: '格雷厄姆', books: ['intelligent-investor','buffett-letters'] },
-    { id: 'moat', name: '护城河', domain: 'business', color: '#2d7d46', brief: '保护超额利润的结构性竞争优势', master: '巴菲特', books: ['economic-moat','buffett','poor-charlie','fisher'] },
-    { id: 'circle-of-competence', name: '能力圈', domain: 'business', color: '#2d7d46', brief: '只在自己真正理解的领域下注', master: '巴菲特', books: ['poor-charlie','buffett-letters','buffett','peter-lynch'] },
+    { id: 'moat', name: '护城河', domain: 'business', color: '#2d7d46', brief: '保护超额利润的结构性竞争优势', master: '巴菲特', books: ['economic-moat','poor-charlie','fisher'] },
+    { id: 'circle-of-competence', name: '能力圈', domain: 'business', color: '#2d7d46', brief: '只在自己真正理解的领域下注', master: '巴菲特', books: ['poor-charlie','buffett-letters','peter-lynch'] },
     { id: 'growth-stock', name: '成长股', domain: 'business', color: '#2d7d46', brief: '能持续成长十年的企业特征', master: '费雪', books: ['fisher','peter-lynch','economic-moat'] },
-    { id: 'risk', name: '风险', domain: 'cycle', color: '#c75b39', brief: '不是波动性，是永久性损失的概率', master: '马克斯', books: ['howard-marks','intelligent-investor','market-cycle','antifragile'] },
-    { id: 'concept-cycle', name: '周期', domain: 'cycle', color: '#c75b39', brief: '无法预测未来，但可感知位置', master: '马克斯', books: ['market-cycle','howard-marks','stock-operator'] },
+    { id: 'risk', name: '风险', domain: 'cycle', color: '#c75b39', brief: '不是波动性，是永久性损失的概率', master: '马克斯', books: ['intelligent-investor','market-cycle','antifragile'] },
+    { id: 'concept-cycle', name: '周期', domain: 'cycle', color: '#c75b39', brief: '无法预测未来，但可感知位置', master: '马克斯', books: ['market-cycle','stock-operator'] },
     { id: 'black-swan', name: '黑天鹅与肥尾', domain: 'uncertainty', color: '#b8860b', brief: '极端事件塑造历史——钟形曲线是骗局', master: '塔勒布', books: ['black-swan','antifragile'] },
-    { id: 'misjudgment', name: '人类误判心理', domain: 'mind', color: '#7b4fbf', brief: '25种心理偏误的叠加共振效应', master: '芒格', books: ['poor-charlie','howard-marks','buffett-letters'] },
-    { id: 'contrarian', name: '逆向投资', domain: 'mind', color: '#7b4fbf', brief: '在众人恐惧处买入，以正确为前提', master: '马克斯', books: ['howard-marks','market-cycle','intelligent-investor','stock-operator'] },
+    { id: 'misjudgment', name: '人类误判心理', domain: 'mind', color: '#7b4fbf', brief: '25种心理偏误的叠加共振效应', master: '芒格', books: ['poor-charlie','buffett-letters'] },
+    { id: 'contrarian', name: '逆向投资', domain: 'mind', color: '#7b4fbf', brief: '在众人恐惧处买入，以正确为前提', master: '马克斯', books: ['market-cycle','intelligent-investor','stock-operator'] },
     { id: 'concentration', name: '集中与分散', domain: 'mind', color: '#7b4fbf', brief: '下重注还是广撒网——世纪分歧', master: '费雪', books: ['fisher','intelligent-investor','poor-charlie','peter-lynch'] }
   ];
 
   /** MVP知识点（训练场数据） */
-  var KNOWLEDGE_POINTS = [
-    {
-      id: 'owner-earnings',
-      name: '股东盈余',
-      domain: 'valuation',
-      book: 'buffett',
-      chapter: 3,
-      chapterRef: 'Ch3 财务原则8',
-      formula: '股东盈余 = 净利润 + 折旧摊销 - 维持竞争地位所必需的资本支出',
-      formulaDisplay: '净利润 + 折旧摊销 - 维持性资本支出',
-      description: '巴菲特认为真正的"经济利润"不是会计利润，而是扣除维持竞争优势必须投入的资本后的剩余。这是评估企业自由现金流的核心概念。',
-      emoji: '💰',
-      guidedCase: 'maotai',
-      practiceCase: 'wuliangye',
-      realWorldCompanies: ['gree', 'haitian', 'yili'],
-      // 练习层期望答案
-      practiceExpected: { step1: 320, step2: 285, final: 285 },
-      // 实战层期望答案（按公司）
-      realWorldExpected: {
-        gree:    { earnings: 220, ratio: 89.8 },
-        haitian: { earnings: 52,  ratio: 92.9 },
-        yili:    { earnings: 78,  ratio: 75.0 }
-      }
-    },
-    {
-      id: 'dcf-model',
-      name: 'DCF折现模型',
-      domain: 'valuation',
-      book: 'buffett',
-      chapter: 3,
-      chapterRef: 'Ch3 市场原则11',
-      formula: '内在价值 = sum(未来各年自由现金流 / (1 + 折现率)^t)',
-      formulaDisplay: 'CF₁/(1+r)¹ + CF₂/(1+r)² + ... + CFₙ/(1+r)ⁿ',
-      description: '将企业未来每年产生的自由现金流，按合适的折现率折算回今天的价值。巴菲特用这个方法判断企业是否值得投资——价格低于内在价值时才有安全边际。',
-      emoji: '📉',
-      guidedCase: 'maotai',
-      practiceCase: 'yili',
-      realWorldCompanies: ['gree', 'wuliangye', 'haitian'],
-      practiceExpected: { // 伊利5年折现值之和
-        pvSum: 388
-      },
-      realWorldExpected: {
-        gree:     { pvSum: 1020 },
-        wuliangye:{ pvSum: 1450 },
-        haitian:  { pvSum: 260 }
-      }
-    },
-    {
-      id: 'roe-decomposition',
-      name: 'ROE分解',
-      domain: 'valuation',
-      book: 'buffett',
-      chapter: 3,
-      chapterRef: 'Ch3 财务原则7',
-      formula: 'ROE = 净利润率 x 资产周转率 x 权益乘数',
-      formulaDisplay: '净利润率 x 资产周转率 x 权益乘数',
-      description: '杜邦分析法将ROE拆成三个因子，帮助理解公司高回报的真正来源：是利润率高（产品好）、周转快（效率高），还是杠杆大（借钱多）？巴菲特偏好利润率和周转率驱动的高ROE。',
-      emoji: '🔬',
-      guidedCase: 'maotai',
-      practiceCase: 'gree',
-      realWorldCompanies: ['wuliangye', 'yili', 'haitian'],
-      practiceExpected: { netMargin: 13.0, turnover: 0.613, leverage: 3.263, roe: 26.0 },
-      realWorldExpected: {
-        wuliangye: { netMargin: 36.3, turnover: 0.867, leverage: 1.524, roe: 47.9 },
-        yili:      { netMargin: 8.2,  turnover: 1.539, leverage: 1.952, roe: 24.8 },
-        haitian:   { netMargin: 22.9, turnover: 0.645, leverage: 1.357, roe: 20.0 }
-      }
-    }
-  ];
+  var KNOWLEDGE_POINTS = []; // 待重构：原知识点关联 buffett 已删除
 
   /** 内置公司案例数据（简化财报，供训练场使用） */
   var COMPANY_CASES = {
@@ -258,7 +187,7 @@ var AppData = (function() {
     },
     {
       concept: '风险的定义',
-      left:  { text: '风险不是波动性——它是永久性损失的概率。', who: '霍华德·马克斯', book: '投资最重要的事', slug: 'howard-marks' },
+      left:  { text: '风险不是波动性——它是永久性损失的概率。', who: '霍华德·马克斯', book: '周期', slug: 'market-cycle' },
       right: { text: '真正的风险在你的模型之外——从未发生过的事才最危险。', who: '塔勒布', book: '黑天鹅', slug: 'black-swan' }
     },
     {
@@ -278,7 +207,7 @@ var AppData = (function() {
     },
     {
       concept: '逆向思维',
-      left:  { text: '在别人沮丧卖出时买入——需要最大的勇气，但提供最大的利润。', who: '霍华德·马克斯', book: '投资最重要的事', slug: 'howard-marks' },
+      left:  { text: '在别人沮丧卖出时买入——需要最大的勇气，但提供最大的利润。', who: '霍华德·马克斯', book: '周期', slug: 'market-cycle' },
       right: { text: '别人贪婪时恐惧，别人恐惧时贪婪。', who: '巴菲特', book: '致股东的信', slug: 'buffett-letters' }
     }
   ];

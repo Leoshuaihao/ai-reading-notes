@@ -89,8 +89,7 @@
   // ==================== 书籍 → 作者人设映射 ====================
   var BOOK_PROMPTS = {
     'fisher':              { author: 'Philip A. Fisher',   book: 'Common Stocks and Uncommon Profits' },
-    'howard-marks':        { author: 'Howard Marks',       book: '投资最重要的事' },
-    'buffett':             { author: 'Warren Buffett',      book: '巴菲特之道' },
+
     'market-cycle':        { author: 'Howard Marks',       book: '周期' },
     'buffett-letters':     { author: 'Warren Buffett',      book: '巴菲特致股东的信' },
     'alchemy-finance':     { author: 'George Soros',       book: '金融炼金术' },
@@ -206,21 +205,7 @@
       '15条原则里的第一条：<strong>这家公司的产品或服务在未来几年有持续增长的潜力吗？</strong>你能回答这个问题吗？',
       '费雪说<strong>卖出只有三个理由</strong>：看错了、公司变了、有更好的选择。你现在面临的是哪一种？'
     ],
-    'howard-marks': [
-      'Marks会提醒你：<strong>市场在恐惧与贪婪之间永恒摇摆</strong>。你现在的判断，是在钟摆的哪一端？',
-      '投资最重要的事是什么？Marks会说——<strong>第二层思维</strong>。你的想法和大众一样吗？如果一样，那可能就是错的。',
-      'Marks在书中反复强调：<strong>风险不是波动，而是永久损失的概率</strong>。你关注的这个机会，风险是什么？',
-      '霍华德·马克斯说：<strong>我们不知道未来会怎样，但我们可以知道我们现在处于什么位置。</strong>你现在能判断市场的位置吗？',
-      '逆势投资需要勇气，但Marks说<strong>正确的逆势才有价值</strong>。你确定你的判断是正确的一方吗？',
-      'Marks的核心观点：<strong>便宜才是硬道理。</strong>你关注的资产是真的便宜，还是只是跌了很多？'
-    ],
-    'buffett': [
-      '巴菲特会问你：<strong>这是好生意吗？你能理解它吗？</strong>三个问题——生意、管理、价格——一个都不能少。',
-      '巴菲特常说：<strong>别人贪婪时我恐惧，别人恐惧时我贪婪。</strong>你现在的判断，是在跟随大众还是逆向而行？',
-      '巴菲特的<strong>能力圈</strong>原则：只投资你能理解的东西。你能用三句话讲清楚这家公司的商业模式吗？',
-      '巴菲特说：<strong>以合理价格买入优质公司，远好于以低价买入平庸公司。</strong>你关注的公司是前者还是后者？',
-      '护城河有多宽？巴菲特会问：<strong>如果给你100亿美元，你能打败这家公司吗？</strong>'
-    ],
+
     'poor-charlie': [
       '芒格会说：<strong>反过来想，总是反过来想。</strong>如果你想知道如何成功，先研究如何失败。',
       '芒格的<strong>多元思维模型</strong>提醒我们：不要只用一个学科的工具。你能从心理学、经济学、物理学三个角度同时看这个问题吗？',
