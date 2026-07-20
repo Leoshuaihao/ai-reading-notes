@@ -708,11 +708,11 @@ done
 - [ ] 所有章节标题统一为"第N章 · 标题"格式
 
 ### 阶段六：数据同步
-- [ ] index.html 中 BOOK_META 已添加新书（chapters 数与 epub 一致）
-- [ ] index.html 中 DOMAINS 已添加新书到对应域
-- [ ] bookshelf.html 中已添加书籍卡片
-- [ ] bookshelf.html 中统计数字已更新
-- [ ] 新书封面 CSS 渐变类已添加到 bookshelf.html 的 `<style>` 中
+- [ ] `data_v2.js` BOOK_REGISTRY 已添加新书（basic/conceptMappings/domainPath/promptInfo 四字段完整）
+- [ ] `index.html` DOMAINS 已添加新书到对应域
+- [ ] `bookshelf.html` 中已添加书籍卡片 + hero 统计数字已更新
+- [ ] **死链扫描**：`grep -rn 'books/已删slug/' *.html books/*/index.html` 确认无死链
+- [ ] 首页动态计数与 BOOK_REGISTRY 实际条目数一致
 
 ### 阶段七：视觉验证
 - [ ] 截图验证三处（top / author+roadmap / ch1）

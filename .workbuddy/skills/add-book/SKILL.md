@@ -58,6 +58,7 @@ agent_created: true
 - [ ] 1.4 逐章打印字数统计，标记 < 500 字的异常章节
 - [ ] 1.5 校验 epub TOC 章节数 = 提取章节数
 - [ ] 1.7 向用户确认：书名/作者/版本/章节数/标签/豆瓣评分/文件格式
+- [ ] 1.8 在章节缓存 JSON 中记录审计元数据（confirmed_slug、confirmed_title、confirmed_at、file_validated）
 
 **门控通过条件：** 全部 6 项完成，用户确认无误。
 
@@ -125,8 +126,10 @@ grep -nP '[A-Za-z]{4,}' books/{slug}/index.html | \
 
 ### 阶段六：首页与书架数据更新
 
-- [ ] `index.html` 中 BOOK_META/BOOKS 已添加新书
-- [ ] `bookshelf.html` 中已添加书籍卡片
+- [ ] `data_v2.js` BOOK_REGISTRY 已添加新书条目（basic/conceptMappings/domainPath/promptInfo 四字段完整）
+- [ ] `bookshelf.html` 中已添加书籍卡片（含 hero 统计更新）
+- [ ] **死链扫描**：grep 所有 HTML 页面确认无指向已删书籍的链接
+- [ ] **首页书籍计数**确认：meta description / hero / 统计数字与 BOOK_REGISTRY 条目数一致
 
 ### 阶段七：视觉验证
 
