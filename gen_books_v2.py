@@ -456,7 +456,7 @@ def build_book_page(book_slug, config, chapters_data):
     nav_links = ""
     for num, ch in valid_chapters[1:]:  # 跳过首章
         subtitle_text = ch.get("subtitle", f"第{num}章")
-        nav_links += f'<a href="#ch{num}">第{num}章 · {subtitle_text}</a>\n'
+        nav_links += f'<a href="#ch{num}">第{num}章</a>\n'
 
     # 章节HTML（首章同时带 id="intro"）
     chapter_html = "\n".join(
