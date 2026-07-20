@@ -9,6 +9,8 @@
 > 3. 视觉一致性强制：**禁止使用 `📋 章节导航 + 链接列表`，必须用 `🗺️ 阅读路线图 + 模块卡片`**
 > 4. 部署上线加严：必须 commit **且** push，必须截图验证三处（top/author/ch1），必须验证线上可访问
 > 5. 生成脚本必须与标准同步：脚本的模板章节就是 V2 出错根因，修改标准时必须同步修改 `gen_books_v2.py`
+>
+> 🔧 **执行入口**：此文档由 `add-book` Skill（`.workbuddy/skills/add-book/SKILL.md`）强制执行。Skill 确保 AI 不会跳过任何阶段。加新书时直接说"用 add-book 流程跑 XX 书"即可。
 
 ---
 
@@ -389,7 +391,7 @@ SYSTEM_PROMPT = """你是专业投资书籍精读编辑...
 {
     "model": "deepseek-chat",
     "messages": [...],
-    "temperature": 0.7,
+    "temperature": 0.3,
     "max_tokens": 4000
 }
 ```
@@ -786,3 +788,4 @@ done
 | V2 | 2026-07 中 | 增加 BOOK_META/DOMAINS 数据同步、why-section 2×2 网格 |
 | V3 | 2026-07-19 | 精细化：素材验证（格式/字数/一致性）、内容生成（4000字/书专属）、视觉强制（roadmap 非 chapter-nav）、脚本规范、部署加严（必须push+线上验证）、常见陷阱8条 |
 | V3.1 | 2026-07-20 | UI标准化同步：CTA Banner 移除、chapter-preview 3→1项（仅关键概念）、金句强制 en-detail 原文折叠、页面引入 chat.js、author-bio 支持 Q版卡通头像 + bio-highlight 标签、BOOKS 配置新增 author_tags/author_avatar |
+| V3.2 | 2026-07-20 | 强制执行：创建 add-book Skill（`.workbuddy/skills/add-book/`），将 8 阶段编码为强制门控工作流。temperature 文档同步 0.7→0.3。Skill 确保 AI 不会跳过阶段一（素材验证）和阶段四（中文化检查）。 |
