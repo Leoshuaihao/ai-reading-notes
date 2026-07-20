@@ -76,6 +76,31 @@ BOOKS = {
             {"num": "模块4", "title": "行动与心智", "pages": "Ch10-13 · 五大心理障碍、10步唤醒理财天赋、行动至上、财商实战"},
         ],
     },
+    "fisher_test": {
+        "title": "怎样选择成长股", "author": "菲利普·A·费雪", "author_en": "Philip A. Fisher",
+        "year": "1958", "domain_cn": "商业认知", "domain_key": "business",
+        "chapter_file": "fisher.json",
+        "cover_gradient": "linear-gradient(135deg, #1a3a4a 0%, #0d2535 50%, #051020 100%)",
+        "cover_text": "Common Stocks\nand Uncommon\nProfits",
+        "author_initials": "PF",
+        "subtitle": "普通股和不普通的利润",
+        "desc": "巴菲特说自己是\u201c85%的格雷厄姆 + 15%的费雪\u201d。这本1958年出版的成长股投资奠基之作，首次提出以\u201c闲聊调研法\u201d调研企业，用15条原则筛选成长股。费雪教你：买对成长股，然后什么也不做\u2014\u2014这才是最赚钱的策略。",
+        "why_items": [
+            ("\U0001f3db\ufe0f", "巴菲特的\u201c另一半\u201d导师", "巴菲特公开表示他融合了格雷厄姆的价值投资与费雪的成长股哲学。理解费雪才能真正理解巴菲特的投资进化\u2014\u2014从\u201c捡烟蒂\u201d到\u201c以合理价格买入伟大企业\u201d。"),
+            ("\U0001f50d", "\u201c闲聊法\u201d\u2014\u2014被严重低估的投资利器", "中文译本将Scuttlebutt Method简单译为\u201c闲聊法\u201d，完全无法传达这套系统性企业调研方法论的精髓。费雪教你如何通过竞争对手、供应商、客户、前雇员等多维度信息源拼凑出企业全貌。"),
+            ("\U0001f4cb", "15条选股原则\u2014\u2014穿越60年仍然有效", "费雪的15条原则涵盖市场潜力、研发能力、利润率、劳资关系、管理层诚信等多个维度，至今被华尔街基金经理奉为圭臬。这是第一套系统化的成长股筛选框架。"),
+            ("\U0001f9e9", "填补价值投资之外的空白", "大多数中文投资书籍只讲格雷厄姆的安全边际。费雪告诉你：找到真正伟大的成长型公司，然后一直持有\u2014\u2014就像他在1950年代买入摩托罗拉并持有数十年那样。"),
+        ],
+        "author_bio": "菲利普·费雪（Philip A. Fisher，1907-2004），被誉为\u201c成长股投资之父\u201d。1928年从斯坦福商学院辍学进入投资行业，1931年创立费雪公司。他以极度集中的投资策略著称\u2014\u2014同时服务的客户不超过12位。费雪的核心洞察：找出极少数能在多年内实现每股收益爆发式增长的卓越公司，然后一直持有。他早在1950年代就投资了摩托罗拉、德州仪器等公司，并持有了数十年。巴菲特称自己是\u201c85%格雷厄姆+15%费雪\u201d，费雪的思想深刻影响了巴菲特从\u201c捡烟蒂\u201d到\u201c以合理价格买入伟大企业\u201d的进化。",
+        "author_tags": ["成长股投资之父", "巴菲特精神导师之一", "闲聊调研法发明者", "斯坦福商学院"],
+        "author_avatar": "../../assets/images/authors/philip-fisher.png",
+        "roadmap_intro": "全书10个精读单元分为3个模块，从投资哲学与调研方法论出发，逐步深入到选股、交易、风险管理，最后落地到实战技巧。建议先通读第3章（15条原则）建立框架，再逐章精读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "投资哲学与调研方法 \u2b50核心", "pages": "Ch1-2 · 投资哲学的演变、闲聊调研法的理论与实践"},
+            {"num": "模块2", "title": "选股与交易", "pages": "Ch3-7 · 15条选股原则、应用指南、买卖时机、股利谬误"},
+            {"num": "模块3", "title": "风险控制与实战", "pages": "Ch8-10 · 十大禁忌、保守型投资框架、寻找成长股的实战方法"},
+        ],
+    },
     "random-walk": {
         "title": "漫步华尔街", "author": "伯顿·马尔基尔", "author_en": "Burton G. Malkiel",
         "year": "1973", "domain_cn": "不确定性与风险", "domain_key": "uncertainty",
@@ -207,10 +232,17 @@ def build_chapter_html(ch, num, book_title):
     if ch is None:
         return ""
 
-    # Preview（1项：仅关键概念，V3 决议）
+    # Preview（最少1项关键概念，有数据时最多3项）
     preview_concept = ch.get("preview_concept", "")
+    preview_question = ch.get("preview_question", "")
+    preview_oneline = ch.get("preview_oneline", "")
+    preview_items = f'<div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">{preview_concept}</span></div>'
+    if preview_question:
+        preview_items += f'\n      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">{preview_question}</span></div>'
+    if preview_oneline:
+        preview_items += f'\n      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">{preview_oneline}</span></div>'
     preview = f'''    <div class="chapter-preview">
-      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">{preview_concept}</span></div>
+      {preview_items}
     </div>'''
 
     blocks = []

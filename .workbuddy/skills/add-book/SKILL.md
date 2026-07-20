@@ -24,7 +24,7 @@ agent_created: true
 ## 项目上下文
 
 - 项目根目录：`/Users/lee/WorkSpace/WorkBuddy/ai-reading-notes`
-- 标准文档：`ADD_BOOK_STANDARD.md`（V3.1）
+- 标准文档：`ADD_BOOK_STANDARD.md`（V3.3）
 - 生成脚本：`gen_books_v2.py`
 - 章节缓存：`/tmp/book_chapters/`（epub 提取后的 JSON）
 - 进度保存：`/tmp/book_progress/`
@@ -74,12 +74,12 @@ agent_created: true
 **门控项（8 项）：**
 - [ ] 页面结构 13 项按固定顺序排列
 - [ ] 🗺️ 阅读路线图 + .part-card（非 📋 + .chapter-nav）
-- [ ] chapter-preview 1 项（仅关键概念）
-- [ ] 金句有 `<details class="en-detail">` 折叠（有原文时）
+- [ ] chapter-preview 最少 1 项（关键概念），推荐 3 项（概念+问题+一句话）
+- [ ] 金句有 `<details class="en-detail">` 折叠（有原文时添加，叙事型章节可跳过）
 - [ ] block-label 统一用 div（非 h3）
 - [ ] CTA Banner 已移除
 - [ ] chat.js 已引入
-- [ ] author-bio 有 Q版头像（或 onerror 回落）+ bio-highlight 标签
+- [ ] author-bio 有头像（标准方案缩写+渐变，鼓励 Q版卡通图替代）+ bio-highlight 标签
 
 **门控通过条件：** 全部 8 项通过 grep 检查。
 

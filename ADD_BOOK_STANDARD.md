@@ -179,7 +179,9 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 - 核心模块标记 `⭐核心` 或 `⭐必读`
 - 每个模块的 `part-pages` 必须说明章节范围和主题
 
-### 2.3 每个章节卡片结构（9 个 block，固定顺序）
+### 2.3 每个章节卡片结构（最多 9 个 block，P0 必选 + P1 推荐 + P2 按需）
+
+**核心原则**：P0（定位/概念/要点）每章必须有；P1（金句/文化背景/思考题）尽量有；P2（反方/中国市场/术语）严格按跳过条件判断，不适用就跳过，禁止灌水。
 
 ```html
 <article class="chapter-card" id="chN" aria-labelledby="chN-title">
@@ -188,9 +190,11 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
     <div>
       <h2 class="ch-title" id="chN-title">第N章 · 章节标题</h2>
     </div>
-    <!-- 预览信息（1项必填：仅关键概念） -->
+    <!-- 预览信息（最少1项，推荐3项） -->
     <div class="chapter-preview">
       <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">概念名</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">一句话核心问题</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">一句话总结</span></div>
     </div>
   </div>
 
@@ -200,7 +204,7 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
     <div class="block-content"><p>本章在全书中解决什么问题（40-80字）</p></div>
   </div>
 
-  <!-- Block 2: 金句（P1 推荐，有原文时必选） -->
+  <!-- Block 2: 金句（P1 推荐，有精彩原文时添加） -->
   <div class="gold-quote">
     <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">英文原文...</div></details>
     <div class="zh">「中文翻译」</div>
@@ -259,6 +263,11 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 </article>
 ```
 
+**chapter-preview 数量规则**：
+- 最少 1 项（`🔑 关键概念`，必填）
+- 推荐 3 项（加 `🎯 核心问题` 和 `💡 一句话`），尤其章节数 >15 的书
+- 导言章可仅保留 1 项
+
 ### 2.4 内容块优先级
 
 | 优先级 | Block | 何时必选 | 何时可选/跳过 |
@@ -266,12 +275,12 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 | P0 必选 | Block 1 章节定位 | 每章 | — |
 | P0 必选 | Block 3 核心概念 | 每章 | — |
 | P0 必选 | Block 8 要点总结 | 每章 | — |
-| P1 推荐 | Block 2 金句 | 有精彩原文时 | 非重点章可跳过 |
+| P1 推荐 | Block 2 金句 | 有精彩原文时 | 叙事型章节或无精彩原文可跳过 |
 | P1 推荐 | Block 4 文化背景 | 涉及美国金融制度/历史 | 通用概念可跳过 |
 | P1 推荐 | Block 9 思考题 | 每章至少1题 | — |
 | P2 可选 | Block 5 反方观点 | 概念有争议时 | 共识性内容跳过 |
-| P2 可选 | Block 6 中国市场 | 原则可对标A股时 | 不可对标时跳过 |
-| P2 可选 | Block 7 术语词典 | 本章有新术语时 | 无新术语跳过 |
+| P2 可选 | Block 6 中国市场 | 原则可对标A股时 | 不可对标（纯美国制度/哲学类）跳过 |
+| P2 可选 | Block 7 术语词典 | 本章有≥2个新术语时 | 术语不足2个跳过 |
 
 ### 2.5 why-section 规范（V3 强制）
 
@@ -301,12 +310,8 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 
 ```html
 <section class="author-bio" aria-labelledby="author-name">
-  <!-- 头像：优先用作者Q版卡通图，不存在时回落缩写+渐变 -->
-  <div class="avatar" aria-hidden="true">
-    <img src="../../assets/images/authors/author-slug.png" alt="作者名卡通头像"
-         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg, #色1, #色2)';this.parentElement.textContent='AB';"
-         style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
-  </div>
+  <!-- 头像：标准方案为缩写+渐变；有条件的可替换为Q版卡通图 -->
+  <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #色1, #色2);">AB</div>
   <div class="bio-content">
     <h2 id="author-name">作者中文名（生卒年）</h2>
     <p>生平第一段：出生、教育、主要成就</p>
@@ -324,7 +329,7 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 **要求**：
 - 生平至少 2 段，每段 80-150 字
 - 必须含 bio-highlight 标签（3-5个）
-- 头像优先用 Q版大头卡通图（`/assets/images/authors/{author-slug}.png`），不存在时回落为作者姓名缩写（2个大写字母）+ 渐变背景
+- 头像标准方案为作者姓名缩写（2个大写字母）+ 渐变背景；鼓励使用 Q版卡通图（`/assets/images/authors/{author-slug}.png`）替代
 
 ---
 
@@ -611,7 +616,7 @@ const { chromium } = require('playwright');
 - [ ] author-bio 有头像、生平至少2段、有 bio-highlight 标签
 - [ ] **阅读路线图标题是 `🗺️ 阅读路线图`（不是 `📋 章节导航`）**
 - [ ] **roadmap 区域是模块卡片（.part-card），不是链接列表（.nav-links）**
-- [ ] 第1章 chapter-preview 3项预览信息完整
+- [ ] 第1章 chapter-preview 最少1项（推荐3项）
 - [ ] 第1章至少有 Block 1/3/8（定位/概念/要点）
 - [ ] 金句的 en-detail 原文折叠正常（有原文时必选）
 
@@ -679,7 +684,7 @@ done
 - [ ] 每个章节卡片 9 个 block 按固定顺序
 - [ ] why-section 是 2×2 网格、4个书专属理由
 - [ ] author-bio 有头像 + 2段以上生平 + bio-highlight 标签
-- [ ] chapter-preview 预览信息完整（1项：关键概念）
+- [ ] chapter-preview 预览信息完整（最少1项关键概念，推荐3项）
 
 ### 阶段三：生成脚本（如使用）
 - [ ] BOOKS 字典配置完整（含 roadmap_modules 和 roadmap_intro）
@@ -788,4 +793,4 @@ done
 | V2 | 2026-07 中 | 增加 BOOK_META/DOMAINS 数据同步、why-section 2×2 网格 |
 | V3 | 2026-07-19 | 精细化：素材验证（格式/字数/一致性）、内容生成（4000字/书专属）、视觉强制（roadmap 非 chapter-nav）、脚本规范、部署加严（必须push+线上验证）、常见陷阱8条 |
 | V3.1 | 2026-07-20 | UI标准化同步：CTA Banner 移除、chapter-preview 3→1项（仅关键概念）、金句强制 en-detail 原文折叠、页面引入 chat.js、author-bio 支持 Q版卡通头像 + bio-highlight 标签、BOOKS 配置新增 author_tags/author_avatar |
-| V3.2 | 2026-07-20 | 强制执行：创建 add-book Skill（`.workbuddy/skills/add-book/`），将 8 阶段编码为强制门控工作流。temperature 文档同步 0.7→0.3。Skill 确保 AI 不会跳过阶段一（素材验证）和阶段四（中文化检查）。 |
+| V3.3 | 2026-07-20 | 去 Fisher 化：chapter-preview 最少1项推荐3项（恢复信息密度）、9-block 加 P2 明确跳过条件（反方/中国市场/术语不足不灌水）、Q版头像降级为"鼓励非必须"（缩写+渐变是标准方案）、金句统一 P1 推荐删除"必选"、block-label 统一 `<div>` |
