@@ -617,7 +617,7 @@ var AppDataV2 = (function() {
       color: '#2c6faa',
       brief: '企业真正值多少钱——独立于市场报价的价值之锚',
       master: '本杰明·格雷厄姆',
-      relatedConcepts: ['margin-of-safety', 'dcf'],
+      relatedConcepts: ['margin-of-safety', 'mr-market'],
       learningOrder: 1
     },
     {
@@ -1107,6 +1107,7 @@ var AppDataV2 = (function() {
      * 获取某本书中特定域/所有域的知识点关联
      */
     getBookKnowledgePoints: function(slug, domainKey) {
+      if (!BOOK_REGISTRY[slug]) return [];  // 书已删除，自动返回空
       var results = [];
       for (var i = 0; i < KNOWLEDGE_POINTS.length; i++) {
         var kp = KNOWLEDGE_POINTS[i];

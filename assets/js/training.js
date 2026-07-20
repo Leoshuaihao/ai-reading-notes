@@ -4,7 +4,7 @@
  * 为每个知识点提供4层递进训练：概念层 → 引导层 → 练习层 → 实战层
  * 进度自动写入 ability_profile localStorage，驱动能力画像雷达图。
  * 
- * 依赖：data.js（KNOWLEDGE_POINTS, COMPANY_CASES, AppData API）
+ * 依赖：data_v2.js（KNOWLEDGE_POINTS, COMPANY_CASES, AppData API）
  */
 (function() {
   'use strict';
