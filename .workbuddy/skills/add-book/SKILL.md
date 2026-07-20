@@ -24,7 +24,7 @@ agent_created: true
 ## 项目上下文
 
 - 项目根目录：`/Users/lee/WorkSpace/WorkBuddy/ai-reading-notes`
-- 标准文档：`ADD_BOOK_STANDARD.md`（V3.3）
+- 标准文档：`ADD_BOOK_STANDARD.md`（V3.5）
 - 生成脚本：`gen_books_v2.py`
 - 章节缓存：`/tmp/book_chapters/`（epub 提取后的 JSON）
 - 进度保存：`/tmp/book_progress/`
@@ -71,17 +71,29 @@ agent_created: true
 2. 运行 `python gen_books_v2.py {slug}` 调 DeepSeek API 生成章节 JSON
 3. 脚本自动：增量保存进度、3 并发、构建 HTML
 
-**门控项（8 项）：**
+**门控项（10 项）：**
 - [ ] 页面结构 13 项按固定顺序排列
 - [ ] 🗺️ 阅读路线图 + .part-card（非 📋 + .chapter-nav）
-- [ ] chapter-preview 最少 1 项（关键概念），推荐 3 项（+ 核心问题 + 一句话）（概念+问题+一句话）
+- [ ] chapter-preview 最少 1 项（关键概念），推荐 3 项（+ 核心问题 + 一句话）
 - [ ] 金句有 `<details class="en-detail">` 折叠（有原文时添加，叙事型章节可跳过）
 - [ ] block-label 统一用 div（非 h3）
 - [ ] CTA Banner 已移除
-- [ ] chat.js 已引入
+- [ ] chat.js 已引入（`grep chat.js books/{slug}/index.html` 确认）
+- [ ] **每章底部至少有 1 个 chat-widget（嵌入 exercise-box 内，grep chat-widget 确认）**
+- [ ] **Block 6 中国市场关联（P1）默认尽量做，仅完全不可对标时跳过**
 - [ ] author-bio 有头像（标准方案缩写+渐变，鼓励 Q版卡通图替代）+ bio-highlight 标签
 
-**门控通过条件：** 全部 8 项通过 grep 检查。
+**门控通过条件：** 全部 10 项通过 grep 检查。
+
+**快速验证脚本**：
+```bash
+# 1. chat-widget 数量（每章至少1个）
+grep -c 'chat-widget' books/{slug}/index.html
+# 2. chat.js 引入确认
+grep -c 'chat.js' books/{slug}/index.html
+# 3. Block 6 中国市场（P1）至少出现总章数的 50% 以上
+grep -c '中国市场关联' books/{slug}/index.html
+```
 
 ### 阶段三：生成脚本参数校验【生成后】
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""按 ADD_BOOK_STANDARD.md V3.3 标准生成完整精读页面
+"""按 ADD_BOOK_STANDARD.md V3.5 标准生成完整精读页面
 V3.3 改进（2026-07-20 终审修复）：
 1. chapter-preview 最少1项推荐3项（关键概念+核心问题+一句话）
 2. 金句强制 en-detail 英文原文折叠 + 后处理校验空值警告
@@ -12,6 +12,12 @@ V3.3 改进（2026-07-20 终审修复）：
 9. author-bio 支持 Q版卡通头像 + bio-highlight 标签
 10. 每章输入 >=4000 字
 11. 并行API调用（3并发）+ 增量保存进度
+V3.4 改进：
+12. 暗色模式全量覆盖（CSS 变量控制所有组件颜色）
+13. en-detail 可发现性提升（CSS 中 13px + ▸/▾ 图标）
+14. .section-title 合并去重
+V3.5 改进：
+15. chat-widget 策略：每章底部至少一个，嵌入思考题框，ai_first_reply 必须章节专属
 """
 import json, os, time, requests, re
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -330,7 +336,7 @@ def build_chapter_html(ch, num, book_title, is_first=False):
       <ul class="takeaway-list">{items}</ul>
     </div>''')
 
-    # 思考题
+    # 思考题 + chat-widget（V3.5 规则：每章至少一个 chat-widget，嵌入 exercise-box 内）
     exercises = ch.get("exercises", [])
     if exercises:
         ex_html = ""

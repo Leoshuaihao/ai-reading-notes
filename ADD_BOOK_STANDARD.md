@@ -183,6 +183,8 @@ grep -A1 "'book-slug'" assets/js/data.js | grep chapters
 
 **核心原则**：P0（定位/概念/要点）每章必须有；P1（金句/文化背景/中国市场/思考题）尽量有；P2（反方/术语）严格按跳过条件判断，不适用就跳过，禁止灌水。
 
+**chat-widget 规则（V3.4 新增）**：每章底部必须有至少一个 chat-widget（嵌入在思考题 Block 9 的 `.exercise-box` 内），让读者读完每章都能立刻与 AI 讨论。chat.js 必须引入，AI 初始引导语（`ai_first_reply`）必须体现本章主题。
+
 ```html
 <article class="chapter-card" id="chN" aria-labelledby="chN-title">
   <div class="ch-header">
@@ -685,6 +687,8 @@ done
 - [ ] why-section 是 2×2 网格、4个书专属理由
 - [ ] author-bio 有头像 + 2段以上生平 + bio-highlight 标签
 - [ ] chapter-preview 预览信息完整（最少1项关键概念，推荐3项）
+- [ ] **每章底部有 chat-widget（嵌入思考题 Block 9 内）+ chat.js 已引入**
+- [ ] chat-widget 的 AI 初始引导语体现本章主题（非模板化套话）
 
 ### 阶段三：生成脚本（如使用）
 - [ ] BOOKS 字典配置完整（含 roadmap_modules 和 roadmap_intro）
@@ -795,3 +799,4 @@ done
 | V3.1 | 2026-07-20 | UI标准化同步：CTA Banner 移除、chapter-preview 3→1项（仅关键概念）、金句强制 en-detail 原文折叠、页面引入 chat.js、author-bio 支持 Q版卡通头像 + bio-highlight 标签、BOOKS 配置新增 author_tags/author_avatar |
 | V3.3 | 2026-07-20 | 去 Fisher 化：chapter-preview 最少1项推荐3项；9-block 加 P2 跳过条件；Block 6（中国市场）P2→P1 默认尽量做；Q版头像降级为"鼓励非必须"；金句统一 P1；block-label 统一 `<div>` |
 | V3.4 | 2026-07-20 | 终审修复：暗色模式全量覆盖 + 30处组件颜色变量化 + en-detail 可发现性提升（13px+▸图标）+ .section-title 合并去重 + 平板断点 + color-mix fallback |
+| V3.5 | 2026-07-20 | 标准补全：chat-widget 策略明确为每章底部至少一个（嵌入思考题框）+ 检查清单同步 |
