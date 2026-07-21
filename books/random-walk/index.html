@@ -28,6 +28,14 @@
 <a href="#ch3">第3章</a>
 <a href="#ch4">第4章</a>
 <a href="#ch5">第5章</a>
+<a href="#ch7">第7章</a>
+<a href="#ch8">第8章</a>
+<a href="#ch9">第9章</a>
+<a href="#ch11">第11章</a>
+<a href="#ch12">第12章</a>
+<a href="#ch13">第13章</a>
+<a href="#ch14">第14章</a>
+<a href="#ch15">第15章</a>
   </div>
   <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单"><span></span><span></span><span></span></button>
 </nav>
@@ -46,7 +54,7 @@ Wall Street</div>
       <span class="tag primary">📖 不确定性与风险域</span>
       <span class="tag">⏱️ 精读约 8-10 小时</span>
       <span class="tag">📅 1973</span>
-      <span class="tag">📑 5章精读</span>
+      <span class="tag">📑 13章精读</span>
     </div>
     <p class="desc">伯顿·马尔基尔的《漫步华尔街》是随机漫步理论和有效市场假说的经典通俗读物。第11版更新了行为金融学、聪明β、生命周期投资等最新内容。核心观点：短期股价不可预测，长期指数化投资是普通投资者的最佳策略。这本书影响了无数投资者放弃主动选股，转向被动指数投资。</p>
     <a class="cta-btn" href="#intro" onclick="event.preventDefault();var t=document.querySelector('#intro');if(t){var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}" aria-label="开始精读">🚀 开始精读</a>
@@ -131,7 +139,7 @@ Wall Street</div>
 <!-- PROGRESS -->
 <div class="progress-section" id="progress-section">
   <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
-  <div class="progress-text">阅读进度：<span id="progress-percent">0%</span> · <span id="progress-chapters">0/5</span> 章</div>
+  <div class="progress-text">阅读进度：<span id="progress-percent">0%</span> · <span id="progress-chapters">0/13</span> 章</div>
 </div>
 
 <!-- CHAPTERS -->
@@ -611,9 +619,774 @@ Wall Street</div>
       </div>
     </div>
   </article>
+  <article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
+    <div class="ch-header">
+      <div class="ch-num">7</div>
+      <div>
+        <h2 class="ch-title" id="ch7-title">基本面分析的局限与市场有效性</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">基本面分析局限</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么专业分析师的预测不如随机猜测？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">基本面分析难以预测未来，有效市场理论揭示专业投资者无法持续战胜指数。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》第七部分，核心回答：基本面分析能否帮助投资者持续战胜市场？通过实证数据揭示证券分析师预测的不可靠性，并引出有效市场理论。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">To put it bluntly, the carefully prepared estimates of these security analysts (based on industry studies, plant visits, etc.) were not much more accurate than those that would have been obtained by simply extrapolating past earnings trends, which we have already seen are of no help in predicting the future.</div></details>
+      <div class="zh">「直言不讳地说，这些证券分析师（基于行业研究、工厂参观等）认真估测的数据，并不比通过简单外推以往的盈利趋势得到的估计情况准确多少，而我们已看到后者也根本无助于预测未来。」</div>
+      <div class="why">💬 这句话直接点明本章核心结论：专业分析师的深度研究并未带来预测优势，挑战了基本面分析的价值。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">基本面分析局限</h3>
+        <div class="concept-body"><p>本章系统批判了基本面分析的有效性，核心观点包括：
+1. **盈利预测的不可靠性**：作者与约翰·克拉格的研究发现，华尔街顶级分析师对标准普尔500成分股未来1年和5年的盈利预测，并不比简单外推历史趋势更准确，甚至5年期预测还不如幼稚模型。例如，分析师对公用事业这类“稳定”行业的预测也相去甚远，且没有分析师能持续胜人一筹。
+2. **五大预测障碍**：①随机事件（如油价暴涨、新药试验失败）使盈利不可预知；②寻机性会计（如安然虚报交易、施乐提前确认收入）扭曲真实盈利；③分析师自身错误（如铜业分析师路易搞错小数点）；④优秀分析师流向销售或投资组合管理岗位；⑤研究部门与投资银行部门的利益冲突（如分析师为讨好投行客户而只推荐买入，英国石油漏油事件后34位分析师无一人建议卖出）。
+3. **共同基金业绩**：长期来看，主动管理型共同基金并未跑赢标准普尔500指数。表7-1显示，截至2013年12月31日的20年间，一般股票型基金回报低于指数。
+4. **有效市场理论**：市场已快速反映所有公开信息，因此专业分析师无法持续获得超额收益。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国金融制度背景：①20世纪70年代固定佣金制度终止后，券商利润重心从零售经纪转向投资银行业务，导致分析师独立性受损；②2002年《萨班斯-奥克斯利法案》和“公平披露”政策限制了分析师获取特权信息的能力；③纽约州总检察官斯匹泽对美林证券的调查揭示了分析师公开推荐“垃圾”股票的内幕。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>华尔街专业人士认为基本面分析越来越强，个人投资者面对专业团队毫无胜算。部分基金经理声称“激进型投资经理的优势让人吃惊”，但学术研究反驳了这一观点。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，证券分析师的盈利预测同样存在系统性偏差。例如，2020年多家券商对某新能源车企的盈利预测普遍乐观，但实际业绩因补贴退坡和竞争加剧远低于预期。此外，A股分析师也面临利益冲突：部分券商研究部门为争取上市公司保荐业务，倾向于发布“买入”评级，导致“买入/卖出”比例长期失衡。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Fundamental Analysis</strong></td><td class="zh">基本面分析</td><td>通过分析公司财务数据、行业前景等内在价值因素进行投资决策的方法。</td></tr><tr><td><strong>Pro Forma Earnings</strong></td><td class="zh">试算盈利</td><td>公司自行调整后的盈利指标，常排除非经常性费用，可能虚夸真实盈利。</td></tr><tr><td><strong>Sarbanes-Oxley Act</strong></td><td class="zh">萨班斯-奥克斯利法案</td><td>2002年美国为应对公司丑闻出台的法案，加强财务监管并限制分析师与投行的利益关联。</td></tr><tr><td><strong>Efficient Market Theory</strong></td><td class="zh">有效市场理论</td><td>认为市场价格已充分反映所有公开信息，因此无法通过分析获得持续超额收益。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>证券分析师对盈利的预测并不比简单外推历史趋势更准确，且无人能持续胜出。</li><li>五大因素导致预测困难：随机事件、会计操纵、分析师自身错误、人才流失、利益冲突。</li><li>长期来看，主动管理型共同基金无法跑赢市场指数，支持有效市场理论。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你持有某只股票，分析师一致预测其未来一年盈利增长20%。根据本章结论，你应如何评估这一预测的可靠性？</p>
+        <p class="hint">💡 提示：考虑分析师预测的常见偏差（如利益冲突、历史外推的局限性）以及随机事件的影响。</p>
+        <div class="chat-widget" id="chat-漫步-ch7-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch7-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出分析师预测常受利益冲突和随机事件干扰，建议你从历史准确率、行业特性及公司会计质量三个维度交叉验证。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch7-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">如果你是一位个人投资者，面对专业基金经理声称能战胜市场的宣传，你会如何运用本章证据做出理性决策？</p>
+        <p class="hint">💡 提示：回顾共同基金长期业绩数据，思考指数化投资的优势。</p>
+        <div class="chat-widget" id="chat-漫步-ch7-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch7-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章表7-1显示主动基金长期跑输指数，建议你优先考虑低成本指数基金，而非追逐明星经理。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch7-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
+    <div class="ch-header">
+      <div class="ch-num">8</div>
+      <div>
+        <h2 class="ch-title" id="ch8-title">风险与收益的量化艺术</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">现代投资组合理论</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何用数学方法降低投资风险？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">通过将不完全正相关的资产组合，可在不牺牲收益的前提下降低风险。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书第三部分，系统介绍现代投资组合理论（MPT），回答如何通过数学方法量化风险、构建多样化组合以实现风险最小化与收益最大化。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">As long as there is some lack of parallelism in the fortunes of the individual companies in the economy, diversification will reduce risk. In this example, the fortunes of the two companies are perfectly negatively correlated (one always does well when the other does poorly), and diversification eliminates risk entirely.</div></details>
+      <div class="zh">「只要经济体中单个公司盈利状况之间缺乏一定的共同变动性，多样化投资就可以降低风险。在本例中，两家企业的盈利状况之间完全呈负相关（总是一家欢喜一家愁），因而多样化可以完全消除风险。」</div>
+      <div class="why">💬 这句话用简单案例直观揭示了多样化的本质：利用资产间的负相关消除风险。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">现代投资组合理论</h3>
+        <div class="concept-body"><p>本章核心概念包括：风险的定义（收益率的离散度，即方差与标准差）、预期收益率的计算、现代投资组合理论（MPT）的创立者哈里·马科维茨及其核心思想——通过将不完全正相关的资产组合，可在不牺牲预期收益的前提下降低整体风险。原文以孤岛经济体中度假胜地和雨伞制造商的例子说明：当两家企业收益率呈负相关时，各投1美元构建的组合无论晴雨均稳定获得12.5%的年收益率，完全消除了单只股票的风险。马科维茨证明，只要资产间相关系数小于1，多样化就能降低风险。实践中，美国本土股票组合约需50只股票可降低60%以上风险；国际多样化（如加入17%外国股票）可进一步降低风险并提高收益，形成“近乎免费午餐”的效果。但全球化导致相关系数上升，2007-2009年危机期间几乎所有市场同步下跌，多样化效果减弱；不过债券在危机中仍提供避险价值（2008年巴克莱资本大型债券指数收益5.2%）。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及伊博森协会（Ibbotson Associates）对1926-2013年美国各类投资工具（股票、债券、短期国债）的长期研究，这是美国金融学术界的经典数据来源，反映了美国市场风险溢价的历史实证。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>部分批评者认为用方差/标准差衡量风险不合理，因为“如果离散是源于意外之喜，任何大脑正常的投资者都不会说这是风险”。他们主张只有收益率下跌的可能性才构成风险。但作者指出，只要收益率分布对称（充分多样化的组合通常如此），方差仍是有效的风险指标。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，现代投资组合理论同样适用。例如，投资者可构建包含沪深300指数基金（代表大盘蓝筹）与创业板ETF（代表成长型小盘股）的组合，二者历史相关系数约0.6-0.7，低于1，可降低波动。此外，加入黄金ETF或债券型基金（如国债ETF）可进一步分散风险。2015年股灾期间，沪深300指数下跌约40%，而同期债券基金平均收益为正，体现了多样化价值。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>MPT</strong></td><td class="zh">现代投资组合理论</td><td>由哈里·马科维茨创立，核心是通过多样化降低风险。</td></tr><tr><td><strong>Standard Deviation</strong></td><td class="zh">标准差</td><td>衡量收益率离散度的指标，常用作风险度量。</td></tr><tr><td><strong>Covariance</strong></td><td class="zh">协方差</td><td>衡量两只证券收益率共同变动程度的统计量。</td></tr><tr><td><strong>Correlation Coefficient</strong></td><td class="zh">相关系数</td><td>介于-1到1之间，反映资产间联动性，小于1即可降低风险。</td></tr><tr><td><strong>EAFE Index</strong></td><td class="zh">欧澳远东指数</td><td>摩根士丹利编制的发达国家与地区股票指数。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>风险定义为收益率的方差或标准差，而非仅下跌可能。</li><li>马科维茨证明只要资产间相关系数小于1，多样化即可降低风险。</li><li>国际多样化可提供“近乎免费午餐”的效果：提高收益同时降低风险。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你持有A股沪深300指数基金和创业板ETF，历史数据显示二者相关系数约为0.65。请用现代投资组合理论解释，为什么同时持有两者比只持有一个更安全？</p>
+        <p class="hint">💡 提示：参考度假胜地和雨伞制造商的例子，思考相关系数小于1如何降低组合波动。</p>
+        <div class="chat-widget" id="chat-漫步-ch8-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch8-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">现代投资组合理论的核心是：只要资产不完全正相关，组合风险就能降低。请思考0.65的相关系数意味着什么。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch8-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">2022年A股市场大幅下跌，但同期债券基金（如国债ETF）表现平稳。请结合本章关于债券在金融危机中价值的论述，说明为何在股票组合中加入债券能降低整体风险。</p>
+        <p class="hint">💡 提示：回顾2008年金融危机期间债券与股票相关系数下降的案例。</p>
+        <div class="chat-widget" id="chat-漫步-ch8-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch8-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章提到，即使在2008年股市暴跌时，债券仍提供了正收益。请思考相关系数在极端行情下的变化。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch8-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
+    <div class="ch-header">
+      <div class="ch-num">9</div>
+      <div>
+        <h2 class="ch-title" id="ch9-title">风险与收益的量化博弈</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">β与系统风险</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何通过承担系统风险获取更高收益？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">只有不可分散的系统风险才获得补偿，β是衡量它的关键工具。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》投资理论部分，系统讲解现代投资组合理论的核心——资本资产定价模型（CAPM）及其β系数，回答如何通过承担不可分散的系统风险来获取更高长期收益。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Investors are not compensated for bearing diversifiable risk. That is the logic behind the capital-asset pricing model.</div></details>
+      <div class="zh">「投资者不会因承担可以分散掉的风险而获得报酬。这便是资本资产定价模型背后的逻辑。」</div>
+      <div class="why">💬 这句话精准概括了CAPM的核心思想：只有不可分散的系统风险才值得获得风险溢价。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">β与系统风险</h3>
+        <div class="concept-body"><p>本章核心概念包括：
+1. **系统风险与非系统风险**：系统风险（市场风险）是所有股票随大市波动的部分，无法通过多样化消除；非系统风险（公司特有风险）如罢工、新产品发现等，可通过多样化分散。
+2. **β系数**：衡量单只股票或投资组合对市场整体波动的相对敏感性。市场指数β=1，β=2的股票波动为市场两倍，β=0.5则为一半。β值高的股票称为激进型，低的为保守型。
+3. **资本资产定价模型（CAPM）**：认为只有系统风险（β）才获得风险溢价，非系统风险因可分散而不补偿。预期收益率 = 无风险利率 + β × (市场收益率 - 无风险利率)。
+4. **套利定价理论（APT）**：斯蒂芬·罗斯提出，认为影响风险的系统性因素不止一个，还包括国民收入变动、利率变动、通货膨胀率变动等，β可能无法充分反映。
+5. **法玛-弗伦奇三因素模型**：在β之外加入公司规模（市值）和市净率两个因素，认为小公司、低市净率股票风险更高，收益也更高。
+6. **β的争议**：法玛和弗伦奇1992年研究发现1963-1990年间β与收益之间无实质关系，导致β被部分学者和从业者质疑，但作者认为β仍有用处，如预测相对波动性、作为投资管理工具。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及美国金融界对β的狂热：20世纪70年代初《机构投资者》杂志将β奉为风险测量新方法，华尔街券商（如美林）和投资咨询机构（如价值线、晨星）纷纷提供β估计值。量化师（quant）文化兴起，但随后因实证结果不佳出现“β之死”的讨论。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>反对CAPM和β的观点：尤金·法玛和肯尼斯·弗伦奇1992年研究显示，1963-1990年间按β值十分位划分的股票组合，其平均月收益率与β之间不存在实质关系。许多学者和从业者因此认为β已死亡，高等数学之于投资“将如泰坦尼克之于帆船运动”。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，β系数被广泛应用于基金评价和风险管理。例如，华泰柏瑞沪深300ETF的β值接近1，而创业板ETF的β值通常大于1（约1.2-1.5），反映其更高波动性。但A股市场散户占比高、政策影响大，β对收益的解释力弱于美股，法玛-弗伦奇三因素模型在中国也有实证研究，但效果因市场特征而异。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>CAPM</strong></td><td class="zh">资本资产定价模型</td><td>认为只有系统风险（β）才获得风险溢价，非系统风险因可分散而不补偿。</td></tr><tr><td><strong>β</strong></td><td class="zh">贝塔系数</td><td>衡量单只股票或组合对市场整体波动的相对敏感性，β=2表示波动为市场两倍。</td></tr><tr><td><strong>APT</strong></td><td class="zh">套利定价理论</td><td>斯蒂芬·罗斯提出，认为影响风险的系统性因素包括国民收入、利率、通胀等多个变量。</td></tr><tr><td><strong>Fama-French Three-Factor Model</strong></td><td class="zh">法玛-弗伦奇三因素模型</td><td>在β之外加入公司规模和市净率两个因素，解释收益差异。</td></tr><tr><td><strong>Systematic Risk</strong></td><td class="zh">系统风险</td><td>所有股票随大市波动的部分，无法通过多样化消除。</td></tr><tr><td><strong>Unsystematic Risk</strong></td><td class="zh">非系统风险</td><td>公司特有风险如罢工、新产品发现，可通过多样化分散。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>多样化只能消除非系统风险，系统风险（β）无法分散。</li><li>CAPM认为只有系统风险才获得风险溢价，β是核心测量工具。</li><li>β并非完美，法玛-弗伦奇研究显示其与收益关系弱，但仍是实用的波动性预测工具。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你构建了一个由60只股票组成的投资组合，其中一半股票β=1.5，另一半β=0.5。请计算该组合的β值，并说明如果市场上涨10%，该组合预期收益率是多少？</p>
+        <p class="hint">💡 提示：组合β值为各股票β值的加权平均数，然后代入CAPM公式计算预期收益率。</p>
+        <div class="chat-widget" id="chat-漫步-ch9-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch9-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这道题帮你理解β如何影响组合收益。先计算加权平均β，再代入CAPM公式。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch9-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">法玛和弗伦奇的研究显示β与收益之间无实质关系，但作者认为β仍有价值。请结合A股市场，讨论β在投资决策中是否仍然有用？</p>
+        <p class="hint">💡 提示：考虑A股市场的高波动性、政策市特征，以及β在风险管理和基金评价中的实际应用。</p>
+        <div class="chat-widget" id="chat-漫步-ch9-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch9-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">这道题让你思考β的实用价值。A股市场波动大，β在衡量相对风险方面仍有参考意义。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch9-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch11" aria-labelledby="ch11-title">
+    <div class="ch-header">
+      <div class="ch-num">11</div>
+      <div>
+        <h2 class="ch-title" id="ch11-title">聪明β策略的真相与陷阱</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">聪明β策略</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">聪明β策略真能提升投资业绩吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">聪明β策略并非真聪明，低成本指数基金才是最佳选择。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》第11章，核心回答“聪明的β”投资策略是否真的能提升投资组合业绩，以及个人投资者应如何选择。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">All smart beta investment strategies represent active management of money, not indexing. A market-capitalization-weighted portfolio is the market. If you believe that some stocks will give you superior returns, you are counting on some 'sucker' investors to hold the inferior portfolios.</div></details>
+      <div class="zh">「所有“聪明的β”投资策略均代表着对资金的主动管理，而非代表指数化投资。以市值确定权重的投资组合就是市场。如果你相信一部分股票会给你带来优越的收益，那么你就是在指望一些“傻子”投资者持有产生较差收益的投资组合。」</div>
+      <div class="why">💬 这句话揭示了聪明β策略的本质是主动管理，并点明了其依赖市场无效性的逻辑。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">聪明β策略</h3>
+        <div class="concept-body"><p>本章深入剖析了“聪明的β”投资策略，这是一种通过向特定方向倾斜（如价值、小市值、趋势、低波动性）来试图获得超额收益的被动投资方法。作者指出，这些策略并非真正的指数化投资，而是主动管理的一种形式。
+
+1. **价值胜出**：基于格雷厄姆和多德的价值投资理论，低市盈率和低市净率股票长期表现更好。但作者警告，低估值可能反映风险，如2009年花旗和美洲银行股价低于账面价值，面临国有化风险。
+
+2. **较小便较好**：小市值公司股票长期收益率高于大市值公司，但风险也更高。作者指出，小公司效应可能源于幸存者偏差，且其持续性存疑。
+
+3. **趋势和均值回归**：短期存在趋势，长期存在均值回归。但作者的研究显示，反向操作策略并未产生超额收益，统计上的反转模式不足以让投资者获利。
+
+4. **低波动性可以产生高收益率**：利用保证金买入低β投资组合可放大收益，但同时也放大了风险。低波动性策略往往集中投资于公用事业和大型制药股，多样化程度低。
+
+作者通过实际基金数据（如DFA、RAFI基本面指数、等权重指数）证明，这些策略在真实投资中并未持续产生超额收益，且面临高成本、均值回归和估值依赖等问题。最终结论是，成本低廉、以市值确定权重的广泛指数基金仍是个人投资者的最佳选择。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>支持“聪明的β”策略的人认为，传统市值加权指数基金持有过多估值过高的增长型股票，是“傻子β”。他们声称通过向价值、小市值等方向倾斜，可以在不增加风险的情况下获得更高收益。DFA等公司也承认，其超额收益是对额外风险的补偿。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，类似“聪明的β”策略的基金产品（如中证红利低波指数基金、中证500价值指数基金）近年逐渐增多。例如，华泰柏瑞中证红利低波ETF（512890）跟踪红利低波指数，试图结合高股息和低波动因子。但A股市场有效性较低，因子轮动现象明显，投资者需警惕策略失效风险。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Smart Beta</strong></td><td class="zh">聪明β</td><td>一种通过向特定因子倾斜（如价值、小市值）来试图获得超额收益的被动投资策略。</td></tr><tr><td><strong>Value Investing</strong></td><td class="zh">价值投资</td><td>基于低市盈率和低市净率等指标，寻找被低估股票的投资策略。</td></tr><tr><td><strong>Small-Firm Effect</strong></td><td class="zh">小公司效应</td><td>小市值公司股票长期收益率高于大市值公司的现象，但可能源于幸存者偏差。</td></tr><tr><td><strong>Mean Reversion</strong></td><td class="zh">均值回归</td><td>股票价格在长期内会回归其平均水平的现象，导致趋势反转。</td></tr><tr><td><strong>Low Volatility Anomaly</strong></td><td class="zh">低波动性异象</td><td>低波动性股票往往产生高于高波动性股票收益率的反常现象。</td></tr><tr><td><strong>Fundamental Index</strong></td><td class="zh">基本面指数</td><td>以销售额、盈利、账面价值等基本面指标确定权重的指数，而非市值。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>所有“聪明的β”策略都是主动管理，而非指数化投资，且可能承担更大风险。</li><li>价值、小市值、趋势、低波动性等因子在真实投资中并未持续产生超额收益。</li><li>低成本、以市值确定权重的广泛指数基金仍是个人投资者的最佳选择。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你计划投资10万元，是选择一只“聪明的β”基金（如低波动ETF）还是一只传统沪深300指数基金？请结合本章内容说明理由。</p>
+        <p class="hint">💡 提示：考虑成本、风险、多样化程度和长期业绩。</p>
+        <div class="chat-widget" id="chat-漫步-ch11-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch11-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出聪明β策略成本更高、多样化更低，且长期业绩未必优于传统指数基金。请思考你的选择。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch11-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">如果你发现某只小市值价值基金过去3年业绩远超沪深300，你会立即买入吗？请用本章的均值回归和幸存者偏差概念分析。</p>
+        <p class="hint">💡 提示：注意均值回归现象和幸存者偏差可能导致业绩不可持续。</p>
+        <div class="chat-widget" id="chat-漫步-ch11-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch11-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章提到小公司效应可能源于幸存者偏差，且超额收益后常伴随均值回归。请谨慎评估。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch11-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch12" aria-labelledby="ch12-title">
+    <div class="ch-header">
+      <div class="ch-num">12</div>
+      <div>
+        <h2 class="ch-title" id="ch12-title">随机漫步者的投资健身手册</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">投资健身手册</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何为随机漫步做好充分准备？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">通过储蓄、保险、避税和风险定位，为投资奠定坚实基础。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》第四部分的实务指南，为投资者提供从储蓄、保险、现金管理到避税、风险定位的全面建议，回答“如何为随机漫步做好充分准备”这一核心问题。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">The most important thing you can do to achieve financial security is to begin a regular savings program and to begin it early. The only sure way to a comfortable retirement is to accumulate savings slowly and steadily.</div></details>
+      <div class="zh">「要实现财务安全，你所能做的最为重要的事就是开始定期储蓄，而且要尽早着手储蓄。要过上舒适的退休生活，唯一可靠的办法就是慢慢地、稳稳当当地积累储蓄金。」</div>
+      <div class="why">💬 这句话点明了投资成功的根本——不是选股技巧，而是纪律性的储蓄和时间的复利。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">投资健身手册</h3>
+        <div class="concept-body"><p>本章以“健身手册”为喻，系统阐述了投资者在开始随机漫步前必须完成的五项热身练习：
+1. **储蓄与复利**：强调定期储蓄是资产增长的最重要因素，复利是“有史以来最伟大的数学发现”。引用杰里米·西格尔的数据：1802年1美元投资股票，到2013年底增值到1800万美元。
+2. **现金储备与保险**：建议持有3个月生活费用的现金储备，并购买可续保的定期保险，避免高保费终身寿险。引用墨菲定律和奥图尔注解说明意外必然发生。
+3. **现金储备工具**：介绍货币市场基金、银行定期存单、网上银行、短期国债和免税货币市场基金的特点与选择方法，强调通过互联网（如bankrate.com）寻找最优利率。
+4. **避税策略**：详细讲解传统IRA、罗斯IRA、401(k)/403(b)、自雇养老金计划（SEP IRA）和529大学储蓄计划。引用计算：每年5500美元投资45年，IRA账户终值160万美元，应税账户仅90万美元。
+5. **认清投资目标**：提出“睡眠状况量表”，从银行存款到普通股按风险排列，引用J.P.摩根名言“卖掉一些，直到你能入睡为止”，强调在“吃得好”与“睡得香”之间找到平衡。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章涉及美国退休金制度（IRA、401(k)、SEP IRA）、保险评级机构（A.M.Best）、联邦存款保险公司（FDIC）以及美国国债发行机制（TreasuryDirect），这些是美国金融体系的特有组成部分。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>一些金融顾问认为，过度强调储蓄和避税可能让投资者错失更高收益的投资机会，尤其是在低利率环境下，现金储备和保险的回报率过低，不如直接投资股票或债券。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>本章的避税策略与中国市场有部分关联：中国的个人养老金制度（如个人养老金账户）允许每年12000元税前扣除，类似美国IRA；但中国的保险市场（如定期寿险）普及度较低，且529计划无直接对应产品。A股投资者可借鉴“睡眠状况量表”进行风险自评，但需注意中国市场的波动性更高。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>IRA</strong></td><td class="zh">个人退休金账户</td><td>传统IRA允许税前抵扣，投资收益递延纳税；罗斯IRA税后存入，退休时免税提取。</td></tr><tr><td><strong>401(k)</strong></td><td class="zh">401(k)养老金计划</td><td>雇主提供的利润分享型退休计划，雇员税前工资存入，雇主可能匹配缴款。</td></tr><tr><td><strong>SEP IRA</strong></td><td class="zh">自雇个人养老金计划</td><td>自雇人士可每年存入收入25%（上限52000美元），税前扣除。</td></tr><tr><td><strong>529 Plan</strong></td><td class="zh">529大学储蓄计划</td><td>为高等教育储蓄的税收优惠账户，投资收益免税，但需用于合格教育支出。</td></tr><tr><td><strong>TIPS</strong></td><td class="zh">防通胀国债</td><td>美国财政部发行的通胀保护债券，本金随CPI调整，保证实际购买力。</td></tr><tr><td><strong>T-bills</strong></td><td class="zh">短期国债</td><td>美国政府发行的短期债务工具，期限4周至1年，免州税和地方税。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>定期储蓄是资产增长的最重要因素，复利的力量远超选股技巧。</li><li>现金储备和保险是应对意外的基础，优先选择低成本定期保险。</li><li>充分利用税收优惠账户（IRA、401(k)、529）最大化税后收益。</li><li>根据个人风险承受能力选择投资工具，在“吃得好”与“睡得香”间平衡。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你今年30岁，年收入10万元，计划60岁退休。如果每年将收入的15%投入一个年化收益7%的税收优惠账户，而另一个应税账户同样投资但每年缴纳20%的资本利得税，30年后两个账户的终值相差多少？这对你的储蓄决策有何启示？</p>
+        <p class="hint">💡 提示：使用复利公式计算终值，考虑税收对收益的侵蚀。</p>
+        <div class="chat-widget" id="chat-漫步-ch12-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch12-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调税收优惠账户的巨大优势，让我们用具体数字来感受一下复利和税收的威力吧！</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch12-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你目前持有10万元现金，预计3年后需要支付子女大学学费。根据本章建议，你会选择哪种现金管理工具？为什么？请结合当前市场利率（假设一年期定存利率2%，货币基金1.5%，短期国债1.8%）说明。</p>
+        <p class="hint">💡 提示：考虑安全性、流动性和收益率，匹配资金使用时间。</p>
+        <div class="chat-widget" id="chat-漫步-ch12-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch12-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章介绍了多种现金储备工具，关键是要匹配资金使用时间和风险偏好，我们来分析一下你的选择。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch12-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch13" aria-labelledby="ch13-title">
+    <div class="ch-header">
+      <div class="ch-num">13</div>
+      <div>
+        <h2 class="ch-title" id="ch13-title">长期收益率的决定因素与历史验证</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">长期收益率分解</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何预测股票和债券的长期收益率？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">股票长期收益≈初始股利收益率+增长率，债券≈到期收益率，估值变化影响短期。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于《漫步华尔街》第三部分，核心回答如何理解并预测股票和债券的长期收益率，通过历史四个时代的实证分析，揭示初始股利收益率、盈利增长率和估值变化对收益的决定性作用。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Earnings growth did compensate for the inflation during 1969-1981, but the decline in the price-to-dividend multiple and the P/E ratio—which I believe reflected an increase in perceived risk—was the real culprit that murdered the stock market.</div></details>
+      <div class="zh">「1969～1981年，盈利增长率的确补偿了这期间的通货膨胀，但股价对股利的倍数以及市盈率的下降——我相信这种下降反映已感知到的风险上升了正是谋杀股票市场的元凶。」</div>
+      <div class="why">💬 这句话揭示了股票市场在通胀时期表现糟糕的根本原因并非盈利不足，而是投资者恐慌导致的估值崩溃。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">长期收益率分解</h3>
+        <div class="concept-body"><p>本章系统阐述了股票和债券长期收益率的决定因素。对于股票，长期收益率近似等于初始股利收益率与盈利（股利）增长率之和，如1926-2013年，5%的初始股利收益率加上5%的增长率，得到约10%的年均收益率。短期来看，估值关系的变化（市盈率或股价对股利倍数的变动）起关键作用，例如2000-2009年“失落的十年”，初始股利收益率仅1.2%，股利增长率5.8%，但市盈率暴跌导致估值变化从收益率中扣除13.5个百分点，最终年化收益率为-6.5%。对于债券，长期收益率约等于购买时的到期收益率，如1982年优质公司债券到期收益率13%，持有到期即获13%收益；若未持有到期，市场利率变化决定资本损益。通货膨胀是核心风险：对债券是死敌，因利率上升导致价格下跌；对股票理论上应是防范工具，但实际中若市盈率因恐慌而崩溃（如1969-1981年市盈率下降2/3），股票仍会亏损。作者将1947-2009年分为四个时代：舒适安逸时代（1947-1968，股票高收益，债券低收益）、焦虑不安时代（1969-1981，股债双杀，实际收益为负）、精神焕发时代（1982-2000，股债黄金期，初始条件极佳）、感到幻灭的时代（2000-2009，股票负收益，债券正收益）。最后，作者以2014年数据为例，预测未来股票长期收益率约7%（1.9%股利收益率+5%增长率），债券约4.5%，并指出初始市盈率可解释长期收益中多达40%的波动。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章涉及美国二战后的经济政策背景，如1951年前美联储将长期国债利率钉住在2.5%以下以降低战争融资成本；1964年肯尼迪减税计划；1970年代石油危机和粮食短缺引发的滞胀；1980年代初沃尔克紧缩货币政策；以及2008年房地产泡沫破裂。这些历史事件直接影响了四个时代的市场表现。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>部分分析师质疑股利收益率在决定股票收益率中的相关性，认为公司日益倾向于用股票回购替代股利分配，因此应更多关注盈利增长率而非股利。作者回应称，回购确实影响短期收益，但长期看盈利和股利增长率大致相当，故仍以股利收益率加增长率为简便方法。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>本章的收益率分解方法可应用于A股市场。例如，2015年A股牛市时，上证综指市盈率曾达20倍以上，股利收益率低于2%，随后2016-2018年估值回归导致收益不佳。2024年初，沪深300指数市盈率约11倍，股利收益率约3%，若盈利增长率假设为5-7%，则预期长期收益率约8-10%，与历史均值接近。投资者可据此评估当前A股是否具备安全边际。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Initial Dividend Yield</strong></td><td class="zh">初始股利收益率</td><td>购买股票时的股利收益率，是长期收益的基础组成部分。</td></tr><tr><td><strong>Earnings Growth Rate</strong></td><td class="zh">盈利增长率</td><td>每股盈利的长期年化增长率，与股利增长率大致相等。</td></tr><tr><td><strong>P/E Ratio</strong></td><td class="zh">市盈率</td><td>股价与每股盈利的倍数，其变化是短期收益波动的关键因素。</td></tr><tr><td><strong>Yield to Maturity</strong></td><td class="zh">到期收益率</td><td>债券持有至到期所获得的年化收益率，是债券长期收益的近似值。</td></tr><tr><td><strong>Valuation Change</strong></td><td class="zh">估值变化</td><td>市盈率或股价对股利倍数的变动，对短期收益率有重大影响。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>股票长期收益率主要由初始股利收益率和盈利增长率决定，短期受估值变化影响。</li><li>债券长期收益率约等于购买时的到期收益率，未持有到期则受市场利率变动影响。</li><li>通货膨胀是债券的死敌，对股票的影响取决于市盈率是否因恐慌而崩溃。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你当前持有沪深300指数基金，已知其股利收益率为3%，你预期未来十年中国GDP增速约5%，上市公司盈利增速略高于GDP约6%。请用本章的公式估算该基金的预期年化收益率。如果当前市盈率为12倍，你认为这个收益率是否合理？</p>
+        <p class="hint">💡 提示：使用公式：预期收益率 = 初始股利收益率 + 盈利增长率。考虑估值变化可能带来的额外收益或损失。</p>
+        <div class="chat-widget" id="chat-漫步-ch13-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch13-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先计算基础收益率，再思考当前市盈率12倍处于历史什么水平，估值变化会如何影响实际收益。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch13-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你购买了一只10年期国债，到期收益率为3.5%。如果未来三年内市场利率上升至5%，你打算在第三年末卖出该债券，请分析你可能面临的资本损失。</p>
+        <p class="hint">💡 提示：债券价格与市场利率反向变动。利率上升会导致债券价格下跌，持有期越短，资本损失越显著。</p>
+        <div class="chat-widget" id="chat-漫步-ch13-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch13-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请回忆债券定价原理：利率上升时，现有债券的票息吸引力下降，价格必须下跌以提供与新券相当的收益率。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch13-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch14" aria-labelledby="ch14-title">
+    <div class="ch-header">
+      <div class="ch-num">14</div>
+      <div>
+        <h2 class="ch-title" id="ch14-title">年龄决定资产配置的艺术</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">生命周期投资</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何根据年龄调整股票和债券的配置比例？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">投资策略应随年龄变化：年轻激进，年长保守，并坚持定期储蓄与再平衡。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书生命周期投资策略的总结，核心回答：如何根据年龄、收入、风险承受能力，动态调整股票、债券、房地产等资产类别的配置比例。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">There are two times in a man's life when he should not speculate: when he can't afford it, and when he can.</div></details>
+      <div class="zh">「人这一生有两种时候不应该投机：一种是担当不起的时候，一种是担当得起的时候。」</div>
+      <div class="why">💬 这句开篇引言精准概括了生命周期投资的核心：风险承受能力随年龄和财务状况变化。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">生命周期投资</h3>
+        <div class="concept-body"><p>本章围绕生命周期投资展开，核心观点是：投资策略必须随年龄阶段变化。
+
+1. **资产配置五项原则**：
+   - 风险与收益相关：历史数据（1926-2013年）显示，普通股年化收益约10%，但每十年有三年亏损。
+   - 持有期限决定风险：持有股票25年以上，年化收益波动极小（1950-2013年数据），长期持有可消除大部分风险。
+   - 定期等额平均成本法：每月固定金额投资，可在市场下跌时买入更多份额，降低平均成本。巴菲特以“汉堡包”比喻说明：净储蓄者应欢迎股价下跌。
+   - 重新调整资产权重：每年将组合比例调回目标（如60%股票/40%债券），可降低波动并提高收益（1996-2013年数据：年收益从8.14%提升至8.41%）。
+   - 区分风险态度与风险能力：64岁寡妇米尔德莱德只能承受低风险；26岁MBA蒂芬尼可承受高风险；43岁通用汽车工长卡尔因收入与股票高度相关，风险集中。
+
+2. **三条一般准则**：
+   - 特定需要专用资产：如一年后购房首付应投短期定存。
+   - 认清风险忍受度：2008年股市暴跌50%时能否安睡？
+   - 坚持固定储蓄：每月存100美元，年化7%，30年可积累12.1万美元。
+
+3. **生命周期投资指南**：
+   - 20多岁：激进型，高比例股票（含新兴市场）和房地产投资信托。
+   - 55岁：转向保守，增加债券和股息股票。
+   - 退休后：高比例债券，但仍保留40%股票和15%房地产投资信托以抗通胀。
+   - 推荐使用指数基金，避免个股。
+
+4. **生命周期基金**：自动调整资产权重，随年龄增长转向保守，如“目标到期日2045年”基金。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国401(k)计划是本章的重要背景。这是一种雇主赞助的退休储蓄计划，雇员可将税前工资存入，雇主可能匹配部分资金，投资收益延迟纳税。本章多次提及该计划，并建议通过它进行定期等额投资。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>定期等额平均成本法有争议：若市场持续上涨，一次性投入收益更高。例如，若在5年牛市初期一次性投入5000美元，收益将高于每月定投。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>中国A股市场同样适用生命周期投资。例如，年轻投资者（如25岁）可配置较高比例的沪深300指数基金和创业板ETF；临近退休者（如55岁）应增加债券型基金（如国债ETF）和红利指数基金。中国也有类似生命周期基金，如“目标日期2045”养老目标基金。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Asset Allocation</strong></td><td class="zh">资产配置</td><td>决定投资组合中股票、债券、现金等类别的比例，是投资收益的主要来源（占90%以上）。</td></tr><tr><td><strong>Dollar-Cost Averaging</strong></td><td class="zh">定期等额平均成本法</td><td>每月固定金额投资，降低市场波动风险，但牛市时收益低于一次性投入。</td></tr><tr><td><strong>Rebalancing</strong></td><td class="zh">重新调整资产权重</td><td>定期将组合比例调回目标，实现低买高卖，降低风险并可能提高收益。</td></tr><tr><td><strong>Lifecycle Fund</strong></td><td class="zh">生命周期基金</td><td>自动调整资产配置，随目标退休日期临近而转向保守。</td></tr><tr><td><strong>Risk Tolerance</strong></td><td class="zh">风险忍受度</td><td>个人对投资波动的主观承受能力，影响资产配置决策。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>资产配置决定90%以上的投资收益，选股只占不到10%。</li><li>持有期限越长，股票风险越低；25年以上几乎无亏损。</li><li>定期等额投资和再平衡可降低风险，提高长期收益。</li><li>区分风险态度与风险能力：收入来源稳定者可承受更高风险。</li><li>生命周期基金提供自动调整的便利，适合不愿频繁操作的投资者。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你今年35岁，年收入20万元，计划60岁退休。请根据本章原则，设计一个初始资产配置方案（股票、债券、现金比例），并说明理由。</p>
+        <p class="hint">💡 提示：考虑你的收入稳定性、持有期限、风险承受能力。</p>
+        <div class="chat-widget" id="chat-漫步-ch14-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch14-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调年龄和收入决定风险承受能力。35岁有长期收入，可配置较高股票比例。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch14-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你每月有2000元可用于投资，但担心市场下跌。请解释定期等额平均成本法如何帮助你降低风险，并举例说明。</p>
+        <p class="hint">💡 提示：参考巴菲特汉堡包比喻和表14-3的波动市场例子。</p>
+        <div class="chat-widget" id="chat-漫步-ch14-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch14-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">定期等额投资可在低价时买入更多份额，降低平均成本，适合长期储蓄。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch14-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch15" aria-labelledby="ch15-title">
+    <div class="ch-header">
+      <div class="ch-num">15</div>
+      <div>
+        <h2 class="ch-title" id="ch15-title">三种投资策略与实战指南</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">三种漫步法</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何选择适合自己的投资策略？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">指数化投资是多数人的最佳选择，自主选股需遵循严格规则。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《漫步华尔街》的实践指南，在阐述资产配置原则后，具体介绍指数化投资、自主选股和主动管理基金三种策略，回答投资者如何构建并执行投资组合的问题。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Index funds have regularly provided rates of return that exceed those of actively managed funds. The basic reason for this superior performance is the difference in management fees and transaction costs.</div></details>
+      <div class="zh">「指数基金产生的收益率经常会超过主动管理型基金。指数基金之所以会带来这种超额回报，基本原因有两点，就是其管理费和交易成本都不同于主动管理型基金。」</div>
+      <div class="why">💬 这句话直接点明了指数基金长期战胜主动基金的核心原因——低成本，是本章最核心的投资理念。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">三种漫步法</h3>
+        <div class="concept-body"><p>本章核心是提供三种漫步华尔街的具体投资策略：
+1. **省心省力漫步法（指数基金投资）**：作者强烈推荐此策略，认为多数投资者应以此构建投资组合核心。指数基金通过低成本（管理费约万分之五，远低于主动基金的1%）、低换手率（避免高额交易成本和资本利得税）和广泛分散化，能长期战胜大多数主动管理基金。作者指出，即使市场无效，主动基金整体因费用劣势也必然跑输指数。具体建议包括：使用涵盖范围更广的整体股市指数（如罗素3000、道琼斯/威尔希尔5000）替代标准普尔500指数；进行国际多样化投资，特别是新兴市场（如中国、印度），因其高增长和低估值（2014年底CAPE低于15倍）；推荐交易型开放式指数基金（ETF）因其更优的税收效率（实物赎回机制），但提醒小额投资者应选择免佣金的常规指数基金。
+2. **亲力亲为漫步法（自主选股规则）**：作者虽不推荐，但为愿意投入精力的投资者提供了四条规则：规则1：只买盈利增长有望连续五年超平均水平的公司；规则2：不为股票支付超过其坚实基础价值的价格，采用“以合理价格买入增长”（GARP）策略，买入市盈率相对增长前景较低的股票；规则3：买入能在其增长故事上建立“空中楼阁”的股票，即故事能引起大众共鸣；规则4：尽可能少交易，持有盈利股票，果断卖出亏损股票（尤其考虑税收抵扣）。作者警告，即使遵循这些规则，战胜市场仍极难，成功者多靠运气。
+3. **使用替身漫步法（主动管理型共同基金）**：作者不偏好此策略，但为坚持者提供选择建议。
+此外，本章还介绍了“马尔基尔漫步法”（购买折价封闭式基金），但指出如今折价率已大幅降低。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提及美国金融市场的多个具体机构与产品：先锋集团（Vanguard）及其创始人约翰·博格；道富银行全球顾问公司、黑石集团；标准普尔500指数、罗素3000指数、道琼斯/威尔希尔5000指数、MSCI指数；蜘蛛基金（SPDR）、蝰蛇基金（Viper）等ETF。这些是美国指数基金发展史上的标志性实体和产品。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>华尔街批评家认为指数基金是“保证能得到平庸的收益”，因为它排除了获得出众收益率的可能性，也剥夺了投资者吹嘘选中“快马”的机会。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，指数基金同样成为主流投资工具。例如，沪深300指数基金、中证500指数基金、科创50指数基金等，管理费率普遍低于主动管理型基金（如0.15% vs 1.5%）。近年来，ETF规模快速增长，如华泰柏瑞沪深300ETF规模超千亿。A股市场有效性低于美股，主动基金超额收益更常见，但长期看，多数主动基金仍跑输指数（如2020-2023年，沪深300全收益指数跑赢约60%的主动股票基金）。中国投资者也可通过QDII指数基金（如标普500ETF、纳斯达克100ETF）进行国际多样化。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Index Fund</strong></td><td class="zh">指数基金</td><td>追踪特定市场指数（如标普500）的被动管理型基金，以低费用和广泛分散化为核心优势。</td></tr><tr><td><strong>ETF</strong></td><td class="zh">交易型开放式指数基金</td><td>在交易所上市交易的指数基金，兼具股票交易灵活性和指数基金的低成本、税收效率优势。</td></tr><tr><td><strong>GARP</strong></td><td class="zh">以合理价格买入增长策略</td><td>作者推荐的选股策略：买入市盈率相对于其未来盈利增长前景较低的股票，平衡增长与估值。</td></tr><tr><td><strong>CAPE</strong></td><td class="zh">周期调整市盈率</td><td>席勒市盈率，用过去10年经通胀调整的平均盈利计算市盈率，用于预测长期市场收益率。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>指数基金因低费用和低换手率，长期业绩优于大多数主动管理基金，是多数投资者的最佳选择。</li><li>自主选股应遵循四条规则：选高增长公司、合理估值、关注市场心理、减少交易。</li><li>投资组合应进行国际多样化，特别是配置新兴市场指数基金，以分享高增长并分散风险。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你手头有10万元人民币，计划投资A股市场。请根据本章的“省心省力漫步法”，设计一个具体的指数基金投资组合，并说明你选择各基金的理由。</p>
+        <p class="hint">💡 提示：考虑国内宽基指数（如沪深300、中证500）、行业指数（如科创50）、债券指数基金，以及是否配置QDII指数基金。</p>
+        <div class="chat-widget" id="chat-漫步-ch15-q1">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch15-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先思考你的风险承受能力和投资期限，再决定股票与债券的比例。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch15-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你发现一只市盈率高达80倍的科技股，但市场普遍预期其未来三年盈利年增长率为50%。根据本章的选股规则，你是否应该买入？请结合规则2和规则3进行分析。</p>
+        <p class="hint">💡 提示：思考高市盈率是否已透支未来增长，以及该股票的故事能否持续吸引投资者。</p>
+        <div class="chat-widget" id="chat-漫步-ch15-q2">
+          <div class="chat-header" onclick="toggleChat('chat-漫步-ch15-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">注意规则2警告：市盈率过高时，一旦盈利不及预期，将面临双重打击。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-漫步-ch15-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
 
 <footer>
-  <p>📚 AI精读笔记 · 《漫步华尔街》5章精读</p>
+  <p>📚 AI精读笔记 · 《漫步华尔街》13章精读</p>
   <p><a href="../../bookshelf.html" style="color:var(--accent);">← 返回完整书架</a></p>
 </footer>
 
