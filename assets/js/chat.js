@@ -118,6 +118,15 @@
 
   // ==================== 真实API调用（直连DeepSeek，MVP阶段） ====================
   function sendToAPI(widgetId, msg, chapterInfo, body, typing, sendBtn) {
+    // 追踪 AI 对话
+    if (window.analytics) {
+      var charId = widgetId.split('-')[1] || 'unknown';
+      var roundNum = Math.floor((body.querySelectorAll('.chat-msg').length || 0) / 2) + 1;
+      window.analytics.track('AI_dialog_send', {
+        character_id: charId, round_num: roundNum, estimated_tokens: msg.length
+      });
+    }
+
     var history = getChatHistory(widgetId);
     var systemPrompt = buildPrompt(chapterInfo);
 

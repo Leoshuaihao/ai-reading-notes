@@ -37,6 +37,27 @@ CREATE INDEX IF NOT EXISTS idx_user_data_user ON user_data(user_id);
 CREATE INDEX IF NOT EXISTS idx_reading_notes_user ON reading_notes(user_id, book_slug);
 CREATE INDEX IF NOT EXISTS idx_user_profiles_membership ON user_profiles(membership_level);
 
+-- 4. 埋点事件表
+CREATE TABLE IF NOT EXISTS public.analytics_events (
+  id BIGSERIAL PRIMARY KEY,
+  event_name TEXT NOT NULL,
+  anonymous_id TEXT NOT NULL,
+  timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  page_url TEXT,
+  user_agent TEXT,
+  properties JSONB DEFAULT '{}'
+);
+CREATE INDEX IF NOT EXISTS idx_ae_event ON analytics_events(event_name);
+CREATE INDEX IF NOT EXISTS idx_ae_ts ON analytics_events(timestamp);
+CREATE INDEX IF NOT EXISTS idx_ae_aid ON analytics_events(anonymous_id);
+
+-- 埋点表不需要 RLS（匿名写入，anon key 可 INSERT）
+ALTER TABLE analytics_events ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow anon insert"
+  ON analytics_events FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow authenticated select"
+  ON analytics_events FOR SELECT USING (auth.role() = 'authenticated');
+
 -- RLS 策略：用户只能读写自己的数据
 ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE user_data ENABLE ROW LEVEL SECURITY;
