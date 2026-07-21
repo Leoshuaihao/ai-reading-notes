@@ -10,24 +10,10 @@ node_modules/
 __pycache__/
 /tmp/
 
-# 原始文件（仅保留工程化后的版本）
-epub_extracted/
-
-# 开发工具
-server.py
-test_regression.py
-fix_all.py
-test_final.py
-
-# 非部署文档
-DEPLOY.md
-
-# 截图
+# 截图（历史遗留，防止再生）
 screenshot_*.png
-ux_*.png
-
 preview_*.png
-ux_test_report.json
+ux_*.png
 # 备份文件
 *.bak
 # 测试文件

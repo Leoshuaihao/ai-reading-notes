@@ -56,7 +56,6 @@ ai-reading-notes/
 ├── concepts.html                       # 🕸️ 概念地图（12个核心概念跨书索引）
 ├── my.html                             # 🧘 个人中心（等级/成就/能力树/登山可视化）
 ├── diagnose.html                       # 🔍 股票诊断引擎
-├── reading-guide.html                  # 📖 单书精读指南（自包含页面，示例）
 ├── .gitignore
 │
 ├── ONBOARDING.md                       # 👈 你正在读的文档
@@ -100,17 +99,11 @@ ai-reading-notes/
 ├── worker/                             # Cloudflare Worker（API 代理）
 │   └── src/index.js
 │
-├── PRD_海外书籍AI精读平台_v1.md         # V1 PRD（历史参考）
 ├── PRD_海外书籍AI精读平台_v2.md         # V2 PRD（当前迭代规划）
 ├── PRD_股票诊断引擎_v1.md               # 诊断引擎 PRD
-├── 海外书籍AI精读平台_需求规划_v1.md     # 早期需求规划
-├── 海外书籍AI精读平台_首期书单筛选.md    # 书单筛选逻辑
-├── 精读笔记_内容结构设计.md             # 内容结构设计
-├── 评审报告_v1.md                       # 早期评审报告
-├── 研发任务拆解_v1.md                    # 研发任务拆解
 ├── 自有生态架构设计_v1.md               # 架构设计
-├── 商业内嵌_需求调研_v1.md              # 商业内嵌调研
 ├── 嵌入点全景_v2.md                     # 嵌入点全景
+├── 研发任务拆解_知识训练系统_v2.md       # 知识训练系统研发拆解（当前）
 │
 └── epub_extracted/                     # epub 解压临时目录（已 gitignore）
 ```
@@ -162,11 +155,7 @@ ai-reading-notes/
 
 独立的股票诊断页面，用投资大师的原则框架打分。
 
-### 3.6 精读指南 (`reading-guide.html`) — 1381 行
-
-自包含的单书精读示例页面（《怎样选择成长股》），不依赖 style.css，所有样式内联。定位为独立展示入口或模板参考。
-
-### 3.7 书籍精读页 (`books/{slug}/index.html`)
+### 3.6 书籍精读页 (`books/{slug}/index.html`)
 
 固定结构（按顺序）：
 

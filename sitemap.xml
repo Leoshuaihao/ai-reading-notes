@@ -27,13 +27,6 @@
     <priority>0.4</priority>
   </url>
 
-  <!-- 阅读引导页 -->
-  <url>
-    <loc>https://leoshuaihao.github.io/ai-reading-notes/reading-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
   <!-- 19 本书籍 -->
   <url><loc>https://leoshuaihao.github.io/ai-reading-notes/books/fisher/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://leoshuaihao.github.io/ai-reading-notes/books/howard-marks/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
