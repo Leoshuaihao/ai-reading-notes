@@ -615,7 +615,7 @@ def gen_chapter(book_title, chapter_title, content, ch_num, prev_context=None):
     return None
 
 
-def build_chapter_html(ch, num, book_title, is_first=False):
+def build_chapter_html(ch, num, book_title, book_slug="", is_first=False):
     """根据JSON数据构建标准章节HTML"""
     if ch is None:
         return ""
@@ -711,6 +711,15 @@ def build_chapter_html(ch, num, book_title, is_first=False):
       <ul class="takeaway-list">{items}</ul>
     </div>''')
 
+    # 自测题占位块（由 quiz.js 动态渲染）
+    quiz_html = '''    <div class="self-quiz" data-book="{book_slug}" data-chapter="{ch_num}">
+      <div class="quiz-header" onclick="this.nextElementSibling.hidden=!this.nextElementSibling.hidden" style="cursor:pointer;font-weight:600;padding:12px 16px;background:var(--tag-bg);border-radius:8px;margin:16px 0;">
+        🧪 自测 · 检验理解
+      </div>
+      <div class="quiz-body" id="quiz-{book_slug}-ch{ch_num}" hidden></div>
+    </div>'''.format(book_slug=book_slug, ch_num=num)
+    blocks.append(quiz_html)
+
     # 思考题 + chat-widget（V3.5 规则：每章至少一个 chat-widget，嵌入 exercise-box 内）
     exercises = ch.get("exercises", [])
     if exercises:
@@ -796,7 +805,7 @@ def build_book_page(book_slug, config, chapters_data):
 
     # 章节HTML（首章同时带 id="intro"）
     chapter_html = "\n".join(
-        build_chapter_html(ch, num, title, is_first=(i == 0))
+        build_chapter_html(ch, num, title, book_slug, is_first=(i == 0))
         for i, (num, ch) in enumerate(valid_chapters)
     )
 
@@ -923,6 +932,8 @@ def build_book_page(book_slug, config, chapters_data):
 <script src="../../assets/js/local-auth.js"></script>
 <script src="../../assets/js/supabase-auth.js"></script>
 <script src="../../assets/js/chat.js"></script>
+<script src="../../assets/js/quiz_data.js"></script>
+<script src="../../assets/js/quiz.js"></script>
 </body>
 </html>'''
 

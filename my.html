@@ -325,6 +325,18 @@
   <div class="knowledge-point-list" id="knowledgePointList"></div>
 </section>
 
+<!-- ==================== 训练进度概览 ==================== -->
+<section class="training-overview-section" id="trainingOverviewSection">
+  <h3 class="my-section-title">📊 训练进度</h3>
+  <p class="my-section-desc" id="trainingOverviewDesc">基于训练场掌握度的知识点学习情况</p>
+  <div class="training-stats-row" id="trainingStats">
+    <!-- JS 动态填充 -->
+  </div>
+  <div class="domain-mastery-list" id="domainMasteryList">
+    <!-- JS 动态填充 -->
+  </div>
+</section>
+
 <!-- ==================== 五维能力树（保留作为辅助概览） ====================
 <section id="skillTreeSection">
   <h3 class="my-section-title">🌳 五维能力树</h3>
@@ -385,6 +397,10 @@ const ACHIEVEMENTS = [
   {id:'five_schools', name:'融会贯通', desc:'五大流派各读1本', icon:'🌍', check: d=>d.schoolsRead>=5},
   {id:'all_books', name:'博览群书', desc:'开始阅读全部16本', icon:'🏆', check: d=>d.booksStarted>=16},
   {id:'level_5', name:'智者之名', desc:'达到见习智者(Lv.5)', icon:'🔮', check: d=>d.level>=5},
+  // --- 训练成就 ---
+  {id:'ach-first-training', name:'初次训练', desc:'完成任意1个知识点的概念层', icon:'🎯', check: d=>d.trainedKps>=1},
+  {id:'ach-all-domains', name:'全能选手', desc:'5个域各完成1个知识点引导层', icon:'🏆', check: d=>d.domainsWithTraining>=5},
+  {id:'ach-deep-learner', name:'深度学习', desc:'任意1个知识点完成全部4层训练', icon:'🧠', check: d=>d.deepLearned>=1},
 ];
 
 // ===== 数据读取（使用共享数据层） =====
@@ -397,6 +413,13 @@ function loadData() {
 
 function safeJSON(str, fallback) {
   return AppData.safeJSON(str, fallback);
+}
+
+function loadTrainingProfile() {
+  if (typeof AppData !== 'undefined' && AppData.getAbilityProfile) {
+    return AppData.getAbilityProfile();
+  }
+  return null;
 }
 
 function computeStats(data) {
@@ -412,6 +435,47 @@ function computeStats(data) {
     }
   });
 
+  // 训练统计
+  var profile = loadTrainingProfile();
+  var trainedKps = 0, totalCompletedLevels = 0, deepLearned = 0;
+  var domainsWithTraining = new Set();
+  var allKps = AppData.getKnowledgePoints ? AppData.getKnowledgePoints() : [];
+  var domainGuidedCount = {};
+
+  if (profile && profile.knowledge_points) {
+    var kpEntries = Object.keys(profile.knowledge_points);
+    for (var ki = 0; ki < kpEntries.length; ki++) {
+      var kpId = kpEntries[ki];
+      var kpData = profile.knowledge_points[kpId];
+      if (!kpData || !kpData.levels) continue;
+      var levels = kpData.levels;
+      // 概念层完成
+      if (levels.concept && levels.concept.completed) trainedKps++;
+      // 引导层完成→记域
+      if (levels.guided && levels.guided.completed) {
+        var kpMeta = null;
+        for (var km = 0; km < allKps.length; km++) {
+          if (allKps[km].id === kpId) { kpMeta = allKps[km]; break; }
+        }
+        if (kpMeta) {
+          domainGuidedCount[kpMeta.domain] = (domainGuidedCount[kpMeta.domain] || 0) + 1;
+        }
+      }
+      // 4层全完成
+      if (levels.concept && levels.concept.completed &&
+          levels.guided && levels.guided.completed &&
+          levels.practice && levels.practice.completed &&
+          levels.real_world && levels.real_world.completed) deepLearned++;
+      // 总完成层数
+      var lvKeys = ['concept', 'guided', 'practice', 'real_world'];
+      for (var lk = 0; lk < lvKeys.length; lk++) {
+        if (levels[lvKeys[lk]] && levels[lvKeys[lk]].completed) totalCompletedLevels++;
+      }
+    }
+    // 统计有引导层完成的域数
+    for (var dk in domainGuidedCount) { if (domainGuidedCount[dk] > 0) domainsWithTraining.add(dk); }
+  }
+
   return {
     totalChapters: xpStats.chaptersTotal,
     completedBooks: xpStats.completedBooks,
@@ -420,7 +484,12 @@ function computeStats(data) {
     schoolsRead: schools.size,
     totalPrinciples: xpStats.principles,
     xp: xpStats.xp,
-    level: level
+    level: level,
+    // 训练统计
+    trainedKps: trainedKps,
+    totalCompletedLevels: totalCompletedLevels,
+    domainsWithTraining: domainsWithTraining.size,
+    deepLearned: deepLearned
   };
 }
 
@@ -434,6 +503,7 @@ function renderAll() {
   updateMountain(stats, progress);
   updateStatsBar(stats);
   updateAbilityProfile();
+  renderTrainingOverview();
   updateAchievements(stats);
   updateProgressGrid(progress);
   updatePrinciples(principles);
@@ -660,6 +730,94 @@ function renderMyRadar() {
     '<div class="as-subs"><span>最强域：' + dimEmojis[maxDimIdx] + ' ' + dimNames[maxDimIdx] + ' (' + dims[maxDimIdx] + ')</span></div>' +
     '<div class="as-subs"><span>待强化：' + dimEmojis[minDimIdx] + ' ' + dimNames[minDimIdx] + ' (' + dims[minDimIdx] + ')</span></div>' +
     '<div class="as-note">估值域数据来自训练场掌握度，其他域基于阅读进度</div>';
+}
+
+// ===== 训练进度概览 =====
+function renderTrainingOverview() {
+  var statsEl = document.getElementById('trainingStats');
+  var listEl = document.getElementById('domainMasteryList');
+  var descEl = document.getElementById('trainingOverviewDesc');
+  if (!statsEl || !listEl) return;
+
+  var profile = loadTrainingProfile();
+  var hasTraining = profile && profile.knowledge_points && Object.keys(profile.knowledge_points).length > 0;
+
+  if (!hasTraining) {
+    statsEl.innerHTML = '<div class="training-empty">' +
+      '<div class="te-icon">🌱</div>' +
+      '<div class="te-title">开始你的第一场训练</div>' +
+      '<div class="te-desc">通过知识点训练场的4层递进学习，这里将展示你的训练进度和各域掌握度。</div>' +
+      '<a href="concepts.html" class="te-cta">→ 去概念地图开始训练</a>' +
+      '</div>';
+    listEl.innerHTML = '';
+    if (descEl) descEl.textContent = '还没有训练记录——去概念地图展开卡片开始吧';
+    return;
+  }
+
+  // 统计
+  var allKps = AppData.getKnowledgePoints ? AppData.getKnowledgePoints() : [];
+  var trainedCount = 0, totalLevels = 0;
+  var domainData = {};  // { domainKey: { name, mastery, kps: [{id, name, emoji, completed, pct}] } }
+
+  allKps.forEach(function(kp) {
+    var kpData = profile.knowledge_points && profile.knowledge_points[kp.id];
+    var completed = 0;
+    var lvKeys = ['concept', 'guided', 'practice', 'real_world'];
+    if (kpData && kpData.levels) {
+      lvKeys.forEach(function(lk) {
+        if (kpData.levels[lk] && kpData.levels[lk].completed) { completed++; totalLevels++; }
+      });
+      if (completed > 0) trainedCount++;
+    }
+    if (!domainData[kp.domain]) {
+      domainData[kp.domain] = { name: kp.domain, mastery: 0, kps: [] };
+    }
+    domainData[kp.domain].kps.push({
+      id: kp.id, name: kp.name, emoji: kp.emoji || '',
+      completed: completed, pct: Math.round(completed / 4 * 100)
+    });
+  });
+
+  // 域掌握度
+  var domainKeys = ['valuation', 'business', 'cycle', 'mind', 'uncertainty'];
+  var domainNames = { valuation: '估值', business: '商业', cycle: '周期', mind: '心性', uncertainty: '不确定性' };
+  var domainEmojis = { valuation: '📊', business: '🏰', cycle: '🔄', mind: '🧘', uncertainty: '🌪️' };
+  var domainColors = { valuation: '#2c6faa', business: '#2d7d46', cycle: '#c75b39', mind: '#7b4fbf', uncertainty: '#b8860b' };
+  domainKeys.forEach(function(dk) {
+    if (domainData[dk]) {
+      domainData[dk].name = domainNames[dk];
+      domainData[dk].emoji = domainEmojis[dk];
+      domainData[dk].color = domainColors[dk];
+      domainData[dk].mastery = AppData.computeDomainMastery ? AppData.computeDomainMastery(dk) : 0;
+    }
+  });
+
+  // 总览统计行
+  statsEl.innerHTML = '' +
+    '<div class="ts-card"><div class="ts-num">' + trainedCount + '</div><div class="ts-label">/ ' + allKps.length + ' 个知识点</div></div>' +
+    '<div class="ts-card"><div class="ts-num">' + totalLevels + '</div><div class="ts-label">/ ' + (allKps.length * 4) + ' 个训练层</div></div>' +
+    '<div class="ts-card"><div class="ts-num">' + Object.keys(domainData).length + '</div><div class="ts-label">/ 5 个域有进展</div></div>';
+  if (descEl) descEl.textContent = '已训练 ' + trainedCount + ' 个知识点，共完成 ' + totalLevels + ' 个训练层';
+
+  // 逐域渲染
+  var listHtml = '';
+  domainKeys.forEach(function(dk) {
+    var dd = domainData[dk];
+    if (!dd) return;
+    listHtml += '<div class="dm-card" style="border-left:3px solid ' + dd.color + '">';
+    listHtml += '<div class="dm-header"><span class="dm-emoji">' + dd.emoji + '</span><span class="dm-name">' + dd.name + '</span><span class="dm-mastery">' + (dd.mastery || 0) + '%</span></div>';
+    dd.kps.forEach(function(k) {
+      listHtml += '<div class="dm-kp-row"><span class="dm-kp-name">' + k.emoji + ' ' + k.name + '</span>';
+      listHtml += '<div class="dm-kp-bar"><div class="dm-kp-fill" style="width:' + k.pct + '%;background:' + dd.color + '"></div></div>';
+      listHtml += '<span class="dm-kp-pct">' + k.completed + '/4</span></div>';
+    });
+    // 薄弱推荐
+    if (dd.mastery < 30) {
+      listHtml += '<div class="dm-weak">💡 推荐补课：去 <a href="concepts.html">概念地图</a> 找' + dd.name + '域相关概念开始训练</div>';
+    }
+    listHtml += '</div>';
+  });
+  listEl.innerHTML = listHtml;
 }
 
 // ===== 成就 =====

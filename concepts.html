@@ -123,6 +123,9 @@
 .d-accent .master-quote .go { color: var(--accent); }
 .d-purple .master-quote .go { color: var(--purple); }
 .master-quote .go:hover { text-decoration: underline; }
+/* 训练入口 chip */
+.kp-chip { transition: all 0.2s; }
+.kp-chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-1px); }
 @media (max-width: 900px) {
   .domain-grid { grid-template-columns: 1fr; }
   .concept-hero h1 { font-size: 28px; }
@@ -169,6 +172,7 @@
 <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部" aria-label="回到顶部" tabindex="0">⬆</button>
 
 <script src="assets/js/data_v2.js"></script>
+<script src="assets/js/training.js"></script>
 <script>
 (function() {
   'use strict';
@@ -288,6 +292,21 @@
       // 如果没有书籍数据，显示通用提示
       if (books.length === 0) {
         html += '<div class="master-quote"><p class="say" style="color:var(--text-secondary);">此概念尚未关联具体书籍的解读，待数据填充后自动呈现。</p></div>';
+      }
+
+      // 训练入口：获取该概念关联的知识点
+      var kps = [];
+      if (typeof AppDataV2 !== 'undefined' && AppDataV2.getConceptKnowledgePoints) {
+        kps = AppDataV2.getConceptKnowledgePoints(c.id);
+      }
+      if (kps.length > 0) {
+        html += '<div class="concept-training-cta" style="margin-top:16px;padding-top:12px;border-top:1px solid var(--border);">';
+        html += '<div style="font-size:13px;font-weight:600;margin-bottom:8px;">🏋️ 训练相关知识点</div>';
+        for (var ki = 0; ki < kps.length; ki++) {
+          var kp = kps[ki];
+          html += '<a class="kp-chip" href="javascript:void(0)" onclick="if(typeof openTrainingModal===\'function\')openTrainingModal(\'' + kp.id + '\')" style="display:inline-block;padding:4px 12px;margin:2px 6px 2px 0;border-radius:16px;font-size:13px;background:var(--tag-bg);color:var(--text);text-decoration:none;border:1px solid var(--border);cursor:pointer;">' + (kp.emoji||'') + ' ' + kp.name + '</a>';
+        }
+        html += '</div>';
       }
 
       html += '</div></details>';

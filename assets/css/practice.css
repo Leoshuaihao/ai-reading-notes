@@ -1173,3 +1173,108 @@ html.practice-page { scroll-snap-type: y proximity; scroll-behavior: smooth; }
   .ai-chat { padding: 20px 16px; }
   .aic-select-row { flex-direction: column; }
 }
+
+/* ============================================================
+   训练进度概览（my.html）
+   ============================================================ */
+.training-overview-section {
+  margin-bottom: 40px;
+}
+
+/* 统计卡片行 */
+.training-stats-row {
+  display: flex; gap: 16px; margin-bottom: 24px;
+}
+.ts-card {
+  flex: 1; text-align: center;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px 12px;
+  box-shadow: var(--shadow);
+}
+.ts-num {
+  font-size: 32px; font-weight: 800; color: var(--accent);
+  line-height: 1.2;
+}
+.ts-label {
+  font-size: 13px; color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* 空状态 */
+.training-empty {
+  text-align: center; padding: 48px 20px;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: var(--shadow);
+}
+.te-icon { font-size: 48px; margin-bottom: 12px; }
+.te-title { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+.te-desc { font-size: 14px; color: var(--text-secondary); max-width: 400px; margin: 0 auto 16px; line-height: 1.7; }
+.te-cta {
+  display: inline-block; padding: 10px 28px;
+  background: var(--accent); color: #fff;
+  border-radius: 20px; text-decoration: none;
+  font-size: 15px; font-weight: 600;
+  transition: transform 0.2s;
+}
+.te-cta:hover { transform: translateY(-2px); }
+
+/* 域掌握卡片 */
+.domain-mastery-list {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.dm-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+.dm-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 12px;
+}
+.dm-emoji { font-size: 20px; }
+.dm-name { font-size: 15px; font-weight: 700; flex: 1; }
+.dm-mastery {
+  font-size: 18px; font-weight: 800; color: var(--accent);
+}
+
+/* KP 进度行 */
+.dm-kp-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px; font-size: 13px;
+}
+.dm-kp-name {
+  flex: 0 0 120px; white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; color: var(--text);
+}
+.dm-kp-bar {
+  flex: 1; height: 8px; background: var(--tag-bg);
+  border-radius: 4px; overflow: hidden;
+}
+.dm-kp-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.5s ease;
+  min-width: 2px;
+}
+.dm-kp-pct {
+  flex: 0 0 30px; text-align: right;
+  font-weight: 600; color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* 薄弱推荐 */
+.dm-weak {
+  font-size: 13px; color: var(--accent);
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.dm-weak a {
+  color: var(--accent); font-weight: 600;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .training-stats-row { flex-direction: column; }
+  .domain-mastery-list { grid-template-columns: 1fr; }
+  .dm-kp-name { flex: 0 0 80px; font-size: 12px; }
+}
