@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/style.css"/>
 <link rel="stylesheet" href="assets/css/practice.css"/>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8ebcd28da20148c4af3da9d3b5f76a0c"}'></script><!-- End Cloudflare Web Analytics -->
+<link rel="canonical" href="https://leoshuaihao.github.io/ai-reading-notes/"/>
 </head>
 <body>
 
@@ -389,6 +390,10 @@
   <div class="shelf-footer">
     <p>AI精读笔记 · 用投资大师的方法论，建立你的投资体系</p>
     <p style="margin-top:8px;font-size:12px;">精读笔记为原创解读内容，基于公开书籍进行评论和介绍，不替代原书阅读。</p>
+    <p style="font-size:12px;color:var(--text-secondary);margin-top:8px;">
+      本站使用匿名数据统计以改进产品体验，不会收集个人身份信息。
+      <a href="privacy.html" style="color:var(--accent);">了解更多</a>
+    </p>
   </div>
 </div>
 </section>
@@ -1458,7 +1463,24 @@
         if (idx >= 0 && idx < notes.length) {
           notes.splice(idx, 1);
           saveNotes(notes);
-          renderNotes();
+          renderNoteList();
+        }
+      });
+    });
+
+    // 分享按钮：生成金句卡片
+    Array.prototype.forEach.call(list.querySelectorAll('.ne-share'), function(btn) {
+      btn.addEventListener('click', function() {
+        var idx = parseInt(btn.getAttribute('data-idx'));
+        var notes = loadNotes();
+        if (idx >= 0 && idx < notes.length) {
+          var note = notes[idx];
+          if (typeof generateQuoteCard === 'function') {
+            var meta = AppData.BOOK_META[note.slug];
+            var bookTitle = meta ? meta.title : (note.slug || '');
+            var author = meta ? (meta.authorCN || meta.author || '') : '';
+            generateQuoteCard(note.content || '', bookTitle, author);
+          }
         }
       });
     });
@@ -1933,6 +1955,8 @@
 <script src="assets/js/local-auth.js"></script>
 <script src="assets/js/supabase-auth.js"></script>
 <script src="assets/js/cloud-sync.js"></script>
+<script src="assets/js/quote-card.js"></script>
+<script src="assets/js/onboarding.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/minisearch@7.0.0/dist/umd/index.min.js"></script>
 <script src="assets/js/search.js"></script>
 </body>
