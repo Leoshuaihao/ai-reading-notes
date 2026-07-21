@@ -628,6 +628,23 @@ function updateAbilityProfile() {
     var btnClass = pct > 0 ? 'kp-start-btn continue' : 'kp-start-btn';
     var badgeClass = pct >= 100 ? 'kp-mastery-badge mastered' : 'kp-mastery-badge';
 
+    // 构建来源信息：从 chapters 多书映射中提取
+    var sourceText = '';
+    if (kp.chapters) {
+      var slugs = Object.keys(kp.chapters);
+      var sources = [];
+      for (var si = 0; si < Math.min(slugs.length, 2); si++) {
+        var s = slugs[si];
+        var chInfo = kp.chapters[s];
+        var bookMeta = AppData.getBook(s);
+        if (bookMeta) {
+          sources.push('《' + bookMeta.title + '》' + (chInfo.ref || ''));
+        }
+      }
+      if (sources.length > 0) sourceText = '来源：' + sources.join('、');
+      if (slugs.length > 2) sourceText += ' 等' + slugs.length + '本书';
+    }
+
     html += '<div class="kp-item" data-kp-id="' + kp.id + '">' +
       '<div class="kp-header">' +
         '<span class="kp-emoji">' + kp.emoji + '</span>' +
@@ -641,8 +658,7 @@ function updateAbilityProfile() {
             lv.label + (lv.completed ? ' ✓' : '') + '</span>';
         }).join('') +
       '</div>' +
-      '<div class="kp-source">来源：《' + (AppData.getBook(kp.book) && AppData.getBook(kp.book).title || '') +
-        '》' + kp.chapterRef + '</div>' +
+      (sourceText ? '<div class="kp-source">' + sourceText + '</div>' : '') +
     '</div>';
   });
   kpListEl.innerHTML = html;
@@ -650,6 +666,7 @@ function updateAbilityProfile() {
   // 始终显示雷达图，种子态改为内嵌提示
   if (seedEl) seedEl.hidden = true;
   if (activeEl) activeEl.hidden = false;
+  var anyTraining = profile && profile.knowledge_points && Object.keys(profile.knowledge_points).length > 0;
   document.getElementById('abilityProfileDesc').textContent = anyTraining
     ? '训练场掌握度驱动的五维投资能力评估——点击知识点进入训练'
     : '雷达图基于阅读进度和训练掌握度——开始阅读或训练来激活你的能力值';

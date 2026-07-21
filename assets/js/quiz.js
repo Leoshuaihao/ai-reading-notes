@@ -21,16 +21,19 @@
     var containers = document.querySelectorAll('.self-quiz');
     if (!containers.length) return;
 
-    var quizzes = window.CHAPTER_QUIZZES;
-    if (!quizzes) return;
+    var quizzes = window.CHAPTER_QUIZZES || {};
 
     containers.forEach(function(container) {
       var book = container.getAttribute('data-book');
       var chapter = parseInt(container.getAttribute('data-chapter'), 10);
-      if (!book || !chapter) return;
+      if (!book || !chapter) { container.hidden = true; return; }
 
       var bookQuizzes = quizzes[book];
-      if (!bookQuizzes || !bookQuizzes[chapter]) return;
+      if (!bookQuizzes || !bookQuizzes[chapter]) {
+        // 该章节没有题目数据 → 隐藏整个自测块
+        container.hidden = true;
+        return;
+      }
 
       var chapterQuizzes = bookQuizzes[chapter];
       var body = container.querySelector('.quiz-body');
