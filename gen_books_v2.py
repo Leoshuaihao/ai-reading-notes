@@ -200,6 +200,278 @@ BOOKS = {
             {"num": "模块5", "title": "投资者实战手册", "pages": "Ch12-15 · 投资健身手册、收益预测、生命周期资产配置、指数基金"},
         ],
     },
+    "alchemy-finance": {
+        "title": "金融炼金术", "author": "乔治·索罗斯", "author_en": "George Soros",
+        "year": "1987", "domain_cn": "周期与市场", "domain_key": "cycle",
+        "chapter_file": "alchemy-finance.json",
+        "cover_gradient": "linear-gradient(135deg, #2d1b2e 0%, #1a0d1a 50%, #0d0510 100%)",
+        "cover_text": "The Alchemy\nof Finance",
+        "author_initials": "GS",
+        "subtitle": "反身性理论的实践",
+        "desc": "索罗斯用反身性理论解释了金融市场如何通过认知与现实的正反馈循环制造泡沫和崩溃。这不是一本投资策略书，而是一本关于市场本质的哲学著作。理解反身性，才能真正理解为什么市场永远在走向极端。",
+        "why_items": [
+            ("📖", "经典中的经典", "索罗斯用反身性理论解释了金融市场如何通过认知与现实的正反馈循环制造泡沫和崩溃。这……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "George Soros，著名投资人和思想家，其著作深刻影响了全球投资界。本书是alchemy-finance的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "antifragile": {
+        "title": "反脆弱", "author": "纳西姆·塔勒布", "author_en": "Nassim Nicholas Taleb",
+        "year": "2012", "domain_cn": "不确定性与风险", "domain_key": "uncertainty",
+        "chapter_file": "antifragile.json",
+        "cover_gradient": "linear-gradient(135deg, #1a3020 0%, #0d1a10 50%, #050a05 100%)",
+        "cover_text": "Antifragile",
+        "author_initials": "NT",
+        "subtitle": "从不确定性中获益",
+        "desc": "塔勒布「不确定性」三部曲的巅峰之作。反脆弱不是坚强，也不是韧性——而是在冲击和波动中变得更强。这本书告诉你：为什么压力就是信息、为什么波动就是机会、为什么试图消除波动的系统最终会崩溃。",
+        "why_items": [
+            ("📖", "经典中的经典", "塔勒布「不确定性」三部曲的巅峰之作。反脆弱不是坚强，也不是韧性——而是在冲击和波……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Nassim Nicholas Taleb，著名投资人和思想家，其著作深刻影响了全球投资界。本书是antifragile的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "beating-street": {
+        "title": "战胜华尔街", "author": "彼得·林奇", "author_en": "Peter Lynch",
+        "year": "1993", "domain_cn": "商业认知", "domain_key": "business",
+        "chapter_file": "beating-street.json",
+        "cover_gradient": "linear-gradient(135deg, #3a2a1a 0%, #2a1a0a 50%, #150d05 100%)",
+        "cover_text": "Beating\nthe Street",
+        "author_initials": "PL",
+        "subtitle": "业余投资者的选股实战",
+        "desc": "继《彼得·林奇的成功投资》后，林奇在这本书中手把手展示了他是如何通过「逛街选股法」在26个行业中挑选股票。每一章都是一个行业实战案例——从零售到房地产，从储蓄银行到餐饮连锁。",
+        "why_items": [
+            ("📖", "经典中的经典", "继《彼得·林奇的成功投资》后，林奇在这本书中手把手展示了他是如何通过「逛街选股法……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Peter Lynch，著名投资人和思想家，其著作深刻影响了全球投资界。本书是beating-street的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "black-swan": {
+        "title": "黑天鹅", "author": "纳西姆·塔勒布", "author_en": "Nassim Nicholas Taleb",
+        "year": "2007", "domain_cn": "不确定性与风险", "domain_key": "uncertainty",
+        "chapter_file": "black-swan.json",
+        "cover_gradient": "linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #000000 100%)",
+        "cover_text": "The Black\nSwan",
+        "author_initials": "NT",
+        "subtitle": "如何应对不可预知的未来",
+        "desc": "在一个由极端事件驱动的世界里，我们却用钟形曲线来理解它——这就是问题所在。塔勒布深入分析了为什么预测总是失败、为什么历史由极少数极端事件塑造、以及如何在黑天鹅频出的世界里建立反脆弱的投资组合。",
+        "why_items": [
+            ("📖", "经典中的经典", "在一个由极端事件驱动的世界里，我们却用钟形曲线来理解它——这就是问题所在。塔勒布……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Nassim Nicholas Taleb，著名投资人和思想家，其著作深刻影响了全球投资界。本书是black-swan的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "buffett-letters": {
+        "title": "巴菲特致股东的信", "author": "沃伦·巴菲特", "author_en": "Warren Buffett",
+        "year": "1970-2017", "domain_cn": "资产估值", "domain_key": "valuation",
+        "chapter_file": "buffett-letters.json",
+        "cover_gradient": "linear-gradient(135deg, #1a3a5c 0%, #0d2240 50%, #051020 100%)",
+        "cover_text": "Berkshire\nLetters",
+        "author_initials": "WB",
+        "subtitle": "近50年股东信精华",
+        "desc": "巴菲特近50年的致股东信精华汇编。这些信件不仅是伯克希尔·哈撒韦的经营史，更是一部关于资本配置、估值、管理层评估和企业文化的实战教科书。每个投资者都该至少读一遍巴菲特股东信。",
+        "why_items": [
+            ("📖", "经典中的经典", "巴菲特近50年的致股东信精华汇编。这些信件不仅是伯克希尔·哈撒韦的经营史，更是一……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Warren Buffett，著名投资人和思想家，其著作深刻影响了全球投资界。本书是buffett-letters的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "economic-moat": {
+        "title": "巴菲特的护城河", "author": "帕特·多尔西", "author_en": "Pat Dorsey",
+        "year": "2008", "domain_cn": "商业认知", "domain_key": "business",
+        "chapter_file": "economic-moat.json",
+        "cover_gradient": "linear-gradient(135deg, #1a3a4a 0%, #0d2530 50%, #051015 100%)",
+        "cover_text": "The Little Book\nThat Builds\nWealth",
+        "author_initials": "PD",
+        "subtitle": "寻找真正的竞争优势",
+        "desc": "晨星公司前股票研究主管多尔西系统拆解了「护城河」——什么是真正的竞争优势，什么只是暂时的领先。四种护城河（无形资产、转换成本、网络效应、成本优势）的判定框架，是选股者不可或缺的分析工具。",
+        "why_items": [
+            ("📖", "经典中的经典", "晨星公司前股票研究主管多尔西系统拆解了「护城河」——什么是真正的竞争优势，什么只……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Pat Dorsey，著名投资人和思想家，其著作深刻影响了全球投资界。本书是economic-moat的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "fooled-by-randomness": {
+        "title": "随机漫步的傻瓜", "author": "纳西姆·塔勒布", "author_en": "Nassim Nicholas Taleb",
+        "year": "2001", "domain_cn": "不确定性与风险", "domain_key": "uncertainty",
+        "chapter_file": "fooled-by-randomness.json",
+        "cover_gradient": "linear-gradient(135deg, #2a1a1a 0%, #1a0d0d 50%, #0d0505 100%)",
+        "cover_text": "Fooled by\nRandomness",
+        "author_initials": "NT",
+        "subtitle": "运气与技巧的真相",
+        "desc": "塔勒布「不确定性」三部曲的第一部。核心观点极其简单却极其深刻：我们严重低估了随机性在成功（和失败）中的作用。那些看起来「有本事」的交易员，往往只是运气好——而运气总会用完。",
+        "why_items": [
+            ("📖", "经典中的经典", "塔勒布「不确定性」三部曲的第一部。核心观点极其简单却极其深刻：我们严重低估了随机……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Nassim Nicholas Taleb，著名投资人和思想家，其著作深刻影响了全球投资界。本书是fooled-by-randomness的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "intelligent-investor": {
+        "title": "聪明的投资者", "author": "本杰明·格雷厄姆", "author_en": "Benjamin Graham",
+        "year": "1949", "domain_cn": "资产估值", "domain_key": "valuation",
+        "chapter_file": "intelligent-investor.json",
+        "cover_gradient": "linear-gradient(135deg, #2a3a3a 0%, #1a2a2a 50%, #0a1515 100%)",
+        "cover_text": "The Intelligent\nInvestor",
+        "author_initials": "BG",
+        "subtitle": "价值投资的圣经",
+        "desc": "巴菲特称这本书为「有史以来最好的投资书」。格雷厄姆定义了投资与投机的区别、安全边际的概念、市场先生的比喻——这三个概念构成了价值投资的全部基石。第8章和第20章是全书核心。",
+        "why_items": [
+            ("📖", "经典中的经典", "巴菲特称这本书为「有史以来最好的投资书」。格雷厄姆定义了投资与投机的区别、安全边……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Benjamin Graham，著名投资人和思想家，其著作深刻影响了全球投资界。本书是intelligent-investor的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "market-cycle": {
+        "title": "周期", "author": "霍华德·马克斯", "author_en": "Howard Marks",
+        "year": "2018", "domain_cn": "周期与市场", "domain_key": "cycle",
+        "chapter_file": "market-cycle.json",
+        "cover_gradient": "linear-gradient(135deg, #1a2a4a 0%, #0d1830 50%, #050c18 100%)",
+        "cover_text": "Mastering\nthe Market\nCycle",
+        "author_initials": "HM",
+        "subtitle": "投资中最重要的事（续篇）",
+        "desc": "马克斯专门写了这本书来展开《投资最重要的事》中最关键的一个概念——周期。信贷周期、经济周期、心理周期的同向共振和三阶段理论，配以橡树资本在2008年危机中精准布局的实战经验。",
+        "why_items": [
+            ("📖", "经典中的经典", "马克斯专门写了这本书来展开《投资最重要的事》中最关键的一个概念——周期。信贷周期……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Howard Marks，著名投资人和思想家，其著作深刻影响了全球投资界。本书是market-cycle的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "peter-lynch": {
+        "title": "彼得·林奇的成功投资", "author": "彼得·林奇", "author_en": "Peter Lynch",
+        "year": "1989", "domain_cn": "商业认知", "domain_key": "business",
+        "chapter_file": "peter-lynch.json",
+        "cover_gradient": "linear-gradient(135deg, #2a2a1a 0%, #1a1a0d 50%, #0d0d05 100%)",
+        "cover_text": "One Up on\nWall Street",
+        "author_initials": "PL",
+        "subtitle": "业余投资者的选股圣经",
+        "desc": "彼得·林奇用最通俗的语言解释了如何通过日常观察找到十倍股。他把股票分为六种类型（缓慢增长型、稳定增长型、快速增长型、周期型、困境反转型、隐蔽资产型），每种类型有不同的选股逻辑和卖出时机。",
+        "why_items": [
+            ("📖", "经典中的经典", "彼得·林奇用最通俗的语言解释了如何通过日常观察找到十倍股。他把股票分为六种类型（……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Peter Lynch，著名投资人和思想家，其著作深刻影响了全球投资界。本书是peter-lynch的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "poor-charlie": {
+        "title": "穷查理宝典", "author": "查理·芒格", "author_en": "Charles T. Munger",
+        "year": "2005", "domain_cn": "心性与哲学", "domain_key": "mind",
+        "chapter_file": "poor-charlie.json",
+        "cover_gradient": "linear-gradient(135deg, #3a2a1a 0%, #2a1a0d 50%, #150d05 100%)",
+        "cover_text": "Poor Charlie's\nAlmanack",
+        "author_initials": "CM",
+        "subtitle": "查理·芒格的智慧箴言",
+        "desc": "这本书是理解芒格思想的必读之作。核心内容为芒格在1994-1998年间的11篇演讲，涵盖多元思维模型、人类误判心理学、投资检查清单等。如果你想培养跨学科思考能力，这本书是最好的起点。",
+        "why_items": [
+            ("📖", "经典中的经典", "这本书是理解芒格思想的必读之作。核心内容为芒格在1994-1998年间的11篇演……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Charles T. Munger，著名投资人和思想家，其著作深刻影响了全球投资界。本书是poor-charlie的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "security-analysis": {
+        "title": "证券分析", "author": "本杰明·格雷厄姆", "author_en": "Benjamin Graham",
+        "year": "1934", "domain_cn": "资产估值", "domain_key": "valuation",
+        "chapter_file": "security-analysis.json",
+        "cover_gradient": "linear-gradient(135deg, #1a1a2a 0%, #0d0d1a 50%, #05050d 100%)",
+        "cover_text": "Security\nAnalysis",
+        "author_initials": "BG",
+        "subtitle": "价值投资的开山之作",
+        "desc": "1934年出版的《证券分析》是价值投资的奠基之作。格雷厄姆和大卫·多德首次系统性地提出了以企业内在价值为基础的证券分析方法。这本书定义了后来一百年的投资分析范式，是一本教科书，不是一本轻松的读物。",
+        "why_items": [
+            ("📖", "经典中的经典", "1934年出版的《证券分析》是价值投资的奠基之作。格雷厄姆和大卫·多德首次系统性……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Benjamin Graham，著名投资人和思想家，其著作深刻影响了全球投资界。本书是security-analysis的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    },
+
+    "stock-operator": {
+        "title": "股票大作手回忆录", "author": "埃德温·勒菲弗", "author_en": "Edwin Lefevre",
+        "year": "1923", "domain_cn": "心性与哲学", "domain_key": "mind",
+        "chapter_file": "stock-operator.json",
+        "cover_gradient": "linear-gradient(135deg, #2a1a1a 0%, #1a0d0d 50%, #0d0505 100%)",
+        "cover_text": "Reminiscences\nof a Stock\nOperator",
+        "author_initials": "EL",
+        "subtitle": "杰西·利弗莫尔的传奇人生",
+        "desc": "以杰西·利弗莫尔为原型的半自传体小说，被誉为「交易者的圣经」。利弗莫尔从14岁在一家投机商行做报价员起步，最终成为华尔街最具争议的个人交易者。书中关于市场心理、趋势判断和仓位管理的洞见，一百年后依然有效。",
+        "why_items": [
+            ("📖", "经典中的经典", "以杰西·利弗莫尔为原型的半自传体小说，被誉为「交易者的圣经」。利弗莫尔从14岁在……"),
+            ("💡", "投资实战价值", "这本书提供的框架和思维方式可以直接应用于投资决策。"),
+            ("🎯", "必读理由", "被全球投资者和基金经理反复推荐，经得起时间检验。"),
+        ],
+        "author_bio": "Edwin Lefevre，著名投资人和思想家，其著作深刻影响了全球投资界。本书是stock-operator的核心著作。",
+        "roadmap_intro": "全书精读，建议按顺序阅读。",
+        "roadmap_modules": [
+            {"num": "模块1", "title": "核心内容", "pages": "全部章节"},
+        ],
+    }
 }
 
 SYSTEM_PROMPT = """你是专业投资书籍精读编辑，精通中英文投资理论。请基于提供的原文内容，生成标准的章节精读卡片。

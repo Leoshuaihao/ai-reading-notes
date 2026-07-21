@@ -2,1418 +2,1531 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://ai-reading-api-proxy.neo-lab.workers.dev https://zvacgujeywaytpkixdtw.supabase.co https://static.cloudflareinsights.com; frame-src 'self'">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>巴菲特的护城河 — AI精读笔记</title>
-<meta name="description" content="AI驱动的《巴菲特的护城河》（The Little Book That Builds Wealth）深度精读笔记。逐章解读帕特·多尔西的经济护城河理论，涵盖四大护城河来源：无形资产、转换成本、网络效应、成本优势。"/>
+<meta name="description" content="AI驱动的《巴菲特的护城河》深度精读笔记。帕特·多尔西的经典著作，逐章解读投资智慧。"/>
 <meta property="og:title" content="巴菲特的护城河 — AI精读笔记"/>
-<meta property="og:description" content="AI驱动的《巴菲特的护城河》深度精读笔记，帕特·多尔西的护城河识别方法论，帮助投资者识别真正有持久竞争优势的公司。"/>
+<meta property="og:description" content="AI驱动的《巴菲特的护城河》深度精读笔记。晨星公司前股票研究主管多尔西系统拆解了「护城河」——什么是真正的竞争优势，什么只是暂时的领先。四种护城河（无形资产、转换成本、网络效应、成本优势）的判定框架，是"/>
 <meta property="og:type" content="article"/>
-<meta property="og:url" content="https://leoshuaihao.github.io/ai-reading-notes/economic-moat"/>
-<meta property="og:image" content="https://leoshuaihao.github.io/ai-reading-notes/assets/img/og-image.png"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="巴菲特的护城河 — AI精读笔记"/>
-<meta name="twitter:description" content="AI驱动的《巴菲特的护城河》深度精读笔记，帕特·多尔西的护城河识别方法论。"/>
+<meta property="og:image" content="../../assets/img/og-image.png"/>
 <link rel="stylesheet" href="../../assets/css/style.css"/>
-<!-- Schema.org Book 结构化数据 -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Book",
-  "name": "巴菲特的护城河",
-  "alternateName": "The Little Book That Builds Wealth",
-  "author": { "@type": "Person", "name": "帕特·多尔西" },
-  "isbn": "978-0-470-22651-0",
-  "inLanguage": "en",
-  "datePublished": "2008",
-  "publisher": { "@type": "Organization", "name": "约翰威立出版社" },
-  "description": "晨星公司股票研究总监帕特·多尔西教你识别真正有持久竞争优势的公司，详解经济护城河的四大来源：无形资产、转换成本、网络效应、成本优势",
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "8.0", "bestRating": "10", "ratingCount": "1" }
-}
+{"@context":"https://schema.org","@type":"Book","name":"巴菲特的护城河","author":{"@type":"Person","name":"帕特·多尔西"},"inLanguage":"zh","datePublished":"2008","description":"晨星公司前股票研究主管多尔西系统拆解了「护城河」——什么是真正的竞争优势，什么只是暂时的领先。四种护城河（无形资产、转换成本、网络效应、成本优势）的判定框架，是选股者不可或缺的分析工具。"}
 </script>
-<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8ebcd28da20148c4af3da9d3b5f76a0c"}'></script><!-- End Cloudflare Web Analytics -->
-<script src="../../assets/js/local-auth.js"></script>
-<script src="../../assets/js/supabase-auth.js"></script>
 </head>
 <body>
-
-<!-- Top Navigation -->
 <nav class="top-nav" role="navigation" aria-label="章节导航">
-  <span class="logo" aria-label="AI精读笔记"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
+  <span class="logo"><a href="../../" style="color:var(--accent);text-decoration:none;">📚 AI精读</a></span>
   <div class="nav-links">
-    <a href="../../index.html">🏠 修行</a> <a href="../../bookshelf.html">📚 书架</a> <a href="../../my.html">🧘 我的</a> <a class="active" href="#overview" tabindex="0">概览</a>
-    <a href="#roadmap" tabindex="0">路线图</a>
-    <a href="#intro" tabindex="0">导言</a>
-    <a href="#ch1" tabindex="0">第1章</a>
-    <a href="#ch2" tabindex="0">第2章</a>
-    <a href="#ch3" tabindex="0">第3章</a>
-    <a href="#ch4" tabindex="0">第4章</a>
-    <a href="#ch5" tabindex="0">第5章</a>
-    <a href="#ch6" tabindex="0">第6章</a>
-    <a href="#ch7" tabindex="0">第7章</a>
-    <a href="#ch8" tabindex="0">第8章</a>
-    <a href="#ch9" tabindex="0">第9章</a>
-    <a href="#ch10" tabindex="0">第10章</a>
-    <a href="#ch11" tabindex="0">第11章</a>
-    <a href="#ch12" tabindex="0">第12章</a>
-    <a href="#ch13" tabindex="0">第13章</a>
-    <a href="#ch14" tabindex="0">第14章</a>
+    <a href="../../index.html">🏠 修行</a>
+    <a href="../../bookshelf.html">📚 书架</a>
+    <a href="../../my.html">🧘 我的</a>
+    <a class="active" href="#overview">概览</a>
+    <a href="#roadmap">路线图</a>
+    <a href="#intro">导言</a>
+<a href="#ch2">第2章</a>
+<a href="#ch3">第3章</a>
+<a href="#ch4">第4章</a>
+<a href="#ch5">第5章</a>
+<a href="#ch6">第6章</a>
+<a href="#ch7">第7章</a>
+<a href="#ch8">第8章</a>
+<a href="#ch9">第9章</a>
+<a href="#ch10">第10章</a>
+<a href="#ch11">第11章</a>
+<a href="#ch12">第12章</a>
+<a href="#ch13">第13章</a>
+<a href="#ch14">第14章</a>
+<a href="#ch15">第15章</a>
+<a href="#ch16">第16章</a>
+<a href="#ch17">第17章</a>
   </div>
-  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-toggle" onclick="this.classList.toggle('open');this.parentElement.querySelector('.nav-links').classList.toggle('open')" aria-label="菜单"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="container wide">
 
-<!-- ==================== BOOK HERO ==================== -->
+<!-- BOOK HERO -->
 <section class="book-hero" id="overview" aria-labelledby="hero-title">
-  <div class="cover" aria-hidden="true" style="background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 40%, #3a7a3a 70%, #1a5c2e 100%);">The<br/>Little Book<br/>That Builds<br/>Wealth</div>
+  <div class="cover" aria-hidden="true" style="--cover-grad: linear-gradient(135deg, #1a3a4a 0%, #0d2530 50%, #051015 100%); background: var(--cover-grad);">The Little Book
+That Builds
+Wealth</div>
   <div class="info">
-    <h1 id="hero-title">《巴菲特的护城河》<span style="font-size:16px;font-weight:400;color:var(--text-secondary);display:block;margin-top:4px;">原著名：The Little Book That Builds Wealth</span></h1>
+    <h1 id="hero-title">《巴菲特的护城河》<span style="font-size:16px;font-weight:400;color:var(--text-secondary);display:block;margin-top:4px;">寻找真正的竞争优势</span></h1>
     <div class="author">帕特·多尔西</div>
     <div class="meta-row">
-      <span class="tag primary">🏰 护城河经典</span>
-      <span class="tag">📖 阅读难度：中等偏易</span>
-      <span class="tag">⏱️ 精读约 6-8 小时</span>
-      <span class="tag">📅 首版 2008</span>
-      <span class="tag">⭐ 豆瓣 8.0</span>
+      <span class="tag primary">📖 商业认知域</span>
+      <span class="tag">⏱️ 精读约 8-10 小时</span>
+      <span class="tag">📅 2008</span>
+      <span class="tag">📑 17章精读</span>
     </div>
-    <p class="desc">
-      晨星公司股票研究总监帕特·多尔西，将其多年护城河评级经验浓缩为这本投资入门读物。全书核心回答一个问题：<strong>是什么阻止了聪明且资金充裕的竞争对手侵蚀一家公司的超额利润？</strong>答案就是"经济护城河"——而护城河有且仅有四个来源：无形资产、转换成本、网络效应和成本优势。这本书不是教你"买什么股票"，而是教你<strong>"如何识别真正值得长期持有的公司"</strong>——这是巴菲特选股方法论的核心基石。
-    </p>
+    <p class="desc">晨星公司前股票研究主管多尔西系统拆解了「护城河」——什么是真正的竞争优势，什么只是暂时的领先。四种护城河（无形资产、转换成本、网络效应、成本优势）的判定框架，是选股者不可或缺的分析工具。</p>
     <a class="cta-btn" href="#intro" onclick="event.preventDefault();var t=document.querySelector('#intro');if(t){var top=t.getBoundingClientRect().top+window.pageYOffset-60;window.scrollTo({top:top,behavior:'smooth'});}" aria-label="开始精读">🚀 开始精读</a>
   </div>
 </section>
 
-<!-- ==================== WHY THIS BOOK ==================== -->
+<!-- WHY THIS BOOK -->
 <section aria-labelledby="why-title">
   <h2 class="section-title" id="why-title"><span class="emoji">💡</span> 为什么这本书值得精读？</h2>
   <div class="why-section">
     <div class="why-item">
-      <div class="why-icon">🏰</div>
-      <h3 class="why-title">护城河四来源：一套完整的竞争优势识别体系</h3>
-      <div class="why-desc">多尔西将复杂的竞争优势概念提炼为四大来源：<strong>无形资产（品牌/专利/特许经营权）、转换成本（客户粘性）、网络效应（用户越多价值越大）和成本优势</strong>。这套框架让普通投资者也能像晨星分析师一样，系统性地评估一家公司是否拥有持久竞争优势。</div>
+      <div class="why-icon">📖</div>
+      <h3 class="why-title">经典中的经典</h3>
+      <div class="why-desc">晨星公司前股票研究主管多尔西系统拆解了「护城河」——什么是真正的竞争优势，什么只……</div>
     </div>
     <div class="why-item">
-      <div class="why-icon">🔍</div>
-      <h3 class="why-title">来自晨星分析师的实战方法论</h3>
-      <div class="why-desc">多尔西是晨星公司股票研究总监，负责监督晨星对数千只股票的护城河评级。这本书不是学术理论，而是<strong>来自一线分析师的实际操作手册</strong>——他在书中的每一个案例都是他亲自分析过的公司。</div>
+      <div class="why-icon">💡</div>
+      <h3 class="why-title">投资实战价值</h3>
+      <div class="why-desc">这本书提供的框架和思维方式可以直接应用于投资决策。</div>
     </div>
     <div class="why-item">
-      <div class="why-icon">⚠️</div>
-      <h3 class="why-title">告诉你什么不是护城河——避免踩坑</h3>
-      <div class="why-desc">全书用整整一章讲"伪护城河"：高市场份额不等于护城河，优质产品不等于护城河，卓越管理不是护城河。多尔西教你区分<strong>"暂时的高回报"和"可持续的竞争优势"</strong>——这个区分能力本身就是投资中最重要的能力之一。</div>
-    </div>
-    <div class="why-item">
-      <div class="why-icon">🇨🇳</div>
-      <h3 class="why-title">完美适用于A股和港股市场</h3>
-      <div class="why-desc">护城河理论在中国市场有天然的映射：<span style="color:#c0392b;">茅台的品牌护城河</span>对应无形资产中的品牌定价权，<span style="color:#c0392b;">腾讯的网络效应</span>完美诠释社交平台的护城河，<span style="color:#c0392b;">海螺水泥的成本优势</span>则是地理位置型成本优势的典型案例。读懂护城河，你就读懂了A股核心资产。</div>
+      <div class="why-icon">🎯</div>
+      <h3 class="why-title">必读理由</h3>
+      <div class="why-desc">被全球投资者和基金经理反复推荐，经得起时间检验。</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== AUTHOR BIO ==================== -->
-<section class="author-bio" aria-labelledby="author-name">
-  <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #1a3a1a, #2d5a2d);">PD</div>
-  <div class="bio-content">
-    <h2 id="author-name">帕特·多尔西</h2>
-    <p>帕特·多尔西是晨星公司（Morningstar）的股票研究总监，负责监督晨星对数千只股票的分析和评级工作。晨星是全球最知名的独立投资研究机构之一，其"经济护城河评级"（Economic Moat Rating）是该公司最具标志性的分析工具。多尔西在晨星任职超过十年，亲自参与了护城河评级框架的设计和完善。</p>
-    <p>多尔西拥有西北大学政治学学士学位和芝加哥大学布斯商学院工商管理硕士学位。他的投资哲学深受巴菲特和查理·芒格的影响，但他将巴菲特的护城河概念<strong>从直觉层面转化为一套可操作的分析框架</strong>——这是他对投资领域最重要的贡献。在《巴菲特的护城河》之前，还没有任何一本书如此系统地讲解如何识别和评估企业的竞争优势。</p>
-    <p>本书出版于2008年，正值全球金融危机。多尔西的护城河框架在危机中展现了独特价值：那些拥有宽阔且持久护城河的公司（如可口可乐、强生）在危机中展现出惊人的韧性，而伪护城河公司则迅速暴露出脆弱性。这本书被多家商学院列为推荐读物，也是晨星公司培训新分析师的必读教材。</p>
-    <div>
-      <span class="bio-highlight">晨星股票研究总监</span>
-      <span class="bio-highlight">护城河评级框架创始人</span>
-      <span class="bio-highlight">芝加哥大学布斯商学院</span>
-      <span class="bio-highlight">竞争优势分析权威</span>
-      <span class="bio-highlight">巴菲特投资哲学解读者</span>
+<!-- AUTHOR BIO -->
+<section aria-labelledby="author-title">
+  <h2 class="section-title" id="author-title"><span class="emoji">👤</span> 作者简介</h2>
+  <div class="author-bio">
+    <div class="avatar" aria-hidden="true" style="background: linear-gradient(135deg, #1a3a4a 0%, #0d2530 50%, #051015 100%);">PD</div>
+    <div class="bio-content">
+      <h3>帕特·多尔西</h3>
+      <p>Pat Dorsey，著名投资人和思想家，其著作深刻影响了全球投资界。本书是economic-moat的核心著作。</p>
     </div>
   </div>
 </section>
 
-<!-- ==================== CORE FRAMEWORK ==================== -->
-<section aria-labelledby="framework-title">
-  <h2 class="section-title" id="framework-title"><span class="emoji">🏗️</span> 核心框架：护城河四来源全景图</h2>
-  <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin:32px 0;padding:24px;background:var(--card);border-radius:12px;box-shadow:var(--shadow);">
-    <div style="background:var(--accent-light);border:2px solid var(--accent);border-radius:10px;padding:16px 48px;text-align:center;max-width:700px;">
-      <div style="font-weight:700;font-size:18px;color:var(--accent);">🏰 经济护城河 = 持久竞争优势</div>
-      <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Ch1-2 · 核心定义：阻止竞争对手侵蚀超额利润的结构性特征</div>
-    </div>
-    <div style="color:var(--text-secondary);font-size:20px;">▼</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:700px;width:100%;">
-      <div style="background:#fdf7f0;border:2px solid #e0c8a8;border-radius:10px;padding:14px 20px;text-align:center;">
-        <div style="font-weight:700;font-size:16px;color:#b8860b;">🔖 无形资产</div>
-        <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">品牌 · 专利 · 特许经营权</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">Ch3 · 让消费者愿意付更高价格</div>
-        <div style="font-size:11px;color:#c0392b;margin-top:4px;">🇨🇳 茅台 · 片仔癀 · 云南白药</div>
-      </div>
-      <div style="background:#f8fafb;border:2px solid #dde4ea;border-radius:10px;padding:14px 20px;text-align:center;">
-        <div style="font-weight:700;font-size:16px;color:var(--blue);">🔗 转换成本</div>
-        <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">客户粘性 · 系统集成 · 更换代价</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">Ch4 · 客户离开你太痛苦</div>
-        <div style="font-size:11px;color:#c0392b;margin-top:4px;">🇨🇳 用友网络 · 恒生电子</div>
-      </div>
-      <div style="background:#f9f7fc;border:2px solid #d5cce0;border-radius:10px;padding:14px 20px;text-align:center;">
-        <div style="font-weight:700;font-size:16px;color:var(--purple);">🕸️ 网络效应</div>
-        <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">双边网络 · 用户越多价值越大</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">Ch5 · 最强大的护城河类型</div>
-        <div style="font-size:11px;color:#c0392b;margin-top:4px;">🇨🇳 腾讯·微信 · 阿里巴巴</div>
-      </div>
-      <div style="background:#f5f8f0;border:2px solid #c5d6b0;border-radius:10px;padding:14px 20px;text-align:center;">
-        <div style="font-weight:700;font-size:16px;color:var(--green);">💰 成本优势</div>
-        <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">工艺 · 位置 · 独特资源 · 规模</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px;">Ch6-7 · 比对手更便宜地生产</div>
-        <div style="font-size:11px;color:#c0392b;margin-top:4px;">🇨🇳 海螺水泥 · 宁德时代</div>
-      </div>
-    </div>
-  </div>
-  <p style="color:var(--text-secondary);font-size:14px;text-align:center;margin-bottom:32px;">四大护城河来源不是互斥的——最好的公司往往同时拥有多种护城河。例如，微软同时拥有网络效应（Windows/Office的用户生态）和转换成本（替换成本极高）。理解这四种来源，你就掌握了识别伟大公司的核心工具。</p>
-</section>
-
-<!-- ==================== ROADMAP ==================== -->
+<!-- ROADMAP -->
 <section aria-labelledby="roadmap-title">
   <h2 class="section-title" id="roadmap"><span class="emoji">🗺️</span> 阅读路线图</h2>
-  <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">全书14章分为5个模块，从护城河基础概念到实战估值与卖出策略。建议按顺序阅读，因为每章都建立在前一章的概念之上。</p>
+  <p style="color:var(--text-secondary);margin-bottom:20px;font-size:14px;">全书精读，建议按顺序阅读。</p>
   <div class="roadmap" id="roadmap-modules">
     <div class="part-card current">
       <div class="part-num">📖 模块1</div>
-      <h3 class="part-title">护城河基础</h3>
-      <div class="part-pages">Ch1-2 · 什么是真正的护城河，什么不是——区分真伪</div>
-    </div>
-    <div class="part-card current">
-      <div class="part-num">📖 模块2</div>
-      <h3 class="part-title">护城河四来源 ⭐核心</h3>
-      <div class="part-pages">Ch3-7 · 无形资产、转换成本、网络效应、成本优势、规模优势——全书最核心部分</div>
-    </div>
-    <div class="part-card current">
-      <div class="part-num">📖 模块3</div>
-      <h3 class="part-title">护城河动态变化</h3>
-      <div class="part-pages">Ch8-10 · 护城河的侵蚀、如何发现护城河、管理层的作用</div>
-    </div>
-    <div class="part-card current">
-      <div class="part-num">📖 模块4</div>
-      <h3 class="part-title">实战与估值</h3>
-      <div class="part-pages">Ch11-13 · 案例研究、护城河价值评估、估值工具</div>
-    </div>
-    <div class="part-card current">
-      <div class="part-num">📖 模块5</div>
-      <h3 class="part-title">卖出决策</h3>
-      <div class="part-pages">Ch14 · 何时卖出——以护城河变化为决策核心</div>
+      <h3 class="part-title">核心内容</h3>
+      <div class="part-pages">全部章节</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== PROGRESS ==================== -->
-<div class="progress-section" role="status" aria-label="阅读进度" aria-live="polite">
-  <span style="font-size:20px;" aria-hidden="true">📊</span>
-  <div class="progress-bar"><div class="fill" style="width:100%"></div></div>
-  <div class="progress-text">已读 15/15 章</div>
+<!-- PROGRESS -->
+<div class="progress-section" id="progress-section">
+  <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
+  <div class="progress-text">阅读进度：<span id="progress-percent">0%</span> · <span id="progress-chapters">0/17</span> 章</div>
 </div>
 
-<!-- ==================== INTRODUCTION ==================== -->
-<article class="chapter-card" data-no-collapse="true" id="intro" aria-labelledby="intro-title">
-  <div class="ch-header">
-    <div class="ch-num">序</div>
-    <div>
-      <h2 class="ch-title" id="intro-title">导言：如何找到值得长期持有的伟大公司</h2>
-      <div class="ch-subtitle">多尔西的投资游戏计划</div>
+<!-- CHAPTERS -->
+  <article class="chapter-card" id="intro" aria-labelledby="ch1-title">
+    <div class="ch-header">
+      <div class="ch-num">1</div>
+      <div>
+        <h2 class="ch-title" id="ch1-title">经济护城河：投资的核心</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">经济护城河</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">什么是经济护城河，为何它如此重要？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">经济护城河是公司可持续的竞争优势，是长期投资成功的基石。</span></div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">识别伟大公司的四个步骤：发现护城河→等待合理价格→长期持有→重复</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">在股市赚钱有很多方法，但为什么以合理价格买入伟大公司并长期持有，是普通人最可能成功的策略？</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">本书教你第一步——找到那些能持续多年产生高资本回报的"奇迹机器"。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 多尔西的投资游戏计划</div>
-    <div class="block-content">
-      <p>多尔西在导言中给出了一个"简单"的四步投资框架：</p>
-      <p><strong>第一步：</strong>识别那些能够持续多年产生高于平均水平利润的企业。<strong>第二步：</strong>等待这些企业的股价低于其内在价值时买入。<strong>第三步：</strong>持有这些股票，直到企业恶化、估值过高或找到更好的投资机会——持有期应以年而非月来计算。<strong>第四步：</strong>重复上述步骤。</p>
-      <p>这本书主要讲解第一步——如何找到真正拥有持久竞争优势的企业。多尔西指出：高资本回报率会像蜂蜜吸引蜜蜂一样吸引竞争——这就是资本主义的本质。但有些公司能够长时间抵御竞争的猛烈冲击，这些"财富复利机器"就是你应该构建投资组合基石的伟大企业。</p>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"You ask a deceptively simple question about the companies in which you plan to invest: 'What prevents a smart, well-financed competitor from moving in on this company's turf?'"</div></details>
-    <div class="zh">「你需要问一个看似简单的问题：'是什么阻止了一个聪明且资金充裕的竞争对手入侵这家公司的领地？'」</div>
-    <div class="why">💬 这句话是全书的灵魂。多尔西将复杂的竞争优势分析浓缩为一个所有人都能理解的简单问题——如果你能自信地回答这个问题，你就能识别出真正的护城河。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：护城河的核心逻辑</div>
-    <div class="concept-box">
-      <div class="concept-name">为什么护城河如此重要？</div>
-      <div class="concept-en">Why Economic Moats Matter</div>
-      <div class="concept-body">
-        <p>多尔西用了一个直观的比喻：<strong>有护城河的公司就像一辆可以开十年的汽车，而没有护城河的公司就像一辆随时可能抛锚的破车。</strong>两者当下可能跑得一样快，但长期来看，有护城河的公司会在更长时间内产生经济利润。</p>
-        <p>核心逻辑链：资本追求高回报 → 高回报吸引竞争 → 竞争侵蚀利润 → 少数公司有"护城河"抵御竞争 → 这些公司是真正的财富复利机器。</p>
-        <p>注意区分："好公司"不等于"有护城河的公司"。一家公司可能当前利润丰厚，但如果这种利润不能持久，它就没有护城河。护城河是关于<strong>持久性</strong>，而不是当前表现。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书开篇，由晨星创始人乔·曼斯威托撰写前言，阐述了经济护城河概念对晨星公司及其股票分析方法的奠基性作用，回答了为何护城河是长期投资成功的关键。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Warren Buffett coined this term, which refers to the sustainable advantages that protect a company against competitors—the way a moat protects a castle.</div></details>
+      <div class="zh">「沃伦·巴菲特创造了这个术语，它指的是保护公司免受竞争对手侵害的可持续优势——就像护城河保护城堡一样。」</div>
+      <div class="why">💬 这句话简洁地定义了经济护城河的核心比喻，为全书奠定了概念基础。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">经济护城河</h3>
+        <div class="concept-body"><p>本章核心是经济护城河（Economic Moat）概念，由沃伦·巴菲特提出，指公司拥有的可持续竞争优势，如同城堡的护城河保护城堡免受敌人攻击一样，保护公司免受竞争对手侵蚀。晨星创始人乔·曼斯威托在1984年创立晨星时，就立志打造一家拥有经济护城河的企业，包括值得信赖的品牌、大型金融数据库、专有分析技术、庞大且知识渊博的分析师团队以及忠诚的客户群。经过23年发展，晨星收入超过4亿美元，盈利能力高于平均水平。在股票投资方面，晨星认为投资者应将长期投资集中于拥有宽阔经济护城河的公司，这些公司能在长期内获得超额回报，并因持有时间更长而降低交易成本。晨星拥有超过100名股票分析师，覆盖100个行业的2000家上市公司，其股票评级主要取决于两个因素：股票相对于晨星估算公允价值的折价程度，以及公司护城河的宽度。分析师通过构建详细的贴现现金流模型（DCF）估算公司公允价值，并根据护城河大小（宽、窄、无）给出评级。折价越大、护城河越宽，晨星股票评级越高。</p></div>
       </div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>为什么护城河框架在A股特别有用？</strong></p>
-      <p>A股市场以概念驱动著称——从<span style="color:#c0392b;">新能源</span>到<span style="color:#c0392b;">人工智能</span>，风口换了一波又一波。大多数风口上的公司并没有护城河——它们只是暂时受益于行业东风。<span style="color:#27ae60;">多尔西的框架给A股投资者提供了一副"护城河眼镜"，帮助你区分暂时的行业繁荣和持久的企业竞争优势。</span></p>
-      <p>例如，2020-2021年的新能源车热潮中，锂矿公司和电池公司都大涨，但<strong style="color:#c0392b;">宁德时代</strong>通过规模和技术形成了成本优势护城河，而许多中小锂矿商并没有护城河，最终在价格回落后暴露出脆弱性。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，经济护城河概念同样适用。例如，贵州茅台凭借其强大的品牌护城河（国酒地位、独特酿造工艺）和客户忠诚度，长期保持高利润率和高估值；海天味业则通过规模经济（庞大的产能和渠道网络）和品牌护城河，在调味品行业占据主导地位。投资者可借鉴晨星方法，寻找A股中拥有宽护城河的公司，并在其股价低于内在价值时买入。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Economic Moat</strong></td><td class="zh">经济护城河</td><td>公司拥有的可持续竞争优势，能长期抵御竞争对手，保护超额利润。</td></tr><tr><td><strong>DCF</strong></td><td class="zh">贴现现金流模型</td><td>一种估值方法，通过预测公司未来自由现金流并折现到当前，估算公司公允价值。</td></tr><tr><td><strong>Wide Moat</strong></td><td class="zh">宽护城河</td><td>公司拥有强大且持久的竞争优势，能长期获得超额回报。</td></tr><tr><td><strong>Narrow Moat</strong></td><td class="zh">窄护城河</td><td>公司拥有一定竞争优势，但可能不如宽护城河持久。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>经济护城河是公司可持续的竞争优势，能保护公司长期获得超额利润。</li><li>晨星公司以护城河概念为基础，构建了其股票分析体系，将护城河宽度作为评级核心因素。</li><li>投资者应聚焦于拥有宽护城河的公司，并在其股价低于公允价值时买入，以实现长期投资成功。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>找一家你正在关注的A股公司，回答多尔西的核心问题：<strong>"是什么阻止了一个聪明且资金充裕的竞争对手进入这家公司的领地？"</strong>试着用具体证据（而不是模糊印象）写出你的答案。如果你写不出来，这家公司可能没有护城河。</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q1">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q1')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">请选择一家你熟悉的A股公司，分析它是否拥有经济护城河？如果有，属于哪种类型（如品牌、规模经济、转换成本等）？如果没有，为什么？</p>
+        <p class="hint">💡 提示：思考公司是否具备竞争对手难以复制的优势，例如品牌忠诚度、专利技术、网络效应或成本优势。</p>
+        <div class="chat-widget" id="chat-巴菲-ch1-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch1-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">经济护城河是长期投资的关键。请从品牌、规模、转换成本等角度分析你选择的公司。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch1-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
+    <div class="ch-header">
+      <div class="ch-num">2</div>
+      <div>
+        <h2 class="ch-title" id="ch2-title">寻找长期财富机器</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">经济护城河</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何识别能长期创造高回报的公司？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">寻找拥有经济护城河的公司，以合理价格买入并长期持有。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书策略的起点，核心回答：为什么寻找能长期创造高资本回报率的公司是投资成功的关键，以及如何通过经济护城河识别这类公司。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Companies that can do this are not common, however, because high returns on capital attract competitors like bees to honey. That’s how capitalism works, after all—money seeks the areas of highest expected return, which means that competition quickly arrives at the doorstep of a company with fat profits.</div></details>
+      <div class="zh">「“高资本回报率的公司会像蜜蜂吸引蜂蜜一样吸引竞争对手。这就是资本主义的运作方式——资金会流向预期回报最高的领域，这意味着竞争很快就会来到利润丰厚的公司门口。”」</div>
+      <div class="why">💬 这句话生动揭示了竞争的本质，解释了为什么护城河如此稀缺和宝贵。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">经济护城河</h3>
+        <div class="concept-body"><p>本章提出一个简单但强大的投资策略：以合理价格买入优秀公司，并长期持有。策略分四步：1) 识别能多年创造高于平均利润的企业；2) 等待股价低于内在价值时买入；3) 持有数年，直到企业恶化、股价高估或找到更好机会；4) 重复。
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 导言要点总结</h3>
-    <ul class="takeaway-list">
-      <li>投资成功的关键是识别能够持续多年产生高资本回报的企业——不是一年，而是十年以上</li>
-      <li>判断护城河的唯一问题是：什么阻止了竞争对手入侵？</li>
-      <li>好公司≠有护城河——区分当前表现和持久竞争优势是所有分析的基础</li>
-    </ul>
-  </div>
-</article>
+核心概念是“资本回报率均值回归”：高回报吸引竞争，导致回报下降；低回报则因竞争退出或业务转型而改善。但少数公司能长期抵御竞争，持续创造高资本回报，如安海斯-布希、甲骨文、强生。这些公司拥有“经济护城河”——类似中世纪城堡的护城河，保护其高资本回报率不被竞争侵蚀。
 
-<!-- ==================== CHAPTER 1 ==================== -->
-<article class="chapter-card" id="ch1" aria-labelledby="ch1-title">
-  <div class="ch-header">
-    <div class="ch-num">1</div>
-    <div>
-      <h2 class="ch-title" id="ch1-title">经济护城河</h2>
-      <div class="ch-subtitle">护城河是什么，以及它如何帮助你选出好股票</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">经济护城河的定义与价值</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么有护城河的公司比没有护城河的公司更有价值？不是因为他们当下赚更多钱，而是因为他们能赚更久的钱。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">护城河让一家公司可以在更长时间内产生经济利润——这就是它被赋予更高估值的原因。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>为什么有护城河的公司比没有护城河的公司更有价值？不是因为他们当下赚更多钱，而是因为他们能<strong>赚更久的钱</strong>。一辆能开十年的本田比一辆只能开三年的起亚更贵——同样的逻辑适用于股票。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念</div>
-    <div class="concept-box">
-      <div class="concept-name">经济护城河的根本价值</div>
-      <div class="concept-en">The Core Value of Economic Moats</div>
-      <div class="concept-body">
-        <p>多尔西提出了一个深刻的洞见：<strong>股票的价值等于公司未来所有现金流的折现值。</strong>如果两家公司当前表现相同，但一家有护城河（能更长时间地保持高回报），一家的护城河很快就会消失——有护城河的公司价值一定更高。</p>
-        <p>他画了一张关键图表：有护城河的公司，其资本回报率会十分缓慢地下降；没有护城河的公司，资本回报率在竞争进入后迅速崩塌。两个面积（累计经济利润）的巨大差异，就是护城河带来的额外价值。</p>
-        <p>护城河还能提供<strong>安全边际</strong>：如果你对有护城河的公司估值偏高，随着时间的推移，内在价值的增长会帮你"填坑"。而对没有护城河的公司，高估值买入后遭遇基本面恶化，可能就是永久性损失。</p>
+识别护城河的关键问题是：“什么阻止了一个聪明、资金充足的竞争对手侵入这家公司的地盘？”答案在于寻找结构性特征，即真正的竞争优势。本章为后续章节奠定基础，将详细探讨护城河的来源、如何识别虚假优势、护城河如何侵蚀、行业结构的作用以及管理层的影响。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">护城河的四大好处</div>
-      <div class="concept-en">Four Benefits of Moats</div>
-      <div class="concept-body">
-        <p><strong>1. 提升公司价值：</strong>有护城河 = 现金流持续更久 = 更高估值。</p>
-        <p><strong>2. 降低永久性损失风险：</strong>护城河让内在价值稳定增长，即使买贵了也有机会"时间换空间"。</p>
-        <p><strong>3. 增强韧性：</strong>有护城河的公司能从暂时困境中恢复——想一想可口可乐的新可乐（New Coke）惨败，但因为品牌护城河，公司最终恢复了。</p>
-        <p><strong>4. 缩小能力圈：</strong>与其成为某个行业的专家，不如成为"识别护城河"的专家——这是更高效的能力圈策略。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中提及安海斯-布希（美国啤酒巨头）、甲骨文（软件公司）、强生（医疗保健巨头）作为长期高回报公司的案例，反映了美国成熟市场中品牌、技术、规模等护城河来源的典型代表。</p></div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Durable companies — that is, companies that have strong competitive advantages — are more valuable than companies that are at risk of going from hero to zero in a matter of months."</div></details>
-    <div class="zh">「持久的公司——即那些拥有强大竞争优势的公司——比那些可能在几个月内从英雄变成零蛋的公司更有价值。」</div>
-    <div class="why">💬 这是全书最基本的原则。护城河的本质是"持久性"——不是当下有多辉煌，而是辉煌能持续多久。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股波动与护城河韧性的关系：</strong></p>
-      <p>回顾A股历史，<span style="color:#c0392b;">贵州茅台</span>（600519）在2012-2014年经历反腐冲击、白酒塑化剂危机，股价从高点<span style="color:#c0392b;">跌超60%</span>。但茅台凭借其不可替代的品牌护城河，在行业低谷后重拾增长，<span style="color:#27ae60;">股价随后上涨超20倍</span>。如果茅台没有护城河——如果它只是一个普通的白酒品牌——2013年的低谷可能就是终点。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，贵州茅台是典型的护城河公司。其品牌（国酒地位）、独特酿造工艺（不可复制的地理环境）、强大的定价权（长期提价能力）和极高的资本回报率（ROE长期超30%）使其能长期抵御竞争。类似地，海天味业凭借品牌、渠道和规模优势，在调味品行业保持高利润率。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Economic Moat</strong></td><td class="zh">经济护城河</td><td>公司能长期抵御竞争、保持高资本回报率的可持续竞争优势。</td></tr><tr><td><strong>Mean Reversion</strong></td><td class="zh">均值回归</td><td>高资本回报率因竞争而下降、低回报率因竞争退出而上升的趋势。</td></tr><tr><td><strong>Capital Return</strong></td><td class="zh">资本回报率</td><td>公司投入资本后产生的利润比率，衡量企业创造价值的能力。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>投资策略：以合理价格买入优秀公司，长期持有，直到基本面恶化或估值过高。</li><li>资本回报率均值回归是常态，但少数公司因经济护城河能长期维持高回报。</li><li>识别护城河的关键问题：什么阻止了聪明、资金充足的竞争对手侵入？</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>选一家A股公司，画出你认为它的资本回报率（ROE或ROIC）在过去10年中的走势。它是像多尔西图中有护城河的那条缓慢下降的线，还是像没有护城河的那条快速崩塌的线？这个走势告诉你什么？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q2">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q2')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">请分析你持仓中或关注的一只A股股票，它是否拥有经济护城河？如果有，是什么？如果没有，为什么？</p>
+        <p class="hint">💡 提示：思考：该公司的资本回报率是否长期高于同行？竞争对手为何难以复制其优势？</p>
+        <div class="chat-widget" id="chat-巴菲-ch2-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch2-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章的核心是识别护城河。请先列出该公司的关键财务指标（如ROE、毛利率），再分析其竞争壁垒。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch2-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
+    <div class="ch-header">
+      <div class="ch-num">3</div>
+      <div>
+        <h2 class="ch-title" id="ch3-title">护城河为何决定公司价值</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">经济护城河</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">护城河如何提升公司价值？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">护城河通过延长高资本回报期，使公司价值远超无护城河的竞争者。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书开篇，回答“为什么护城河对投资者至关重要”这一根本问题，通过价值评估、风险防范和投资纪律三个维度，奠定全书的理论基础。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">High returns on capital will always be competed away eventually, and for most companies—and their investors—the regression is fast and painful.</div></details>
+      <div class="zh">「高资本回报率最终都会被竞争侵蚀，对于大多数公司及其投资者而言，这种回归是迅速且痛苦的。」</div>
+      <div class="why">💬 这句话点明了护城河存在的根本原因：没有护城河，高利润只是暂时的。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">经济护城河</h3>
+        <div class="concept-body"><p>本章核心论点是：经济护城河能显著提升公司价值，因为护城河保护公司长期产生经济利润的能力。作者通过两个对比案例说明：有护城河的公司（左图）的资本回报率缓慢下滑，而无护城河的公司（右图）回报率因竞争迅速下降，前者创造的累计经济价值（深色区域）远大于后者。
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">护城河不是让你赚更多——而是让你赚更久。持久性，是投资中最被低估的价值。</div></div>
-  </div>
-</article>
+护城河对投资者的具体价值体现在：
+1. 强制投资纪律：避免为热门但竞争优势脆弱的公司支付过高价格。作者指出“高资本回报率最终都会被竞争侵蚀”，并举例曾经火爆的青少年零售商和科技公司，其优势可能一夜消失。
+2. 降低永久性资本损失风险：有护城河的公司更可能随时间可靠地增加内在价值，即使买入价偏高，内在价值增长也能保护回报；无护城河的公司遇到竞争冲击时，内在价值可能急剧下降。
+3. 增强企业韧性：有护城河的公司能从暂时困境中恢复。作者以可口可乐为例：New Coke和C2的失败、对非碳酸饮料趋势反应迟缓，但凭借核心品牌和分销渠道（如推出Dasani水）得以恢复；麦当劳在2002-2003年因服务下降和口味脱节被看衰，但凭借标志性品牌和规模成功转型。
+4. 帮助定义“能力圈”：投资者不必成为多个行业的专家，而是成为识别护城河的专家，从而将庞大的投资范围缩小为可理解的高质量公司。
 
-<!-- ==================== CHAPTER 2 ==================== -->
-<article class="chapter-card" id="ch2" aria-labelledby="ch2-title">
-  <div class="ch-header">
-    <div class="ch-num">2</div>
-    <div>
-      <h2 class="ch-title" id="ch2-title">伪护城河</h2>
-      <div class="ch-subtitle">护城河……还是陷阱？</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">四种常见的"伪护城河"——看起来像竞争优势，实则不堪一击</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如果识别护城河如此重要，那最常见的错误是什么？是投资者误以为某些公司特征就是护城河，而这些特征其实根本无法抵御竞争。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">好的产品、高市场份额、卓越管理、高效执行——都不是护城河。它们是"护城河的结果"，不是"护城河本身"。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>如果识别护城河如此重要，那最常见的错误是什么？是投资者误以为某些公司特征就是护城河，而这些特征其实<strong>根本无法抵御竞争</strong>。多尔西在本章系统性地拆穿了四种最常见的"伪护城河"。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：四种伪护城河</div>
-    <div class="concept-box">
-      <div class="concept-name">伪护城河1：优质产品</div>
-      <div class="concept-en">Great Products ≠ Great Moats</div>
-      <div class="concept-body">
-        <p>一家公司生产出炙手可热的产品——这难道不是竞争优势吗？多尔西的回答是残酷的：<strong>优质产品本身不是护城河，因为它太容易被模仿。</strong>想想所有的电子消费品——即使某家公司率先推出爆款，竞争对手能迅速跟进。除非这个产品受到专利保护，或背后有强大的品牌支持，否则优质产品产生的利润窗口非常短暂。</p>
+本章还强调：股票价值等于公司未来产生的全部现金流的现值；资本回报率是衡量公司盈利能力的最佳指标；护城河通过延长高回报期来增加公司价值。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">伪护城河2：高市场份额</div>
-      <div class="concept-en">High Market Share ≠ Safe</div>
-      <div class="concept-body">
-        <p>市场份额是结果，不是原因。高市场份额可能来自护城河，但如果没有护城河支撑，它随时可能崩塌。想想曾经的手机霸主诺基亚——市场份额一度接近40%，但当智能手机革命来临时，市场份额像沙堡一样被冲垮。相反，真正有护城河的高市场份额公司（如可口可乐在碳酸饮料领域）则能维持几十年。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，护城河概念同样适用。例如贵州茅台凭借品牌护城河和独特酿造工艺，长期维持高资本回报率，即使2012-2014年遭遇反腐和行业调整，仍能通过品牌韧性和渠道控制恢复增长。相反，许多曾经热门的科技股（如乐视网）因缺乏护城河，在竞争加剧后价值迅速崩塌。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">伪护城河3：卓越管理</div>
-      <div class="concept-en">Great Management ≠ Structural Advantage</div>
-      <div class="concept-body">
-        <p>多尔西的观点很明确：<strong>虽然伟大管理能创造价值，但它不是经济护城河。</strong>原因很简单——CEO可以跳槽，可以退休，也可能做出错误决策。真正的护城河是结构性的——即使管理层平庸，公司仍然能保持竞争优势。如果一家公司的成功高度依赖某个明星CEO，那恰恰说明它没有护城河。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Economic Moat</strong></td><td class="zh">经济护城河</td><td>公司相对于竞争对手的持久竞争优势，能保护长期利润。</td></tr><tr><td><strong>Return on Invested Capital (ROIC)</strong></td><td class="zh">投入资本回报率</td><td>衡量公司利用投资者资本创造回报的能力，是判断护城河的关键指标。</td></tr><tr><td><strong>Intrinsic Value</strong></td><td class="zh">内在价值</td><td>公司未来所有现金流的现值，护城河延长高现金流期限从而提升内在价值。</td></tr><tr><td><strong>Permanent Capital Impairment</strong></td><td class="zh">永久性资本损失</td><td>投资本金不可逆转的重大亏损，护城河可降低此类风险。</td></tr><tr><td><strong>Circle of Competence</strong></td><td class="zh">能力圈</td><td>投资者应专注于自己理解的投资领域，护城河分析可帮助定义能力圈。</td></tr>      </table>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">伪护城河4：高效执行</div>
-      <div class="concept-en">Execution ≠ Moat</div>
-      <div class="concept-body">
-        <p>一家公司运营得比竞争对手更好——降本增效、管理严格——这算护城河吗？不算。因为执行效率可以被模仿和复制。竞争对手可以聘请更好的管理团队，可以引入同样的信息系统。执行优势是暂时的，护城河是持久的。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>有护城河的公司比无护城河的公司更值钱，因为其高资本回报能持续更久。</li><li>护城河分析能防止为热门但脆弱公司支付过高价格，降低永久性资本损失风险。</li><li>有护城河的公司更具韧性，能从暂时困境中恢复（如可口可乐、麦当劳）。</li></ul>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"High returns on capital will always be competed away eventually, and for most companies — and their investors — the regression is fast and painful."</div></details>
-    <div class="zh">「高资本回报率最终总会被竞争侵蚀掉，对大多数公司——以及它们的投资者——这个过程是快速而痛苦的。」</div>
-    <div class="why">💬 这就是为什么必须区分"真护城河"和"伪护城河"——如果一家公司的成功基于可以被快速复制的东西，你的投资注定要"均值回归"。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股中的"伪护城河"陷阱：</strong></p>
-      <p>A股投资者常见的一个误区是把<strong>行业龙头地位</strong>等同于护城河。例如，<span style="color:#c0392b;">某光伏龙头</span>曾拥有全球最高市场份额，但当行业技术路线切换（从多晶硅到单晶硅），市场份额迅速转移。它没有真正的护城河——它的地位来自技术和价格，而不是结构性优势。</p>
-      <p>对比<span style="color:#27ae60;">格力电器</span>——虽然空调行业竞争激烈，但格力的品牌认知、经销渠道和规模形成了一定的护城河组合，使其保持了超过二十年的行业领先地位。区别在于：<strong>格力的优势是结构性的（品牌+渠道+规模），而某些光伏龙头的优势是阶段性的（技术领先周期）。</strong></p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>找一家你曾经认为是"好公司"的A股企业，用多尔西的伪护城河框架重新审视它：它的成功是因为优质产品、高份额、卓越管理还是高效执行？这些因素中，哪些是可持续的？哪些是容易被竞争对手模仿的？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q3">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q3')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        <p class="q">请分析一家你熟悉的A股公司，判断它是否具有经济护城河，并说明理由。</p>
+        <p class="hint">💡 提示：从品牌、规模、转换成本、网络效应、专利/技术等角度思考。</p>
+        <div class="chat-widget" id="chat-巴菲-ch3-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch3-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章的核心是护城河如何保护公司长期价值。请先列出你选的公司，然后逐项评估其竞争优势的持久性。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch3-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q3', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">好的产品、大的份额、强的管理、高的效率——都是好结果，不是护城河。别把结果和原因搞混了。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 3 ==================== -->
-<article class="chapter-card" id="ch3" aria-labelledby="ch3-title">
-  <div class="ch-header">
-    <div class="ch-num">3</div>
-    <div>
-      <h2 class="ch-title" id="ch3-title">无形资产</h2>
-      <div class="ch-subtitle">品牌、专利和特许经营权——你不能把它们从货架上拿下来，但它们确实很值钱</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">品牌、专利、监管许可三种无形资产的护城河价值</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">知名度高的品牌就是护城河吗？不是。多尔西给出了关键判断标准：品牌只有让消费者愿意付更高价格或产生持续购买习惯时，才是护城河。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">无形资产护城河的本质是"微型垄断"——品牌、专利或牌照让你在某个细分市场拥有定价权。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>知名度高的品牌就是护城河吗？<strong>不是。</strong>多尔西给出了一个关键判断标准：品牌只有让消费者愿意付更高价格或产生持续购买习惯时，才是真正的护城河。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念</div>
-    <div class="concept-box">
-      <div class="concept-name">品牌护城河：索尼 vs 蒂芙尼</div>
-      <div class="concept-en">Brand Moats: Sony vs. Tiffany</div>
-      <div class="concept-body">
-        <p>多尔西做了一个经典的对比：<strong>索尼</strong>是一个知名度极高的品牌——但你愿意为"索尼"牌DVD播放机比同等配置的三星或松下多付钱吗？大多数人不会。因为消费者买电子产品主要看功能和价格，而不是品牌。</p>
-        <p>再看<strong>蒂芙尼</strong>（Tiffany）。一颗同样规格的钻石——相同的克拉数、颜色、净度和切工——在蒂芙尼的售价可能比在线珠宝商高50%以上。这溢价来自那标志性的蓝色盒子——这才是真正的品牌护城河。</p>
-        <p>惊人的例子：<strong>USG公司的"Sheetrock"品牌石膏板</strong>——几乎是最平凡的产品——却能够比竞争对手贵10%-15%。USG通过对建筑行业的持续营销建立了声誉，让建筑商愿意为这个品牌名称多付钱。</p>
-        <p>另一个经典案例：<strong>拜耳阿司匹林</strong>——与仿制药化学成分完全相同，但价格几乎是仿制药的两倍。这就是品牌护城河的定价权。</p>
-      </div>
-    </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">专利护城河：法律保护的壁垒</div>
-      <div class="concept-en">Patent Moats</div>
-      <div class="concept-body">
-        <p>专利能够完全阻止竞争对手销售同类产品——听起来是完美的护城河，但有三大风险：</p>
-        <p><strong>1. 有限期限：</strong>专利到期后竞争必然涌入（问问任何大型制药公司）。<strong>2. 法律挑战：</strong>利润越高的专利，越多的律师在想办法攻击它。<strong>3. 单一依赖：</strong>依赖少数专利的公司极其脆弱。</p>
-        <p>多尔西的结论：<strong>只有当公司拥有多元化的专利组合和持续创新的历史记录时，专利才构成真正的护城河。</strong>3M拥有成千上万项专利，即使一些到期，创新管道不断补充。大型制药公司如默克和礼来也是如此。</p>
-      </div>
-    </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">监管许可护城河：政府帮你挡住的竞争</div>
-      <div class="concept-en">Regulatory Moats</div>
-      <div class="concept-body">
-        <p>最理想的监管型护城河：<strong>需要政府批准才能运营，但政府不管价格。</strong></p>
-        <p><strong>经典案例：穆迪投资者服务公司</strong>——想要为美国债券评级，必须获得"NRSRO"资格认证。这个监管壁垒使穆迪拥有超过50%的营业利润率和约150%的资本回报率。</p>
-        <p><strong>老虎机行业：</strong>只有四家主要玩家，新进入者多年为零——因为监管审批极为严格。</p>
-        <p><strong>"邻避型"护城河（NIMBY）：</strong>垃圾填埋场和采石场——没人希望它们建在自己社区附近。每个地方的审批都极其困难，但一旦获得就极有价值。垃圾搬运公司如Waste Management和骨料公司如Vulcan Materials因此享受十几到二十几的稳定资本回报率。</p>
-      </div>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"If you can find a company that can price like a monopoly without being regulated like one, you've probably found a company with a wide economic moat."</div></details>
-    <div class="zh">「如果你能找到一家公司，它可以像垄断者一样定价，却不受垄断者的监管约束——那你很可能找到了一家拥有宽阔护城河的公司。」</div>
-    <div class="why">💬 这句话概括了无形资产护城河的精髓。品牌、专利和监管许可在本质上都是某种形式的"合法垄断"。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股无形资产护城河的经典案例：</strong></p>
-      <p><strong style="color:#c0392b;">贵州茅台（600519）</strong>——品牌护城河的极致。茅台酒的品牌让消费者愿意为同样的酱香型白酒支付数倍于竞品的价格。茅台不是靠市场份额取胜，而是靠品牌赋予的<strong>定价权</strong>。即便经济下行，茅台依然能提价——这是检验品牌护城河真伪的终极测试。</p>
-      <p><strong style="color:#c0392b;">片仔癀（600436）</strong>——双重护城河（国家保密配方+品牌）。片仔癀和云南白药是中国仅有的两个拥有"国家绝密级"配方的产品，这相当于一种永久的监管护城河。</p>
-      <p><strong style="color:#27ae60;">但也要警惕伪品牌护城河：</strong>某些A股消费品公司有高知名度品牌（如某些服装品牌），但无法将品牌知名度转化为定价权——消费者不会为它们的logo多付钱。它们的品牌是"知名度"而不是"定价权"。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
     <div class="exercise-box">
-      <p>找五个你日常生活中使用的消费品品牌。对每个品牌回答：如果价格提高10%，你会继续购买还是转向竞争对手？你的答案揭示哪些品牌有护城河，哪些没有？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q4">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q4')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q4', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">假设你发现一家高增长但无护城河的公司，股价已大幅上涨。你会如何决策？</p>
+        <p class="hint">💡 提示：考虑护城河对估值和风险的影响，结合本章关于永久性资本损失的讨论。</p>
+        <div class="chat-widget" id="chat-巴菲-ch3-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch3-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调高资本回报终将被竞争侵蚀。请思考：无护城河的公司，其高增长能持续多久？当前股价是否已透支未来？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch3-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
+    <div class="ch-header">
+      <div class="ch-num">4</div>
+      <div>
+        <h2 class="ch-title" id="ch4-title">识别虚假的护城河陷阱</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">虚假护城河</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">哪些看似强大的优势其实是陷阱？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">好产品、高份额、高效率、好管理，都不一定是真护城河。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书第二章，在第一章定义护城河概念后，系统性地剖析投资者最易误判的四种虚假竞争优势，帮助读者避免将短期成功误认为长期壁垒。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Unless a company has an economic moat protecting its business, competition will soon arrive on its doorstep and eat away at its profits. Wall Street is littered with the dead husks of companies that went from hero to zero in a heartbeat.</div></details>
+      <div class="zh">「除非一家公司拥有经济护城河保护其业务，否则竞争很快就会找上门来，蚕食其利润。华尔街到处是那些转瞬之间从英雄沦为狗熊的公司的残骸。」</div>
+      <div class="why">💬 这句话是本章的核心理念，用生动的比喻警示投资者：没有护城河，任何短期成功都不可持续。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">虚假护城河</h3>
+        <div class="concept-body"><p>本章核心是揭示四种最常见的“虚假护城河”：
+1. **优质产品**：好产品不等于护城河。例如克莱斯勒在1980年代推出首款小型货车后大赚特赚，但竞争对手迅速跟进，利润池被瓜分。相比之下，汽车零部件公司Gentex凭借自动调光后视镜的专利保护，实现了20多年超过20%的投入资本回报率。作者强调：“除非公司拥有经济护城河保护其业务，否则竞争很快就会找上门来，蚕食其利润。”
+2. **高市场份额**：市场份额大不等于护城河稳固。柯达（胶卷）、IBM（个人电脑）、网景（浏览器）、通用汽车（汽车）等曾主导市场的企业，都因未能建立或维护护城河而失去领先地位。关键在于企业如何获得市场份额，而非份额本身的大小。
+3. **卓越运营**：仅靠效率优势难以持久。如果一家公司的成功仅仅基于比同行更精简、更高效，那么它很可能身处竞争激烈的行业，效率只是生存之道，除非这种效率建立在难以复制的专有流程之上。
+4. **优秀管理层**：优秀CEO不是可持续的竞争优势。管理决策对公司业绩的影响在控制行业等因素后并不显著，且CEO流动性高，难以预测其未来表现。作者指出：“评估管理层的卓越程度，事后远比事前容易。”
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">品牌不是知名度——品牌是定价权。如果消费者不愿意为你的产品多付钱，你的品牌就不是护城河。</div></div>
-  </div>
-</article>
+作者还以乙醇热潮为例，说明无护城河行业（大宗商品）的利润如何迅速逆转：2006年高利润吸引大量新进入者，一年后玉米价格飙升、产能过剩，运营利润率暴跌甚至为负。
 
-<!-- ==================== CHAPTER 4 ==================== -->
-<article class="chapter-card" id="ch4" aria-labelledby="ch4-title">
-  <div class="ch-header">
-    <div class="ch-num">4</div>
-    <div>
-      <h2 class="ch-title" id="ch4-title">转换成本</h2>
-      <div class="ch-subtitle">粘性客户不麻烦——他们是金矿</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">转换成本护城河——更换供应商的代价高于更换带来的好处</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么人们明明知道换个银行能省钱，却平均6-7年才换一次？因为转换过程的麻烦和风险大于省下的钱——这就是转换成本护城河的力量。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">转换成本护城河的本质是：客户离开你的代价太大，所以他们只能留下——即使你的服务并非最好。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>为什么人们明明知道换个银行能省钱，却平均6-7年才换一次？因为转换过程的麻烦和风险<strong>大于</strong>省下的钱。转换成本护城河用公式表达就是：<strong>转换的好处 < 转换的成本（时间+金钱+风险）</strong>。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：转换成本的多种形式</div>
-    <div class="concept-box">
-      <div class="concept-name">与客户业务紧密整合型</div>
-      <div class="concept-en">Tight Integration with Client's Business</div>
-      <div class="concept-body">
-        <p><strong>直觉公司（Intuit）的QuickBooks和TurboTax</strong>是最经典案例。小企业主将全部财务数据录入QuickBooks后，切换软件意味着大量数据迁移、重新学习和潜在的数据丢失风险。对于一个小企业主来说，这个时间和风险成本远大于新软件可能提供的微薄优势。Intuit凭借这一护城河实现了超过30%的资本回报率——即使微软曾试图挑战它的市场地位也失败了。</p>
-        <p><strong>甲骨文（Oracle）数据库</strong>同样如此。更换数据库不仅需要迁移海量数据，还需要重新连接所有依赖该数据库的应用系统。这种更换的成本、时间和风险使客户几乎被"锁定"。</p>
+同时，作者也指出例外：汉森天然公司利用Monster能量饮料的成功，与百威英博签订长期分销协议，将产品成功转化为分销护城河。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">高可靠性带来的信任锁定</div>
-      <div class="concept-en">Trust-Based Switching Costs</div>
-      <div class="concept-body">
-        <p><strong>精密铸件公司（Precision Castparts）</strong>为喷气发动机和发电厂涡轮机制造高强度金属部件。这些产品有"零容忍"故障率——涡轮叶片在3000转/分钟的转速下断裂，后果是灾难性的。通用电气已经与精密铸件合作超过30年，因为切换到一个新的供应商意味着不可接受的质量风险。</p>
-        <p>这里的转换成本不是金钱——是<strong>风险</strong>。一次产品故障可能毁掉GE的声誉。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>文中提到的乙醇热潮（ethanol craze）反映了2006年美国能源政策、玉米补贴和汽油标准变更共同催生的投资泡沫，是理解大宗商品行业无护城河特性的典型美国案例。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">学习曲线型转换成本</div>
-      <div class="concept-en">Retraining Costs</div>
-      <div class="concept-body">
-        <p><strong>Adobe的Photoshop和Illustrator</strong>：设计师在学校学的是这些软件，熟练使用需要大量时间投入。切换到另一个软件意味着巨大的再培训成本。<strong>Autodesk的AutoCAD</strong>同样如此——工程师在大学学的是AutoCAD，雇主不想承担让他们重新学习新软件的效率损失。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有观点认为，卓越管理层本身就是护城河，因为优秀CEO能制定战略、塑造文化、推动创新，从而持续创造竞争优势。例如史蒂夫·乔布斯回归苹果后的复兴，就被视为管理层创造护城河的例证。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">消费端的转换成本——银行与资产管理</div>
-      <div class="concept-en">Consumer Switching Costs</div>
-      <div class="concept-body">
-        <p>银行的平均存款周转率仅15%——意味着客户平均持有账户6-7年。共同基金和财富管理账户同样具有"粘性资产"特征。即便在基金行业爆出"择时交易丑闻"时，大多数基金仍然保留了足够资产保持盈利——因为客户承认选错基金经理的心理成本比实际转换成本更高。</p>
-        <p>一个有趣的消费品案例：<strong>丙烷分销商</strong>。在未通天然气管道的美国农村地区，居民使用丙烷罐供暖做饭。切换丙烷供应商意味着新旧供应商需要交换罐体——这本身就是巨大的麻烦，更何况现有供应商通常对切换服务收取费用。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，类似“虚假护城河”的案例屡见不鲜。例如，**獐子岛**曾凭借优质海产品（扇贝）获得高市场份额和利润，但缺乏品牌忠诚度或技术壁垒，最终因“扇贝跑路”事件暴露其无护城河的本质。又如，**暴风集团**曾凭借视频播放器产品获得巨大用户量，但未能建立护城河，在竞争加剧后迅速衰落。这些案例与本章描述的Krispy Kreme、Tommy Hilfiger等如出一辙。</p></div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Switching costs are a valuable competitive advantage because a company can extract more money out of its customers if those customers are unlikely to move to a competitor."</div></details>
-    <div class="zh">「转换成本是一种宝贵的竞争优势，因为如果客户不太可能转向竞争对手，公司就能从这些客户身上获得更多收益。」</div>
-    <div class="why">💬 这句话直击转换成本护城河的经济本质：客户被"锁定"后，公司拥有了准垄断式的定价权。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股中的转换成本护城河案例：</strong></p>
-      <p><strong style="color:#c0392b;">用友网络（600588）</strong>——国内最大的企业管理软件供应商。大中型企业的ERP系统深度嵌入企业运营，更换ERP系统意味着业务中断风险和巨大的数据迁移成本。许多企业使用用友软件十年以上，这构成了强大的转换成本护城河。</p>
-      <p><strong style="color:#c0392b;">恒生电子（600570）</strong>——国内金融IT系统的绝对龙头。券商、基金公司的核心交易系统一旦部署恒生的系统，替换意味着交易中断的巨大风险。<strong style="color:#c0392b;">在金融行业，"系统不出错"比"系统更便宜"重要一万倍。</strong></p>
-      <p><span style="color:#27ae60;">这两个案例完美体现了多尔西所说的"可靠性>价格"原则——当错误成本极高时，客户宁愿多付钱留在现有供应商身边。</span></p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Moat</strong></td><td class="zh">护城河</td><td>企业能长期抵御竞争对手的结构性竞争优势。</td></tr><tr><td><strong>Mistaken Moat</strong></td><td class="zh">虚假护城河</td><td>投资者容易误判为竞争优势的短期有利因素，如优质产品、高市场份额等。</td></tr><tr><td><strong>Commodity Industry</strong></td><td class="zh">大宗商品行业</td><td>产品无差异化、竞争完全基于价格的行业，几乎不可能建立护城河。</td></tr><tr><td><strong>Switching Costs</strong></td><td class="zh">转换成本</td><td>客户从一家供应商转向另一家时需付出的时间、金钱或精力，是护城河的重要来源。</td></tr>      </table>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>优质产品本身不是护城河，除非有专利或分销网络等结构性壁垒保护。</li><li>高市场份额可能转瞬即逝，关键看企业如何获得并维持该份额。</li><li>卓越运营和优秀管理层是加分项，但不是可持续的竞争优势。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>你自己的生活中，有哪些产品或服务你已经用了很长时间但没有更换，即使你知道市面上可能有更便宜的替代品？（例如：你的银行账户、手机运营商、你工作中使用的软件）这些公司是如何让你"锁定"的？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q5">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q5')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q5', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">请找出一家你认为拥有“优质产品”但缺乏护城河的A股公司，并分析其利润为何可能被竞争对手侵蚀。</p>
+        <p class="hint">💡 提示：思考产品是否容易被模仿、客户转换成本高低、行业进入壁垒强弱。</p>
+        <div class="chat-widget" id="chat-巴菲-ch4-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch4-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调好产品不等于护城河。请先列出你选的公司，然后从专利、品牌忠诚度、分销网络等角度分析其壁垒。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch4-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
+    <div class="ch-header">
+      <div class="ch-num">5</div>
+      <div>
+        <h2 class="ch-title" id="ch5-title">无形资产：品牌、专利与监管许可</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">无形资产护城河</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">知名品牌一定等于竞争优势吗？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">品牌、专利和监管许可只有能带来溢价或客户粘性时，才构成真正的护城河。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书第三章，核心回答：品牌、专利和监管许可如何构成真正的经济护城河，以及投资者如何识别这些无形资产的真实价值。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">A brand creates an economic moat only if it increases the consumer’s willingness to pay or increases customer captivity. After all, brands cost money to build and sustain, and if that investment doesn’t generate a return via some pricing power or repeat business, then it’s not creating a competitive advantage.</div></details>
+      <div class="zh">「品牌创造经济护城河的唯一条件是：它能够提高消费者的支付意愿，或者增加客户的粘性。毕竟，品牌需要花钱建立和维护，如果这笔投资不能通过定价权或重复购买带来回报，那么它就没有创造竞争优势。」</div>
+      <div class="why">💬 这句话直接点明了品牌护城河的本质，纠正了投资者常见的“知名品牌=竞争优势”的误解。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">无形资产护城河</h3>
+        <div class="concept-body"><p>本章深入探讨了三种无形资产——品牌、专利和监管许可——作为经济护城河的机制和陷阱。
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">转换成本护城河的关键不在"离开要花多少钱"，而在"离开后会出什么问题"——风险往往比成本更让人无法离开。</div></div>
-  </div>
-</article>
+**品牌护城河**：品牌并非自动等于竞争优势。只有品牌能提高消费者支付意愿或增加客户粘性时，才构成护城河。原文以索尼为例，指出知名品牌不一定能溢价；而蒂芙尼（Tiffany）凭借蓝色盒子对相同规格钻石收取更高价格（1.08克拉钻石戒指，蒂芙尼售价13,900美元，Blue Nile仅8,948美元），以及USG公司销售几乎无差异的石膏板却能溢价10%-15%，才是真正的品牌护城河。拜耳阿司匹林能比仿制药贵近两倍，也是典型案例。但品牌护城河有风险：一旦失去光泽，溢价能力消失，如卡夫在碎芝士市场被自有品牌侵蚀。
 
-<!-- ==================== CHAPTER 5 ==================== -->
-<article class="chapter-card" id="ch5" aria-labelledby="ch5-title">
-  <div class="ch-header">
-    <div class="ch-num">5</div>
-    <div>
-      <h2 class="ch-title" id="ch5-title">网络效应</h2>
-      <div class="ch-subtitle">如此强大的竞争优势，值得独占一章</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">网络效应——产品或服务的价值随用户数量增加而提升</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么网络效应被多尔西视为最强大的护城河？因为它会自我强化，形成"赢家通吃"的自然垄断——竞争对手要成功，必须复制整个网络。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">"在网络的世界里，赢家通吃。"——网络效应是最接近"不可战胜"的护城河类型。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>为什么网络效应是<strong>最强大</strong>的护城河？因为它<strong>自我强化</strong>——更多用户→更有价值→吸引更多用户。它天然倾向于形成垄断或寡头格局。经济学家布莱恩·阿瑟简洁地总结："<strong>网络的世界里，只有少数玩家。</strong>"</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念</div>
-    <div class="concept-box">
-      <div class="concept-name">网络效应的经济学本质</div>
-      <div class="concept-en">Economics of Network Effects</div>
-      <div class="concept-body">
-        <p>网络效应受益于信息是"非竞争性商品"（nonrival good）的特点：我可以同时与数百万其他用户一起使用Visa支付网络，我们的使用不会互相妨碍——而且网络越多人使用，整体价值越大。</p>
-        <p><strong>关键洞察：网络价值的增长是非线性的。</strong>多尔西展示了节点数与连接数的关系：20个节点产生190个连接，增加到30个节点后连接数暴增到435个——节点增加50%，连接数增加近130%。这就是为什么网络效应能够创造惊人的经济回报。</p>
-        <p>但多尔西提醒：<strong>只有"封闭"的网络才能形成护城河。</strong>股票可以在多个交易所买卖，所以单个股票交易所的网络效应很弱（没有哪家能"锁定"流动性）。而期货合约必须在同一交易所买卖，所以期货交易所拥有强大的网络效应。</p>
+**专利护城河**：专利提供法律保护，但寿命有限且可被挑战。依赖少数专利产品的公司风险极高，因为任何挑战都可能致命。只有拥有多元化专利组合和持续创新记录的公司（如3M、默克、礼来）才可能拥有可持续的专利护城河。晨星通常只对这类公司授予护城河评级。
+
+**监管许可护城河**：监管许可使竞争对手难以进入市场，尤其当公司能像垄断者一样定价而不受价格管制时。穆迪投资者服务公司（Moody's）因需获得“全国认可的统计评级机构”资质，运营利润率超过50%，资本回报率约150%。博彩机制造商WMS Industries因软件故障暂时失去监管批准，花了三年才恢复盈利，凸显了监管许可的价值和风险。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">经典案例：eBay</div>
-      <div class="concept-en">eBay: The Textbook Network Effect</div>
-      <div class="concept-body">
-        <p>eBay是美国在线拍卖市场的绝对主宰（85%+的市场份额）。买家在eBay上，因为卖家在eBay上——反之亦然。即使有竞争对手明天上线并收取eBay一半的费用，它也不会获得多少流量——因为没有买家就没有卖家，反之亦然。</p>
-        <p>但eBay在日本和中国的失败也说明了重要教训：<strong>先行者优势在网络效应中至关重要。</strong>雅虎日本比eBay早五个月推出拍卖服务并免费运营，eBay进入时网络效应已经被对手占据了。在中国，本土竞争对手推出更多适合中国市场的功能并将费用降至零，eBay最终退出。</p>
-        <p>教训：在快速增长的、消费者偏好仍在形成的市场中，即使是基于网络效应的护城河也可能被攻破。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国债券评级行业受SEC监管，需获得“全国认可的统计评级机构”（NRSRO）资质才能运营，这形成了极高的进入壁垒。美国食品药品监督管理局（FDA）审批药品但不控制定价，而公用事业委员会则控制电力等公用事业定价，形成了监管许可护城河的对比。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">微软：Office的网络效应</div>
-      <div class="concept-en">Microsoft Office: The Shared Standard</div>
-      <div class="concept-body">
-        <p>Windows和Office之所以难以被替代，不是因为它们是最好的产品——而是因为"其他人都在用"。一家公司很难使用一个可能无法与他人分享文件的办公软件——即使这个软件是免费的（如OpenOffice），而且功能相当不错。事实证明：<strong>一个免费且相当好用的产品，也不能撼动一个占据网络效应的产品。</strong></p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有观点认为，品牌护城河在数字化时代正在弱化，因为消费者更容易通过社交媒体、比价网站和用户评价获取信息，品牌忠诚度下降。例如，DTC（直接面向消费者）品牌如Warby Parker、Casper等通过线上渠道绕过传统品牌溢价。</p></div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"If a product that is pretty good and costs nothing can't dent a company's market share, I think you can safely say that company has a competitive advantage."</div></details>
-    <div class="zh">「如果一个相当好且免费的产品都无法侵蚀一家公司的市场份额，你基本可以放心地说这家公司拥有竞争优势。」</div>
-    <div class="why">💬 这是对网络效应护城河强度的终极测试。免费且好用的开源软件都打不垮微软Office——护城河不是产品优势，而是生态壁垒。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong style="color:#c0392b;">腾讯控股（00700.HK）</strong>是中国最强大的网络效应护城河案例。<span style="color:#c0392b;">微信</span>拥有超过13亿月活跃用户——你使用微信不是因为它的功能最好，而是因为<strong>所有人都在微信上</strong>。任何竞争对手产品（即使是阿里的来往、字节的多闪）都无法撼动微信的地位，因为要让人"搬家"到一个新社交平台，需要说服整个朋友圈一起搬——这是几乎不可能完成的任务。</p>
-      <p><strong style="color:#c0392b;">阿里巴巴（BABA/09988）</strong>的淘宝/天猫生态是另一个网络效应案例——买家来是因为卖家在，卖家来是因为买家在。拼多多的崛起证明网络效应并非无懈可击，但关键在于拼多多不是正面挑战阿里的网络——而是通过<strong>不同的用户群体和不同的价值主张</strong>（社交裂变+极致低价）建立了一个新网络。</p>
-      <p><span style="color:#27ae60;">中国互联网巨头的竞争史完美验证了多尔西的洞见：要打败一个网络，你需要的不是比它"更好"——而是建立一个"不同"的网络。</span></p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，品牌护城河案例包括：贵州茅台凭借品牌溢价，其飞天茅台出厂价远高于其他白酒，且供不应求；片仔癀凭借国家绝密配方和品牌，拥有强定价权。专利护城河案例：恒瑞医药拥有大量创新药专利，但仿制药集采对其专利到期产品构成压力。监管许可护城河案例：中国中免拥有免税牌照，在免税市场近乎垄断；上海机场因国际旅客流量垄断，拥有极强的议价能力。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Economic Moat</strong></td><td class="zh">经济护城河</td><td>公司相对于竞争对手的持久竞争优势，能长期抵御竞争并保持超额利润。</td></tr><tr><td><strong>Brand Moat</strong></td><td class="zh">品牌护城河</td><td>品牌能提高消费者支付意愿或增加客户粘性时形成的竞争优势，如蒂芙尼、USG。</td></tr><tr><td><strong>Patent Moat</strong></td><td class="zh">专利护城河</td><td>通过专利保护阻止竞争对手进入市场，但需多元化专利组合和持续创新才可持续。</td></tr><tr><td><strong>Regulatory Moat</strong></td><td class="zh">监管许可护城河</td><td>政府颁发的经营许可或资质使竞争对手难以进入市场，如穆迪的NRSRO资质。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>品牌护城河的关键不是知名度，而是能否让消费者支付溢价或形成重复购买。</li><li>专利护城河需要多元化专利组合和持续创新记录，依赖单一专利的公司风险极高。</li><li>监管许可护城河最强大时，公司能像垄断者一样定价而不受价格管制。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>除了腾讯和阿里，你还能找出哪些中国公司拥有网络效应？提示：想想外卖平台（美团）、打车平台（滴滴）、短视频平台（抖音）。它们是"封闭"的网络还是"开放"的网络？它们的网络效应有多强？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q6">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q6')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        <p class="q">假设你正在分析一家A股消费品公司，其品牌知名度很高但毛利率低于行业平均水平。根据本章内容，你如何判断其品牌是否构成护城河？</p>
+        <p class="hint">💡 提示：思考品牌是否带来了定价权或客户粘性，而非仅仅知名度。</p>
+        <div class="chat-widget" id="chat-巴菲-ch5-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch5-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调品牌护城河的关键是溢价能力或客户粘性。请从毛利率、定价权、客户忠诚度等角度分析这家公司。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch5-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q6', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">网络效应的力量在于非线性增长：用户增加50%，网络价值可能增加130%。打败一个网络的最好时机是在它形成之前——或者在它旁边建一个不同的网络。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 6 ==================== -->
-<article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
-  <div class="ch-header">
-    <div class="ch-num">6</div>
-    <div>
-      <h2 class="ch-title" id="ch6-title">成本优势</h2>
-      <div class="ch-subtitle">更聪明、更近，或者独一无二</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">成本优势护城河的三种形式——工艺流程、地理位置、独特资源</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">成本优势听起来简单，但什么样的低成本才是可持续的？多尔西的回答是：别人无法复制的低成本。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">把工厂搬到低成本国家不是护城河——因为你的对手也可以。护城河是"只有你能做到"的低成本。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>成本优势听起来简单，但什么样的低成本才是<strong>可持续</strong>的护城河？多尔西的回答是：<strong>别人无法复制的低成本</strong>。把工厂搬到中国或印度降低劳动力成本不是护城河——因为你的竞争对手也可以打同样的电话建立同样的供应链。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：三种可持续成本优势</div>
-    <div class="concept-box">
-      <div class="concept-name">1. 创新的工艺流程</div>
-      <div class="concept-en">Better Processes</div>
-      <div class="concept-body">
-        <p>理论上来讲，更优的工艺不应该持续太久——因为竞争对手可以抄袭。但实践中，工艺优势有时能持续很长时间。<strong>西南航空</strong>的低成本模式是公开的秘密——单一机型、点对点航线、慷慨的员工文化——但传统航空公司无法复制，因为：工会结构不允许飞行员帮助清洁飞机，中枢辐射式航线结构无法放弃，分舱定价的商业模式无法推翻。</p>
-        <p>结论：工艺优势能持续，当且仅当<strong>竞争对手复制这个工艺的成本高到颠覆自身现有业务</strong>。</p>
-      </div>
-    </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">2. 优越的地理位置</div>
-      <div class="concept-en">Better Locations</div>
-      <div class="concept-body">
-        <p>骨料（砂石）企业是地理位置型护城河的经典案例。砂石极其沉重，从采石场运输超过40-50英里就会因运费过高而丧失竞争力。因此，位于高速增长城市附近的采石场拥有不可复制的成本优势——竞争对手不可能把你的采石场搬走，也不可能在已经被开发的土地上新建一个采石场。</p>
-        <p>这正是<strong>Vulcan Materials</strong>等骨料公司能够持续获得中高双位数资本回报率的原因。</p>
-      </div>
-    </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">3. 独特的自然资源</div>
-      <div class="concept-en">Unique Assets</div>
-      <div class="concept-body">
-        <p>拥有低成本矿藏的矿业公司、拥有高产油井的能源公司——这些"资源型"成本优势是结构性的，因为资源是有限的且不可复制。竞争对手无法"创造"一个同样低成本的矿山或油田。但这种优势有一个天然的局限性：资源最终会耗竭。</p>
-      </div>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"This is not genius, nor is it a sustainable competitive advantage, because those same low-cost resources are very likely available to any company that wants them."</div></details>
-    <div class="zh">「这不是天才之举，也不是可持续的竞争优势，因为这些低成本资源很可能对所有想要的公司都是开放的。」</div>
-    <div class="why">💬 多尔西提醒我们：如果一种成本优势任何人都可以轻易复制（如外包到低成本国家），它就不是护城河。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong style="color:#c0392b;">海螺水泥（600585）</strong>是中国成本优势护城河的教科书级案例。水泥是典型的"区域性"产品——运输半径约为200公里。海螺水泥通过<strong>T型战略</strong>（在石灰石资源丰富的长江沿岸建熟料基地，在发达地区建粉磨站）将运输成本降至行业最低。这种地理位置型成本优势是结构性的——竞争对手无法复制海螺的"黄金水道"布局。</p>
-      <p><strong style="color:#c0392b;">宁德时代（300750）</strong>在动力电池领域通过<strong>规模经济+技术领先</strong>构建了成本优势。其产能规模带来采购成本优势，持续的研发投入保持技术代差。这种"规模+技术"的双重成本优势是不容易复制的。</p>
-      <p><span style="color:#27ae60;">判断标准：当行业景气度下行时，谁还能保持盈利？</span>2023-2024年锂电池行业产能过剩，许多二三线电池企业亏损，而宁德时代仍然保持了可观的利润——这就是真正的成本优势护城河。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
     <div class="exercise-box">
-      <p>找一家你熟悉的制造业A股公司，分析它的成本优势来源：是更先进的工艺？更有利的位置？独特的原料来源？还是仅仅是规模更大？这些优势中哪些是竞争对手可以复制的，哪些是永远无法复制的？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q7">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q7')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q7', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">一家小型生物科技公司拥有一个重磅专利药，占其收入的90%。根据本章观点，你会如何评估其护城河的可持续性？</p>
+        <p class="hint">💡 提示：考虑专利寿命、被挑战的风险以及公司是否有后续创新管线。</p>
+        <div class="chat-widget" id="chat-巴菲-ch5-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch5-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出依赖单一专利的公司风险极高。请思考专利到期或被挑战的后果，以及公司是否有多元化产品线。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch5-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch6" aria-labelledby="ch6-title">
+    <div class="ch-header">
+      <div class="ch-num">6</div>
+      <div>
+        <h2 class="ch-title" id="ch6-title">客户黏性：转换成本铸就护城河</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">转换成本</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么客户不愿更换供应商？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">转换成本让客户因时间、风险或精力而难以离开，企业因此获得定价权和持续盈利。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是全书第四章节，深入探讨转换成本作为经济护城河的核心来源，回答为何客户不愿更换供应商以及企业如何利用这一优势获取超额利润。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Unless you use a product yourself—like a bank account—companies that benefit from switching costs can be hard to find because you need to put yourself in the customer’s shoes to really understand the balance between costs and benefits.</div></details>
+      <div class="zh">「除非你亲自使用过某种产品——比如银行账户——否则很难发现那些受益于转换成本的公司，因为你需要设身处地站在客户的角度，真正理解成本和收益之间的平衡。」</div>
+      <div class="why">💬 这句话揭示了识别转换成本的关键方法：必须从客户视角出发，而非仅看财务报表。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">转换成本</h3>
+        <div class="concept-body"><p>本章核心概念是转换成本，即客户从一家公司的产品转向另一家时所需付出的时间、金钱、风险或精力成本。当转换成本高于转换带来的收益时，客户就会保持忠诚，企业因此获得定价权和持续盈利的能力。
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">成本优势的关键不在"现在有多低"，而在"为什么别人做不到同样低"。如果答案是因为位置、资源或工艺壁垒——那可能真的是护城河。</div></div>
-  </div>
-</article>
+作者通过多个案例说明转换成本的普遍性和强大性：
+1. 银行账户：美国平均存款客户保留账户6-7年，因为更换银行涉及填表、更改直接存款和账单支付安排，还有未知的麻烦成本（如工资延迟到账）。银行因此能提供较低利息和较高费用，平均净资产收益率约15%。
+2. Intuit的QuickBooks和TurboTax：小企业已将所有财务数据录入QuickBooks，转换到竞争软件需要大量时间重新录入和核对数据，且存在数据丢失风险。即使竞争软件更便宜或有新功能，但基础会计500年未变，转换收益远小于成本。Intuit连续8年资本回报率超30%，市场份额超75%。
+3. Oracle数据库：大型企业数据库与众多分析、展示程序紧密集成。更换数据库不仅需无缝迁移数据，还需重新连接所有依赖程序，耗时、昂贵且风险高（可能导致业务中断）。
+4. Fiserv和State Street：数据处理和证券托管公司与客户业务深度整合，客户保留率超95%，业务本质上是年金。更换的风险（如银行账目不平、客户资产定价错误）远超任何价格考虑。
+5. Precision Castparts：为喷气发动机和涡轮机供应高强度金属部件。客户（如通用电气）更换供应商的唯一好处是可能降低成本，但成本包括新供应商需花时间了解产品，以及关键风险——部件故障会严重损害声誉。因此客户合作超过30年，公司能获得丰厚利润率。
 
-<!-- ==================== CHAPTER 7 ==================== -->
-<article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
-  <div class="ch-header">
-    <div class="ch-num">7</div>
-    <div>
-      <h2 class="ch-title" id="ch7-title">规模优势</h2>
-      <div class="ch-subtitle">小池塘里的大鱼赚大钱</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">规模优势——当"大"本身就是一种竞争优势</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">规模优势什么时候是真实的，什么时候只是一种"大而无用"的规模？关键在于相对规模（你在你的市场有多大），而非绝对规模。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">规模不是优势——相对规模才是。在小池塘里做大鱼比在大池塘里做小鱼更赚钱。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>规模优势什么时候是真实的护城河，什么时候只是"大而无用"？多尔西的关键洞见：<strong>关键在于相对规模</strong>——你在你的市场有多大，而非绝对规模。在小池塘里做大鱼比在大池塘里做小鱼更赚钱。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：规模优势的机制</div>
-    <div class="concept-box">
-      <div class="concept-name">分摊固定成本</div>
-      <div class="concept-en">Fixed-Cost Leverage</div>
-      <div class="concept-body">
-        <p>规模最直接的优势：<strong>将固定成本分摊到更大的销售基数上。</strong>UPS快递每天处理1500万个包裹——每个包裹分摊的配送中心、卡车、IT系统成本被压至极低。一个新进入者要匹配这种成本结构，需要同时达到同等的规模，这是几乎不可能的。</p>
+作者将这类转换成本概括为“紧密耦合”（Joined at the Hip），即企业与客户业务深度绑定，脱离成本极高。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">利基市场规模优势</div>
-      <div class="concept-en">Niche Market Dominance</div>
-      <div class="concept-body">
-        <p>多尔西特别强调"小池塘里的大鱼"：在一个相对较小的市场中占据主导地位，比在一个巨大市场中占据次要地位更有利可图。因为小市场对大公司缺乏吸引力——市场规模太小，即使大公司进来也赚不到足够的钱来抵消进入成本。这为现有玩家创造了天然的进入壁垒。</p>
-        <p>想想<strong>格雷斯公司（W.R. Grace）</strong>——在炼油催化剂这个细分市场中占据主导。这个市场对埃克森美孚这样的巨头来说太小了，不值得进入，但对格雷斯来说却是利润丰厚的领地。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国银行平均净资产收益率约15%，高于大多数行业，这反映了银行利用转换成本获取超额利润的普遍现象。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">巨大的配送网络不可复制</div>
-      <div class="concept-en">Distribution Network Scale</div>
-      <div class="concept-body">
-        <p>建立一个覆盖全国的配送网络需要数十年的时间和数十亿美元的投入。一旦建成，新进入者不可能在短时间内复制——即使他们有足够的资金。这就是<strong>沃尔玛、可口可乐、UPS</strong>等公司的护城河来源。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有观点认为，随着金融科技发展（如开放银行API、数字钱包），银行账户的转换成本正在降低，客户可能更频繁地更换银行，从而削弱银行的护城河。</p></div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Being a big fish in a small pond is a whole lot better than being a bigger fish in a bigger pond."</div></details>
-    <div class="zh">「在小池塘里做大鱼，比在大池塘里做稍大一点的鱼要好得多。」</div>
-    <div class="why">💬 这是多尔西关于规模优势最精炼的总结——规模优势的本质不是绝对规模，而是在你选定的市场中的相对份额护城河。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong style="color:#c0392b;">福耀玻璃（600660）</strong>是全球汽车玻璃的"小池塘大鱼"。汽车玻璃市场本身不算特别大，但福耀占据了全球约30%的市场份额，在中国更是超过65%。这个市场规模对大公司（如苹果、谷歌等科技巨头）不具吸引力，但对福耀来说却是利润丰厚的领地——它通过规模优势实现了竞争对手无法匹敌的成本结构。</p>
-      <p><span style="color:#27ae60;">A股中不少"隐形冠军"都体现了这种"小池塘大鱼"的优势：</span>如<strong style="color:#c0392b;">浙江鼎力</strong>（高空作业平台）、<strong style="color:#c0392b;">艾迪精密</strong>（液压破碎锤）等。它们的利基市场对大公司没有吸引力，但它们在自己的领域拥有压倒性的规模优势。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，恒生电子（600570）是典型的转换成本案例。其为金融机构提供核心交易系统、资管系统等，系统与客户业务流程深度绑定，更换成本极高。恒生电子在证券交易系统市场份额超80%，长期保持高毛利率和客户黏性。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Switching Costs</strong></td><td class="zh">转换成本</td><td>客户从一家公司产品转向另一家时需付出的时间、金钱、风险或精力成本，是经济护城河的重要来源。</td></tr><tr><td><strong>Joined at the Hip</strong></td><td class="zh">紧密耦合</td><td>指企业与客户业务深度整合，脱离成本极高，是转换成本的一种典型形式。</td></tr><tr><td><strong>Retention Rate</strong></td><td class="zh">客户保留率</td><td>衡量客户持续使用公司产品或服务的比例，高保留率通常意味着高转换成本。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>转换成本是强大的护城河来源，当客户更换供应商的成本高于收益时，企业就能获得定价权和超额利润。</li><li>转换成本不仅存在于银行、软件等服务业，也存在于制造业（如精密部件供应商），关键在于与客户业务的深度整合。</li><li>识别转换成本需要站在客户角度，评估更换供应商所需的时间、风险和精神成本，而不仅仅是金钱成本。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>A股中有哪些"小池塘里的大鱼"？试着找一家在细分行业中占据绝对主导地位的公司（市场份额>30%），分析这个细分市场的规模——如果一家大型央企或科技巨头想进入，它们会来吗？为什么来或不来？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q8">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q8')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+        <p class="q">假设你正在分析一家中国SaaS公司（如用友网络），其客户续费率高达95%。请从转换成本角度，评估其护城河的强弱，并说明你会关注哪些关键指标来判断其护城河是否可持续。</p>
+        <p class="hint">💡 提示：考虑客户数据迁移成本、业务流程嵌入深度、替代品可用性等。</p>
+        <div class="chat-widget" id="chat-巴菲-ch6-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch6-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">转换成本是护城河的核心，请从客户数据、业务流程和替代品三个维度分析用友网络的转换成本强度。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch6-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q8', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
-        </div>
-      </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">规模不是优势——别人无法复制的规模才是。当规模为你创造别人复制不了的成本结构时，你就拥有了护城河。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 8 ==================== -->
-<article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
-  <div class="ch-header">
-    <div class="ch-num">8</div>
-    <div>
-      <h2 class="ch-title" id="ch8-title">护城河的侵蚀</h2>
-      <div class="ch-subtitle">护城河不会永远存在——警惕侵蚀信号</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">四种侵蚀护城河的力量——技术颠覆、行业地震、破坏性增长、客户议价力上升</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">有护城河的公司就能高枕无忧吗？不能。多尔西展示了护城河是如何被侵蚀的——而侵蚀通常在你最不注意的时候从最薄弱的地方开始。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">护城河被侵蚀的速度往往比建造的速度更快。投资中最大的风险不是买错公司，而是买了护城河正在消失的公司。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>有护城河的公司就能高枕无忧吗？不能。多尔西展示了护城河是如何被侵蚀的——而侵蚀通常在你最不注意的时候<strong>从最薄弱的地方开始</strong>。识别护城河衰减的早期信号比识别护城河本身的难度更大，但也同样重要。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：护城河侵蚀的四种力量</div>
-    <div class="concept-box">
-      <div class="concept-name">1. 技术颠覆</div>
-      <div class="concept-en">Getting Zapped by Technology</div>
-      <div class="concept-body">
-        <p>最明显也最致命的侵蚀。当新技术使原有的竞争优势变得无关紧要时，护城河就会在一夜之间蒸发。经典案例：数字摄影对柯达的颠覆——柯达曾经拥有品牌、分销网络和专利组合的强大护城河，但数字技术让所有这些优势都变成了"上一个时代的遗产"。</p>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">2. 行业地震</div>
-      <div class="concept-en">Industrial Earthquakes</div>
-      <div class="concept-body">
-        <p>行业结构性的变化——监管改变、客户需求转向、供应链重构——可能同时侵蚀多家公司的护城河。美国报业从分类广告转向在线平台的演变就是典型的行业地震——报纸曾经的地理垄断护城河完全被瓦解。</p>
+  </article>
+  <article class="chapter-card" id="ch7" aria-labelledby="ch7-title">
+    <div class="ch-header">
+      <div class="ch-num">7</div>
+      <div>
+        <h2 class="ch-title" id="ch7-title">网络效应：用户越多价值越大</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">网络效应</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">网络效应如何成为企业的护城河？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">用户越多价值越大，网络效应形成自然垄断，是持久竞争优势。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章深入探讨网络效应这一护城河来源，回答为何用户规模能形成持久竞争优势，并通过eBay等案例展示其威力。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">If a product that is pretty good and costs nothing can’t dent a company’s market share, I think you can safely say that company has a competitive advantage.</div></details>
+      <div class="zh">「如果一种相当不错的产品，而且价格为零，都无法撼动一家公司的市场份额，那么你可以放心地说，这家公司拥有竞争优势。」</div>
+      <div class="why">💬 这句话以极端案例（免费替代品）验证了网络效应的强大，直观且有力。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">网络效应</h3>
+        <div class="concept-body"><p>本章核心概念是网络效应，即产品或服务的价值随用户数量增加而提升。作者通过对比道琼斯工业平均指数成分股发现，仅美国运通和微软两家公司主要依赖网络效应。美国运通的竞争优势在于庞大的商户网络，用户越多，卡片越有价值；微软的Windows和Office则因用户基数庞大而成为全球知识工作者的通用语言，即使免费替代品OpenOffice也难以撼动其地位。网络效应倾向于形成自然垄断或寡头，因为主导网络会吸引更多用户，形成良性循环，挤压小网络。网络效应更常见于信息或知识传递型业务（如信用卡、软件、在线拍卖），而非实体资本型业务，因为信息是“非竞争性”商品，多人可同时使用而不相互妨碍。eBay在美国在线拍卖市场占据85%以上份额，买家因卖家而聚集，卖家因买家而存在，形成强大护城河。但在日本，雅虎日本因提前五个月推出、大力广告和免费策略，率先积累用户规模，利用同样的网络效应击败了eBay。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">3. 破坏性增长</div>
-      <div class="concept-en">The Bad Kind of Growth</div>
-      <div class="concept-body">
-        <p>增长通常是好事——但<strong>向护城河更浅的市场扩展</strong>可能反而削弱整体竞争优势。如果一家拥有强大护城河的公司为了追求增长而进入护城河很浅甚至没有护城河的领域，它的整体护城河质量会下降。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国信用卡市场由Visa、MasterCard、美国运通和Discover四大网络主导，占全国信用卡消费的85%，体现了网络效应下的市场集中度。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">4. 客户说了算</div>
-      <div class="concept-en">No, I Won't Pay</div>
-      <div class="concept-body">
-        <p>当客户有了更多选择，或者转换成本降低时，议价能力就会向客户倾斜。沃尔玛曾经凭借巨大的采购量对供应商拥有压倒性的议价能力，但随着电商的兴起，供应商有可能通过亚马逊、自建电商等渠道触达消费者——沃尔玛的集中采购优势相对减弱了。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，腾讯控股（00700.HK）是网络效应的典型代表。微信和QQ的庞大用户基础使得社交网络价值随用户增加而提升，竞争对手难以复制。阿里巴巴（BABA.NYSE）的淘宝和天猫平台也受益于网络效应，买家和卖家相互吸引，形成电商生态护城河。</p></div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Moats aren't forever. They can be eroded by technological change, by shifts in industry structure, by misguided growth strategies, and by a shift in bargaining power to customers."</div></details>
-    <div class="zh">「护城河并非永恒。它们可能被技术变革侵蚀、被行业结构变化削弱、被错误的增长策略破坏、被客户议价能力转移而受损。」</div>
-    <div class="why">💬 识别护城河变弱和识别护城河存在同样重要——在某些情况下，前者甚至更重要。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股护城河侵蚀的典型案例：</strong></p>
-      <p><strong style="color:#c0392b;">分众传媒（002027）</strong>的电梯广告护城河曾在2018-2019年受到<strong style="color:#c0392b;">新潮传媒</strong>的激烈挑战。新潮以降价策略试图蚕食分众的市场份额，迫使分众大幅扩屏应战，利润一度大幅下滑。虽然分众最终通过规模优势和优质点位保住了护城河，但这个过程展示了护城河是如何被攻击的。</p>
-      <p><strong style="color:#c0392b;">苏宁易购</strong>是一个护城河被电商颠覆的案例。苏宁曾经凭借全国性的电器连锁网络拥有规模护城河，但当电商（淘宝/京东）改变消费者购物方式后，苏宁的线下渠道优势反而变成了成本负担。</p>
-      <p><span style="color:#27ae60;">重要教训：当你持有一家有护城河的公司时，不仅要关注公司本身，还要关注——有什么力量正在侵蚀这条护城河？</span></p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Network Effect</strong></td><td class="zh">网络效应</td><td>产品或服务的价值随用户数量增加而提升的现象，如eBay、美国运通、微软。</td></tr><tr><td><strong>Nonrival Good</strong></td><td class="zh">非竞争性商品</td><td>可被多人同时使用而不相互妨碍的商品，如信息、支付网络，是网络效应常见的基础。</td></tr><tr><td><strong>Virtuous Circle</strong></td><td class="zh">良性循环</td><td>主导网络吸引更多用户，用户增加又强化网络价值，形成正向反馈，挤压竞争者。</td></tr>      </table>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>网络效应是强大的护城河，用户规模越大，价值越高，竞争者难以复制。</li><li>网络效应常见于信息或知识传递型业务，如信用卡、软件、在线拍卖。</li><li>先发优势和快速积累用户规模至关重要，雅虎日本击败eBay就是例证。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>回顾A股过去10年，找一家你认为"护城河曾经很强但现在已经大幅削弱"的公司。它的护城河是什么类型的？是什么力量导致它被侵蚀？你能否从财务数据（如ROE下降趋势）中找到侵蚀的证据？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q9">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q9')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q9', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">假设你发现一家A股公司，其产品用户数快速增长但尚未盈利，如何判断它是否真正拥有网络效应护城河？</p>
+        <p class="hint">💡 提示：思考用户增长是否直接提升产品价值，以及是否存在替代品威胁。</p>
+        <div class="chat-widget" id="chat-巴菲-ch7-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch7-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章讨论了网络效应的核心：用户越多价值越大。请结合eBay和微软的案例，分析用户增长如何转化为护城河。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch7-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">护城河被侵蚀的速度往往比建造的速度更快。投资中最大的风险不是买错公司，而是买了护城河正在消失的公司。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 9 ==================== -->
-<article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
-  <div class="ch-header">
-    <div class="ch-num">9</div>
-    <div>
-      <h2 class="ch-title" id="ch9-title">寻找护城河</h2>
-      <div class="ch-subtitle">如何用财务数据识别护城河</div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">用ROIC、自由现金流、毛利率等财务指标验证护城河的存在</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">你不能仅凭"感觉"判断一家公司是否有护城河。多尔西提供了财务数据的量化方法——高且稳定的ROIC是护城河存在的"数字指纹"。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">护城河会留下财务证据——如果你找不到这些证据，护城河可能不存在。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>你不能仅凭"感觉"判断一家公司是否有护城河。多尔西提供了财务数据的量化方法：<strong>高且稳定的ROIC（投入资本回报率）是护城河存在的"数字指纹"。</strong></p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：护城河的财务证据</div>
-    <div class="concept-box">
-      <div class="concept-name">护城河的四个量化指标</div>
-      <div class="concept-en">Four Financial Moats Signals</div>
-      <div class="concept-body">
-        <p><strong>1. 自由现金流（FCF）：</strong>护城河公司应当产生强劲且稳定的自由现金流——这是公司"印钞"能力的直接证据。高利润但没有自由现金流的公司需要警惕——利润可能只是会计数字。</p>
-        <p><strong>2. 净利润率：</strong>长期高于行业平均的净利润率。但需要区分——利润率高是因为定价权（护城河），还是因为处于行业景气高点（不是护城河）。</p>
-        <p><strong>3. ROE（净资产收益率）：</strong>连续多年（至少5-10年）保持高于15%的ROE。但注意高负债可以人为抬高ROE——建议同时检查负债率。</p>
-        <p><strong>4. ROIC（投入资本回报率）：</strong>多尔西特别推荐这个指标。ROIC衡量的是公司利用所有投入资本（包括债务和股权）产生回报的效率。如果一家公司的ROIC持续显著高于加权平均资本成本（WACC），这是护城河存在的强烈信号。</p>
+  </article>
+  <article class="chapter-card" id="ch8" aria-labelledby="ch8-title">
+    <div class="ch-header">
+      <div class="ch-num">8</div>
+      <div>
+        <h2 class="ch-title" id="ch8-title">成本优势的四种来源与持久性</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">成本优势</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">成本优势如何成为持久的护城河？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">成本优势来自流程、位置、资产和规模，但需判断其是否可被复制。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书第六部分，聚焦成本优势这一护城河来源。核心回答：成本优势如何形成？为何有些成本优势能持久，有些却迅速消失？</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">In Southwest's case, the incumbent airlines (the majors) didn't copy its low-cost process for a number of reasons. First, a rigid union structure meant that pilots weren't about to start helping clean planes at the incumbents. Second, Southwest's point-to-point route structure would have made it hard for the majors to feed profitable business and international passengers through their expensively maintained hubs. Third, Southwest was an aggressively egalitarian airline—no separate classes, no assigned seats—in an industry that made a lot of money by treating some passengers like royalty and charging them for the privilege. In short, the majors would have had to figuratively blow up their businesses to gain Southwest's cost advantage, and it's hard to blow up your own business.</div></details>
+      <div class="zh">「在西南航空的案例中，传统航空公司没有复制其低成本流程，原因包括：僵化的工会结构、枢纽辐射模式与点对点航线的冲突、以及分级服务带来的高利润。简言之，传统航空公司必须“炸毁”自己的业务才能获得西南航空的成本优势，而炸毁自己的业务是极其困难的。」</div>
+      <div class="why">💬 这句话揭示了流程优势难以复制的根本原因：现有业务模式的结构性障碍。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">成本优势</h3>
+        <div class="concept-body"><p>本章深入探讨成本优势作为护城河的来源。作者指出，成本优势并非简单地通过外包或搬迁到低成本地区就能获得，因为这种优势极易被竞争对手复制。真正的成本优势来自四个不可复制的来源：更优的流程、更好的地理位置、独特的资产和更大的规模。
+
+1. **流程优势**：通过独特的运营流程降低成本。典型案例包括西南航空（单一机型、快速周转、员工节俭文化）和戴尔（直销、按单生产、零库存）。这些流程看似公开，但竞争对手难以复制，因为复制意味着颠覆现有业务模式（如大型航空公司无法放弃枢纽辐射模式）。然而，流程优势并非永恒：西南航空面临捷蓝航空等新对手的追赶，戴尔在笔记本市场失去成本优势，钢铁行业的迷你钢厂也面临全球竞争。
+
+2. **地理位置优势**：靠近原材料或市场可降低运输成本。本章未详细展开，但为后续章节铺垫。
+
+3. **独特资产优势**：拥有竞争对手无法获得的资源（如矿产、专利）。
+
+4. **规模优势**：规模越大，单位成本越低。本章预告第七章将详细讨论。
+
+作者强调，成本优势在价格敏感的行业（如商品行业）中至关重要，但并非仅限于商品。例如，英特尔与AMD的微处理器虽非完全商品，但用户会根据性价比选择，因此成本优势仍关键。同样，波音737与空客A320在航空公司眼中功能相似，价格成为主要决策因素。
+
+最后，作者警示：成本优势可能迅速消失，投资者需判断其是否可被复制。西南航空、戴尔和迷你钢厂的故事表明，即使曾经强大的成本优势，也会因技术变革、新进入者或市场变化而削弱。</p></div>
       </div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Return on capital is the best way to judge a company's profitability. It measures how good a company is at taking investors' money and generating a return on it."</div></details>
-    <div class="zh">「投入资本回报率是判断公司盈利能力的最佳指标。它衡量的是公司利用投资者资金创造回报的效率。」</div>
-    <div class="why">💬 这句话是多尔西分析框架的财务核心。不仅仅是高ROIC，更重要的是长期稳定的高ROIC——这才是护城河的财务证据。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股高ROIC的护城河公司（近10年数据）：</strong></p>
-      <p><strong style="color:#c0392b;">贵州茅台（600519）</strong>——ROIC长期维持在25%-35%。</p>
-      <p><strong style="color:#c0392b;">海天味业（603288）</strong>——ROIC长期超过25%，酱油行业定价权明显。</p>
-      <p><span style="color:#27ae60;">但特别注意区分：</span>某些周期性行业（如钢铁、化工）在景气高点ROIC极高，在低谷则很低——这种波动大、不稳定的高ROIC不是护城河的信号，而是行业周期的信号。护城河公司的高ROIC是<strong>持续稳定</strong>的高，而非"大起大落"。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国航空业在20世纪70年代放松管制后，西南航空凭借低成本模式崛起，而传统大型航空公司受制于工会、枢纽网络和分级服务，难以复制其模式。戴尔在PC行业通过直销模式颠覆了传统分销渠道，但后来因笔记本市场增长和消费者偏好变化而优势减弱。钢铁行业迷你钢厂的出现，则反映了美国制造业从传统集成钢厂向更灵活、低成本技术的转型。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有观点认为，成本优势在全球化时代越来越难以持久，因为任何流程或技术都可能被快速模仿。例如，外包到低成本地区（如中国、印度）的优势，竞争对手只需同样操作即可复制。但作者反驳：真正的成本优势源于难以复制的结构因素（如规模、地理位置、独特资产），而非简单的流程模仿。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，成本优势的案例包括：
+- **海螺水泥**：凭借靠近石灰石矿山的区位优势和规模效应，成为水泥行业成本最低的龙头，其成本优势难以被小厂复制。
+- **格力电器**：通过规模采购和自建渠道，在空调行业形成成本优势，但近年来面临美的等竞争对手的追赶。
+- **中国神华**：拥有优质煤矿和铁路运输网络，形成独特的资产和规模优势，成本远低于行业平均。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Process Advantage</strong></td><td class="zh">流程优势</td><td>通过独特的运营流程（如戴尔的直销模式、西南航空的快速周转）实现低成本，但易被模仿，需结合其他壁垒。</td></tr><tr><td><strong>Location Advantage</strong></td><td class="zh">地理位置优势</td><td>靠近原材料或市场降低运输成本，如水泥厂靠近矿山。</td></tr><tr><td><strong>Unique Asset Advantage</strong></td><td class="zh">独特资产优势</td><td>拥有竞争对手无法获得的资源（如矿产、专利），形成成本壁垒。</td></tr><tr><td><strong>Scale Advantage</strong></td><td class="zh">规模优势</td><td>规模越大，单位成本越低，但需警惕规模不经济。第七章详述。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>成本优势的四个来源：更优流程、更好位置、独特资产、更大规模。</li><li>流程优势看似公开，但竞争对手因业务模式固化而难以复制。</li><li>成本优势可能随时间削弱，投资者需持续评估其持久性。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>选一家你关注的A股公司，查找它过去5-10年的ROIC数据。画出趋势图。ROIC是稳定在15%以上？还是上下波动剧烈？如果是后者，该公司可能并没有护城河——它的利润更多来自行业顺风而非自身的竞争优势。</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q10">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q10')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q10', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">假设你正在分析一家中国钢铁企业，它声称通过采用新技术（如电弧炉）实现了低成本。请评估其成本优势是否可持续，并说明你会关注哪些关键因素。</p>
+        <p class="hint">💡 提示：参考本章迷你钢厂的案例，思考技术可复制性、竞争对手反应、原材料供应和规模效应。</p>
+        <div class="chat-widget" id="chat-巴菲-ch8-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch8-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先思考：该企业的低成本是否源于独特资产（如废钢来源）或规模？竞争对手能否快速模仿？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch8-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">护城河会留下财务证据：持续多年高于15%的ROIC、充裕的自由现金流和稳定的高利润率。如果你看不到这些数字——护城河可能只存在于你的想象中。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 10 ==================== -->
-<article class="chapter-card" id="ch10" aria-labelledby="ch10-title">
-  <div class="ch-header">
-    <div class="ch-num">10</div>
-    <div>
-      <h2 class="ch-title" id="ch10-title">管理层的作用</h2>
-      <div class="ch-subtitle">好CEO创造价值，但不构成护城河</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">管理层是护城河的创造者（或破坏者），但其本身不是护城河</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">伟大CEO是竞争优势吗？多尔西的回答是——管理层可以创造和强化护城河，但管理层本身不是护城河。如果公司的成功高度依赖某个特定CEO，那恰恰说明它没有真正的护城河。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">选有护城河的公司，让普通的管理层也能正常运营——如果非得天才CEO才能维持利润，这家公司就没有护城河。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>伟大CEO是竞争优势吗？多尔西的回答很有深度：管理层可以创造和强化护城河，但<strong>管理层本身不是护城河</strong>。如果公司的成功高度依赖某个特定CEO，那恰恰说明它<strong>没有</strong>真正的结构性竞争优势。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念</div>
-    <div class="concept-box">
-      <div class="concept-name">管理层 vs 护城河：关键区别</div>
-      <div class="concept-en">Management vs. Moat</div>
-      <div class="concept-body">
-        <p><strong>管理层创造护城河的方式：</strong>明智的资本配置（在护城河内投资，而非在护城河外挥霍）、持续的创新投入、审慎的扩张策略。</p>
-        <p><strong>管理层破坏护城河的方式：</strong>追逐热点（进入没有护城河的新业务领域）、过度自信的并购（高价收购没有护城河的公司）、削减维护护城河所需的长期投资以美化短期利润。</p>
-        <p><strong>核心洞见：</strong>伟大的管理层能最大化护城河的价值，平庸的管理层可能浪费护城河的价值，但<strong>如果一家公司需要天才CEO才能赚取超额利润，那恰恰证明它没有护城河。</strong>真正有宽护城河的公司——比如可口可乐、强生——即使在执行力并非顶尖的管理层领导下也能保持高盈利能力。</p>
-      </div>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"If you see a company that's been reporting high returns on capital for many years and has a reasonable plan for maintaining or growing its business, you can be pretty confident that management is doing a good job."</div></details>
-    <div class="zh">「如果你看到一家公司多年保持高资本回报率，并且有一个合理的维持或发展业务的计划，你基本可以确信管理层在做好本职工作。」</div>
-    <div class="why">💬 多尔西的观点是：财务数据本身就是管理层的"成绩单"。持续的高ROIC就是管理层能力的证明——无需知道CEO的名字或个性。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股中"人治依赖"的风险：</strong></p>
-      <p>一些A股公司被市场视为"某某总"的公司——投资者买股票是因为相信某位企业家/创始人。但如果这家公司的竞争优势高度依赖某个人的关系、判断力或能力——一旦这个人离开，竞争优势就消失了——那它没有多尔西定义的护城河。</p>
-      <p><span style="color:#27ae60;">对比</span><strong style="color:#c0392b;">万科（000002）</strong>——即使创始人王石离开，万科依然保持行业领先地位。这不是因为新管理层比王石更优秀，而是因为万科建立了<strong>品牌+管理流程+融资成本优势</strong>等结构性优势。而某些中小开发商高度依赖创始人的政府关系，一旦创始人出事，公司就面临困境。</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
     <div class="exercise-box">
-      <p>你持有的（或关注的）A股公司中，有哪些公司的投资逻辑主要建立在"CEO很厉害"之上？试着设想：如果CEO明天离职，公司的竞争优势会不会消失？如果会，这可能是报警信号。</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q11">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q11')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q11', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">西南航空的流程优势为何能持续多年？如果今天有一家新航空公司试图复制其模式，成功概率如何？请结合中国航空市场分析。</p>
+        <p class="hint">💡 提示：考虑西南航空的机场时刻、飞机采购、企业文化等壁垒，以及中国航空业的管制和竞争格局。</p>
+        <div class="chat-widget" id="chat-巴菲-ch8-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch8-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请从西南航空的独特历史条件（如机场时刻锁定）和行业结构入手，再对比中国春秋航空等低成本航司的现状。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch8-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">管理层是"英明的将军"——他指挥着护城河的防线。但真正的护城河是即使换一个平庸的将军，城堡也不会被攻破。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 11 ==================== -->
-<article class="chapter-card" id="ch11" aria-labelledby="ch11-title">
-  <div class="ch-header">
-    <div class="ch-num">11</div>
-    <div>
-      <h2 class="ch-title" id="ch11-title">实战应用</h2>
-      <div class="ch-subtitle">护城河分析的实际案例</div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">将护城河分析框架应用于真实公司的实战演示</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">理论上的护城河分析如何落地？多尔西在本章将框架应用于十几家知名公司，展示了从定性判断到定量验证的完整流程。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">护城河分析不是一次性动作，而是持续跟踪的过程——宽护城河可能变窄，窄护城河可能消失，无护城河的公司也可能在特定条件下建立护城河。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>理论上的护城河分析如何落地？多尔西在本章将框架应用于十几家知名公司，展示了<strong>从定性判断到定量验证</strong>的完整流程。这章是全书的"实验室"——你应该像做实验一样跟着他的分析流程练习。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：护城河分析五步法</div>
-    <div class="concept-box">
-      <div class="concept-name">实战分析框架</div>
-      <div class="concept-en">Five-Step Moats Analysis</div>
-      <div class="concept-body">
-        <p>多尔西通过多组案例展示了以下分析步骤：</p>
-        <p><strong>1. 评估行业稳定性：</strong>这个行业是否有利于建立护城河？快速变化的行业（如科技）护城河可能短暂，稳定行业（如消费品）中的护城河更持久。</p>
-        <p><strong>2. 寻找护城河来源：</strong>公司是否有品牌定价权？转换成本？网络效应？成本优势？规模优势？</p>
-        <p><strong>3. 检查财务证据：</strong>高且稳定的ROIC、自由现金流生成能力。这些是护城河存在的"数字指纹"。</p>
-        <p><strong>4. 评估护城河宽度：</strong>这条护城河是"宽阔"（可维持20年以上）还是"狭窄"（可能维持5-10年）？</p>
-        <p><strong>5. 警惕侵蚀信号：</strong>技术变化、竞争动态、客户行为转变——任何可能削弱护城河的力量。</p>
+  </article>
+  <article class="chapter-card" id="ch9" aria-labelledby="ch9-title">
+    <div class="ch-header">
+      <div class="ch-num">9</div>
+      <div>
+        <h2 class="ch-title" id="ch9-title">规模优势：大者恒大</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">规模优势</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">规模如何转化为可持续的竞争优势？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">规模优势源于固定成本分摊，体现在分销、制造和利基市场三类。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《巴菲特的护城河》中关于成本优势的核心章节，重点回答：规模如何转化为可持续的竞争优势？</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Although building and operating the delivery network is an expensive proposition for a base level of service, the incremental profit on each item that the truck fleet delivers is enormous. Think about it—once the fixed costs are covered, delivering an extra item that is on a delivery route is extremely profitable because the variable cost of making an extra stop is almost nothing.</div></details>
+      <div class="zh">「虽然建立和运营配送网络需要高昂的固定成本，但每增加一件递送物品所带来的增量利润却是巨大的。想想看——一旦固定成本被覆盖，在配送路线上额外递送一件物品的利润极高，因为增加一次停靠的变动成本几乎为零。」</div>
+      <div class="why">💬 这句话揭示了分销网络规模优势的核心经济逻辑：固定成本覆盖后的高增量利润。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">规模优势</h3>
+        <div class="concept-body"><p>本章深入剖析了基于规模的成本优势，指出绝对规模不如相对规模重要。核心在于固定成本与可变成本的区分：固定成本占比越高，规模优势越显著。规模优势可细分为三类：
+1. 分销网络规模：以UPS为例，其地面包裹递送网络固定成本覆盖后，额外递送几乎零边际成本，带来高资本回报率。Darden Restaurants、Stericycle、Sysco、Fastenal、可口可乐等均受益于此。
+2. 制造规模：经典工厂案例，产能利用率越高越盈利。Exxon Mobil在炼油和化工领域凭借规模经济，资本回报率远超Valero和BASF。非制造企业如Electronic Arts也可通过将固定开发成本分摊到更大销售基础获益。英国BskyB因用户规模是Virgin Media的三倍，能出更高价购买内容，形成正反馈。
+3. 利基市场主导：即使绝对规模不大，在特定细分市场相对更大也能构建护城河。Washington Post在Boise等小城市的有线电视系统，市场仅够一家盈利，阻止新进入者。Graco公司专注高端工业泵，市场总规模有限，通过持续研发和产品高可见性、低总成本占比，实现40%资本回报率。</p></div>
       </div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>将五步分析法应用于A股：</strong>以<span style="color:#c0392b;">伊利股份（600887）</span>为例。1.行业稳定性：乳制品行业稳定，消费需求长期增长。2.护城河来源：品牌（伊利品牌认知度高）+规模（最大乳企，采购成本优势）+渠道（覆盖全国的冷链配送网络）。3.财务证据：ROIC长期稳定在15%-20%左右。4.护城河宽度：较宽——品牌+规模+渠道形成了多重护城河。5.警惕信号：上游原奶价格波动、新兴乳制品品牌的差异化竞争。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有观点认为，规模优势在快速变化的技术行业可能成为劣势，因为大企业难以灵活适应变革。但本章主要讨论传统行业中的成本优势，未直接回应此争议。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，规模优势同样显著。例如，海螺水泥（600585）凭借庞大的产能和分销网络，在水泥行业拥有显著成本优势；顺丰控股（002352）在快递领域的分销网络规模，使其单票成本低于多数竞争对手。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Scale Advantage</strong></td><td class="zh">规模优势</td><td>企业因规模相对较大而获得的成本或市场优势。</td></tr><tr><td><strong>Fixed Cost</strong></td><td class="zh">固定成本</td><td>不随产量变化的成本，如租金、设备折旧。</td></tr><tr><td><strong>Variable Cost</strong></td><td class="zh">可变成本</td><td>随产量变化的成本，如原材料、计件工资。</td></tr><tr><td><strong>Distribution Network</strong></td><td class="zh">分销网络</td><td>将产品从生产地运送到消费地的系统，规模越大，单位成本越低。</td></tr><tr><td><strong>Niche Market</strong></td><td class="zh">利基市场</td><td>规模有限但利润丰厚的细分市场，主导企业可获高回报。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>规模优势的关键是相对规模，而非绝对规模。</li><li>固定成本占比越高的行业，规模优势越明显。</li><li>分销网络、制造规模和利基市场是三种主要的规模优势来源。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>选一家你关注的公司，用多尔西的五步分析法写一份半页纸的护城河分析。重点是：你必须为每个步骤提供具体证据，而非模糊判断。如果某个步骤你找不到证据，坦诚写下"数据不足"——识别不确定性本身就是一种能力。</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q12">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q12')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q12', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">请分析一家你熟悉的A股公司，判断其是否拥有规模优势，并说明属于分销、制造还是利基市场类型。</p>
+        <p class="hint">💡 提示：考虑其固定成本占比、相对市场份额、行业特性。</p>
+        <div class="chat-widget" id="chat-巴菲-ch9-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch9-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章探讨了规模优势的三种类型。请结合具体公司，分析其规模优势的来源和可持续性。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch9-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">护城河分析不是一次性判断，而是一个持续跟踪的过程——好的分析师定期重新评估，就像定期检查城堡的城墙有没有裂缝。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 12 ==================== -->
-<article class="chapter-card" id="ch12" aria-labelledby="ch12-title">
-  <div class="ch-header">
-    <div class="ch-num">12</div>
-    <div>
-      <h2 class="ch-title" id="ch12-title">护城河的价值</h2>
-      <div class="ch-subtitle">好公司不等于好投资——价格决定一切</div>
     </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">估值——护城河宽≠估值合理，投资，不要投机</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">找到了一家有宽阔护城河的公司，接下来要做什么？确定它的合理价值——再好的公司，以过高的价格买入也会变成一项糟糕的投资。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">即使是最宽阔的护城河，如果你以太高的价格买入，也只能获得平庸的回报——甚至亏损。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>找到了一家有宽阔护城河的公司，接下来要做什么？<strong>确定它的合理价值。</strong>再好的公司，以过高的价格买入也会变成一项糟糕的投资。多尔西强调：<strong>"投资，不要投机"</strong>——投机是猜测别人未来会以更高价格买你手中的股票，投资是评估公司未来能产生多少现金流。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念</div>
-    <div class="concept-box">
-      <div class="concept-name">估值的基本原理</div>
-      <div class="concept-en">Valuation Basics</div>
-      <div class="concept-body">
-        <p>多尔西介绍了估值的基本框架：一家公司的价值等于它未来能产生的全部自由现金流的折现值。这听起来简单，但实践中面临两个关键挑战：</p>
-        <p><strong>1. 预测未来的现金流：</strong>护城河越宽，未来现金流越可预测——这就是为什么护城河对估值如此重要。护城河减少了预测的不确定性。</p>
-        <p><strong>2. 确定合适的折现率：</strong>取决于你要求的回报率和公司的风险水平。</p>
-        <p>多尔西的实用建议：<strong>不要追求精确的错误，要追求大致的正确。</strong>如果你认为一家公司的内在价值在每股30-50元之间，而当前价格是20元，你不需要知道它精确值43.27元——你只需要知道它被低估了。</p>
+  </article>
+  <article class="chapter-card" id="ch10" aria-labelledby="ch10-title">
+    <div class="ch-header">
+      <div class="ch-num">10</div>
+      <div>
+        <h2 class="ch-title" id="ch10-title">护城河如何被侵蚀</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">护城河侵蚀</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">哪些因素会侵蚀企业的护城河？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">技术颠覆、行业结构变迁和不良增长是侵蚀护城河的三大主要威胁。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书后半部分，从识别护城河转向分析其脆弱性，核心回答：哪些因素会侵蚀企业的护城河，投资者应如何提前识别这些风险。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Although change can be an opportunity, it can also severely erode once-wide economic moats. This is why it is critical to continually monitor the competitive position of the companies in which you have invested, and watch for signs that the moat may be eroding.</div></details>
+      <div class="zh">「虽然变化可能是机遇，但它也可能严重侵蚀曾经宽阔的经济护城河。这就是为什么持续监控你所投资公司的竞争地位，并留意护城河可能正在侵蚀的迹象至关重要。」</div>
+      <div class="why">💬 这句话点明了本章的核心主旨：护城河并非永恒，持续监控是投资者规避风险的关键。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">护城河侵蚀</h3>
+        <div class="concept-body"><p>本章深入探讨了侵蚀护城河的三大主要威胁：技术颠覆、行业结构变迁和不良增长。
+
+1. **技术颠覆**：这是最显著的风险，分为两类。一是科技公司自身被更优技术取代，如Research in Motion（黑莓）曾因产品卓越成为行业标准，但多数科技公司如Palm最终被遗忘。二是技术颠覆对非科技公司的冲击更为致命，因为这些公司看似拥有强大护城河。典型案例包括：
+   - **柯达**：曾垄断美国摄影胶片市场，但数字成像技术使其从2002到2007年累计营业利润较前五年下降85%。
+   - **报纸业**：曾凭借本地新闻、广告和分类信息锁定巨额现金流，但互联网造成了不可逆转的损害。
+   - **长途电话**：曾因作为连接远距离个人和企业的守门人而利润丰厚，但互联网协议网络使通话成本降至每分钟几美分，彻底摧毁了其经济基础。
+   - **证券交易所**：纳斯达克等全电子交易所的出现，使场内交易员和专家的地位岌岌可危，买卖价差收窄侵蚀了利润。
+
+2. **行业结构变迁**：
+   - **客户集中度提高**：美国大型零售商（如沃尔玛、塔吉特）的崛起，显著削弱了消费产品公司（如Clorox、Newell Rubbermaid）的定价权。Newell的品牌还受到Office Max和Staples推广自有品牌办公用品的冲击。
+   - **低成本劳动力冲击**：东欧、中国等地的低成本劳动力进入全球市场，永久性损害了许多制造企业的经济基础。例如，美国木制家具行业因劳动力成本差异巨大，即使考虑高昂运输成本，其基于地点的护城河也已消失。
+   - **非理性竞争者进入**：被国家政府视为战略性的公司可能为了政治或社会目标而牺牲利润。例如，英国罗尔斯·罗伊斯公司在20世纪80年代因财务困难接受政府补贴后，为保住就业和赢得业务，长期压低发动机和维修合同价格，迫使竞争对手普惠和通用电气也降低利润率。
+
+3. **不良增长**：这是最常见的自毁护城河行为。公司追求在自身没有护城河的领域扩张，导致资本回报率下降。最典型的例子是**微软**：尽管其核心操作系统和办公软件护城河极宽，但公司向Zune、MSN、MSNBC、Actimates玩具以及欧洲有线电视公司等领域的扩张浪费了大量现金。作者指出，如果微软从未涉足这些领域，其惊人的资本回报率本可以更高。</p></div>
       </div>
     </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"There's a huge difference between investing — buying an asset because it will generate cash in the future — and speculating, which is essentially guessing that someone will come along and pay you more than you paid, for no particularly good reason."</div></details>
-    <div class="zh">「投资和投机之间有巨大区别——投资是买入一个因为它将来会产生现金的资产；投机本质上是猜测有人会出比你更高的价格买走它，而且没有什么特别好的理由。」</div>
-    <div class="why">💬 这是区分投资与投机的经典定义。护城河框架的全部意义在于帮助你成为投资者而非投机者——因为你知道公司"值多少钱"，而不只是猜测别人愿意付多少钱。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股中"护城河虽宽但太贵"的教训：</strong></p>
-      <p>2021年初<span style="color:#c0392b;">贵州茅台</span>的PE（市盈率）一度超过70倍——即使茅台拥有A股中最宽阔的品牌护城河，这个价格仍意味着需要非常长的时间才能通过业绩增长"消化"高估值。随后茅台股价从约2600元调整至约1300元附近。<span style="color:#27ae60;">这不是茅台的护城河变窄了——而是价格太高了。</span></p>
-      <p>关键教训：<strong>护城河回答问题"这是一家好公司吗"，估值回答问题"这是一个好价格吗"——两个答案必须都是"是"才能投资。</strong></p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提到的“纽约证券交易所专家（specialist）”是美国特有的金融制度角色，曾是交易所内负责维持特定股票流动性的做市商，拥有近乎垄断的地位。但随着电子化交易兴起，这一角色已基本消失。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，技术颠覆和行业结构变迁的案例同样显著。例如，**苏宁易购**曾凭借线下家电连锁的规模优势拥有宽护城河，但被京东等电商平台的技术和商业模式颠覆，导致其线下优势迅速瓦解。另一个例子是**长虹**等传统彩电制造商，在互联网智能电视时代，面临小米、乐视等互联网企业的低价竞争和内容生态冲击，其传统的制造和渠道护城河被严重侵蚀。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Technological Disruption</strong></td><td class="zh">技术颠覆</td><td>指新技术从根本上改变行业竞争格局，使原有企业的竞争优势（如柯达的胶片技术、报纸的本地信息垄断）变得无关紧要。</td></tr><tr><td><strong>Industry Structure Shift</strong></td><td class="zh">行业结构变迁</td><td>指行业内部客户、供应商或竞争者的力量对比发生根本性变化，如客户集中度提高导致供应商定价权丧失。</td></tr><tr><td><strong>Bad Growth</strong></td><td class="zh">不良增长</td><td>指企业为了扩大规模而进入自身没有竞争优势的领域，导致资本回报率下降，从而侵蚀原有的护城河。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>技术颠覆不仅威胁科技公司，更可能对看似拥有强大护城河的非科技公司造成致命打击。</li><li>客户集中度提高、低成本劳动力冲击和非理性竞争者进入是三种主要的行业结构变迁风险。</li><li>企业应避免在自身没有护城河的领域盲目扩张，不良增长是自毁护城河最常见的方式。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>A股中目前有哪些公司（你认为有宽阔护城河的），但当前估值处于历史高位？哪些公司的护城河可能被低估，估值处于历史低位？试着列出3家公司，分别给出"护城河宽度"和"当前估值"的独立判断。</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q13">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q13')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q13', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">请分析一家你关注的A股上市公司，识别其护城河可能面临的技术颠覆或行业结构变迁风险，并评估这种风险对其长期投资价值的影响。</p>
+        <p class="hint">💡 提示：思考该公司所在行业是否正在经历技术变革（如数字化、AI）、客户是否变得更集中、是否有低成本竞争者进入。</p>
+        <div class="chat-widget" id="chat-巴菲-ch10-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch10-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章讨论了技术颠覆和行业结构变迁如何侵蚀护城河。请结合具体公司，分析其面临的类似风险。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch10-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch11" aria-labelledby="ch11-title">
+    <div class="ch-header">
+      <div class="ch-num">11</div>
+      <div>
+        <h2 class="ch-title" id="ch11-title">寻找护城河的正确行业</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">行业护城河分布</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">哪些行业更容易找到护城河公司？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">不同行业护城河概率差异巨大，应优先在商业服务、金融、消费品中寻找。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书中部，从行业视角回答“哪些行业更容易找到护城河公司”，帮助投资者聚焦高概率领域，避免在残酷行业中徒劳挖掘。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Some industries are brutally competitive and have awful economics, and creating a competitive advantage requires the managerial equivalent of a Nobel Prize. Other industries are much less competitive, and even average companies are able to sustain solid returns on capital.</div></details>
+      <div class="zh">「有些行业竞争异常残酷，经济特征糟糕，要创造竞争优势需要经理人获得诺贝尔奖级别的管理能力。而另一些行业竞争则温和得多，即使是普通公司也能维持可观的资本回报率。」</div>
+      <div class="why">💬 这句话直接点明本章核心：行业选择比管理能力更重要，投资者应优先在容易挖护城河的行业寻找机会。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">行业护城河分布</h3>
+        <div class="concept-body"><p>本章核心观点是：不同行业的竞争结构和经济特征差异巨大，寻找护城河应优先选择“容易挖”的行业。作者通过Morningstar覆盖的2000多只股票数据，按行业展示了护城河分布。
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">护城河告诉你"买什么"，估值告诉你"什么时候买"——两者缺一不可。如果只强调护城河而忽略价格，你就是买了"好公司"但做了"坏投资"。</div></div>
-  </div>
-</article>
+1. **行业对比：汽车零部件 vs 资产管理**
+   - 汽车零部件行业：Morningstar覆盖13家公司，仅2家有护城河。以American Axle为例，5年前因SUV热销，资本回报率达中低两位数；但2003年后SUV销量下滑、成本结构不佳，回报率跌至个位数。该行业竞争残酷、经济特征糟糕。
+   - 资产管理行业：覆盖18家上市公司，全部有护城河（12家宽护城河，6家窄护城河）。尽管进入门槛低（花10万美元律师费即可成立基金），但成功门槛高——需要庞大分销网络。一旦资产流入，粘性极强，管理者可轻松获得高资本回报。Janus的案例证明：即使遭遇风格失效、法律丑闻、明星经理离职、资产腰斩，运营利润率仍从11%恢复到25%，显示业务模式的韧性。
 
-<!-- ==================== CHAPTER 13 ==================== -->
-<article class="chapter-card" id="ch13" aria-labelledby="ch13-title">
-  <div class="ch-header">
-    <div class="ch-num">13</div>
-    <div>
-      <h2 class="ch-title" id="ch13-title">估值工具</h2>
-      <div class="ch-subtitle">简单实用的估值指标</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">四种实用估值指标——PE/PB/市现率/现金回报率</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">复杂的DCF模型之外，普通投资者用什么来判断价格是否合理？多尔西给出了四个简单但有效的估值比率。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">估值不是精确科学——但模糊的正确胜过精确的错误。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>复杂的DCF（现金流折现）模型之外，普通投资者用什么来判断价格是否合理？多尔西给出了四个<strong>简单但有效</strong>的估值比率——它们的优点不在于精确，而在于帮你快速排除明显高估或明显低估的标的。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：四大估值工具</div>
-    <div class="concept-box">
-      <div class="concept-name">1. 市盈率（PE）和市盈率相对盈利增长比（PEG）</div>
-      <div class="concept-en">Price to Earnings & PEG Ratio</div>
-      <div class="concept-body">
-        <p>PE是最常用的估值指标，但多尔西提醒：<strong>PE适用于盈利稳定的公司，对周期性公司极具误导性。</strong>PEG（PE除以盈利增长率）可以矫正不同增速公司之间的PE比较，但同样有局限——增长率只是估算值。</p>
+2. **各行业护城河分布**
+   - **科技**：软件公司比硬件公司更容易建立护城河。软件需与其他系统集成，产生高转换成本；硬件多基于行业标准，替换容易。例外如Cisco，通过嵌入软件创造转换成本。
+   - **电信**：近2/3覆盖公司有护城河，但多因海外监管环境更友好。美国本土机会在于农村等利基市场。
+   - **媒体**：迪士尼、时代华纳等拥有独特内容，初始成本高但再分发成本极低。互联网颠覆威胁大，但强品牌（迪士尼）或广分销网络（康卡斯特）有望幸存。
+   - **医疗**：产品型公司（药品、医疗器械）比服务型（HMO、医院）更容易有护城河。小型公司可通过主导利基市场建立护城河，如Respironics（睡眠呼吸暂停）、Gen-Probe（血液检测）。
+   - **消费者服务**：低转换成本导致护城河稀少。成功案例（Bed Bath & Beyond、百思买、星巴克）靠多年持续做好细节，建立可靠消费体验。
+   - **商业服务**：护城河比例最高。公司深度嵌入客户业务流程，产生高转换成本。如DST Systems（数据处理）、IMS Health（处方药数据）、穆迪（债券评级）、Stericycle（医疗废物）。
+   - **金融服务**：高进入门槛（如投行）和转换成本（银行）保护利润。资产管理公司资产粘性强，交易所（芝加哥商业交易所）受益于网络效应。保险业护城河较难，因产品同质化、转换成本低。
+   - **消费品**：巴菲特所称“不可避免的公司”云集，如可口可乐、高露洁、箭牌。品牌需长期资本投入维护。警惕品牌价值易逝（服装）、自有品牌威胁（卡夫）、低成本劳动力改变行业（Steelcase）。
+
+3. **关键原则**：投资者应优先在护城河高发行业（商业服务、金融服务、消费品）中寻找机会，避开低概率行业（汽车零部件、消费者服务）。</p></div>
       </div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">2. 市净率（PB）</div>
-      <div class="concept-en">Price to Book</div>
-      <div class="concept-body">
-        <p>PB在评估金融公司（银行、保险）时特别有用，因为这些公司的资产大多是金融资产（贷款、投资），其账面价值相对接近市场价值。但对技术公司或品牌公司，PB几乎无用——这些公司的核心价值（品牌、专利、用户基础）不在资产负债表上。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国电信行业监管环境较严，导致本土电信公司护城河较少；而海外（如欧洲、亚洲）电信公司常受益于更宽松的监管或垄断地位。Morningstar的覆盖数据反映了这一差异。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">3. 市现率（PCF）</div>
-      <div class="concept-en">Price to Cash Flow</div>
-      <div class="concept-body">
-        <p>现金流比利润更难操纵——这是PCF的优势。用股价除以每股经营现金流，可以规避会计利润的"水分"。多尔西建议：<strong>当PE和PCF差距很大时，选择相信PCF。</strong></p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>有观点认为，行业护城河分布是动态的，不应静态依赖历史数据。例如，科技行业软件公司的护城河可能因开源软件和云计算的兴起而削弱；消费品品牌可能因消费者偏好快速变化而贬值。投资者应关注护城河的可维持性，而非仅看行业分类。</p></div>
     </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">4. 现金回报率（FCF Yield）</div>
-      <div class="concept-en">Free Cash Flow Yield</div>
-      <div class="concept-body">
-        <p>多尔西特别推荐自由现金流收益率——自由现金流除以企业价值。这就像是股票的"分红率"，但包括了所有可供返还给股东（或再投资）的现金。如果一家公司的自由现金流收益率高于长期国债收益率，且拥有宽阔的护城河——你很可能找到了一项好的投资。</p>
-      </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，商业服务行业同样涌现出护城河公司。例如，**东方财富**（金融数据服务）凭借用户粘性和网络效应，在基金代销和金融资讯领域建立宽护城河；**恒生电子**（金融IT系统）深度嵌入券商、银行核心业务，转换成本极高。消费品领域，**贵州茅台**凭借品牌和渠道壁垒，类似可口可乐的“不可避免”地位。但需注意，A股部分行业（如汽车零部件）同样竞争激烈，护城河稀少。</p></div>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🌍 文化背景补充</div>
-    <div class="context-box">
-      <p>多尔西提到的"自由现金流收益率高于国债收益率"标准，在美国10年期国债收益率约4%-5%（2008年前后）时意味着门槛较高。在中国A股市场，由于10年期国债收益率通常在2.5%-3.5%之间，这一门槛相对较低。但核心原则不变：<strong>比较股票的"真实回报"与"无风险回报"，如果前者不显著高于后者，你不应该承担股票的投资风险。</strong></p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Moat</strong></td><td class="zh">护城河</td><td>企业可持续的竞争优势，保护其长期超额利润。</td></tr><tr><td><strong>Switching Cost</strong></td><td class="zh">转换成本</td><td>客户更换供应商所需付出的时间、金钱或精力成本，是护城河的重要来源。</td></tr><tr><td><strong>Network Effect</strong></td><td class="zh">网络效应</td><td>产品或服务的价值随用户数量增加而提升，如金融交易所。</td></tr><tr><td><strong>Capital-Intensive</strong></td><td class="zh">资本密集型</td><td>需要大量资本投入才能运营的行业，如硬件制造，通常护城河较难建立。</td></tr><tr><td><strong>Niche Dominance</strong></td><td class="zh">利基主导</td><td>在细分市场占据垄断或领导地位，如Stericycle在医疗废物处理领域。</td></tr>      </table>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股估值应用要点：</strong></p>
-      <p>A股的高波动性使估值工具的使用需要格外谨慎。<span style="color:#c0392b;">PE的"陷阱"</span>在A股尤为突出：一只股票PE从60倍"跌"到30倍，看起来"便宜了"，但如果盈利从增长转为下滑，30倍PE可能仍然太贵。</p>
-      <p><span style="color:#27ae60;">推荐做法：</span>对A股护城河公司，使用<strong>多个估值指标交叉验证</strong>——如果PE、PB、PCF和自由现金流收益率都指向"合理"或"低估"，置信度会远高于单一指标。同时，<strong>将当前的估值水平与公司自身的历史估值区间比较</strong>，而非与同行比较——因为A股同一行业的公司可能估值差异极大。</p>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>汽车零部件行业护城河稀少，资产管理行业几乎全部有护城河，行业选择至关重要。</li><li>商业服务和金融服务是护城河高发区，消费者服务则相反。</li><li>软件公司比硬件公司更容易建立护城河，因集成导致高转换成本。</li></ul>
     </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
     <div class="exercise-box">
-      <p>找一家你关注的A股护城河公司，计算它的PE、PB、PCF和自由现金流收益率。将这些数字与：1）该公司过去5年的历史估值区间比较；2）10年期国债收益率比较。当前估值是高、合理还是低？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q14">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q14')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q14', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">假设你正在评估一家A股汽车零部件公司（如华域汽车）和一家金融数据服务公司（如东方财富），根据本章观点，哪个行业更可能拥有护城河？请结合具体数据（如资本回报率、客户粘性）说明理由。</p>
+        <p class="hint">💡 提示：回顾本章对汽车零部件和资产管理行业的对比，思考转换成本和行业结构如何影响护城河。</p>
+        <div class="chat-widget" id="chat-巴菲-ch11-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch11-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调行业选择的重要性，汽车零部件行业竞争残酷，而金融数据服务公司通常有高转换成本。请从这两个角度分析。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch11-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
-
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">估值工具的价值不在于给出一个精确的"目标价"，而在于帮你识别出明显太贵和明显太便宜——这两端之外的大多数情况，耐心等待更好的机会。</div></div>
-  </div>
-</article>
-
-<!-- ==================== CHAPTER 14 ==================== -->
-<article class="chapter-card" id="ch14" aria-labelledby="ch14-title">
-  <div class="ch-header">
-    <div class="ch-num">14</div>
-    <div>
-      <h2 class="ch-title" id="ch14-title">何时卖出</h2>
-      <div class="ch-subtitle">为正确的理由卖出</div>
-    </div>
-<div class="chapter-preview"><div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">两种正确的卖出理由——护城河恶化或估值过高</span></div><div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">找到并买入了有护城河的公司，什么时候应该卖出？多尔西的回答颠覆了"长期持有=永远不卖"的教条——卖出有两个合理理由：护城河变差，或价格远超价值。</span></div><div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">股价涨了不是卖出的理由——除非涨到了远超内在价值的程度。股价跌了也不是持有的理由——除非护城河没变。</span></div></div>
-</div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🎯 核心问题</div>
-    <div class="block-content"><p>找到并买入了有护城河的公司，什么时候应该卖出？多尔西的回答颠覆了"长期持有=永远不卖"的教条：<strong>卖出有且仅有两个正确的理由——护城河变差，或价格远超价值。</strong>股价本身的变化不是任何一个理由。</p></div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🔑 关键概念：错误的卖出理由</div>
-    <div class="concept-box">
-      <div class="concept-name">多尔西反对的常见卖出理由</div>
-      <div class="concept-en">Wrong Reasons to Sell</div>
-      <div class="concept-body">
-        <p><strong>1. "股价涨了很多，落袋为安"</strong>——如果护城河没变且估值仍然合理，卖出只是在把好公司换成现金（或者其他你了解不深的公司）。</p>
-        <p><strong>2. "股价跌了很多，止损离场"</strong>——如果护城河没变且估值变得更低，这不是卖出的时刻，而可能是加仓的时刻。</p>
-        <p><strong>3. "发现了另一家看起来不错的公司"</strong>——除非你对新公司的了解程度和对当前持有的公司同样深入，否则这可能是一种"追逐热点"的行为。</p>
-        <p><strong>4. "市场环境不好，先出来避险"</strong>——择时很难，你可能会在底部卖出、在高点买回。</p>
-      </div>
-    </div>
-    <div class="concept-box" style="margin-top:16px;">
-      <div class="concept-name">两个正确的卖出理由</div>
-      <div class="concept-en">Right Reasons to Sell</div>
-      <div class="concept-body">
-        <p><strong>理由一：护城河恶化。</strong>你最初买入的逻辑不再成立。公司的竞争优势正在被侵蚀——品牌价值减弱、客户开始流失、成本优势消失。财务数据会最先发出警报：ROIC持续下降、利润率收缩、自由现金流恶化。</p>
-        <p><strong>理由二：价格远超内在价值。</strong>即使护城河完好，如果市场给它定了狂热的价格，你或许应该卖出。但多尔西提醒：判断"太贵"比判断"太便宜"更难——你可能会过早卖出伟大的公司。他建议：除非估值到了极端水平（如PE超过历史均值两个标准差），否则继续持有。</p>
-        <p><strong>核心原则：</strong>卖出决策应该基于公司和估值的变化，<strong>而不是股价的变化</strong>。股价只是信息，不是决策依据。</p>
-      </div>
-    </div>
-  </div>
-  <div class="gold-quote">
-    <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">"Sell for the right reasons: when the moat is eroding, or when the stock has become grossly overvalued relative to its intrinsic value. Don't sell because the stock went up, and don't sell because the stock went down."</div></details>
-    <div class="zh">「为正确的理由卖出：当护城河在恶化，或当股价相对于内在价值严重高估。不要因为股价涨了就卖，也不要因为股价跌了就卖。」</div>
-    <div class="why">💬 这句话概括了全书投资操作的最终智慧。持有和卖出的决策应该由"护城河"和"估值"这两个基本面因素驱动，而非由市场先生的情绪驱动。</div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🇨🇳 中国市场关联</div>
-    <div class="china-box">
-      <p><strong>A股中"错误卖出"和"错误持有"的教训：</strong></p>
-      <p><strong>"过早卖出"的教训：</strong>2013-2014年<span style="color:#c0392b;">贵州茅台</span>因反腐和塑化剂危机，股价大跌。许多投资者因为"股价跌了"而卖出——但茅台的品牌护城河根本没有受损。随后10年茅台股价涨幅惊人。正确的做法应该是：检查护城河（品牌定价权是否还在？）——确认完好后，这反而是加仓的时机。</p>
-      <p><strong>"该卖不卖"的教训：</strong>一些教育股在2021年"双减"政策前拥有品牌和规模优势，但政策改变了整个行业的游戏规则——护城河存在的基础（K12课外培训市场的合法存在）被瓦解了。这时护城河已经不复存在，<span style="color:#27ae60;">多尔西框架会明确告诉你是时候卖出了——不是因为股价跌了，而是因为护城河消失了。</span></p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> ⚔️ 反方观点</div>
-    <div class="counter-box">
-      <h3 class="counter-name">"永远不卖"是否过于理想化？</h3>
-      <p>巴菲特说过"最喜欢的持有期是永远"，但多尔西指出：即使是巴菲特也经常卖出股票（如他清仓了航空股）。"永远不卖"应该被理解为一种<strong>态度</strong>——当你买一只股票时，你假设你会持有很长时间——而不是一条机械的规则。正确做法是定期检查两个卖出条件：护城河是否在变差？价格是否已经严重脱离价值？</p>
-    </div>
-  </div>
-  <div class="block">
-    <div class="block-label"><span class="dot"></span> 🧠 思考题</div>
     <div class="exercise-box">
-      <p>回顾你过去一年的投资决策。有哪些卖出是因为"股价涨了/跌了"而不是因为"护城河变了/估值变了"？如果按照多尔西的框架重新评估那些卖出决策，有多少是真正合理的？</p>
-    
-      <div class="chat-widget" id="chat-economic-moat-q15">
-        <div class="chat-header" onclick="toggleChat('chat-economic-moat-q15')" tabindex="0" role="button" aria-expanded="false">
-          <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
-        </div>
-        <div class="chat-body">
-          <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">护城河分析——你关注的公司竞争优势可持续多久？</div></div>
-        </div>
-        <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
-        <div class="chat-error"></div>
-        <div class="chat-input-area">
-          <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
-          <button onclick="sendChat('chat-economic-moat-q15', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+        <p class="q">本章提到Janus在遭遇多重危机后运营利润率仍恢复至25%。请找出一家A股公司，其业务模式在逆境中展现了类似韧性，并分析其护城河来源。</p>
+        <p class="hint">💡 提示：考虑那些即使经历负面事件，客户仍难以离开的公司，如拥有高转换成本或网络效应的企业。</p>
+        <div class="chat-widget" id="chat-巴菲-ch11-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch11-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">Janus的案例展示了资产粘性的力量。在A股，类似公司可能存在于金融IT或数据服务领域。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch11-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
         </div>
       </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch12" aria-labelledby="ch12-title">
+    <div class="ch-header">
+      <div class="ch-num">12</div>
+      <div>
+        <h2 class="ch-title" id="ch12-title">管理层的真正价值</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">管理层迷思</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">管理层对护城河的影响有多大？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">管理层重要，但护城河更重要；押注马而非骑师。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书后半部分，旨在纠正投资者过度关注CEO的倾向，强调结构性竞争优势（护城河）比管理层更重要。核心回答：为什么管理层对长期竞争优势的影响有限？</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">When management with a reputation for brilliance tackles a business with a reputation for bad economics, it is the reputation of the business that remains intact.</div></details>
+      <div class="zh">「当声名显赫的管理层接手一家以糟糕经济状况闻名的企业时，最终保持不变的往往是这家企业的名声。」</div>
+      <div class="why">💬 这句话精辟总结了管理层在缺乏护城河的行业中的无力感，是本章核心论点的点睛之笔。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">管理层迷思</h3>
+        <div class="concept-body"><p>本章核心观点是：管理层的决策对长期竞争优势的影响远小于公司的结构性特征（即护城河）。作者通过多个案例论证：即使管理层表现糟糕，拥有护城河的公司（如Janus、H&R Block、麦当劳）仍能恢复盈利能力；而明星CEO（如Jacques Nasser、Paul Pressler、Gary Wendt）在缺乏护城河的行业（汽车、零售、贷款）中彻底失败。作者特别以JetBlue的David Neeleman为例：尽管他此前成功创立了被西南航空收购的航空公司，但航空业的残酷经济结构最终导致JetBlue股价低于IPO价格30%，这并非Neeleman的错。作者指出，投资者高估CEO的原因有二：一是商业媒体需要吸引眼球，二是人类天性喜欢将结果归因于个人而非抽象的结构性因素。最终结论是：投资应押注于马（护城河），而非骑师（管理层）。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国商业媒体文化高度推崇明星CEO（如杰克·韦尔奇），作者批判这种“名人CEO情结”误导投资者。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>吉姆·柯林斯等商业作家认为“卓越很大程度上是 conscious choice 的结果”，强调管理层的主观能动性可以创造伟大公司。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>A股中，贵州茅台凭借品牌护城河，即使管理层更迭频繁，仍长期维持高ROE；而乐视网在贾跃亭的明星CEO光环下，因缺乏结构性竞争优势最终崩塌，印证了本章观点。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Economic Moat</strong></td><td class="zh">经济护城河</td><td>公司长期维持高资本回报率的结构性竞争优势，如品牌、专利、网络效应等。</td></tr><tr><td><strong>Celebrity CEO Complex</strong></td><td class="zh">名人CEO情结</td><td>投资者过度关注明星CEO，忽视公司结构性特征的心理偏差。</td></tr><tr><td><strong>Structural Competitive Advantage</strong></td><td class="zh">结构性竞争优势</td><td>由行业特征或公司资产本身决定的、难以复制的长期优势。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>押注于马（护城河），而非骑师（管理层）。</li><li>拥有护城河的公司即使管理层平庸，长期胜率也高于无护城河但有明星CEO的公司。</li><li>行业结构对长期资本回报率的影响远大于管理决策。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">请分析一家A股公司，其管理层变动频繁但业绩依然稳健，以及另一家因明星CEO而受追捧但最终失败的公司，并说明护城河在其中扮演的角色。</p>
+        <p class="hint">💡 提示：参考贵州茅台和乐视网的案例，思考护城河如何抵御管理层风险。</p>
+        <div class="chat-widget" id="chat-巴菲-ch12-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch12-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调护城河比管理层更重要。请先回忆贵州茅台和乐视网的具体情况，再对比分析。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch12-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch13" aria-labelledby="ch13-title">
+    <div class="ch-header">
+      <div class="ch-num">13</div>
+      <div>
+        <h2 class="ch-title" id="ch13-title">五家公司护城河实战分析</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">三步护城河法</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何用三步法判断一家公司是否有护城河？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">通过看回报、找优势、评持久性三步，用五个真实案例演示护城河分析。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书后半部分，通过五个真实公司案例，演示如何运用前三步流程（看回报、找优势、评持久性）判断企业是否拥有经济护城河。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">A firm that has not yet demonstrated the ability to earn an excess economic return is not one to pin your hopes on. It is possible that a company that has posted subpar returns on capital in the past may be poised for better days going forward, but such optimism would need to be accompanied by a large and positive shift in the underlying economics of the business. It does happen, and you can make a lot of money by identifying companies that have structurally changed for the better, but companies like these are much more the exception than the rule.</div></details>
+      <div class="zh">「如果一家公司过去没有展现出赚取超额经济回报的能力，那它就不是你应该寄予厚望的股票。当然，过去回报平平的公司未来也可能迎来好日子，但这种乐观必须伴随着企业基本经济状况的重大积极转变。这种情况确实会发生，通过识别出那些发生结构性改善的公司，你可以赚很多钱，但这样的公司更像是例外，而不是普遍规律。」</div>
+      <div class="why">💬 这句话点明了护城河分析的核心原则：历史回报是基础，但结构性变化才是超额收益的真正来源。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">三步护城河法</h3>
+        <div class="concept-body"><p>本章核心是作者提出的“三步护城河判断法”。第一步是“看回报”：检查公司过去是否持续产生高资本回报率（ROIC/ROE），若长期低于平均水平且无结构性改善，则无护城河。第二步是“找优势”：分析高回报的来源——品牌、专利、转换成本、成本优势、网络效应等。第三步是“评持久性”：判断优势能否持续，分为宽护城河、窄护城河、无护城河三类。
 
-</div>
-  </div>
-  <div class="block">
-    <h3 class="block-label"><span class="dot" style="background:var(--accent)"></span> 📌 一句话总结</h3>
-    <div class="gold-quote" style="background:#f0f4f8;border-color:#dde4ea;"><div class="zh" style="color:var(--blue);">卖出不是因为股价变了，而是因为公司的护城河变了。股价跌了可能该买，股价涨了可能该留——唯一的问题是那条护城河还在不在。</div></div>
-  </div>
-</article>
+作者用五个案例演示：
+1. 迪尔公司（Deere & Company）：过去十年资本回报率不错，虽有周期性波动（1999-2002年低迷），但农业机械需求周期性强，可接受。其优势在于庞大的经销商网络（北美远超竞争对手），能快速维修设备，减少农民在播种/收获季的停机时间。但复制该网络并非不可能，故评为窄护城河。
+2. 玛莎·斯图尔特生活全媒体（Martha Stewart Living Omnimedia）：即使在其巅峰时期，ROE也低于13%，且公司几乎无固定资产（杂志、电视节目、品牌授权），这样的回报率并不出色。尽管品牌知名度高，但缺乏持久竞争优势，评为无护城河。
+3. 阿奇煤炭（Arch Coal）：过去资本回报率一般，但2004年后改善。原因有二：一是2005年底出售了亏损的煤矿；二是控制着怀俄明州粉河盆地（Powder River Basin）的煤炭供应，该地煤炭因低硫而受电厂青睐，且开采成本远低于美国其他地区。但粉河盆地内部竞争激烈，且面临碳税等政策风险，评为极窄护城河。
+4. 快扣公司（Fastenal Company）：过去十年平均ROE超过20%，且财务杠杆极低，在3000只市值超5亿美元的股票中仅50只达到此水平。公司通过约2000家门店分销工业维护、维修、运营（MRO）产品，尤其是紧固件。其优势在于庞大的门店网络带来的便利性和库存深度，但需要进一步分析其持久性。
 
-<!-- ==================== DIAGNOSTIC CTA ==================== -->
-<section style="background:var(--accent-light);border-radius:12px;padding:32px;text-align:center;margin:40px 0;box-shadow:var(--shadow);" aria-labelledby="cta-title">
-  <h2 id="cta-title" style="font-size:22px;color:var(--accent);margin-top:0;">📊 护城河诊断工具</h2>
-  <p style="color:var(--text-secondary);margin:16px 0;font-size:15px;">想用多尔西的框架分析你关注的股票吗？我们提供了一个护城河诊断工具来帮你。<br/>输入股票名称，系统将引导你从四大护城河来源逐一评估。</p>
-  <a href="../../diagnose.html" style="display:inline-block;padding:12px 32px;background:var(--accent);color:#fff;border-radius:24px;text-decoration:none;font-weight:600;margin-top:8px;font-size:15px;" aria-label="使用诊断工具">🧪 打开护城河诊断工具</a>
-</section>
+作者强调：即使过去回报好，也必须找到具体的竞争优势来源，否则只是“后视镜驾驶”。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提到的“粉河盆地”（Powder River Basin）是美国怀俄明州和蒙大拿州交界处的大型煤田，其煤炭因低硫特性在《清洁空气法》修正案后需求大增。美国煤炭行业受环保法规（如碳税提案）影响巨大，这是分析阿奇煤炭护城河时必须考虑的政策背景。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>快扣公司的模式与A股中的“震坤行”类似。震坤行是中国领先的工业用品（MRO）电商平台，通过数字化分销网络服务制造业客户。其护城河同样来自规模效应和客户粘性，但面临京东工业品等对手的激烈竞争，护城河宽度尚待验证。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>ROIC</strong></td><td class="zh">投入资本回报率</td><td>衡量公司利用投入资本创造利润的效率，是判断护城河的核心指标。</td></tr><tr><td><strong>ROE</strong></td><td class="zh">净资产收益率</td><td>净利润与股东权益的比率，用于评估公司为股东创造价值的能力。</td></tr><tr><td><strong>Moat</strong></td><td class="zh">护城河</td><td>企业能长期维持高于竞争对手的资本回报率的可持续竞争优势。</td></tr><tr><td><strong>Switching Cost</strong></td><td class="zh">转换成本</td><td>客户从一家供应商转向另一家所需付出的时间、金钱或精力成本。</td></tr><tr><td><strong>Cost Advantage</strong></td><td class="zh">成本优势</td><td>企业能以低于竞争对手的成本生产或提供相同质量的产品/服务。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>判断护城河的第一步是看历史资本回报率，长期低于平均水平通常意味着无护城河。</li><li>高回报必须有具体的竞争优势来源（品牌、转换成本、成本优势等），否则不可持续。</li><li>护城河的持久性决定其宽度，需结合行业结构、技术变革、政策风险等因素综合评估。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你正在研究一家A股工业品分销商（如震坤行），其过去五年ROE均超过15%。请运用三步法，列出你需要进一步分析哪些因素来判断它是否有护城河。</p>
+        <p class="hint">💡 提示：参考快扣公司的案例，思考其门店网络、客户粘性、规模效应等是否构成可持续优势。</p>
+        <div class="chat-widget" id="chat-巴菲-ch13-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch13-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">欢迎来到护城河实战分析！请先思考：这家公司的15% ROE来源是什么？是品牌、网络、还是成本优势？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch13-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">阿奇煤炭的案例显示，即使成本优势存在，也可能因长期合同而延迟体现在回报率上。请举出一个A股公司类似的情况（如资源类企业），并说明如何识别这种“隐藏的护城河”。</p>
+        <p class="hint">💡 提示：考虑中国神华等煤炭企业，其长协合同可能压低短期回报，但低成本资源禀赋仍是长期优势。</p>
+        <div class="chat-widget" id="chat-巴菲-ch13-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch13-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">好问题！资源类公司的长协合同确实会掩盖真实盈利能力。请思考：除了成本，还有哪些因素能确保持续优势？</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch13-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch14" aria-labelledby="ch14-title">
+    <div class="ch-header">
+      <div class="ch-num">14</div>
+      <div>
+        <h2 class="ch-title" id="ch14-title">估值：价格与价值的博弈</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">估值核心</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何判断一家公司股票是否值得买入？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">股票价值等于未来现金流的现值，买入价需低于此价值。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书后半部分，从识别护城河转向估值，核心回答：如何判断一家公司的股票是否值得买入？</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">A stock is worth the present value of all the cash it will generate in the future.</div></details>
+      <div class="zh">「股票价值等于其未来产生的所有现金的现值。」</div>
+      <div class="why">💬 这句话是估值的根本定义，简洁而深刻，是理解所有估值方法的基础。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">估值核心</h3>
+        <div class="concept-body"><p>本章核心是估值，强调即使是最好的公司，如果买入价格过高，也会损害投资回报。作者首先指出估值的困难：每家公司都不同，未来业绩不确定。但好消息是，投资者不需要知道精确价值，只需判断当前价格是否低于最可能的价值。作者以Corporate Executive Board为例，说明如何通过反向工程股价来推断市场隐含的增长预期，并基于研究判断该预期是否过于悲观。
 
-<!-- ==================== FOOTER ==================== -->
-<footer style="text-align:center;padding:48px 0;color:var(--text-secondary);font-size:14px;" role="contentinfo">
-  <p>📚 AI精读笔记 · 《巴菲特的护城河》全14章精读</p>
-  <p style="margin-top:8px;">基于帕特·多尔西原著（2008年约翰威立出版社出版），晨星公司护城河评级方法论的系统讲解。本书被誉为"识别持久竞争优势的最佳入门读物"。</p>
-  <p style="margin-top:16px;font-size:13px;">💡 推荐延伸阅读：掌握护城河识别后，可阅读<a href="../fisher/" style="color:var(--accent);text-decoration:none;">《怎样选择成长股》</a>学习15条选股原则，结合<a href="../buffett/" style="color:var(--accent);text-decoration:none;">《巴菲特之道》</a>理解护城河在巴菲特投资体系中的位置</p>
-  <p style="margin-top:16px;font-size:13px;">📖 更多精读：<a href="../howard-marks/" style="color:var(--accent);text-decoration:none;">《投资最重要的事》</a> · <a href="../fisher/" style="color:var(--accent);text-decoration:none;">《怎样选择成长股》</a> · <a href="../buffett/" style="color:var(--accent);text-decoration:none;">《巴菲特之道》</a> · <a href="../market-cycle/" style="color:var(--accent);text-decoration:none;">《周期》</a> · <a href="../buffett-letters/" style="color:var(--accent);text-decoration:none;">《巴菲特致股东的信》</a> · <a href="../intelligent-investor/" style="color:var(--accent);text-decoration:none;">《聪明的投资者》</a> · <a href="../poor-charlie/" style="color:var(--accent);text-decoration:none;">《穷查理宝典》</a> · <a href="../security-analysis/" style="color:var(--accent);text-decoration:none;">《证券分析》</a> · <a href="../beating-street/" style="color:var(--accent);text-decoration:none;">《战胜华尔街》</a> · <a href="../stock-operator/" style="color:var(--accent);text-decoration:none;">《股票大作手回忆录》</a> · <a href="../peter-lynch/" style="color:var(--accent);text-decoration:none;">《彼得·林奇的成功投资》</a> · <a href="../alchemy-finance/" style="color:var(--accent);text-decoration:none;">《金融炼金术》</a> · <a href="../fooled-by-randomness/" style="color:var(--accent);text-decoration:none;">《随机漫步的傻瓜》</a> · <a href="../black-swan/" style="color:var(--accent);text-decoration:none;">《黑天鹅》</a> · <a href="../antifragile/" style="color:var(--accent);text-decoration:none;">《反脆弱》</a></p>
+接着，作者给出估值的根本定义：股票价值等于其未来产生的所有现金的现值。通过房东出租公寓的类比，解释了影响估值的四个关键因素：风险（未来现金流实现的可能性）、增长（现金流规模）、资本回报率（维持业务所需的投资）和经济护城河（企业持续产生超额利润的能力）。
+
+最后，作者区分了投资回报和投机回报：投资回报来自盈利增长和股息，投机回报来自市盈率变化。通过微软（盈利增长16%但股价仅涨7%，因市盈率从50降至20）和Adobe（盈利增长13%但股价涨24%，因市盈率从17升至45）的对比，说明关注估值可以降低负面投机回报的风险。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，估值同样至关重要。例如，2015年牛市期间，许多中小创股票市盈率高达百倍以上，但随后几年业绩增速不及预期，导致股价大幅下跌，投资者承受了巨大的负面投机回报。相反，一些优质蓝筹股如贵州茅台，虽然市盈率长期在20-40倍之间波动，但凭借稳定的盈利增长，为长期投资者带来了丰厚回报。这印证了作者的观点：关注估值和护城河，可以降低投机风险。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Free Cash Flow</strong></td><td class="zh">自由现金流</td><td>公司每年可提取而不影响经营的现金，是估值的核心变量。</td></tr><tr><td><strong>Investment Return</strong></td><td class="zh">投资回报</td><td>由盈利增长和股息驱动的回报，反映公司财务表现。</td></tr><tr><td><strong>Speculative Return</strong></td><td class="zh">投机回报</td><td>由市盈率变化驱动的回报，反映市场情绪变化。</td></tr><tr><td><strong>P/E Ratio</strong></td><td class="zh">市盈率</td><td>股价与每股收益的比率，衡量市场对公司的估值水平。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>估值不需要精确数字，只需判断当前价格是否低于最可能的价值。</li><li>股票价值等于其未来所有自由现金流的现值，受风险、增长、资本回报率和护城河影响。</li><li>投资回报来自盈利增长和股息，投机回报来自市盈率变化，关注估值可降低投机风险。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你关注的一只A股股票当前市盈率为30倍，而行业平均为20倍。你如何判断该股票是否值得买入？请结合本章的估值框架进行分析。</p>
+        <p class="hint">💡 提示：考虑公司的盈利增长预期、护城河强度、以及当前市盈率所隐含的市场预期。</p>
+        <div class="chat-widget" id="chat-巴菲-ch14-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch14-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调估值需结合增长、风险和护城河。请先分析该公司的盈利增长是否可持续，再判断30倍市盈率是否合理。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch14-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch15" aria-labelledby="ch15-title">
+    <div class="ch-header">
+      <div class="ch-num">15</div>
+      <div>
+        <h2 class="ch-title" id="ch15-title">估值工具：寻找打折股票</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">价格倍数估值</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">如何正确使用价格倍数找到便宜股票？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">四种价格倍数的正确用法与常见误区，助你识别真正的打折股。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章是《巴菲特的护城河》估值部分的核心章节，系统讲解市销率、市净率、市盈率和市现率四种价格倍数的正确用法与常见误区，帮助投资者识别真正的便宜货。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Always approach a forecasted earnings number with some caution. These forecasts are usually the consensus estimate of all Wall Street analysts following the company, and multiple studies have shown that consensus estimates are typically too pessimistic just before a beaten-down company rebounds, and too optimistic just before a highflier slows down.</div></details>
+      <div class="zh">「Always approach a forecasted earnings number with some caution. These forecasts are usually the consensus estimate of all Wall Street analysts following the company, and multiple studies have shown that consensus estimates are typically too pessimistic just before a beaten-down company rebounds, and too optimistic just before a highflier slows down.」</div>
+      <div class="why">💬 提醒投资者不要盲目相信分析师预测，避免在股价高点追涨、低点割肉。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">价格倍数估值</h3>
+        <div class="concept-body"><p>本章详细介绍了四种价格倍数估值工具：
+1. 市销率（P/S）：适用于周期性公司或暂时亏损的公司，因为所有公司都有销售额。关键在于高利润率公司通常有更高的P/S，因此不能跨行业比较。P/S特别适合寻找那些过去利润率很高、但当前P/S较低的公司——如果它们能恢复盈利能力，股票可能被低估。
+2. 市净率（P/B）：比较股价与账面价值（股东权益）。账面价值代表公司拥有的实物资本，但对服务或科技公司意义不大，因为其核心资产（人才、创意、流程）不在账面中。商誉（收购溢价）会虚增账面价值，最好剔除。P/B对金融服务业特别有用，因为金融公司的资产（如贷款）流动性强，易于估值。
+3. 市盈率（P/E）：最常用的倍数，但也是最容易被误用的。E有多种定义（过去财年、当前财年、预测值等），预测值往往过于乐观或悲观。作者建议投资者自己估算公司在“平均年份”的盈利能力，并以此为基础计算P/E。比较P/E时，必须考虑风险、增长、资本回报率和竞争优势四个驱动因素。
+4. 市现率（P/C）：作者最喜欢的倍数，分母为经营现金流。现金流比盈利更稳定，不受非现金费用（如重组、资产减记）影响。订阅制公司通常现金流高于盈利，用P/E看很贵，但用P/C看可能很合理。注意：现金流未考虑折旧，资产密集型公司的现金流可能高估盈利能力。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>本章提到美国在线（America Online）收购时代华纳（Time Warner）时产生的1300亿美元商誉，这是美国互联网泡沫时期的标志性并购案例，反映了商誉如何虚增账面价值。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>一些价值投资者认为，价格倍数过于简化，容易忽略公司质量差异。例如，低P/E可能反映的是“价值陷阱”——公司基本面恶化，而非真正的便宜。他们更倾向于使用DCF（现金流折现）等更全面的估值方法。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，市净率（P/B）常用于银行股估值。例如，工商银行（601398）的P/B长期在0.5-1倍之间，因为市场对其不良贷款率存在担忧，这与本章所述“低P/B可能暗示账面价值存疑”一致。市销率（P/S）则常用于周期性行业如钢铁、煤炭，当行业低谷时P/S较低，投资者可借此寻找反转机会。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>P/S</strong></td><td class="zh">市销率</td><td>股价除以每股销售额，适用于周期性或暂时亏损公司，不能跨行业比较。</td></tr><tr><td><strong>P/B</strong></td><td class="zh">市净率</td><td>股价除以每股账面价值，对金融服务业特别有用，需剔除商誉。</td></tr><tr><td><strong>P/E</strong></td><td class="zh">市盈率</td><td>股价除以每股收益，最常用但最易误用，需基于自己估算的“平均年份”盈利。</td></tr><tr><td><strong>P/C</strong></td><td class="zh">市现率</td><td>股价除以每股经营现金流，比P/E更稳定，适合订阅制公司。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>市销率适合寻找暂时陷入困境的高利润率公司，但不可跨行业比较。</li><li>市净率对金融服务业最有效，但需警惕商誉虚增账面价值。</li><li>市盈率必须结合风险、增长、资本回报率和护城河综合判断，避免价值陷阱。</li><li>市现率是作者最偏爱的倍数，现金流比盈利更稳定，但需注意折旧问题。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你发现一家A股银行股，其市净率（P/B）仅为0.6倍，远低于行业平均的1.2倍。你会直接买入吗？请结合本章内容说明你的分析步骤。</p>
+        <p class="hint">💡 提示：考虑该银行的不良贷款率、商誉规模、以及其账面价值是否真实反映了资产质量。</p>
+        <div class="chat-widget" id="chat-巴菲-ch15-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch15-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章提到低P/B可能暗示账面价值存疑，请先分析该银行的不良贷款和商誉情况。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch15-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">一家订阅制软件公司当前市盈率为40倍，但市现率仅为15倍。你认为哪个指标更能反映其真实价值？为什么？</p>
+        <p class="hint">💡 提示：回顾本章对订阅制公司现金流高于盈利的讨论，以及市现率的优势。</p>
+        <div class="chat-widget" id="chat-巴菲-ch15-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch15-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章指出订阅制公司现金流通常高于盈利，市现率可能更合理。请分析其客户续费率。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch15-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch16" aria-labelledby="ch16-title">
+    <div class="ch-header">
+      <div class="ch-num">16</div>
+      <div>
+        <h2 class="ch-title" id="ch16-title">卖出股票的四个正确理由</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">卖出理由</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">何时应该卖出股票？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">卖出应基于公司价值变化，而非股价涨跌。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章位于全书的卖出策略部分，核心回答投资者何时应该卖出股票的问题，强调卖出决策应基于公司基本面变化而非股价波动。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">Selling just because a stock price has dropped makes absolutely no sense whatsoever, unless the value of the business has declined as well. Conversely, selling just because a stock has skyrocketed makes no sense, unless the value of the business has not increased in tandem.</div></details>
+      <div class="zh">「Selling just because a stock price has dropped makes absolutely no sense whatsoever, unless the value of the business has declined as well. Conversely, selling just because a stock has skyrocketed makes no sense, unless the value of the business has not increased in tandem.」</div>
+      <div class="why">💬 这句话直接点明卖出决策的核心原则：应基于公司价值而非股价，是本章最精辟的总结。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">卖出理由</h3>
+        <div class="concept-body"><p>本章提出卖出股票的四个正确理由：1. 买入决策错误：如果最初的分析有重大遗漏或判断失误，原投资逻辑不再成立，应果断止损。作者以自己投资电影放映机公司的经历为例，因高估增长而亏损后及时卖出，避免了更大损失。2. 公司基本面永久恶化：即使最初判断正确，但公司竞争优势或经济前景发生不可逆的负面变化，应卖出。作者以Getty Images为例，说明数字技术使该公司从高增长高回报变为边缘化。3. 发现更好的投资机会：当出现预期回报显著更高的标的时，可以卖出当前持仓以筹集资金。作者在2007年信贷危机中卖出涨幅有限的股票，买入被低估的银行股。4. 仓位过重：当一只股票占组合比例过大，超出个人风险承受能力时，应减仓。作者强调，这四个理由均基于公司价值变化，而非股价涨跌。投资者应避免锚定买入价，建议每次买入时记录买入理由和财务预期，以便后续评估。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--green)"></span> 🌍 文化背景补充</div>
+      <div class="context-box"><p>美国股市中，投资者常因税收考虑而延迟卖出，作者提到应税账户与免税账户在卖出决策上的差异。此外，2007年信贷危机导致金融股暴跌，作者借此说明寻找更好机会的卖出逻辑。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--counter)"></span> ⚔️ 反方观点</div>
+      <div class="counter-box"><p>一些投资者主张长期持有优质公司，即使短期基本面恶化也不应卖出，因为市场可能过度反应，且频繁交易增加成本和税负。但作者认为，如果基本面发生永久性恶化，持有只会导致更大损失。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，投资者常因股价下跌而恐慌卖出，或因股价上涨而贪婪持有，忽略了公司基本面变化。例如，2015年股灾中，许多投资者因锚定买入价而拒绝止损，最终亏损严重。本章建议的卖出逻辑同样适用于A股：如某公司因政策变化（如教培行业双减政策）导致基本面永久恶化，投资者应果断卖出，而非等待反弹。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Anchoring</strong></td><td class="zh">锚定效应</td><td>投资者倾向于以买入价为参照，忽视公司未来前景的心理偏差。</td></tr><tr><td><strong>Fundamentals</strong></td><td class="zh">基本面</td><td>公司的财务健康、竞争优势和增长前景等核心因素。</td></tr><tr><td><strong>Opportunity Cost</strong></td><td class="zh">机会成本</td><td>持有当前股票可能错失其他更高回报投资的风险。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>卖出股票的唯一正确理由是公司价值发生变化，而非股价波动。</li><li>如果买入决策错误或公司基本面永久恶化，应果断卖出。</li><li>当发现更好的投资机会或仓位过重时，卖出也是合理选择。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">假设你持有某只股票，买入时预期年增长20%，但最近公司财报显示营收增速从15%降至5%，且管理层下调了全年指引。你应如何判断是否卖出？</p>
+        <p class="hint">💡 提示：回顾你买入时的理由和预期，分析增速放缓是暂时性还是永久性，并比较当前股价是否仍反映合理价值。</p>
+        <div class="chat-widget" id="chat-巴菲-ch16-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch16-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先回顾你买入该股票时的核心逻辑，然后分析增速放缓的原因是否影响长期竞争优势。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch16-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    <div class="exercise-box">
+        <p class="q">你发现一只股票已上涨50%，远超你最初估算的内在价值，但市场情绪依然高涨。你应如何决策？</p>
+        <p class="hint">💡 提示：重新评估公司内在价值是否同步增长，如果股价已严重高估，即使没有更好标的，持有现金也比持有高估股票更安全。</p>
+        <div class="chat-widget" id="chat-巴菲-ch16-q2">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch16-q2')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">请先重新估算公司的内在价值，然后比较当前股价与价值的差距，考虑是否应卖出获利。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch16-q2', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article class="chapter-card" id="ch17" aria-labelledby="ch17-title">
+    <div class="ch-header">
+      <div class="ch-num">17</div>
+      <div>
+        <h2 class="ch-title" id="ch17-title">超越数字的投资智慧</h2>
+      </div>
+    <div class="chapter-preview">
+      <div class="preview-item"><span class="preview-label">🔑 关键概念：</span><span class="preview-text">超越数字</span></div>
+      <div class="preview-item"><span class="preview-label">🎯 核心问题：</span><span class="preview-text">为什么投资不只是看财务报表？</span></div>
+      <div class="preview-item"><span class="preview-label">💡 一句话：</span><span class="preview-text">投资需广泛阅读企业案例，理解护城河，而非沉迷短期市场噪音。</span></div>
+    </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--gold)"></span> 章节定位</div>
+      <div class="block-content"><p>本章作为全书总结，强调投资不仅是数字游戏，更需广泛阅读、理解企业竞争优势，并耐心等待安全边际。</p></div>
+    </div>
+    <div class="gold-quote">
+      <details class="en-detail"><summary>📖 原文（点击展开）</summary><div class="en">I would argue strongly that reading about companies will add infinitely more value to your investment process than will reading about short-term market movements, macroeconomic trends, or interest-rate forecasts. One annual report is worth 10 speeches by a Federal Reserve chairman.</div></details>
+      <div class="zh">「我强烈认为，阅读关于公司的文章，比阅读关于短期市场波动、宏观经济趋势或利率预测的文章，能为你的投资过程带来无限多的价值。一份年报抵得上十次美联储主席的演讲。」</div>
+      <div class="why">💬 这句话直接点明本章核心：企业基本面分析远胜于宏观预测，是投资成功的基石。</div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--blue)"></span> 核心概念深度解读</div>
+      <div class="concept-box">
+        <h3 class="concept-name">超越数字</h3>
+        <div class="concept-body"><p>本章核心观点是投资超越数字分析，需要广泛阅读以扩展企业知识库。作者强调，了解企业如何创造竞争优势（如20%以上的资本回报率）比关注短期市场波动更重要。他推荐阅读《华尔街日报》《财富》《巴伦周刊》等商业媒体，以及成功投资者的书籍和季度信函，并指出行为金融学书籍（如《为什么聪明人也会犯大错误》《光环效应》《你的金钱与你的大脑》）能帮助识别决策偏见。关键原则是：以低于内在价值的价格（如80美分买1美元资产）买入优质企业，让企业的高资本回报率（20%+）为你创造长期财富。</p></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--china)"></span> 🇨🇳 中国市场关联</div>
+      <div class="china-box"><p>在中国A股市场，投资者常过度关注短期政策（如央行降准）和季度业绩，而忽略企业护城河。例如，贵州茅台凭借品牌和渠道优势长期保持高ROE（超30%），但许多投资者在2018年因贸易战恐慌低价卖出，错失后续涨幅。这印证了作者观点：阅读企业年报（如茅台年报中关于基酒产能和直销渠道的分析）比预测宏观经济更有价值。</p></div>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 📊 关键术语词典</div>
+      <table class="term-table">
+        <tr><th>英文</th><th>中文</th><th>精读解读</th></tr>
+<tr><td><strong>Moat</strong></td><td class="zh">护城河</td><td>企业持续竞争优势，如品牌、专利、网络效应等，能带来长期高资本回报率。</td></tr><tr><td><strong>Intrinsic Value</strong></td><td class="zh">内在价值</td><td>企业未来现金流折现值，投资者应在此价值以下买入以获安全边际。</td></tr><tr><td><strong>Capital Return</strong></td><td class="zh">资本回报率</td><td>衡量企业利用资本创造利润的效率，护城河企业常达20%以上。</td></tr>      </table>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--accent)"></span> 💡 本章要点总结</div>
+      <ul class="takeaway-list"><li>投资不仅是数字游戏，需广泛阅读商业媒体和投资者著作以扩展企业知识库。</li><li>关注企业长期竞争优势（如20%+资本回报率），而非短期市场噪音。</li><li>以低于内在价值的价格买入优质企业，让高回报率为你积累财富。</li></ul>
+    </div>
+    <div class="block">
+      <div class="block-label"><span class="dot" style="background:var(--purple)"></span> 🤔 思考题</div>
+    <div class="exercise-box">
+        <p class="q">你最近关注的一只A股股票，其竞争优势（护城河）是什么？请用本章方法分析其资本回报率是否持续高于20%，并判断当前价格是否低于内在价值。</p>
+        <p class="hint">💡 提示：参考贵州茅台、海天味业等案例，查看其过去5年ROE和市盈率历史。</p>
+        <div class="chat-widget" id="chat-巴菲-ch17-q1">
+          <div class="chat-header" onclick="toggleChat('chat-巴菲-ch17-q1')" tabindex="0" role="button" aria-expanded="false">
+            <span class="chat-icon">💬</span><span>跟AI讨论这道题</span><span class="chat-arrow">▾</span>
+          </div>
+          <div class="chat-body">
+            <div class="chat-msg ai"><div class="avatar">🤖</div><div class="bubble">本章强调投资超越数字，需理解企业护城河。请先列出你选的公司，我们一步步分析其竞争优势。</div></div>
+          </div>
+          <div class="typing-indicator">🤖 AI正在思考<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+          <div class="chat-error"></div>
+          <div class="chat-input-area">
+            <input autocapitalize="off" enterkeyhint="send" placeholder="输入你的想法..." type="text" aria-label="输入消息"/>
+            <button onclick="sendChat('chat-巴菲-ch17-q1', this.parentElement.querySelector('input'))" aria-label="发送消息">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+<footer>
+  <p>📚 AI精读笔记 · 《巴菲特的护城河》17章精读</p>
+  <p><a href="../../bookshelf.html" style="color:var(--accent);">← 返回完整书架</a></p>
 </footer>
 
-</div><!-- .container -->
-
-<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部" aria-label="回到顶部" tabindex="0">⬆</button>
-
+</div>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆</button>
 <script src="../../assets/js/data_v2.js"></script>
 <script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/local-auth.js"></script>
+<script src="../../assets/js/supabase-auth.js"></script>
 <script src="../../assets/js/chat.js"></script>
 </body>
 </html>
