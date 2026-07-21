@@ -234,8 +234,12 @@
 
 </style>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "8ebcd28da20148c4af3da9d3b5f76a0c"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="assets/js/analytics.js"></script>
 <script src="assets/js/local-auth.js"></script>
 <script src="assets/js/supabase-auth.js"></script>
+<script src="assets/js/cloud-sync.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/minisearch@7.0.0/dist/umd/index.min.js"></script>
+<script src="assets/js/search.js"></script>
 </head>
 <body>
 
@@ -247,6 +251,7 @@
     <a href="concepts.html">🕸️ 概念地图</a>
     <a class="active" href="bookshelf.html">📚 书架</a>
     <a href="my.html">🧘 我的</a>
+    <button class="nav-search-btn" onclick="openSearch()" title="搜索 (Ctrl+K)">🔍</button>
   </div>
 </nav>
 

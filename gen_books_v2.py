@@ -1030,6 +1030,62 @@ def process_book(slug, config):
     print(f"  ✅ 已保存: {out_file} ({len(html)} 字符)")
 
 
+
+
+def build_search_index():
+    """从所有进度文件构建 search_index.json"""
+    output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "js", "search_index.json")
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+    index = []
+    for slug, config in BOOKS.items():
+        progress_file = os.path.join(PROGRESS_DIR, f"{slug}_progress.json")
+        if not os.path.exists(progress_file):
+            print(f"  ⚠️  无进度文件: {slug}")
+            continue
+        with open(progress_file) as f:
+            chapters_data = json.load(f)
+
+        for i, ch in enumerate(chapters_data):
+            if ch is None:
+                continue
+            ch_num = i + 1
+            title = ch.get("subtitle", "") or ch.get("preview_concept", "") or f"第{ch_num}章"
+            preview = ch.get("positioning", "") or ch.get("preview_oneline", "")
+            # 截取前200字
+            if len(preview) > 200:
+                preview = preview[:200]
+            takeaways = ch.get("takeaways", [])[:3]
+            # 从 key_concept 提取关键概念
+            key_concepts = []
+            kc = ch.get("key_concept", "")
+            if kc:
+                # 简单提取：取前 3 句中的核心名词
+                for sent in kc.split("。")[:3]:
+                    sent = sent.strip()
+                    if len(sent) > 10 and len(sent) < 50:
+                        key_concepts.append(sent)
+            if not key_concepts:
+                key_concepts = [title]
+
+            index.append({
+                "id": f"{slug}-ch{ch_num}",
+                "book": config["title"],
+                "bookSlug": slug,
+                "author": config["author"],
+                "domain": config.get("domain_cn", config.get("domain_key", "")),
+                "chapter": ch_num,
+                "chapterTitle": title,
+                "preview": preview,
+                "keyConcepts": key_concepts[:5],
+                "takeaways": takeaways,
+                "url": f"books/{slug}/#ch{ch_num}"
+            })
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False)
+    print(f"🔍 搜索索引已生成: {output_path} ({len(index)} 条)")
+
 # ========== 主流程 ==========
 if __name__ == "__main__":
     import sys
@@ -1067,3 +1123,12 @@ if __name__ == "__main__":
             traceback.print_exc()
 
     print("\n🎉 全部完成！")
+
+    # 构建搜索索引
+    if "--build-index" in sys.argv:
+        print("\n🔍 构建搜索索引...")
+        build_search_index()
+    elif not build_only:
+        # 非 build-only 模式（完整重建后自动构建索引）
+        print("\n🔍 构建搜索索引...")
+        build_search_index()

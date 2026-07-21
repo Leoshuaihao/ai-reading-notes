@@ -298,6 +298,13 @@
     var kpDef = findKpDef(kpId);
     if (!kpDef) return;
 
+    // 追踪训练开始
+    if (typeof window.analytics !== 'undefined') {
+      window.analytics.track('training_started', {
+        kp_id: kpId, kp_name: kpDef.name, domain: kpDef.domain
+      });
+    }
+
     currentLevelIdx = 0;
     for (var i = 0; i < LEVEL_KEYS.length; i++) {
       if (!progress.levels[LEVEL_KEYS[i]]) {
@@ -997,6 +1004,15 @@
       currentLevelIdx++;
       renderTraining();
     } else {
+      // 全部 4 层完成
+      if (typeof window.analytics !== 'undefined') {
+        var kpDef = findKpDef(kpId);
+        window.analytics.track('training_completed', {
+          kp_id: kpId,
+          kp_name: kpDef ? kpDef.name : kpId,
+          domain: kpDef ? kpDef.domain : ''
+        });
+      }
       alert('全部4层训练完成！🎉');
       closeTrainingModal();
       if (typeof updateAbilityProfile === 'function') updateAbilityProfile();
@@ -1006,6 +1022,10 @@
   /** 完成当前层级（概念层、引导层一键完成） */
   window.completeLevel = function(kpId, levelName) {
     AppData.markLevelCompleted(kpId, levelName, { completedAt: new Date().toISOString() });
+    // 追踪层完成
+    if (typeof window.analytics !== 'undefined') {
+      window.analytics.track('training_level_completed', { kp_id: kpId, level: levelName });
+    }
     advanceLevel(kpId);
   };
 

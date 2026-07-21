@@ -1585,6 +1585,9 @@ var AppDataV2 = (function() {
 
   function safeSet(key, value) {
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+    if (typeof window !== 'undefined' && window.triggerCloudSync) {
+      window.triggerCloudSync(key, value);
+    }
   }
 
   // =============================================================================
@@ -1910,6 +1913,15 @@ var AppDataV2 = (function() {
     if (progress[slug].chaptersRead.indexOf(chapterNum) === -1) {
       progress[slug].chaptersRead.push(chapterNum);
       safeSet(KEY_PROGRESS, progress);
+      // 追踪章节阅读
+      if (typeof window !== 'undefined' && window.analytics) {
+        var book = BOOK_REGISTRY[slug];
+        window.analytics.track('chapter_read', {
+          book_slug: slug,
+          chapter_num: chapterNum,
+          book_title: book ? book.basic.title : slug
+        });
+      }
     }
   }
 

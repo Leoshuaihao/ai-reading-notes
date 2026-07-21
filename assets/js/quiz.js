@@ -224,6 +224,13 @@
 
     // 保存结果
     saveResult(book, chapter, index, result.correct, quiz.kpId);
+
+    // 追踪答题事件
+    if (typeof window.analytics !== 'undefined') {
+      window.analytics.track('quiz_answered', {
+        book_slug: book, chapter_num: chapter, correct: result.correct
+      });
+    }
   }
 
   /**
